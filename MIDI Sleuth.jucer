@@ -20,10 +20,17 @@
             file="Source/G_020_Main_Component.cpp"/>
       <FILE id="gMPlWd" name="G_020_Main_Component.h" compile="0" resource="0"
             file="Source/G_020_Main_Component.h"/>
+      <FILE id="Rsxoxy" name="G_300_List_MIDI_Devices.cpp" compile="1" resource="0"
+            file="Source/G_300_List_MIDI_Devices.cpp"/>
+      <FILE id="YDSL4d" name="G_300_List_MIDI_Devices.h" compile="0" resource="0"
+            file="Source/G_300_List_MIDI_Devices.h"/>
+      <FILE id="tINJPR" name="G_305_MIDI_Device_List_Entry.h" compile="0"
+            resource="0" file="Source/G_305_MIDI_Device_List_Entry.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
@@ -46,6 +53,7 @@
         <MODULEPATH id="juce_gui_basics" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_midi_ci" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>
