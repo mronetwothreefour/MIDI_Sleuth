@@ -12,6 +12,14 @@
     <GROUP id="{566CF958-664D-8A41-89E5-C92C33448A96}" name="Source">
       <FILE id="J4ClOg" name="A_000_Main_Application.cpp" compile="1" resource="0"
             file="Source/A_000_Main_Application.cpp"/>
+      <FILE id="gfn0Vv" name="C_000_____CONSTANTS_____.h" compile="0" resource="0"
+            file="Source/C_000_____CONSTANTS_____.h"/>
+      <FILE id="tHnURa" name="C_000_GUI_Constants.h" compile="0" resource="0"
+            file="Source/C_000_GUI_Constants.h"/>
+      <FILE id="hSe21B" name="D_000_____DATA_____.h" compile="0" resource="0"
+            file="Source/D_000_____DATA_____.h"/>
+      <FILE id="Tx4EOg" name="G_000_____GUI_____.h" compile="0" resource="0"
+            file="Source/G_000_____GUI_____.h"/>
       <FILE id="jXmuem" name="G_000_Main_Window.cpp" compile="1" resource="0"
             file="Source/G_000_Main_Window.cpp"/>
       <FILE id="CIRCOp" name="G_000_Main_Window.h" compile="0" resource="0"
@@ -31,11 +39,17 @@
   <MODULES>
     <MODULE id="juce_audio_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_audio_devices" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_formats" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_audio_processors_headless" showAllCode="1" useLocalCopy="0"
+            useGlobalPath="1"/>
+    <MODULE id="juce_audio_utils" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_gui_extra" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_midi_ci" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
@@ -54,6 +68,11 @@
         <MODULEPATH id="juce_midi_ci" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../../JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_utils" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_gui_extra" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_processors_headless" path="../JUCE/modules"/>
+        <MODULEPATH id="juce_audio_formats" path="../JUCE/modules"/>
       </MODULEPATHS>
     </VS2022>
   </EXPORTFORMATS>

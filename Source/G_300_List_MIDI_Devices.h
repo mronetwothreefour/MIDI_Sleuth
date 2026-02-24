@@ -2,19 +2,23 @@
 
 #include <JuceHeader.h>
 
-#include "G_020_Main_Component.h"
+#include "G_305_MIDI_Device_List_Entry.h"
+
+class Main_Component;
 
 struct List_MIDI_Devices final :
-	private ListBoxModel,
-	public ListBox
+    private ListBoxModel,
+    public ListBox
 {
-private: Main_Component* parent;
-private: bool for_input_devices;
-private: SparseSet<int> last_selected;
+private: Main_Component& parent;
+private: bool is_input_list;
+private: SparseSet<int> last_selected_devices;
 
 //==============================================================================
-public: List_MIDI_Devices(const String& name, Main_Component* parent, bool for_input_devices);
+public: List_MIDI_Devices(const String& name, Main_Component& parent, bool is_input_list);
 
-//==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(List_MIDI_Devices)
+public: int getNumRows() override;
+private: void paintListBoxItem(int row, Graphics& g, int w, int h, bool row_is_selected) override;
+private: void selectedRowsChanged(int /*last_row_selected*/) override;
+public: void sync_selection_with_device_list(const ReferenceCountedArray<MIDI_Device_List_Entry>& device_list);
 };

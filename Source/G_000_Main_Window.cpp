@@ -1,7 +1,7 @@
 #include "G_000_Main_Window.h"
 
 Main_Window::Main_Window(String name) :
-    DocumentWindow(name, Colours::black, DocumentWindow::allButtons)
+    DocumentWindow(name, Colour{ 0xff202020 }, DocumentWindow::allButtons)
 {
     setUsingNativeTitleBar(true);
     setContentOwned(new Main_Component(), true);
