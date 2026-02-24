@@ -5,10 +5,10 @@ Main_Component::Main_Component() :
     input_selector{ new List_MIDI_Devices{ "Midi Input Selector", *this, true } },
     output_selector{ new List_MIDI_Devices{ "Midi Output Selector", *this, false } }
 {
-    addLabelAndSetStyle(lbl_input_devices);
-    addLabelAndSetStyle(lbl_output_devices);
-    addLabelAndSetStyle(lbl_received);
-    addLabelAndSetStyle(lbl_keyboard);
+    add_label_and_set_style(lbl_input_devices);
+    add_label_and_set_style(lbl_output_devices);
+    add_label_and_set_style(lbl_received);
+    add_label_and_set_style(lbl_keyboard);
 
     keyboard.setName("MIDI Keyboard");
     addAndMakeVisible(keyboard);
@@ -29,7 +29,7 @@ Main_Component::Main_Component() :
 
     setSize(732, 520);
 
-    updateDeviceLists();
+    update_device_lists();
 }
 
 void Main_Component::open_device(bool is_input, int index) {
@@ -79,7 +79,7 @@ MIDI_Device_List_Entry::Ptr Main_Component::get_device(int index, bool is_input)
     return is_input ? array_MIDI_inputs[index] : array_MIDI_outputs[index];
 }
 
-inline MIDI_Device_List_Entry::Ptr Main_Component::findDevice(MidiDeviceInfo device, bool is_input) const {
+inline MIDI_Device_List_Entry::Ptr Main_Component::find_device(MidiDeviceInfo device, bool is_input) const {
     const auto& list = is_input ? array_MIDI_inputs : array_MIDI_outputs;
     for (auto& entry : list)
         if (entry->device_info == device)
@@ -87,32 +87,67 @@ inline MIDI_Device_List_Entry::Ptr Main_Component::findDevice(MidiDeviceInfo dev
     return nullptr;
 }
 
+inline void Main_Component::close_unplugged_devices(const Array<MidiDeviceInfo>& plugged_in_devices, bool is_input) {
+    auto& list = is_input ? array_MIDI_inputs : array_MIDI_outputs;
+    for (auto i = list.size(); --i >= 0;) {
+        auto& device = *list[i];
+        if (!plugged_in_devices.contains(device.device_info)) {
+            if (is_input ? device.in_device.get() != nullptr : device.out_device.get() != nullptr)
+                closeDevice(is_input, i);
+            list.remove(i);
+        }
+    }
+}
+
+inline void Main_Component::update_device_list(bool is_input) {
+    auto available_devices = is_input ? MidiInput::getAvailableDevices() : MidiOutput::getAvailableDevices();
+    if (device_list_has_changed(available_devices, is_input)) {
+        auto& list = is_input ? array_MIDI_inputs : array_MIDI_outputs;
+        close_unplugged_devices(available_devices, is_input);
+        ReferenceCountedArray<MIDI_Device_List_Entry> new_list;
+        for (auto& device : available_devices) {
+            auto entry = find_device(device, is_input);
+            if (!entry)
+                entry = new MIDI_Device_List_Entry{ device };
+            new_list.add(entry);
+        }
+        list = new_list;
+        if (auto* device_selector = is_input ? input_selector.get() : output_selector.get())
+            device_selector->sync_selection_with_device_list(list);
+    }
+}
+
+inline void Main_Component::update_device_lists() {
+    for (const auto is_input : { true, false })
+        update_device_list(is_input);
+}
+
+inline void Main_Component::add_label_and_set_style(Label& label) {
+    label.setFont(FontOptions(15.00f, Font::plain));
+    label.setJustificationType(Justification::centredLeft);
+    label.setEditable(false, false, false);
+    label.setColour(TextEditor::textColourId, Colours::black);
+    label.setColour(TextEditor::backgroundColourId, Colours::transparentBlack);
+    addAndMakeVisible(label);
+}
+
 void Main_Component::resized() {
-    auto margin = 10;
-
-    lbl_input_devices.setBounds(margin, margin,
-        (getWidth() / 2) - (2 * margin), 24);
-
-    lbl_output_devices.setBounds((getWidth() / 2) + margin, margin,
-        (getWidth() / 2) - (2 * margin), 24);
-
-    input_selector->setBounds(margin, (2 * margin) + 24,
-        (getWidth() / 2) - (2 * margin),
-        (getHeight() / 2) - ((4 * margin) + 24 + 24));
-
-    output_selector->setBounds((getWidth() / 2) + margin, (2 * margin) + 24,
-        (getWidth() / 2) - (2 * margin),
-        (getHeight() / 2) - ((4 * margin) + 24 + 24));
-
-    lbl_keyboard.setBounds(margin, getHeight() / 2, getWidth() - (2 * margin), 24);
-    keyboard.setBounds(margin, (getHeight() / 2) + (24 + margin), getWidth() - (2 * margin), 64);
-
-    lbl_received.setBounds(margin, (getHeight() / 2) + (24 + (2 * margin) + 64),
-        getWidth() - (2 * margin), 24);
-
-    auto y = (getHeight() / 2) + ((2 * 24) + (3 * margin) + 64);
-    editor_MIDI_monitor.setBounds(margin, y,
-        getWidth() - (2 * margin), getHeight() - y - margin);
+    auto w = getWidth();
+    auto h = getHeight();
+    auto gap = 10;
+    auto selector_y = (2 * gap) + 24;
+    auto selector_w = (w / 2) - (2 * gap);
+    auto selector_h = (h / 2) - ((4 * gap) + 14);
+    lbl_input_devices.setBounds(gap, gap, selector_w, 24);
+    lbl_output_devices.setBounds((w / 2) + gap, gap, selector_w, 24);
+    input_selector->setBounds(gap, selector_y, selector_w, selector_h);
+    output_selector->setBounds((w / 2) + gap, selector_y, selector_w, selector_h);
+    auto keyboard_w = w - (2 * gap);
+    lbl_keyboard.setBounds(gap, h / 2, keyboard_w, 24);
+    keyboard.setBounds(gap, (h / 2) + (24 + gap), keyboard_w, 64);
+    lbl_received.setBounds(gap, (h / 2) + (24 + (2 * gap) + 64), keyboard_w, 24);
+    auto monitor_y = (h / 2) + ((2 * 24) + (3 * gap) + 64);
+    editor_MIDI_monitor.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
 }
 
 void Main_Component::handleNoteOn(MidiKeyboardState* /*state*/, int channel, int note_num, float velocity) {
