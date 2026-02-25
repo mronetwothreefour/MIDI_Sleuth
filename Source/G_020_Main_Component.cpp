@@ -177,8 +177,10 @@ inline void Main_Component::handleAsyncUpdate() {
         messages.swapWith(array_incoming_messages);
     }
     String msg_text;
-    for (auto& msg : messages)
+    for (auto& msg : messages) {
         msg_text << msg.getDescription() << "\n";
+        message_log.log_message(msg);
+    }
     editor_MIDI_monitor.insertTextAtCaret(msg_text);
 }
 

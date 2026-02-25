@@ -2,6 +2,7 @@
 
 #include <JuceHeader.h>
 
+#include "D_000_Tree_MIDI_Message_Log.h"
 #include "G_300_List_MIDI_Devices.h"
 #include "G_305_MIDI_Device_List_Entry.h"
 
@@ -22,6 +23,7 @@ private: ReferenceCountedArray<MIDI_Device_List_Entry> array_MIDI_inputs, array_
 private: std::unique_ptr<List_MIDI_Devices> input_selector, output_selector;
 private: CriticalSection monitor_lock;
 private: Array<MidiMessage> array_incoming_messages;
+private: Tree_MIDI_Message_Log message_log;
 
 //==============================================================================
 public: Main_Component();
