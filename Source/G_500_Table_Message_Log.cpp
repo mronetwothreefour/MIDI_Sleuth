@@ -20,9 +20,6 @@ int Table_Message_Log::getNumRows() {
 	return row_count;
 }
 
-inline void Table_Message_Log::log_message(const MidiMessage& msg) {
-}
-
 void Table_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
 	if (is_selected)
 		g.fillAll(Colour{ 0xff333333 });

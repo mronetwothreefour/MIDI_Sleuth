@@ -42,10 +42,6 @@ ValueTree Tree_MIDI_Message_Log::row(int index) {
 	return body().getChild(index);
 }
 
-ValueTree Tree_MIDI_Message_Log::row(const String& id) {
-	return body().getChildWithProperty("ID", id);
-}
-
 void Tree_MIDI_Message_Log::add_data_byte_column() {
 	auto column_num = header().getNumChildren() + 1;
 	auto byte_num = column_num - 4;
@@ -56,8 +52,27 @@ void Tree_MIDI_Message_Log::add_data_byte_column() {
 	header().addChild(new_col, column_num, nullptr);
 }
 
-const String Tree_MIDI_Message_Log::cell_value(const String& row_id, const String& col_name) {
-	auto row = body().getChildWithProperty("ID", row_id);
+const int Tree_MIDI_Message_Log::log_message(const MidiMessage& msg) {
+	ValueTree row{ "ROW" };
+
+	ValueTree cell_1{ "Timestamp" };
+	cell_1.setProperty("Value", msg.getTimeStamp(), nullptr);
+	row.addChild(cell_1, 1, nullptr);
+
+	ValueTree cell_2{ "Description" };
+	cell_2.setProperty("Value", msg.getDescription(), nullptr);
+	row.addChild(cell_2, 2, nullptr);
+
+	ValueTree cell_3{ "Length" };
+	cell_3.setProperty("Value", msg.getRawDataSize(), nullptr);
+	row.addChild(cell_3, 3, nullptr);
+
+	body().addChild(row, -1, nullptr);
+	return body().getNumChildren() - 1;
+}
+
+const String Tree_MIDI_Message_Log::cell_value(const int row_index, const String& col_name) {
+	auto row = body().getChild(row_index);
 	auto cell = row.getChildWithName(col_name);
 	return cell.getProperty("Value").toString();
 }
