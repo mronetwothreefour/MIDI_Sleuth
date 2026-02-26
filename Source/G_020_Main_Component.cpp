@@ -178,10 +178,12 @@ inline void Main_Component::handleAsyncUpdate() {
     }
     String msg_text;
     for (auto& msg : messages) {
-        msg_text << msg.getDescription() << "\n";
-        message_log.log_message(msg);
+        auto row_id = message_log.log_message(msg);
+        msg_text << message_log.cell_value(row_id, "Timestamp") << " | ";
+        msg_text << message_log.cell_value(row_id, "Description") << " | ";
+        msg_text << message_log.cell_value(row_id, "Length") << "\n";
+        editor_MIDI_monitor.insertTextAtCaret(msg_text);
     }
-    editor_MIDI_monitor.insertTextAtCaret(msg_text);
 }
 
 inline void Main_Component::sendToOutputs(const MidiMessage& msg) {

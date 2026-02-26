@@ -38,6 +38,10 @@
             file="Source/G_300_List_MIDI_Devices.h"/>
       <FILE id="tINJPR" name="G_305_MIDI_Device_List_Entry.h" compile="0"
             resource="0" file="Source/G_305_MIDI_Device_List_Entry.h"/>
+      <FILE id="Cq555e" name="G_500_Table_Message_Log.cpp" compile="1" resource="0"
+            file="Source/G_500_Table_Message_Log.cpp"/>
+      <FILE id="gSJrEz" name="G_500_Table_Message_Log.h" compile="0" resource="0"
+            file="Source/G_500_Table_Message_Log.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

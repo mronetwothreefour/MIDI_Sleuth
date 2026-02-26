@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\Source\G_000_Main_Window.cpp"/>
     <ClCompile Include="..\..\Source\G_020_Main_Component.cpp"/>
     <ClCompile Include="..\..\Source\G_300_List_MIDI_Devices.cpp"/>
+    <ClCompile Include="..\..\Source\G_500_Table_Message_Log.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2943,6 +2944,7 @@
     <ClInclude Include="..\..\Source\G_020_Main_Component.h"/>
     <ClInclude Include="..\..\Source\G_300_List_MIDI_Devices.h"/>
     <ClInclude Include="..\..\Source\G_305_MIDI_Device_List_Entry.h"/>
+    <ClInclude Include="..\..\Source\G_500_Table_Message_Log.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

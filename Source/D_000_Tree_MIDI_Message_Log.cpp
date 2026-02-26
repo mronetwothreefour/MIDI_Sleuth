@@ -17,6 +17,12 @@ Tree_MIDI_Message_Log::Tree_MIDI_Message_Log() :
 	col_2.setProperty("WIDTH", 100, nullptr);
 	table_header.addChild(col_2, 2, nullptr);
 
+	ValueTree col_3{ "COLUMN" };
+	col_3.setProperty("COLUMN_NUM", 3, nullptr);
+	col_3.setProperty("NAME", "Length", nullptr);
+	col_3.setProperty("WIDTH", 50, nullptr);
+	table_header.addChild(col_3, 3, nullptr);
+
 	tree->addChild(table_header, 1, nullptr);
 
 	ValueTree table_body{ "BODY" };
@@ -32,13 +38,28 @@ ValueTree Tree_MIDI_Message_Log::body() {
 	return tree->getChildWithName("BODY");
 }
 
-void Tree_MIDI_Message_Log::log_message(const MidiMessage& msg) {
-	ValueTree row{ "ROW" };
-	row.setProperty("Timestamp", msg.getTimeStamp(), nullptr);
-	row.setProperty("Description", msg.getDescription(), nullptr);
-	DBG(row.getProperty("Timestamp").toString() + " " + row.getProperty("Description").toString());
-	body().addChild(row, -1, nullptr);
-	DBG("Number of entries: " + String{ body().getNumChildren() });
+ValueTree Tree_MIDI_Message_Log::row(int index) {
+	return body().getChild(index);
+}
+
+ValueTree Tree_MIDI_Message_Log::row(const String& id) {
+	return body().getChildWithProperty("ID", id);
+}
+
+void Tree_MIDI_Message_Log::add_data_byte_column() {
+	auto column_num = header().getNumChildren() + 1;
+	auto byte_num = column_num - 4;
+	ValueTree new_col{ "COLUMN" };
+	new_col.setProperty("COLUMN_NUM", column_num, nullptr);
+	new_col.setProperty("NAME", String{ byte_num }, nullptr);
+	new_col.setProperty("WIDTH", 15, nullptr);
+	header().addChild(new_col, column_num, nullptr);
+}
+
+const String Tree_MIDI_Message_Log::cell_value(const String& row_id, const String& col_name) {
+	auto row = body().getChildWithProperty("ID", row_id);
+	auto cell = row.getChildWithName(col_name);
+	return cell.getProperty("Value").toString();
 }
 
 void Tree_MIDI_Message_Log::add_listener(ValueTree::Listener* listener) {
