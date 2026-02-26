@@ -3,7 +3,8 @@
 Main_Component::Main_Component() :
     keyboard{ keyboard_state, MidiKeyboardComponent::horizontalKeyboard },
     input_selector{ new List_MIDI_Devices{ "Midi Input Selector", *this, true } },
-    output_selector{ new List_MIDI_Devices{ "Midi Output Selector", *this, false } }
+    output_selector{ new List_MIDI_Devices{ "Midi Output Selector", *this, false } },
+    table_message_log{ tree_message_log }
 {
     add_label_and_set_style(lbl_input_devices);
     add_label_and_set_style(lbl_output_devices);
@@ -13,14 +14,16 @@ Main_Component::Main_Component() :
     keyboard.setName("MIDI Keyboard");
     addAndMakeVisible(keyboard);
 
-    editor_MIDI_monitor.setMultiLine(true);
-    editor_MIDI_monitor.setReturnKeyStartsNewLine(false);
-    editor_MIDI_monitor.setReadOnly(true);
-    editor_MIDI_monitor.setScrollbarsShown(true);
-    editor_MIDI_monitor.setCaretVisible(false);
-    editor_MIDI_monitor.setPopupMenuEnabled(false);
-    editor_MIDI_monitor.setText({});
-    addAndMakeVisible(editor_MIDI_monitor);
+    //editor_MIDI_monitor.setMultiLine(true);
+    //editor_MIDI_monitor.setReturnKeyStartsNewLine(false);
+    //editor_MIDI_monitor.setReadOnly(true);
+    //editor_MIDI_monitor.setScrollbarsShown(true);
+    //editor_MIDI_monitor.setCaretVisible(false);
+    //editor_MIDI_monitor.setPopupMenuEnabled(false);
+    //editor_MIDI_monitor.setText({});
+    //addAndMakeVisible(editor_MIDI_monitor);
+
+    addAndMakeVisible(table_message_log);
 
     keyboard_state.addListener(this);
 
@@ -147,7 +150,8 @@ void Main_Component::resized() {
     keyboard.setBounds(gap, (h / 2) + (24 + gap), keyboard_w, 64);
     lbl_received.setBounds(gap, (h / 2) + (24 + (2 * gap) + 64), keyboard_w, 24);
     auto monitor_y = (h / 2) + ((2 * 24) + (3 * gap) + 64);
-    editor_MIDI_monitor.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
+    //editor_MIDI_monitor.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
+    table_message_log.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
 }
 
 void Main_Component::handleNoteOn(MidiKeyboardState* /*state*/, int channel, int note_num, float velocity) {
@@ -178,11 +182,11 @@ inline void Main_Component::handleAsyncUpdate() {
     }
     String msg_text;
     for (auto& msg : messages) {
-        auto row_index = message_log.log_message(msg);
-        msg_text << message_log.cell_value(row_index, "Timestamp") << " | ";
-        msg_text << message_log.cell_value(row_index, "Description") << " | ";
-        msg_text << message_log.cell_value(row_index, "Length") << "\n";
-        editor_MIDI_monitor.insertTextAtCaret(msg_text);
+        /*auto row_index = */tree_message_log.log_message(msg);
+        //msg_text << tree_message_log.cell_value(row_index, "Timestamp") << " | ";
+        //msg_text << tree_message_log.cell_value(row_index, "Description") << " | ";
+        //msg_text << tree_message_log.cell_value(row_index, "Length") << "\n";
+        //editor_MIDI_monitor.insertTextAtCaret(msg_text);
     }
 }
 

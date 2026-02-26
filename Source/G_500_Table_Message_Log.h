@@ -2,18 +2,25 @@
 
 #include <JuceHeader.h>
 
+#include "D_000_Tree_MIDI_Message_Log.h"
+
 class Table_Message_Log :
 	public Component,
-	public TableListBoxModel
+	public TableListBoxModel,
+	private ValueTree::Listener
 {
 private: TableListBox table;
-private: int row_count;
+private: Tree_MIDI_Message_Log& message_log;
 
 //==============================================================================
-public: Table_Message_Log();
+public: Table_Message_Log() = delete;
+public: explicit Table_Message_Log(Tree_MIDI_Message_Log& message_log);
 
 public: int getNumRows() override;
 public: void log_message(const MidiMessage& msg);
-public: void paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool /*is_selected*/) override;
-public: void paintCell(Graphics& g, int row_num, int col_id, int w, int h, bool is_selected) override;
+public: void paintRowBackground(Graphics& g, int row_num, int w, int h, bool is_selected) override;
+public: void paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool is_selected) override;
+public: void resized() override;
+private: void valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) override;
+public: ~Table_Message_Log();
 };

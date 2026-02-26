@@ -9,6 +9,8 @@ private: std::unique_ptr<ValueTree> tree;
 //==============================================================================
 public: Tree_MIDI_Message_Log();
 
+public: const int number_of_rows();
+public: const int number_of_columns();
 private: ValueTree header();
 private: ValueTree body();
 private: ValueTree row(int index);
