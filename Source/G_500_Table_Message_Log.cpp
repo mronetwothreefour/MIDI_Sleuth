@@ -10,10 +10,10 @@ Table_Message_Log::Table_Message_Log(Tree_MIDI_Message_Log& message_log) :
 	table.setMultipleSelectionEnabled(true);
 
 	auto& header = table.getHeader();
-	header.addColumn("Count", 1, 30);
-	header.addColumn("Timestamp", 2, 50);
-	header.addColumn("Description", 3, 150);
-	header.addColumn("Length", 4, 30);
+	header.addColumn("#", 1, 30);
+	header.addColumn("Timestamp", 2, 75);
+	header.addColumn("Description", 3, 200);
+	header.addColumn("Length", 4, 75);
 
 	message_log.add_listener(this);
 }
@@ -22,16 +22,20 @@ int Table_Message_Log::getNumRows() {
 	return message_log.number_of_rows();
 }
 
+void Table_Message_Log::scroll_to_row(const int row_num) {
+	table.scrollToEnsureRowIsOnscreen(row_num);
+}
+
 void Table_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
 	if (is_selected)
 		g.fillAll(Colour{ 0xff333333 });
 }
 
 void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool /*is_selected*/) {
-	if (row_num < message_log.number_of_rows() && col_num > 0 && col_num <= message_log.number_of_columns()) {
+	if (row_num < message_log.number_of_rows() && col_num > 0 && col_num <= table.getHeader().getNumColumns(true)) {
 		g.setColour(getLookAndFeel().findColour(ListBox::textColourId));
-		g.setFont(Font{ FontOptions{ 14.0f } });
-		String col_name{ "Count" };
+		g.setFont(Font{ FontOptions{ 12.0f } });
+		String col_name{ "#" };
 		if (col_num == 2)
 			col_name = "Timestamp";
 		if (col_num == 3)

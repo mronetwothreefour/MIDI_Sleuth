@@ -10,11 +10,6 @@ private: std::unique_ptr<ValueTree> tree;
 public: Tree_MIDI_Message_Log();
 
 public: const int number_of_rows();
-public: const int number_of_columns();
-private: ValueTree header();
-private: ValueTree body();
-private: ValueTree row(int index);
-private: void add_data_byte_column();
 public: const int log_message(const MidiMessage& msg);
 public: const String cell_value(const int row_index, const String& col_name);
 public: void add_listener(ValueTree::Listener* listener);

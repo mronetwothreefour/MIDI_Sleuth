@@ -182,11 +182,8 @@ inline void Main_Component::handleAsyncUpdate() {
     }
     String msg_text;
     for (auto& msg : messages) {
-        /*auto row_index = */tree_message_log.log_message(msg);
-        //msg_text << tree_message_log.cell_value(row_index, "Timestamp") << " | ";
-        //msg_text << tree_message_log.cell_value(row_index, "Description") << " | ";
-        //msg_text << tree_message_log.cell_value(row_index, "Length") << "\n";
-        //editor_MIDI_monitor.insertTextAtCaret(msg_text);
+        auto row_num = tree_message_log.log_message(msg);
+        table_message_log.scroll_to_row(row_num);
     }
 }
 
