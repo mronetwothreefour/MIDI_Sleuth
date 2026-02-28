@@ -4,6 +4,8 @@
 
 #include "D_000_Tree_MIDI_Message_Log.h"
 
+class Header_Message_Log;
+
 class Table_Message_Log :
 	public Component,
 	public TableListBoxModel,
@@ -11,6 +13,7 @@ class Table_Message_Log :
 {
 private: TableListBox table;
 private: Tree_MIDI_Message_Log& message_log;
+private: Header_Message_Log* header;
 
 //==============================================================================
 public: Table_Message_Log() = delete;

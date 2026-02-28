@@ -14,15 +14,6 @@ Main_Component::Main_Component() :
     keyboard.setName("MIDI Keyboard");
     addAndMakeVisible(keyboard);
 
-    //editor_MIDI_monitor.setMultiLine(true);
-    //editor_MIDI_monitor.setReturnKeyStartsNewLine(false);
-    //editor_MIDI_monitor.setReadOnly(true);
-    //editor_MIDI_monitor.setScrollbarsShown(true);
-    //editor_MIDI_monitor.setCaretVisible(false);
-    //editor_MIDI_monitor.setPopupMenuEnabled(false);
-    //editor_MIDI_monitor.setText({});
-    //addAndMakeVisible(editor_MIDI_monitor);
-
     addAndMakeVisible(table_message_log);
 
     keyboard_state.addListener(this);

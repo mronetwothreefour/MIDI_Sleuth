@@ -27,6 +27,10 @@ const int Tree_MIDI_Message_Log::log_message(const MidiMessage& msg) {
 	cell_4.setProperty("Value", msg.getRawDataSize(), nullptr);
 	row.addChild(cell_4, -1, nullptr);
 
+	ValueTree cell_5{ "Bytes" };
+	cell_5.setProperty("Value", String::toHexString(msg.getRawData(), msg.getRawDataSize(), 0), nullptr);
+	row.addChild(cell_5, -1, nullptr);
+
 	tree->addChild(row, -1, nullptr);
 	return tree->getNumChildren() - 1;
 }

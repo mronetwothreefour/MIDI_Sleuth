@@ -42,6 +42,10 @@
             file="Source/G_500_Table_Message_Log.cpp"/>
       <FILE id="gSJrEz" name="G_500_Table_Message_Log.h" compile="0" resource="0"
             file="Source/G_500_Table_Message_Log.h"/>
+      <FILE id="eejKeP" name="G_510_Header_Message_Log.cpp" compile="1" resource="0"
+            file="Source/G_510_Header_Message_Log.cpp"/>
+      <FILE id="PyRN1O" name="G_510_Header_Message_Log.h" compile="0" resource="0"
+            file="Source/G_510_Header_Message_Log.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
