@@ -10,7 +10,7 @@ private: std::unique_ptr<ValueTree> tree;
 public: Tree_MIDI_Message_Log();
 
 public: const int number_of_rows();
-public: void log_message(const MidiMessage& msg);
+public: const int log_message(const MidiMessage& msg);
 public: const int entry_timestamp(const int entry_index);
 public: const String entry_bytes(const int entry_index);
 public: const int entry_length(const int entry_index);

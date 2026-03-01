@@ -30,21 +30,23 @@ void Table_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w
 }
 
 void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool /*is_selected*/) {
-	if (row_num < message_log.number_of_rows() && col_num > 0 && col_num <= table.getHeader().getNumColumns(true)) {
+	if (row_num > -1 && row_num < message_log.number_of_rows() &&
+		col_num > 0 && col_num <= table.getHeader().getNumColumns(true))
+	{
 		g.setColour(getLookAndFeel().findColour(ListBox::textColourId));
 		g.setFont(Font{ FontOptions{ 13.0f } });
 		String text{ "" };
 		if (col_num == 1)
-			text = message_log.entry_timestamp(row_num, "#");
+			text = String{ row_num + 1 };
 		if (col_num == 2)
-			text = message_log.entry_timestamp(row_num, "Timestamp");
+			text = String{ message_log.entry_timestamp(row_num) };
 		if (col_num == 3)
-			text = message_log.entry_timestamp(row_num, "Description");
+			text = message_log.entry_description(row_num);
 		if (col_num == 4)
-			text = message_log.entry_timestamp(row_num, "Length");
+			text = String{ message_log.entry_length(row_num) };
 		if (col_num > 4) {
 			auto i = (col_num - 5) * 2;
-			auto bytes_string = message_log.entry_timestamp(row_num, "Bytes");
+			auto bytes_string = message_log.entry_bytes(row_num);
 			text = bytes_string.substring(i, i + 2);
 		}
 		g.drawText(text, 2, 0, w - 4, h, col_num > 4 ? Justification::centred : Justification::centredLeft);

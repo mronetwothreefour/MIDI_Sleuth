@@ -22,6 +22,10 @@
             resource="0" file="Source/D_000_Tree_MIDI_Message_Log.cpp"/>
       <FILE id="eHGsNq" name="D_000_Tree_MIDI_Message_Log.h" compile="0"
             resource="0" file="Source/D_000_Tree_MIDI_Message_Log.h"/>
+      <FILE id="AJ0diY" name="D_005_Build_Message_Description.cpp" compile="1"
+            resource="0" file="Source/D_005_Build_Message_Description.cpp"/>
+      <FILE id="mTLLAX" name="D_005_Build_Message_Description.h" compile="0"
+            resource="0" file="Source/D_005_Build_Message_Description.h"/>
       <FILE id="Tx4EOg" name="G_000_____GUI_____.h" compile="0" resource="0"
             file="Source/G_000_____GUI_____.h"/>
       <FILE id="jXmuem" name="G_000_Main_Window.cpp" compile="1" resource="0"
