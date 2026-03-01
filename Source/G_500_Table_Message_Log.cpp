@@ -35,16 +35,16 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 		g.setFont(Font{ FontOptions{ 13.0f } });
 		String text{ "" };
 		if (col_num == 1)
-			text = message_log.cell_value(row_num, "#");
+			text = message_log.entry_timestamp(row_num, "#");
 		if (col_num == 2)
-			text = message_log.cell_value(row_num, "Timestamp");
+			text = message_log.entry_timestamp(row_num, "Timestamp");
 		if (col_num == 3)
-			text = message_log.cell_value(row_num, "Description");
+			text = message_log.entry_timestamp(row_num, "Description");
 		if (col_num == 4)
-			text = message_log.cell_value(row_num, "Length");
+			text = message_log.entry_timestamp(row_num, "Length");
 		if (col_num > 4) {
 			auto i = (col_num - 5) * 2;
-			auto bytes_string = message_log.cell_value(row_num, "Bytes");
+			auto bytes_string = message_log.entry_timestamp(row_num, "Bytes");
 			text = bytes_string.substring(i, i + 2);
 		}
 		g.drawText(text, 2, 0, w - 4, h, col_num > 4 ? Justification::centred : Justification::centredLeft);
