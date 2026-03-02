@@ -23,4 +23,7 @@ public: void stop_and_reset() {
             in_device.reset();
             out_device.reset();
         }
+
+//==============================================================================
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MIDI_Device_List_Entry)
 };

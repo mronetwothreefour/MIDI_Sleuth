@@ -5,7 +5,7 @@
 #include "D_000_Tree_MIDI_Message_Log.h"
 #include "G_300_List_MIDI_Devices.h"
 #include "G_305_MIDI_Device_List_Entry.h"
-#include "G_500_Table_Message_Log.h"
+#include "G_400_Tabbed_Component_In_Out_Logs.h"
 
 class Main_Component final :
     public Component,
@@ -23,8 +23,9 @@ private: ReferenceCountedArray<MIDI_Device_List_Entry> array_MIDI_inputs, array_
 private: std::unique_ptr<List_MIDI_Devices> input_selector, output_selector;
 private: CriticalSection monitor_lock;
 private: Array<MidiMessage> array_incoming_messages;
-private: Tree_MIDI_Message_Log tree_message_log;
-private: Table_Message_Log table_message_log;
+private: Tree_MIDI_Message_Log in_log;
+private: Tree_MIDI_Message_Log out_log;
+private: Tabbed_Component_In_Out_Logs tabs_message_logs;
 private: TooltipWindow tooltips;
 
 //==============================================================================

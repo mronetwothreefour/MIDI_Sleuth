@@ -16,7 +16,6 @@ private: Tree_MIDI_Message_Log& message_log;
 private: Header_Message_Log* header;
 
 //==============================================================================
-public: Table_Message_Log() = delete;
 public: explicit Table_Message_Log(Tree_MIDI_Message_Log& message_log);
 
 public: int getNumRows() override;
@@ -27,4 +26,7 @@ public: Component* refreshComponentForCell(int row_num, int col_num, bool is_sel
 public: void resized() override;
 private: void valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) override;
 public: ~Table_Message_Log();
+
+//==============================================================================
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Table_Message_Log)
 };

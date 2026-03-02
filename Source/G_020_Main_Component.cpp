@@ -4,27 +4,27 @@ Main_Component::Main_Component() :
     keyboard{ keyboard_state, MidiKeyboardComponent::horizontalKeyboard },
     input_selector{ new List_MIDI_Devices{ "Midi Input Selector", *this, true } },
     output_selector{ new List_MIDI_Devices{ "Midi Output Selector", *this, false } },
-    table_message_log{ tree_message_log }
+    tabs_message_logs{ in_log, out_log }
 {
     add_label_and_set_style(lbl_input_devices);
     add_label_and_set_style(lbl_output_devices);
     add_label_and_set_style(lbl_received);
     add_label_and_set_style(lbl_keyboard);
 
+    addAndMakeVisible(input_selector.get());
+    addAndMakeVisible(output_selector.get());
+
     keyboard.setName("MIDI Keyboard");
     addAndMakeVisible(keyboard);
 
-    addAndMakeVisible(table_message_log);
-
     keyboard_state.addListener(this);
 
-    addAndMakeVisible(input_selector.get());
-    addAndMakeVisible(output_selector.get());
+    addAndMakeVisible(tabs_message_logs);
 
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);
 
-    setSize(732, 520);
+    setSize(960, 640);
 
     update_device_lists();
 }
@@ -134,30 +134,33 @@ void Main_Component::resized() {
     auto gap = 10;
     auto selector_y = (2 * gap) + 24;
     auto selector_w = (w / 2) - (2 * gap);
-    auto selector_h = (h / 2) - ((4 * gap) + 14);
+    auto selector_h = (h / 4) - ((4 * gap) + 14);
     lbl_input_devices.setBounds(gap, gap, selector_w, 24);
     lbl_output_devices.setBounds((w / 2) + gap, gap, selector_w, 24);
     input_selector->setBounds(gap, selector_y, selector_w, selector_h);
     output_selector->setBounds((w / 2) + gap, selector_y, selector_w, selector_h);
     auto keyboard_w = w - (2 * gap);
-    lbl_keyboard.setBounds(gap, h / 2, keyboard_w, 24);
-    keyboard.setBounds(gap, (h / 2) + (24 + gap), keyboard_w, 64);
-    lbl_received.setBounds(gap, (h / 2) + (24 + (2 * gap) + 64), keyboard_w, 24);
-    auto monitor_y = (h / 2) + ((2 * 24) + (3 * gap) + 64);
-    //editor_MIDI_monitor.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
-    table_message_log.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
+    lbl_keyboard.setBounds(gap, h / 4, keyboard_w, 24);
+    keyboard.setBounds(gap, (h / 4) + (24 + gap), keyboard_w, 64);
+    lbl_received.setBounds(gap, (h / 4) + (24 + (2 * gap) + 64), keyboard_w, 24);
+    auto monitor_y = (h / 4) + ((2 * 24) + (3 * gap) + 64);
+    tabs_message_logs.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
 }
 
 void Main_Component::handleNoteOn(MidiKeyboardState* /*state*/, int channel, int note_num, float velocity) {
     MidiMessage msg{ MidiMessage::noteOn(channel, note_num, velocity) };
     msg.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001);
     sendToOutputs(msg);
+    auto row_num = out_log.log_message(msg);
+    tabs_message_logs.scroll_to_row(false, row_num);
 }
 
 void Main_Component::handleNoteOff(MidiKeyboardState* /*state*/, int channel, int note_num, float velocity) {
     MidiMessage msg(MidiMessage::noteOff(channel, note_num, velocity));
     msg.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001);
     sendToOutputs(msg);
+    auto row_num = out_log.log_message(msg);
+    tabs_message_logs.scroll_to_row(false, row_num);
 }
 
 inline void Main_Component::handleIncomingMidiMessage(MidiInput*, const MidiMessage& msg) {
@@ -176,8 +179,8 @@ inline void Main_Component::handleAsyncUpdate() {
     }
     String msg_text;
     for (auto& msg : messages) {
-        auto row_num = tree_message_log.log_message(msg);
-        table_message_log.scroll_to_row(row_num);
+        auto row_num = in_log.log_message(msg);
+        tabs_message_logs.scroll_to_row(true, row_num);
     }
 }
 

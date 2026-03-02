@@ -15,4 +15,7 @@ private: Tree_MIDI_Message_Log& message_log;
 public: Cell_Data_Byte(const int row_num, const int col_num, Tree_MIDI_Message_Log& message_log);
 
 public: void paint(Graphics& g) override;
+
+//==============================================================================
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Cell_Data_Byte)
 };

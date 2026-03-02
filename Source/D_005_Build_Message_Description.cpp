@@ -6,7 +6,7 @@ const String Build_Message_Description::channel(const String& msg) {
 
 const String Build_Message_Description::key(const String& msg) {
 	auto note_num = msg.substring(2, 4).getHexValue32();
-	return MidiMessage::getMidiNoteName(note_num, true, true, 5);
+	return MidiMessage::getMidiNoteName(note_num, true, true, 3);
 }
 
 const String Build_Message_Description::value(const String& msg, const int byte_num) {
