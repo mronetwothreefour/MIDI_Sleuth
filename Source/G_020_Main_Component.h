@@ -19,13 +19,13 @@ private: Label lbl_received{ "Received Midi Label", "Received MIDI messages:" };
 private: Label lbl_keyboard{ "Keyboard Label", "Play the keyboard to send MIDI messages..." };
 private: MidiKeyboardState keyboard_state;
 private: MidiKeyboardComponent keyboard;
-//private: TextEditor editor_MIDI_monitor{ "MIDI Monitor" };
 private: ReferenceCountedArray<MIDI_Device_List_Entry> array_MIDI_inputs, array_MIDI_outputs;
 private: std::unique_ptr<List_MIDI_Devices> input_selector, output_selector;
 private: CriticalSection monitor_lock;
 private: Array<MidiMessage> array_incoming_messages;
 private: Tree_MIDI_Message_Log tree_message_log;
 private: Table_Message_Log table_message_log;
+private: TooltipWindow tooltips;
 
 //==============================================================================
 public: Main_Component();
@@ -41,7 +41,7 @@ private: void close_unplugged_devices(const Array<MidiDeviceInfo>& plugged_in_de
 private: void update_device_list(bool is_input);
 private: void update_device_lists();
 private: void add_label_and_set_style(Label& label);
-public: void paint(Graphics&) override {}
+public: void paint(Graphics& /*g*/) override {}
 public: void resized() override;
 public: void handleNoteOn(MidiKeyboardState* state, int channel, int note_num, float velocity) override;
 public: void handleNoteOff(MidiKeyboardState*, int channel, int note_num, float velocity) override;

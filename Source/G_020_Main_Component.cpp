@@ -21,6 +21,9 @@ Main_Component::Main_Component() :
     addAndMakeVisible(input_selector.get());
     addAndMakeVisible(output_selector.get());
 
+    addChildComponent(tooltips);
+    tooltips.setMillisecondsBeforeTipAppears(2000);
+
     setSize(732, 520);
 
     update_device_lists();

@@ -1,6 +1,7 @@
 #include "G_500_Table_Message_Log.h"
 
 #include "G_510_Header_Message_Log.h"
+#include "G_520_Cell_Data_Byte.h"
 
 Table_Message_Log::Table_Message_Log(Tree_MIDI_Message_Log& message_log) :
 	message_log{ message_log }
@@ -44,15 +45,20 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 			text = message_log.entry_description(row_num);
 		if (col_num == 4)
 			text = String{ message_log.entry_length(row_num) };
-		if (col_num > 4) {
-			auto i = (col_num - 5) * 2;
-			auto bytes_string = message_log.entry_bytes(row_num);
-			text = bytes_string.substring(i, i + 2);
-		}
 		g.drawText(text, 2, 0, w - 4, h, col_num > 4 ? Justification::centred : Justification::centredLeft);
 		g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
 		g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);
 	}
+}
+
+Component* Table_Message_Log::refreshComponentForCell(int row_num, int col_num, bool /*is_selected*/, Component* c) {
+	if (col_num > 4) {
+		auto* cell_data_byte{ static_cast<Cell_Data_Byte*>(c) };
+		if (cell_data_byte == nullptr)
+			cell_data_byte = new Cell_Data_Byte{ row_num, col_num, message_log };
+		return cell_data_byte;
+	}
+	return c;
 }
 
 void Table_Message_Log::resized() {
@@ -60,7 +66,7 @@ void Table_Message_Log::resized() {
 }
 
 void Table_Message_Log::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTree& new_row) {
-	int msg_length{ new_row.getChildWithName("Length").getProperty("Value") };
+	int msg_length{ new_row.getProperty("Bytes").toString().length() / 2 };
 	auto num_byte_columns = header->byte_column_count();
 	if (msg_length > num_byte_columns) {
 		for (int i = num_byte_columns; i < msg_length; ++i)

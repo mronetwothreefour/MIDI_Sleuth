@@ -50,6 +50,10 @@
             file="Source/G_510_Header_Message_Log.cpp"/>
       <FILE id="PyRN1O" name="G_510_Header_Message_Log.h" compile="0" resource="0"
             file="Source/G_510_Header_Message_Log.h"/>
+      <FILE id="WLhtxe" name="G_520_Cell_Data_Byte.cpp" compile="1" resource="0"
+            file="Source/G_520_Cell_Data_Byte.cpp"/>
+      <FILE id="eYBHty" name="G_520_Cell_Data_Byte.h" compile="0" resource="0"
+            file="Source/G_520_Cell_Data_Byte.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
