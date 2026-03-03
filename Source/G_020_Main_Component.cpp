@@ -24,6 +24,9 @@ Main_Component::Main_Component() :
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);
 
+    for (int i = 0; i < 5; ++i)
+        stored_messages.add("");
+
     setSize(960, 640);
 
     update_device_lists();
@@ -188,6 +191,46 @@ inline void Main_Component::sendToOutputs(const MidiMessage& msg) {
     for (auto output : array_MIDI_outputs)
         if (output->out_device != nullptr)
             output->out_device->sendMessageNow(msg);
+}
+
+void Main_Component::transmit_stored_message(const int msg_index) {
+    if (msg_index < 5) {
+        auto& msg_string = stored_messages[msg_index];
+        if (msg_string.isNotEmpty()) {
+            std::vector<uint8> msg_data;
+            for (auto i = 0; i < msg_string.length(); i += 2) {
+                auto byte_string{ msg_string.substring(i, i + 2) };
+                msg_data.push_back((uint8)byte_string.getHexValue32());
+            }
+            auto msg_size = msg_data.size();
+            auto timestamp = Time::getMillisecondCounterHiRes() * 0.001;
+            MidiMessage msg{};
+            if (msg_size == 2)
+                msg = MidiMessage{ msg_data[0], msg_data[1], timestamp};
+            if (msg_size == 3)
+                msg = MidiMessage{ msg_data[0], msg_data[1], msg_data[2], timestamp};
+            if (msg_size > 3)
+                msg = MidiMessage{ &msg_data, (int)msg_data.size(), timestamp };
+            sendToOutputs(msg);
+            auto row_num = out_log.log_message(msg);
+            tabs_message_logs.scroll_to_row(false, row_num);
+        }
+    }
+}
+
+bool Main_Component::keyPressed(const KeyPress& key) {
+    if (key == KeyPress{ 'i', ModifierKeys::altModifier, 0 })
+        tabs_message_logs.setCurrentTabIndex(0);
+    if (key == KeyPress{ 'o', ModifierKeys::altModifier, 0 })
+        tabs_message_logs.setCurrentTabIndex(1);
+    if (key == KeyPress{ '1', ModifierKeys::ctrlModifier, 0 }) {
+        auto msg_bytes = tabs_message_logs.get_bytes_for_selected_row_in_current_tab();
+        stored_messages.set(0, msg_bytes);
+    }
+    if (key == KeyPress{ '1', ModifierKeys::altModifier, 0 }) {
+       transmit_stored_message(0);
+    }
+    return false;
 }
 
 Main_Component::~Main_Component() {

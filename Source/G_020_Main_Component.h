@@ -27,6 +27,7 @@ private: Tree_MIDI_Message_Log in_log;
 private: Tree_MIDI_Message_Log out_log;
 private: Tabbed_Component_In_Out_Logs tabs_message_logs;
 private: TooltipWindow tooltips;
+private: StringArray stored_messages;
 
 //==============================================================================
 public: Main_Component();
@@ -49,6 +50,8 @@ public: void handleNoteOff(MidiKeyboardState*, int channel, int note_num, float 
 private: void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& msg) override;
 private: void handleAsyncUpdate() override;
 private: void sendToOutputs(const MidiMessage& msg);
+private: void transmit_stored_message(const int msg_index);
+public: bool keyPressed(const KeyPress& key) override;
 public: ~Main_Component() override;
 
 //==============================================================================

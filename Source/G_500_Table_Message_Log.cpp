@@ -21,6 +21,11 @@ int Table_Message_Log::getNumRows() {
 	return message_log.number_of_rows();
 }
 
+const String Table_Message_Log::get_bytes_for_first_selected_row() {
+	auto row_num = table.getSelectedRow(0);
+	return message_log.entry_bytes(row_num);
+}
+
 void Table_Message_Log::scroll_to_row(const int row_num) {
 	table.scrollToEnsureRowIsOnscreen(row_num);
 }

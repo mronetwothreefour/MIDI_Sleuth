@@ -21,10 +21,11 @@ void Tabbed_Component_In_Out_Logs::scroll_to_row(const bool scrolling_in_log, co
 		tab_out_log.scroll_to_row(row_num);
 }
 
-bool Tabbed_Component_In_Out_Logs::keyPressed(const KeyPress& key) {
-	if (key == KeyPress{ 'i', ModifierKeys::altModifier, 0 })
-		setCurrentTabIndex(0);
-	if (key == KeyPress{ 'o', ModifierKeys::altModifier, 0 })
-		setCurrentTabIndex(1);
-	return false;
+const String Tabbed_Component_In_Out_Logs::get_bytes_for_selected_row_in_current_tab() {
+	auto tab_index = getCurrentTabIndex();
+	if (tab_index == 0)
+		return tab_in_log.get_bytes_for_first_selected_row();
+	return tab_out_log.get_bytes_for_first_selected_row();
 }
+
+

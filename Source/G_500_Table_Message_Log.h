@@ -19,6 +19,7 @@ private: Header_Message_Log* header;
 public: explicit Table_Message_Log(Tree_MIDI_Message_Log& message_log);
 
 public: int getNumRows() override;
+public: const String get_bytes_for_first_selected_row();
 public: void scroll_to_row(const int row_num);
 public: void paintRowBackground(Graphics& g, int row_num, int w, int h, bool is_selected) override;
 public: void paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool is_selected) override;
