@@ -3,28 +3,27 @@
 #include <JuceHeader.h>
 
 #include "D_000_Tree_MIDI_Message_Log.h"
-#include "G_300_List_MIDI_Devices.h"
-#include "G_305_MIDI_Device_List_Entry.h"
+#include "G_100_List_MIDI_Devices.h"
+#include "G_105_MIDI_Device_List_Entry.h"
 #include "G_400_Tabbed_Component_In_Out_Logs.h"
 
 class Main_Component final :
     public Component,
-    private MidiKeyboardState::Listener,
     private MidiInputCallback,
     private AsyncUpdater
 {
-private: Label lbl_input_devices{ "Midi Input Label",  "MIDI Input:" };
-private: Label lbl_output_devices{ "Midi Output Label", "MIDI Output:" };
-private: Label lbl_received{ "Received Midi Label", "Received MIDI messages:" };
-private: Label lbl_keyboard{ "Keyboard Label", "Play the keyboard to send MIDI messages..." };
-private: MidiKeyboardState keyboard_state;
-private: MidiKeyboardComponent keyboard;
+private: Label lbl_input_devices;
+private: Label lbl_output_devices;
+private: Label lbl_msg_slot_1;
+private: Label lbl_msg_log;
 private: ReferenceCountedArray<MIDI_Device_List_Entry> array_MIDI_inputs, array_MIDI_outputs;
 private: std::unique_ptr<List_MIDI_Devices> input_selector, output_selector;
 private: CriticalSection monitor_lock;
 private: Array<MidiMessage> array_incoming_messages;
 private: Tree_MIDI_Message_Log in_log;
 private: Tree_MIDI_Message_Log out_log;
+private: TextButton btn_edit_slot_1;
+private: TextButton btn_transmit_slot_1;
 private: Tabbed_Component_In_Out_Logs tabs_message_logs;
 private: TooltipWindow tooltips;
 private: StringArray stored_messages;
@@ -45,8 +44,6 @@ private: void update_device_lists();
 private: void add_label_and_set_style(Label& label);
 public: void paint(Graphics& /*g*/) override {}
 public: void resized() override;
-public: void handleNoteOn(MidiKeyboardState* state, int channel, int note_num, float velocity) override;
-public: void handleNoteOff(MidiKeyboardState*, int channel, int note_num, float velocity) override;
 private: void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& msg) override;
 private: void handleAsyncUpdate() override;
 private: void sendToOutputs(const MidiMessage& msg);

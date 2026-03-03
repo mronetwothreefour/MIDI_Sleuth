@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-#include "G_305_MIDI_Device_List_Entry.h"
+#include "G_105_MIDI_Device_List_Entry.h"
 
 class Main_Component;
 

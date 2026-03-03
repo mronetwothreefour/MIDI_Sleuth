@@ -36,12 +36,12 @@
             file="Source/G_020_Main_Component.cpp"/>
       <FILE id="gMPlWd" name="G_020_Main_Component.h" compile="0" resource="0"
             file="Source/G_020_Main_Component.h"/>
-      <FILE id="Rsxoxy" name="G_300_List_MIDI_Devices.cpp" compile="1" resource="0"
-            file="Source/G_300_List_MIDI_Devices.cpp"/>
-      <FILE id="YDSL4d" name="G_300_List_MIDI_Devices.h" compile="0" resource="0"
-            file="Source/G_300_List_MIDI_Devices.h"/>
-      <FILE id="tINJPR" name="G_305_MIDI_Device_List_Entry.h" compile="0"
-            resource="0" file="Source/G_305_MIDI_Device_List_Entry.h"/>
+      <FILE id="G3Bre8" name="G_100_List_MIDI_Devices.cpp" compile="1" resource="0"
+            file="Source/G_100_List_MIDI_Devices.cpp"/>
+      <FILE id="ZeWFbg" name="G_100_List_MIDI_Devices.h" compile="0" resource="0"
+            file="Source/G_100_List_MIDI_Devices.h"/>
+      <FILE id="tINJPR" name="G_105_MIDI_Device_List_Entry.h" compile="0"
+            resource="0" file="Source/G_105_MIDI_Device_List_Entry.h"/>
       <FILE id="TKnv29" name="G_400_Tabbed_Component_In_Out_Logs.cpp" compile="1"
             resource="0" file="Source/G_400_Tabbed_Component_In_Out_Logs.cpp"/>
       <FILE id="mMddkZ" name="G_400_Tabbed_Component_In_Out_Logs.h" compile="0"

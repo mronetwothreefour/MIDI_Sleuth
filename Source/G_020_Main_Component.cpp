@@ -1,23 +1,20 @@
 #include "G_020_Main_Component.h"
 
 Main_Component::Main_Component() :
-    keyboard{ keyboard_state, MidiKeyboardComponent::horizontalKeyboard },
+    lbl_input_devices{ "Midi Input Label",  "MIDI Input:" },
+    lbl_output_devices{ "Midi Output Label", "MIDI Output:" },
+    lbl_msg_slot_1{ "Storage Slot 1", "Storage Slot 1:" },
+    lbl_msg_log{ "MIDI Messages", "MIDI Messages:" },
     input_selector{ new List_MIDI_Devices{ "Midi Input Selector", *this, true } },
     output_selector{ new List_MIDI_Devices{ "Midi Output Selector", *this, false } },
     tabs_message_logs{ in_log, out_log }
 {
     add_label_and_set_style(lbl_input_devices);
     add_label_and_set_style(lbl_output_devices);
-    add_label_and_set_style(lbl_received);
-    add_label_and_set_style(lbl_keyboard);
+    add_label_and_set_style(lbl_msg_log);
 
     addAndMakeVisible(input_selector.get());
     addAndMakeVisible(output_selector.get());
-
-    keyboard.setName("MIDI Keyboard");
-    addAndMakeVisible(keyboard);
-
-    keyboard_state.addListener(this);
 
     addAndMakeVisible(tabs_message_logs);
 
@@ -143,27 +140,9 @@ void Main_Component::resized() {
     input_selector->setBounds(gap, selector_y, selector_w, selector_h);
     output_selector->setBounds((w / 2) + gap, selector_y, selector_w, selector_h);
     auto keyboard_w = w - (2 * gap);
-    lbl_keyboard.setBounds(gap, h / 4, keyboard_w, 24);
-    keyboard.setBounds(gap, (h / 4) + (24 + gap), keyboard_w, 64);
-    lbl_received.setBounds(gap, (h / 4) + (24 + (2 * gap) + 64), keyboard_w, 24);
+    lbl_msg_log.setBounds(gap, (h / 4) + (24 + (2 * gap) + 64), keyboard_w, 24);
     auto monitor_y = (h / 4) + ((2 * 24) + (3 * gap) + 64);
     tabs_message_logs.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
-}
-
-void Main_Component::handleNoteOn(MidiKeyboardState* /*state*/, int channel, int note_num, float velocity) {
-    MidiMessage msg{ MidiMessage::noteOn(channel, note_num, velocity) };
-    msg.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001);
-    sendToOutputs(msg);
-    auto row_num = out_log.log_message(msg);
-    tabs_message_logs.scroll_to_row(false, row_num);
-}
-
-void Main_Component::handleNoteOff(MidiKeyboardState* /*state*/, int channel, int note_num, float velocity) {
-    MidiMessage msg(MidiMessage::noteOff(channel, note_num, velocity));
-    msg.setTimeStamp(Time::getMillisecondCounterHiRes() * 0.001);
-    sendToOutputs(msg);
-    auto row_num = out_log.log_message(msg);
-    tabs_message_logs.scroll_to_row(false, row_num);
 }
 
 inline void Main_Component::handleIncomingMidiMessage(MidiInput*, const MidiMessage& msg) {
@@ -236,7 +215,6 @@ bool Main_Component::keyPressed(const KeyPress& key) {
 Main_Component::~Main_Component() {
     array_MIDI_inputs.clear();
     array_MIDI_outputs.clear();
-    keyboard_state.removeListener(this);
     input_selector.reset();
     output_selector.reset();
 }

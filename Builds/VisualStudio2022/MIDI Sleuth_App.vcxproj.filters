@@ -700,7 +700,7 @@
     <ClCompile Include="..\..\Source\G_020_Main_Component.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_300_List_MIDI_Devices.cpp">
+    <ClCompile Include="..\..\Source\G_100_List_MIDI_Devices.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\G_400_Tabbed_Component_In_Out_Logs.cpp">
@@ -3699,10 +3699,10 @@
     <ClInclude Include="..\..\Source\G_020_Main_Component.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_300_List_MIDI_Devices.h">
+    <ClInclude Include="..\..\Source\G_100_List_MIDI_Devices.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_305_MIDI_Device_List_Entry.h">
+    <ClInclude Include="..\..\Source\G_105_MIDI_Device_List_Entry.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_400_Tabbed_Component_In_Out_Logs.h">
