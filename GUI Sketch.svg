@@ -1,0 +1,656 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="850"
+   height="685"
+   viewBox="0 0 850 685"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="GUI Sketch.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#141414"
+     bordercolor="#eeeeee"
+     borderopacity="0"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#000000"
+     inkscape:document-units="px"
+     showgrid="false"
+     inkscape:zoom="1"
+     inkscape:cx="475"
+     inkscape:cy="338"
+     inkscape:window-width="1680"
+     inkscape:window-height="1022"
+     inkscape:window-x="1600"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1"
+     showguides="true" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g13446"
+       inkscape:label="reset button"
+       transform="translate(729,1.9999995)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:1.15297;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect14996-6"
+         width="78.847031"
+         height="28.847029"
+         x="21.576485"
+         y="633.57648"
+         inkscape:label="button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="30.921806"
+         y="653.33887"
+         id="text10022-1-1"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="text"><tspan
+           sodipodi:role="line"
+           id="tspan10020-8-2"
+           x="30.921806"
+           y="653.33887">Reset All</tspan></text>
+    </g>
+    <g
+       id="g13454"
+       inkscape:label="clear button"
+       transform="translate(-1.0000005,1.9999995)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:1.15297;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect13448"
+         width="78.847031"
+         height="28.847029"
+         x="21.576485"
+         y="633.57648"
+         inkscape:label="button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="28.916594"
+         y="653.33887"
+         id="text13452"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="text"><tspan
+           sodipodi:role="line"
+           id="tspan13450"
+           x="28.916594"
+           y="653.33887">Clear Log</tspan></text>
+    </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999991;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect1901"
+       width="809"
+       height="319"
+       x="20.5"
+       y="300.5"
+       ry="0"
+       inkscape:highlight-color="#bb80ee"
+       inkscape:label="log entries"
+       rx="0" />
+    <g
+       id="g10381"
+       inkscape:label="sysex"
+       transform="translate(28.494202)"
+       inkscape:highlight-color="#ff8000">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         id="rect10368"
+         width="15"
+         height="15"
+         x="665.5058"
+         y="267"
+         ry="0"
+         inkscape:label="checkbox" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+         x="684.3313"
+         y="280.85678"
+         id="text10372"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           x="684.3313"
+           y="280.85678"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff"
+           id="tspan10374">System Exclusive</tspan></text>
+    </g>
+    <g
+       id="g10402"
+       inkscape:label="ctrl change"
+       transform="translate(24.426453)"
+       inkscape:highlight-color="#ff8000">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         id="rect10362"
+         width="15"
+         height="15"
+         x="526.57355"
+         y="267"
+         ry="0"
+         inkscape:label="checkbox" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+         x="545.39905"
+         y="280.85678"
+         id="text10366"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan10364"
+           x="545.39905"
+           y="280.85678"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Control Change</tspan></text>
+    </g>
+    <g
+       id="g10397"
+       inkscape:label="pgm change"
+       transform="translate(15.499999)"
+       inkscape:highlight-color="#ff8000">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         id="rect10356"
+         width="15"
+         height="15"
+         x="382.5"
+         y="267"
+         ry="0"
+         inkscape:label="checkbox" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+         x="401.3255"
+         y="280.85678"
+         id="text10360"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan10358"
+           x="401.3255"
+           y="280.85678"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Program Change</tspan></text>
+    </g>
+    <g
+       id="g10392"
+       inkscape:label="bend/aftertouch"
+       transform="translate(6.7461252)"
+       inkscape:highlight-color="#ff8000">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         id="rect10350"
+         width="15"
+         height="15"
+         x="199.77626"
+         y="267"
+         ry="0"
+         inkscape:label="checkbox" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+         x="218.60178"
+         y="280.85678"
+         id="text10354"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan10352"
+           x="218.60178"
+           y="280.85678"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Pitch Bend/Aftertouch</tspan></text>
+    </g>
+    <g
+       id="g10387"
+       inkscape:label="note on/off"
+       transform="translate(-1)"
+       inkscape:highlight-color="#ff8000">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         id="rect3451"
+         width="15"
+         height="15"
+         x="85"
+         y="267"
+         ry="0"
+         inkscape:label="checkbox" />
+      <text
+         xml:space="preserve"
+         style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+         x="103.82552"
+         y="280.85678"
+         id="text10348"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan10346"
+           x="103.82552"
+           y="280.85678"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Note On/Off</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+       x="18.825518"
+       y="280.85678"
+       id="text9516"
+       inkscape:label="include label text"
+       inkscape:highlight-color="#ff8000"><tspan
+         sodipodi:role="line"
+         id="tspan9514"
+         x="18.825518"
+         y="280.85678"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Include:</tspan></text>
+    <g
+       id="g16397"
+       inkscape:label="slot 5"
+       transform="translate(680,-27.000031)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16379"
+         width="59"
+         height="29"
+         x="90.5"
+         y="245.5"
+         inkscape:label="send button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="103.09176"
+         y="265.79492"
+         id="text16383"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="send button text"><tspan
+           sodipodi:role="line"
+           x="103.09176"
+           y="265.79492"
+           id="tspan16381">Send</tspan></text>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16385"
+         width="59"
+         height="29"
+         x="20.5"
+         y="245.5"
+         inkscape:label="edit button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="30.399042"
+         y="265.79492"
+         id="text16389"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="edit button text"><tspan
+           sodipodi:role="line"
+           id="tspan16387"
+           x="30.399042"
+           y="265.79492">Edit...</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999991;stroke-dasharray:none;paint-order:normal"
+         id="rect16391"
+         width="130"
+         height="25"
+         x="20"
+         y="220.00003"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label box" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="28.5"
+         y="233.81773"
+         id="text16395"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan16393"
+           x="28.5"
+           y="233.81773">Message Slot 5</tspan></text>
+    </g>
+    <g
+       id="g16377"
+       inkscape:label="slot 4"
+       transform="translate(510,-27.000031)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16359"
+         width="59"
+         height="29"
+         x="90.5"
+         y="245.5"
+         inkscape:label="send button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="103.09176"
+         y="265.79492"
+         id="text16363"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="send button text"><tspan
+           sodipodi:role="line"
+           x="103.09176"
+           y="265.79492"
+           id="tspan16361">Send</tspan></text>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16365"
+         width="59"
+         height="29"
+         x="20.5"
+         y="245.5"
+         inkscape:label="edit button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="30.399042"
+         y="265.79492"
+         id="text16369"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="edit button text"><tspan
+           sodipodi:role="line"
+           id="tspan16367"
+           x="30.399042"
+           y="265.79492">Edit...</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999991;stroke-dasharray:none;paint-order:normal"
+         id="rect16371"
+         width="130"
+         height="25"
+         x="20"
+         y="220.00003"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label box" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="28.183594"
+         y="233.81773"
+         id="text16375"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan16373"
+           x="28.183594"
+           y="233.81773">Message Slot 4</tspan></text>
+    </g>
+    <g
+       id="g16357"
+       inkscape:label="slot 3"
+       transform="translate(340,-27.000031)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16339"
+         width="59"
+         height="29"
+         x="90.5"
+         y="245.5"
+         inkscape:label="send button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="103.09176"
+         y="265.79492"
+         id="text16343"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="send button text"><tspan
+           sodipodi:role="line"
+           x="103.09176"
+           y="265.79492"
+           id="tspan16341">Send</tspan></text>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16345"
+         width="59"
+         height="29"
+         x="20.5"
+         y="245.5"
+         inkscape:label="edit button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="30.399042"
+         y="265.79492"
+         id="text16349"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="edit button text"><tspan
+           sodipodi:role="line"
+           id="tspan16347"
+           x="30.399042"
+           y="265.79492">Edit...</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999991;stroke-dasharray:none;paint-order:normal"
+         id="rect16351"
+         width="130"
+         height="25"
+         x="20"
+         y="220.00003"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label box" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="28.546875"
+         y="233.81773"
+         id="text16355"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan16353"
+           x="28.546875"
+           y="233.81773">Message Slot 3</tspan></text>
+    </g>
+    <g
+       id="g16277"
+       inkscape:label="slot 2"
+       transform="translate(170,-27.000031)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16259"
+         width="59"
+         height="29"
+         x="90.5"
+         y="245.5"
+         inkscape:label="send button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="103.09176"
+         y="265.79492"
+         id="text16263"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="send button text"><tspan
+           sodipodi:role="line"
+           x="103.09176"
+           y="265.79492"
+           id="tspan16261">Send</tspan></text>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect16265"
+         width="59"
+         height="29"
+         x="20.5"
+         y="245.5"
+         inkscape:label="edit button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="30.399042"
+         y="265.79492"
+         id="text16269"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="edit button text"><tspan
+           sodipodi:role="line"
+           id="tspan16267"
+           x="30.399042"
+           y="265.79492">Edit...</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999991;stroke-dasharray:none;paint-order:normal"
+         id="rect16271"
+         width="130"
+         height="25"
+         x="20"
+         y="220.00003"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label box" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;white-space:pre;inline-size:120.676;display:inline;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="29.324219"
+         y="233.81773"
+         id="text16275"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label text"
+         transform="translate(-0.80859375)"><tspan
+           x="29.324219"
+           y="233.81773"
+           id="tspan13846">Message Slot 2</tspan></text>
+    </g>
+    <g
+       id="g15937"
+       inkscape:label="slot 1"
+       transform="translate(0,-27.000031)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect14996"
+         width="59"
+         height="29"
+         x="90.5"
+         y="245.5"
+         inkscape:label="send button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="103.09176"
+         y="265.79492"
+         id="text15000"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="send button text"><tspan
+           sodipodi:role="line"
+           x="103.09176"
+           y="265.79492"
+           id="tspan16221">Send</tspan></text>
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect12034"
+         width="59"
+         height="29"
+         x="20.5"
+         y="245.5"
+         inkscape:label="edit button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="30.399042"
+         y="265.79492"
+         id="text10022-1"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="edit button text"><tspan
+           sodipodi:role="line"
+           id="tspan10020-8"
+           x="30.399042"
+           y="265.79492">Edit...</tspan></text>
+      <rect
+         style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999991;stroke-dasharray:none;paint-order:normal"
+         id="rect10018"
+         width="130"
+         height="25"
+         x="20"
+         y="220.00003"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label box" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+         x="29.324219"
+         y="233.81773"
+         id="text10022"
+         inkscape:highlight-color="#005bff"
+         inkscape:label="label text"><tspan
+           sodipodi:role="line"
+           id="tspan10020"
+           x="29.324219"
+           y="233.81773">Message Slot 1</tspan></text>
+    </g>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999997;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect8365"
+       width="394"
+       height="99"
+       x="435.5"
+       y="75.500023"
+       ry="0"
+       inkscape:highlight-color="#ff0000"
+       inkscape:label="output devices"
+       rx="0" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999998;stroke-dasharray:none;paint-order:normal"
+       id="rect8367"
+       width="395"
+       height="25"
+       x="435"
+       y="50.000023"
+       inkscape:highlight-color="#ff0000"
+       inkscape:label="output devices label box" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+       x="574.73828"
+       y="63.77216"
+       id="text8371"
+       inkscape:highlight-color="#ff0000"
+       inkscape:label="output devices label"><tspan
+         sodipodi:role="line"
+         id="tspan8369"
+         x="574.73828"
+         y="63.77216">Output Devices</tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999997;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect6525"
+       width="394"
+       height="99"
+       x="20.5"
+       y="75.500023"
+       ry="0"
+       inkscape:highlight-color="#00ff00"
+       inkscape:label="input devices"
+       rx="0" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999998;stroke-dasharray:none;paint-order:normal"
+       id="rect7566"
+       width="395"
+       height="25"
+       x="20"
+       y="50.000023"
+       inkscape:highlight-color="#00ff00"
+       inkscape:label="input devices label box" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
+       x="166.03125"
+       y="63.77216"
+       id="text6581"
+       inkscape:highlight-color="#00ff00"
+       inkscape:label="input devices label"><tspan
+         sodipodi:role="line"
+         id="tspan6579"
+         x="166.03125"
+         y="63.77216">Input Devices</tspan></text>
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.999998;stroke-dasharray:none;paint-order:normal"
+       id="rect8456"
+       width="850"
+       height="30"
+       x="0"
+       y="0"
+       inkscape:label="menu"
+       inkscape:highlight-color="#646464" />
+  </g>
+</svg>
