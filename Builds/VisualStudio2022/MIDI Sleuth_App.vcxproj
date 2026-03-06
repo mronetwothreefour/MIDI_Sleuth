@@ -153,7 +153,7 @@
     <ClCompile Include="..\..\Source\D_050_Data_Hub.cpp"/>
     <ClCompile Include="..\..\Source\D_100_Data_User.cpp"/>
     <ClCompile Include="..\..\Source\G_000_Main_Window.cpp"/>
-    <ClCompile Include="..\..\Source\G_020_Main_Component.cpp"/>
+    <ClCompile Include="..\..\Source\G_010_Main_Component.cpp"/>
     <ClCompile Include="..\..\Source\G_100_List_MIDI_Devices.cpp"/>
     <ClCompile Include="..\..\Source\G_400_Tabbed_Component_In_Out_Logs.cpp"/>
     <ClCompile Include="..\..\Source\G_500_Table_Message_Log.cpp"/>
@@ -2950,7 +2950,7 @@
     <ClInclude Include="..\..\Source\D_100_Data_User.h"/>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h"/>
     <ClInclude Include="..\..\Source\G_000_Main_Window.h"/>
-    <ClInclude Include="..\..\Source\G_020_Main_Component.h"/>
+    <ClInclude Include="..\..\Source\G_010_Main_Component.h"/>
     <ClInclude Include="..\..\Source\G_100_List_MIDI_Devices.h"/>
     <ClInclude Include="..\..\Source\G_105_MIDI_Device_List_Entry.h"/>
     <ClInclude Include="..\..\Source\G_400_Tabbed_Component_In_Out_Logs.h"/>

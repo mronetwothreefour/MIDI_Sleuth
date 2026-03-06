@@ -1,12 +1,12 @@
 #include "G_520_Cell_Data_Byte.h"
 
-Cell_Data_Byte::Cell_Data_Byte(const int row_num, const int col_num, Tree_MIDI_Messages& message_log) :
+Cell_Data_Byte::Cell_Data_Byte(const int row_num, const int col_num, Tree_MIDI_Messages* message_log) :
 	row_num{ row_num },
 	col_num{ col_num },
 	message_log{ message_log }
 {
 	auto i = (col_num - 5) * 2;
-	auto bytes_string = message_log.entry_bytes(row_num);
+	auto bytes_string = message_log->entry_bytes(row_num);
 	auto byte_int = bytes_string.substring(i, i + 2).getHexValue32();
 	String tooltip{ "Decimal: " };
 	tooltip << byte_int;
@@ -23,7 +23,7 @@ Cell_Data_Byte::Cell_Data_Byte(const int row_num, const int col_num, Tree_MIDI_M
 
 inline void Cell_Data_Byte::paint(Graphics& g) {
 	auto i = (col_num - 5) * 2;
-	auto bytes_string = message_log.entry_bytes(row_num);
+	auto bytes_string = message_log->entry_bytes(row_num);
 	auto text = bytes_string.substring(i, i + 2);
 	g.setColour(getLookAndFeel().findColour(ListBox::textColourId));
 	g.setFont(Font{ FontOptions{ 13.0f } });

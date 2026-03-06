@@ -1,16 +1,16 @@
 #include "G_400_Tabbed_Component_In_Out_Logs.h"
 
-Tabbed_Component_In_Out_Logs::Tabbed_Component_In_Out_Logs(Tree_MIDI_Messages& in_log, Tree_MIDI_Messages& out_log) :
+Tabbed_Component_In_Out_Logs::Tabbed_Component_In_Out_Logs(Data_Hub* hub) :
 	TabbedComponent{ TabbedButtonBar::TabsAtBottom },
+	Data_User{ hub },
 	tab_in_log{ in_log },
 	tab_out_log{ out_log }
 {
 	setTabBarDepth(25);
 	setOutline(1);
-	Colour background_color{ 0xff202020 };
-	addTab("Incoming", background_color, &tab_in_log, true);
-	addTab("Outgoing", background_color, &tab_out_log, true);
-	setColour(backgroundColourId, background_color);
+	addTab("Incoming", COLOR::background, &tab_in_log, true);
+	addTab("Outgoing", COLOR::background, &tab_out_log, true);
+	setColour(backgroundColourId, COLOR::background);
 	setWantsKeyboardFocus(true);
 }
 

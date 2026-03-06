@@ -2,13 +2,13 @@
 
 #include <JuceHeader.h>
 
-#include "G_020_Main_Component.h"
+#include "G_010_Main_Component.h"
 
 class Main_Window :
     public DocumentWindow
 {
 //==============================================================================
-public: Main_Window(String name);
+public: Main_Window(String name, Data_Hub* hub);
 
 public: void closeButtonPressed() override;
 

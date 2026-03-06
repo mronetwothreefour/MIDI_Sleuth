@@ -43,10 +43,10 @@
             file="Source/G_000_Main_Window.cpp"/>
       <FILE id="CIRCOp" name="G_000_Main_Window.h" compile="0" resource="0"
             file="Source/G_000_Main_Window.h"/>
-      <FILE id="rGU5xL" name="G_020_Main_Component.cpp" compile="1" resource="0"
-            file="Source/G_020_Main_Component.cpp"/>
-      <FILE id="gMPlWd" name="G_020_Main_Component.h" compile="0" resource="0"
-            file="Source/G_020_Main_Component.h"/>
+      <FILE id="rGU5xL" name="G_010_Main_Component.cpp" compile="1" resource="0"
+            file="Source/G_010_Main_Component.cpp"/>
+      <FILE id="gMPlWd" name="G_010_Main_Component.h" compile="0" resource="0"
+            file="Source/G_010_Main_Component.h"/>
       <FILE id="G3Bre8" name="G_100_List_MIDI_Devices.cpp" compile="1" resource="0"
             file="Source/G_100_List_MIDI_Devices.cpp"/>
       <FILE id="ZeWFbg" name="G_100_List_MIDI_Devices.h" compile="0" resource="0"

@@ -3,11 +3,10 @@
 Data_Hub::Data_Hub() :
     tree_in_log{ new Tree_MIDI_Messages{} },
     tree_out_log{ new Tree_MIDI_Messages{} },
-    tree_compare{ new Tree_MIDI_Messages{} },
-    message_slots{ new StringArray{} }
+    tree_compare{ new Tree_MIDI_Messages{} }
 {
     for (int i = 0; i < 5; ++i)
-        message_slots->add("");
+        message_slots.add("");
 }
 
 Tree_MIDI_Messages* Data_Hub::get_tree_in_log() {
@@ -30,5 +29,4 @@ Data_Hub::~Data_Hub() {
     tree_in_log = nullptr;
     tree_out_log = nullptr;
     tree_compare = nullptr;
-    message_slots = nullptr;
 }

@@ -1,9 +1,9 @@
-#include "G_500_Table_Message_Log.h"
+#include "G_500_Table_message_log.h"
 
-#include "G_510_Header_Message_Log.h"
+#include "G_510_Header_message_log.h"
 #include "G_520_Cell_Data_Byte.h"
 
-Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages& message_log) :
+Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages* message_log) :
 	message_log{ message_log }
 {
 	addAndMakeVisible(table);
@@ -14,16 +14,16 @@ Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages& message_log) :
 
 	table.setHeader(std::unique_ptr<Header_Message_Log>{ new Header_Message_Log{} });
 	header = static_cast<Header_Message_Log*>(&table.getHeader());
-	message_log.add_listener(this);
+	message_log->add_listener(this);
 }
 
 int Table_Message_Log::getNumRows() {
-	return message_log.number_of_rows();
+	return message_log->number_of_rows();
 }
 
 const String Table_Message_Log::get_bytes_for_first_selected_row() {
 	auto row_num = table.getSelectedRow(0);
-	return message_log.entry_bytes(row_num);
+	return message_log->entry_bytes(row_num);
 }
 
 void Table_Message_Log::scroll_to_row(const int row_num) {
@@ -36,7 +36,7 @@ void Table_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w
 }
 
 void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool /*is_selected*/) {
-	if (row_num > -1 && row_num < message_log.number_of_rows() &&
+	if (row_num > -1 && row_num < message_log->number_of_rows() &&
 		col_num > 0 && col_num <= table.getHeader().getNumColumns(true))
 	{
 		g.setColour(getLookAndFeel().findColour(ListBox::textColourId));
@@ -45,11 +45,11 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 		if (col_num == 1)
 			text = String{ row_num + 1 };
 		if (col_num == 2)
-			text = String{ message_log.entry_timestamp(row_num) };
+			text = String{ message_log->entry_timestamp(row_num) };
 		if (col_num == 3)
-			text = message_log.entry_description(row_num);
+			text = message_log->entry_description(row_num);
 		if (col_num == 4)
-			text = String{ message_log.entry_length(row_num) };
+			text = String{ message_log->entry_length(row_num) };
 		g.drawText(text, 2, 0, w - 4, h, col_num > 4 ? Justification::centred : Justification::centredLeft);
 		g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
 		g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);
@@ -81,5 +81,5 @@ void Table_Message_Log::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTre
 }
 
 Table_Message_Log::~Table_Message_Log() {
-	message_log.remove_listener(this);
+	message_log->remove_listener(this);
 }

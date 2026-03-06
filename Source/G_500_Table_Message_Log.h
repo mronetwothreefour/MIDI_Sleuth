@@ -12,11 +12,11 @@ class Table_Message_Log :
 	private ValueTree::Listener
 {
 private: TableListBox table;
-private: Tree_MIDI_Messages& message_log;
+private: Tree_MIDI_Messages* message_log;
 private: Header_Message_Log* header;
 
 //==============================================================================
-public: explicit Table_Message_Log(Tree_MIDI_Messages& message_log);
+public: explicit Table_Message_Log(Tree_MIDI_Messages* message_log);
 
 public: int getNumRows() override;
 public: const String get_bytes_for_first_selected_row();

@@ -1,15 +1,14 @@
-#include "G_020_Main_Component.h"
+#include "G_010_Main_Component.h"
 
-#include "C_000_GUI_Constants.h"
-
-Main_Component::Main_Component() :
+Main_Component::Main_Component(Data_Hub* hub) :
+    Data_User{ hub },
     lbl_input_devices{ "Midi Input Label",  "Input Devices" },
     lbl_output_devices{ "Midi Output Label", "Output Devices" },
     lbl_msg_slot_1{ "Storage Slot 1", "Storage Slot 1:" },
     lbl_msg_log{ "MIDI Messages", "MIDI Messages:" },
     input_selector{ new List_MIDI_Devices{ "Midi Input Selector", *this, true } },
     output_selector{ new List_MIDI_Devices{ "Midi Output Selector", *this, false } },
-    tabs_message_logs{ in_log, out_log }
+    tabs_message_logs{ hub }
 {
     add_label_and_set_style(lbl_input_devices);
     add_label_and_set_style(lbl_output_devices);
@@ -22,9 +21,6 @@ Main_Component::Main_Component() :
 
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);
-
-    for (int i = 0; i < 5; ++i)
-        stored_messages.add("");
 
     setSize(960, 640);
 
@@ -163,7 +159,7 @@ inline void Main_Component::handleAsyncUpdate() {
     }
     String msg_text;
     for (auto& msg : messages) {
-        auto row_num = in_log.log_message(msg);
+        auto row_num = in_log->log_message(msg);
         tabs_message_logs.scroll_to_row(true, row_num);
     }
 }
@@ -174,9 +170,9 @@ inline void Main_Component::sendToOutputs(const MidiMessage& msg) {
             output->out_device->sendMessageNow(msg);
 }
 
-void Main_Component::transmit_stored_message(const int msg_index) {
-    if (msg_index < 5) {
-        auto& msg_string = stored_messages[msg_index];
+void Main_Component::transmit_stored_message(const int slot_index) {
+    if (slot_index < 5) {
+        auto& msg_string = message_in_slot(slot_index);
         if (msg_string.isNotEmpty()) {
             std::vector<uint8> msg_data;
             for (auto i = 0; i < msg_string.length(); i += 2) {
@@ -193,7 +189,7 @@ void Main_Component::transmit_stored_message(const int msg_index) {
             if (msg_size > 3)
                 msg = MidiMessage{ &msg_data, (int)msg_data.size(), timestamp };
             sendToOutputs(msg);
-            auto row_num = out_log.log_message(msg);
+            auto row_num = out_log->log_message(msg);
             tabs_message_logs.scroll_to_row(false, row_num);
         }
     }
@@ -206,7 +202,7 @@ bool Main_Component::keyPressed(const KeyPress& key) {
         tabs_message_logs.setCurrentTabIndex(1);
     if (key == KeyPress{ '1', ModifierKeys::ctrlModifier, 0 }) {
         auto msg_bytes = tabs_message_logs.get_bytes_for_selected_row_in_current_tab();
-        stored_messages.set(0, msg_bytes);
+        set_message_in_slot(msg_bytes, 0);
     }
     if (key == KeyPress{ '1', ModifierKeys::altModifier, 0 }) {
        transmit_stored_message(0);

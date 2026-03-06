@@ -3,6 +3,7 @@
 #include <JuceHeader.h>
 
 #include "D_000_Tree_MIDI_Messages.h"
+#include "D_100_Data_User.h"
 #include "G_100_List_MIDI_Devices.h"
 #include "G_105_MIDI_Device_List_Entry.h"
 #include "G_400_Tabbed_Component_In_Out_Logs.h"
@@ -10,7 +11,8 @@
 class Main_Component final :
     public Component,
     private MidiInputCallback,
-    private AsyncUpdater
+    private AsyncUpdater,
+    public Data_User
 {
 private: Label lbl_input_devices;
 private: Label lbl_output_devices;
@@ -20,16 +22,13 @@ private: ReferenceCountedArray<MIDI_Device_List_Entry> array_MIDI_inputs, array_
 private: std::unique_ptr<List_MIDI_Devices> input_selector, output_selector;
 private: CriticalSection monitor_lock;
 private: Array<MidiMessage> array_incoming_messages;
-private: Tree_MIDI_Messages in_log;
-private: Tree_MIDI_Messages out_log;
 private: TextButton btn_edit_slot_1;
 private: TextButton btn_transmit_slot_1;
 private: Tabbed_Component_In_Out_Logs tabs_message_logs;
 private: TooltipWindow tooltips;
-private: StringArray stored_messages;
 
 //==============================================================================
-public: Main_Component();
+public: explicit Main_Component(Data_Hub* hub);
 
 public: void open_device(bool is_input, int index);
 public: void closeDevice(bool is_input, int index);
@@ -47,7 +46,7 @@ public: void resized() override;
 private: void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& msg) override;
 private: void handleAsyncUpdate() override;
 private: void sendToOutputs(const MidiMessage& msg);
-private: void transmit_stored_message(const int msg_index);
+private: void transmit_stored_message(const int slot_index);
 public: bool keyPressed(const KeyPress& key) override;
 public: ~Main_Component() override;
 

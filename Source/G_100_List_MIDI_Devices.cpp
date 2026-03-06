@@ -1,6 +1,6 @@
 #include "G_100_List_MIDI_Devices.h"
 
-#include "G_020_Main_Component.h"
+#include "G_010_Main_Component.h"
 
 List_MIDI_Devices::List_MIDI_Devices(const String& name, Main_Component& parent, bool is_input_list) :
     ListBox{ name },
