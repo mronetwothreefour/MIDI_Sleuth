@@ -3,8 +3,8 @@
 
 <svg
    width="850"
-   height="685"
-   viewBox="0 0 850 685"
+   height="655"
+   viewBox="0 0 850 655"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
@@ -25,7 +25,7 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="1"
-     inkscape:cx="475"
+     inkscape:cx="474"
      inkscape:cy="338"
      inkscape:window-width="1680"
      inkscape:window-height="1022"
@@ -43,7 +43,7 @@
     <g
        id="g13446"
        inkscape:label="reset button"
-       transform="translate(729,1.9999995)">
+       transform="translate(729,-28.000023)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:1.15297;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect14996-6"
@@ -68,7 +68,7 @@
     <g
        id="g13454"
        inkscape:label="clear button"
-       transform="translate(-1.0000005,1.9999995)">
+       transform="translate(-1.0000005,-28.000023)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:1.15297;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect13448"
@@ -96,7 +96,7 @@
        width="809"
        height="319"
        x="20.5"
-       y="300.5"
+       y="270.49997"
        ry="0"
        inkscape:highlight-color="#bb80ee"
        inkscape:label="log entries"
@@ -104,7 +104,7 @@
     <g
        id="g10381"
        inkscape:label="sysex"
-       transform="translate(28.494202)"
+       transform="translate(28.494202,-30.000023)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -131,7 +131,7 @@
     <g
        id="g10402"
        inkscape:label="ctrl change"
-       transform="translate(24.426453)"
+       transform="translate(24.426453,-30.000023)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -158,7 +158,7 @@
     <g
        id="g10397"
        inkscape:label="pgm change"
-       transform="translate(15.499999)"
+       transform="translate(15.499999,-30.000023)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -185,7 +185,7 @@
     <g
        id="g10392"
        inkscape:label="bend/aftertouch"
-       transform="translate(6.7461252)"
+       transform="translate(6.7461252,-30.000023)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -212,7 +212,7 @@
     <g
        id="g10387"
        inkscape:label="note on/off"
-       transform="translate(-1)"
+       transform="translate(-1,-30.000023)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -240,19 +240,19 @@
        xml:space="preserve"
        style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
        x="18.825518"
-       y="280.85678"
+       y="250.85675"
        id="text9516"
        inkscape:label="include label text"
        inkscape:highlight-color="#ff8000"><tspan
          sodipodi:role="line"
          id="tspan9514"
          x="18.825518"
-         y="280.85678"
+         y="250.85675"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Include:</tspan></text>
     <g
        id="g16397"
        inkscape:label="slot 5"
-       transform="translate(680,-27.000031)">
+       transform="translate(680,-57.000054)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect16379"
@@ -318,7 +318,7 @@
     <g
        id="g16377"
        inkscape:label="slot 4"
-       transform="translate(510,-27.000031)">
+       transform="translate(510,-57.000054)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect16359"
@@ -384,7 +384,7 @@
     <g
        id="g16357"
        inkscape:label="slot 3"
-       transform="translate(340,-27.000031)">
+       transform="translate(340,-57.000054)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect16339"
@@ -450,7 +450,7 @@
     <g
        id="g16277"
        inkscape:label="slot 2"
-       transform="translate(170,-27.000031)">
+       transform="translate(170,-57.000054)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect16259"
@@ -511,12 +511,12 @@
          transform="translate(-0.80859375)"><tspan
            x="29.324219"
            y="233.81773"
-           id="tspan13846">Message Slot 2</tspan></text>
+           id="tspan13993">Message Slot 2</tspan></text>
     </g>
     <g
        id="g15937"
        inkscape:label="slot 1"
-       transform="translate(0,-27.000031)">
+       transform="translate(0,-57.000054)">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
          id="rect14996"
@@ -585,7 +585,7 @@
        width="394"
        height="99"
        x="435.5"
-       y="75.500023"
+       y="45.5"
        ry="0"
        inkscape:highlight-color="#ff0000"
        inkscape:label="output devices"
@@ -596,28 +596,28 @@
        width="395"
        height="25"
        x="435"
-       y="50.000023"
+       y="20"
        inkscape:highlight-color="#ff0000"
        inkscape:label="output devices label box" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
        x="574.73828"
-       y="63.77216"
+       y="33.772137"
        id="text8371"
        inkscape:highlight-color="#ff0000"
        inkscape:label="output devices label"><tspan
          sodipodi:role="line"
          id="tspan8369"
          x="574.73828"
-         y="63.77216">Output Devices</tspan></text>
+         y="33.772137">Output Devices</tspan></text>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999997;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="rect6525"
        width="394"
        height="99"
        x="20.5"
-       y="75.500023"
+       y="45.5"
        ry="0"
        inkscape:highlight-color="#00ff00"
        inkscape:label="input devices"
@@ -628,29 +628,20 @@
        width="395"
        height="25"
        x="20"
-       y="50.000023"
+       y="20"
        inkscape:highlight-color="#00ff00"
        inkscape:label="input devices label box" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
        x="166.03125"
-       y="63.77216"
+       y="33.772137"
        id="text6581"
        inkscape:highlight-color="#00ff00"
        inkscape:label="input devices label"><tspan
          sodipodi:role="line"
          id="tspan6579"
          x="166.03125"
-         y="63.77216">Input Devices</tspan></text>
-    <rect
-       style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:0.999998;stroke-dasharray:none;paint-order:normal"
-       id="rect8456"
-       width="850"
-       height="30"
-       x="0"
-       y="0"
-       inkscape:label="menu"
-       inkscape:highlight-color="#646464" />
+         y="33.772137">Input Devices</tspan></text>
   </g>
 </svg>

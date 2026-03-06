@@ -42,13 +42,13 @@ constexpr int chkbox_w{ 15 }, chkbox_h{ 15 };
 constexpr int device_list_min_w{ 395 }, device_list_h{ 100 };
 constexpr int lbl_device_list_h{ 25 };
 constexpr int lbl_msg_slot_w{ 130 }, lbl_msg_slot_h{ 25 };
-constexpr int log_area_y{ 300 };
+constexpr int log_area_y{ 270 };
 constexpr int log_area_min_w{ 810 }, log_area_min_h{ 320 };
-constexpr int main_win_init_w{ 850 }, main_win_init_h{ 685 };
+constexpr int main_win_init_w{ 850 }, main_win_init_h{ 655 };
 constexpr int margin{ 20 };
 constexpr int menu_h{ 30 };
 constexpr int msg_slot_w{ 130 }, msg_slot_h{ 55 };
-constexpr int msg_slots_y{ 193 };
+constexpr int msg_slots_y{ 163 };
 constexpr int msg_slots_w{ 810 }, msg_slot_h{ 55 };
 	
 static const Rectangle<int> btn_msg_slot_label {   0,   0,  60,  30 };
