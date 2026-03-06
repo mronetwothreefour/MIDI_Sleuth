@@ -7835,6 +7835,15 @@
     <None Include="..\..\Resources\MIDI Sleuth.ico">
       <Filter>MIDI Sleuth\Resources</Filter>
     </None>
+    <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGOEUIB_0.TTF">
+      <Filter>MIDI Sleuth\Resources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGOEUI_0.TTF">
+      <Filter>MIDI Sleuth\Resources</Filter>
+    </None>
+    <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGUISB_0.TTF">
+      <Filter>MIDI Sleuth\Resources</Filter>
+    </None>
     <None Include="..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt">
       <Filter>JUCE Modules\juce_audio_devices\native\asio</Filter>
     </None>

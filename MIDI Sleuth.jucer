@@ -8,6 +8,9 @@
     <GROUP id="{286DFA3A-35F3-E7B5-4293-ED1B5C1E3600}" name="Resources">
       <FILE id="bxczI3" name="icon_app.svg" compile="0" resource="1" file="Resources/icon_app.svg"/>
       <FILE id="mMDoEs" name="MIDI Sleuth.ico" compile="0" resource="1" file="Resources/MIDI Sleuth.ico"/>
+      <FILE id="hHRWMo" name="SEGOEUIB_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGOEUIB_0.TTF"/>
+      <FILE id="s6I8jk" name="SEGOEUI_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGOEUI_0.TTF"/>
+      <FILE id="ThWXtn" name="SEGUISB_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGUISB_0.TTF"/>
     </GROUP>
     <GROUP id="{566CF958-664D-8A41-89E5-C92C33448A96}" name="Source">
       <FILE id="J4ClOg" name="A_000_Main_Application.cpp" compile="1" resource="0"

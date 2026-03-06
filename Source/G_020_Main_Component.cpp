@@ -1,8 +1,10 @@
 #include "G_020_Main_Component.h"
 
+#include "C_000_GUI_Constants.h"
+
 Main_Component::Main_Component() :
-    lbl_input_devices{ "Midi Input Label",  "MIDI Input:" },
-    lbl_output_devices{ "Midi Output Label", "MIDI Output:" },
+    lbl_input_devices{ "Midi Input Label",  "Input Devices" },
+    lbl_output_devices{ "Midi Output Label", "Output Devices" },
     lbl_msg_slot_1{ "Storage Slot 1", "Storage Slot 1:" },
     lbl_msg_log{ "MIDI Messages", "MIDI Messages:" },
     input_selector{ new List_MIDI_Devices{ "Midi Input Selector", *this, true } },
@@ -120,7 +122,7 @@ inline void Main_Component::update_device_lists() {
 }
 
 inline void Main_Component::add_label_and_set_style(Label& label) {
-    label.setFont(FontOptions(15.00f, Font::plain));
+    label.setFont(FONT::device_list_header);
     label.setJustificationType(Justification::centredLeft);
     label.setEditable(false, false, false);
     label.setColour(TextEditor::textColourId, Colours::black);
