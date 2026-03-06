@@ -49,7 +49,7 @@ constexpr int margin{ 20 };
 constexpr int menu_h{ 30 };
 constexpr int msg_slot_w{ 130 }, msg_slot_h{ 55 };
 constexpr int msg_slots_y{ 163 };
-constexpr int msg_slots_w{ 810 }, msg_slot_h{ 55 };
+constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
 	
 static const Rectangle<int> btn_msg_slot_label {   0,   0,  60,  30 };
 static const Rectangle<int> btn_msg_slot_edit  {   0,  25,  60,  30 };

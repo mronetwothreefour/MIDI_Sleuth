@@ -4,7 +4,7 @@
 
 #include "G_500_Table_Message_Log.h"
 
-class Tree_MIDI_Message_Log;
+class Tree_MIDI_Messages;
 
 class Tabbed_Component_In_Out_Logs :
 	public TabbedComponent
@@ -13,7 +13,7 @@ private: Table_Message_Log tab_in_log;
 private: Table_Message_Log tab_out_log;
 
 //==============================================================================
-public: explicit Tabbed_Component_In_Out_Logs(Tree_MIDI_Message_Log& in_log, Tree_MIDI_Message_Log& out_log);
+public: explicit Tabbed_Component_In_Out_Logs(Tree_MIDI_Messages& in_log, Tree_MIDI_Messages& out_log);
 
 public: void scroll_to_row(const bool scrolling_in_log, const int row_num);
 public: const String get_bytes_for_selected_row_in_current_tab();

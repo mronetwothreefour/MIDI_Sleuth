@@ -1,6 +1,6 @@
 #include "G_400_Tabbed_Component_In_Out_Logs.h"
 
-Tabbed_Component_In_Out_Logs::Tabbed_Component_In_Out_Logs(Tree_MIDI_Message_Log& in_log, Tree_MIDI_Message_Log& out_log) :
+Tabbed_Component_In_Out_Logs::Tabbed_Component_In_Out_Logs(Tree_MIDI_Messages& in_log, Tree_MIDI_Messages& out_log) :
 	TabbedComponent{ TabbedButtonBar::TabsAtBottom },
 	tab_in_log{ in_log },
 	tab_out_log{ out_log }

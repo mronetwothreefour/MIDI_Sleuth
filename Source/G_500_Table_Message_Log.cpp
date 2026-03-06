@@ -3,7 +3,7 @@
 #include "G_510_Header_Message_Log.h"
 #include "G_520_Cell_Data_Byte.h"
 
-Table_Message_Log::Table_Message_Log(Tree_MIDI_Message_Log& message_log) :
+Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages& message_log) :
 	message_log{ message_log }
 {
 	addAndMakeVisible(table);
