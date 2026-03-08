@@ -10,8 +10,9 @@ G_000_____GUI_____
 G_000_Main_Window
 G_005_MS_Look_And_Feel
 G_010_Main_Component
-G_020_List_MIDI_Devices
-G_025_MIDI_Device
+G_020_MIDI_Handler
+G_025_List_MIDI_Devices
+G_027_MIDI_Device
 G_030_Component_MIDI_Message_Slots
 G_035_Component_MIDI_Message_Slot
 G_040_Dialog_Edit_MIDI_Message

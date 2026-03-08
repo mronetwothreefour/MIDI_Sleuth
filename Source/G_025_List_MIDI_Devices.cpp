@@ -1,37 +1,37 @@
-#include "G_100_List_MIDI_Devices.h"
+#include "G_025_List_MIDI_Devices.h"
 
-#include "G_010_Main_Component.h"
+#include "G_020_Component_MIDI_Handler.h"
 
-List_MIDI_Devices::List_MIDI_Devices(const String& name, Main_Component& parent, bool is_input_list) :
+List_MIDI_Devices::List_MIDI_Devices(const String& name, Component_MIDI_Handler* parent, bool is_input_list) :
     ListBox{ name },
     parent{ parent },
     is_input_list{ is_input_list }
 {
     setModel(this);
+    setColour(ListBox::backgroundColourId, COLOR::list_background);
     setOutlineThickness(1);
     setMultipleSelectionEnabled(true);
     setClickingTogglesRowSelection(true);
 }
 
 int List_MIDI_Devices::getNumRows() {
-    return is_input_list ? parent.count_MIDI_inputs() : parent.count_MIDI_outputs();
+    return is_input_list ? parent->count_MIDI_inputs() : parent->count_MIDI_outputs();
 }
 
 void List_MIDI_Devices::paintListBoxItem(int row, Graphics& g, int w, int h, bool row_is_selected) {
-    auto textColour = getLookAndFeel().findColour(ListBox::textColourId);
     if (row_is_selected)
-        g.fillAll(textColour.interpolatedWith(getLookAndFeel().findColour(ListBox::backgroundColourId), 0.5));
-    g.setColour(textColour);
-    g.setFont((float)h * 0.7f);
+        g.fillAll(COLOR::highlight);
+    g.setColour(COLOR::text);
+    g.setFont(FONT::device_list);
     if (is_input_list) {
-        if (row < parent.count_MIDI_inputs()) {
-            auto& device_name = parent.get_device(row, true)->device_info.name;
+        if (row < parent->count_MIDI_inputs()) {
+            auto& device_name = parent->get_device(row, true)->device_info.name;
             g.drawText(device_name, 5, 0, w, h, Justification::centredLeft, true);
         }
     }
     else {
-        if (row < parent.count_MIDI_outputs()) {
-            auto& device_name = parent.get_device(row, false)->device_info.name;
+        if (row < parent->count_MIDI_outputs()) {
+            auto& device_name = parent->get_device(row, false)->device_info.name;
             g.drawText(device_name, 5, 0, w, h, Justification::centredLeft, true);
         }
     }
@@ -43,11 +43,11 @@ void List_MIDI_Devices::selectedRowsChanged(int /*last_row_selected*/) {
     {
         for (auto i = 0; i < last_selected_devices.size(); ++i) {
             if (!selected_devices.contains(last_selected_devices[i]))
-                parent.closeDevice(is_input_list, last_selected_devices[i]);
+                parent->close_device(is_input_list, last_selected_devices[i]);
         }
         for (auto i = 0; i < selected_devices.size(); ++i) {
             if (!last_selected_devices.contains(selected_devices[i]))
-                parent.open_device(is_input_list, selected_devices[i]);
+                parent->open_device(is_input_list, selected_devices[i]);
         }
         last_selected_devices = selected_devices;
     }

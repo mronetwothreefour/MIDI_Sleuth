@@ -70,7 +70,7 @@ void Table_Message_Log::resized() {
 	table.setBounds(0, 0, getWidth(), getHeight());
 }
 
-void Table_Message_Log::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTree& new_row) {
+void Table_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) {
 	int msg_length{ new_row.getProperty("Bytes").toString().length() / 2 };
 	auto num_byte_columns = header->byte_column_count();
 	if (msg_length > num_byte_columns) {
@@ -78,6 +78,7 @@ void Table_Message_Log::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTre
 			header->add_data_byte_column(i);
 	}
 	table.updateContent();
+	scroll_to_row(parent_tree.indexOf(new_row));
 }
 
 Table_Message_Log::~Table_Message_Log() {

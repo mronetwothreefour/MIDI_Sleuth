@@ -2,20 +2,20 @@
 
 #include <JuceHeader.h>
 
-#include "G_105_MIDI_Device_List_Entry.h"
+#include "G_027_MIDI_Device.h"
 
-class Main_Component;
+class Component_MIDI_Handler;
 
 struct List_MIDI_Devices final :
     private ListBoxModel,
     public ListBox
 {
-private: Main_Component& parent;
+private: Component_MIDI_Handler* parent;
 private: bool is_input_list;
 private: SparseSet<int> last_selected_devices;
 
 //==============================================================================
-public: List_MIDI_Devices(const String& name, Main_Component& parent, bool is_input_list);
+public: List_MIDI_Devices(const String& name, Component_MIDI_Handler* parent, bool is_input_list);
 
 public: int getNumRows() override;
 private: void paintListBoxItem(int row, Graphics& g, int w, int h, bool row_is_selected) override;
