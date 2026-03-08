@@ -2,7 +2,7 @@
 
 #include <JuceHeader.h>
 
-struct MIDI_Device_List_Entry final :
+struct Delegate_MIDI_Device final :
     ReferenceCountedObject
 {
 public: MidiDeviceInfo device_info;
@@ -10,11 +10,11 @@ public: std::unique_ptr<MidiInput> in_device;
 public: std::unique_ptr<MidiOutput> out_device;
 
 //==============================================================================
-public: explicit MIDI_Device_List_Entry(MidiDeviceInfo device_info) :
+public: explicit Delegate_MIDI_Device(MidiDeviceInfo device_info) :
             device_info{ device_info }
         {}
 
-using Ptr = ReferenceCountedObjectPtr<MIDI_Device_List_Entry>;
+using Ptr = ReferenceCountedObjectPtr<Delegate_MIDI_Device>;
 
 public: void stop_and_reset() {
             if (in_device != nullptr)
@@ -25,5 +25,5 @@ public: void stop_and_reset() {
         }
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MIDI_Device_List_Entry)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Delegate_MIDI_Device)
 };

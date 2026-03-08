@@ -47,16 +47,16 @@
             file="Source/G_010_Main_Component.cpp"/>
       <FILE id="gMPlWd" name="G_010_Main_Component.h" compile="0" resource="0"
             file="Source/G_010_Main_Component.h"/>
-      <FILE id="L4vB43" name="G_020_Component_MIDI_Handler.cpp" compile="1"
-            resource="0" file="Source/G_020_Component_MIDI_Handler.cpp"/>
-      <FILE id="hWZlg8" name="G_020_Component_MIDI_Handler.h" compile="0"
-            resource="0" file="Source/G_020_Component_MIDI_Handler.h"/>
+      <FILE id="L4vB43" name="G_020_Component_MIDI_Devices.cpp" compile="1"
+            resource="0" file="Source/G_020_Component_MIDI_Devices.cpp"/>
+      <FILE id="hWZlg8" name="G_020_Component_MIDI_Devices.h" compile="0"
+            resource="0" file="Source/G_020_Component_MIDI_Devices.h"/>
       <FILE id="G3Bre8" name="G_025_List_MIDI_Devices.cpp" compile="1" resource="0"
             file="Source/G_025_List_MIDI_Devices.cpp"/>
       <FILE id="ZeWFbg" name="G_025_List_MIDI_Devices.h" compile="0" resource="0"
             file="Source/G_025_List_MIDI_Devices.h"/>
-      <FILE id="tINJPR" name="G_027_MIDI_Device.h" compile="0" resource="0"
-            file="Source/G_027_MIDI_Device.h"/>
+      <FILE id="tINJPR" name="G_027_Delegate_MIDI_Device.h" compile="0" resource="0"
+            file="Source/G_027_Delegate_MIDI_Device.h"/>
       <FILE id="TKnv29" name="G_400_Tabbed_Component_In_Out_Logs.cpp" compile="1"
             resource="0" file="Source/G_400_Tabbed_Component_In_Out_Logs.cpp"/>
       <FILE id="mMddkZ" name="G_400_Tabbed_Component_In_Out_Logs.h" compile="0"

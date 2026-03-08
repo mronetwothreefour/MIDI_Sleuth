@@ -4,14 +4,14 @@
 
 #include "D_000_Tree_MIDI_Messages.h"
 #include "D_100_Data_User.h"
-#include "G_020_Component_MIDI_Handler.h"
+#include "G_020_Component_MIDI_Devices.h"
 #include "G_400_Tabbed_Component_In_Out_Logs.h"
 
 class Main_Component final :
     public Component,
     public Data_User
 {
-private: Component_MIDI_Handler handler;
+private: Component_MIDI_Devices devices;
 private: Label lbl_msg_slot_1;
 private: Label lbl_msg_log;
 private: TextButton btn_edit_slot_1;

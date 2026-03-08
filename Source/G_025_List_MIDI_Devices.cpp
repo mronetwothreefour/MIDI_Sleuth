@@ -1,8 +1,8 @@
 #include "G_025_List_MIDI_Devices.h"
 
-#include "G_020_Component_MIDI_Handler.h"
+#include "G_020_Component_MIDI_Devices.h"
 
-List_MIDI_Devices::List_MIDI_Devices(const String& name, Component_MIDI_Handler* parent, bool is_input_list) :
+List_MIDI_Devices::List_MIDI_Devices(const String& name, Component_MIDI_Devices* parent, bool is_input_list) :
     ListBox{ name },
     parent{ parent },
     is_input_list{ is_input_list }
@@ -53,7 +53,7 @@ void List_MIDI_Devices::selectedRowsChanged(int /*last_row_selected*/) {
     }
 }
 
-void List_MIDI_Devices::sync_selection_with_device_list(const ReferenceCountedArray<MIDI_Device_List_Entry>& device_list) {
+void List_MIDI_Devices::sync_selection_with_device_list(const ReferenceCountedArray<Delegate_MIDI_Device>& device_list) {
     SparseSet<int> selected_rows;
     for (auto i = 0; i < device_list.size(); ++i)
         if (device_list[i]->in_device != nullptr || device_list[i]->out_device != nullptr)

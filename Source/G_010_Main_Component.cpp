@@ -2,14 +2,14 @@
 
 Main_Component::Main_Component(Data_Hub* hub) :
     Data_User{ hub },
-    handler{ hub },
+    devices{ hub },
     lbl_msg_slot_1{ "Storage Slot 1", "Storage Slot 1:" },
     lbl_msg_log{ "MIDI Messages", "MIDI Messages:" },
     tabs_message_logs{ hub }
 {
     add_label_and_set_style(lbl_msg_log);
 
-    addAndMakeVisible(handler);
+    addAndMakeVisible(devices);
 
     addAndMakeVisible(tabs_message_logs);
 
@@ -31,7 +31,10 @@ inline void Main_Component::add_label_and_set_style(Label& label) {
 void Main_Component::resized() {
     auto w = getWidth();
     auto h = getHeight();
-    handler.setBounds(XYWH::margin, XYWH::margin, w - 2 * XYWH::margin, XYWH::lbl_device_list_h + XYWH::device_list_h);
+    auto devices_w = 2 * XYWH::device_list_min_w + XYWH::margin;
+    if (w > devices_w + 2 * XYWH::margin)
+        devices_w = w - 2 * XYWH::margin;
+    devices.setBounds(XYWH::margin, XYWH::margin, devices_w, XYWH::lbl_device_list_h + XYWH::device_list_h);
     auto gap = 20;
     auto keyboard_w = w - (2 * gap);
     lbl_msg_log.setBounds(gap, (h / 4) + (24 + (2 * gap) + 64), keyboard_w, 24);
@@ -49,7 +52,7 @@ bool Main_Component::keyPressed(const KeyPress& key) {
         set_message_in_slot(msg_bytes, 0);
     }
     if (key == KeyPress{ '1', ModifierKeys::altModifier, 0 }) {
-       handler.transmit_stored_message(0);
+       devices.transmit_stored_message(0);
     }
     return false;
 }
