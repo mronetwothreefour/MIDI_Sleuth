@@ -11,6 +11,7 @@ Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages* message_log) :
 	table.setModel(this);
 	table.setMultipleSelectionEnabled(true);
 	table.setHeader(std::unique_ptr<Header_Message_Log>{ new Header_Message_Log{} });
+	table.setHeaderHeight(21);
 	header = static_cast<Header_Message_Log*>(&table.getHeader());
 	message_log->add_listener(this);
 }
@@ -73,6 +74,11 @@ void Table_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTree& n
 	int msg_length{ new_row.getProperty("Bytes").toString().length() / 2 };
 	auto num_byte_columns = header->byte_column_count();
 	if (msg_length > num_byte_columns) {
+		auto current_header_h = table.getHeaderHeight();
+		if (msg_length > 299 && current_header_h < 63)
+			table.setHeaderHeight(63);
+		if (msg_length > 199 && current_header_h < 42)
+			table.setHeaderHeight(42);
 		for (int i = num_byte_columns; i < msg_length; ++i)
 			header->add_data_byte_column(i);
 	}

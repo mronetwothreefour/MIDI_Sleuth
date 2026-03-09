@@ -25,6 +25,6 @@ void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& 
 	Rectangle<int> area{ w, h };
 	area.reduce(3, 3);
 	g.setColour(c.findColour(TableHeaderComponent::textColourId));
-	g.setFont(FONT::table_header);
-	g.drawFittedText(col_name, area, Justification::centredBottom, 1);
+	g.setFont(col_ID < 5 ? FONT::table_header : FONT::table_byte_header);
+	g.drawFittedText(col_name, area, Justification::centredBottom, 4);
 }

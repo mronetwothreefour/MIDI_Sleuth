@@ -34,6 +34,7 @@ const Font filter_label{ Create_Font::with_typeface_and_point_height(type_bold, 
 const Font msg_slot_header{ Create_Font::with_typeface_and_point_height(type_bold, 18.0f) };
 const Font table{ Create_Font::with_typeface_and_point_height(type_regular, 12.0f) };
 const Font table_header{ Create_Font::with_typeface_and_point_height(type_semibold, 12.0f) };
+const Font table_byte_header{ Create_Font::with_typeface_and_point_height(type_semibold, 9.0f) };
 
 }
 
