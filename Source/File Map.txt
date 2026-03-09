@@ -12,7 +12,7 @@ G_005_MS_Look_And_Feel
 G_010_Main_Component
 G_020_Component_MIDI_Devices
 G_025_List_MIDI_Devices
-G_027_MIDI_Device
+G_027_Delegate_MIDI_Device
 G_030_Component_MIDI_Message_Slots
 G_035_Component_MIDI_Message_Slot
 G_040_Dialog_Edit_MIDI_Message
@@ -22,4 +22,4 @@ G_070_Table_MIDI_Message_Log
 G_080_Table_MIDI_Message_Compare
 G_090_Header_MIDI_Message_Log
 G_100_Header_MIDI_Message_Compare
-G_110_Cell_Data_Byte
+G_110_Delegate_Data_Byte

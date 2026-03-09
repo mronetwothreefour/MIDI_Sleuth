@@ -153,13 +153,14 @@
     <ClCompile Include="..\..\Source\D_050_Data_Hub.cpp"/>
     <ClCompile Include="..\..\Source\D_100_Data_User.cpp"/>
     <ClCompile Include="..\..\Source\G_000_Main_Window.cpp"/>
+    <ClCompile Include="..\..\Source\G_005_MS_Look_And_Feel.cpp"/>
     <ClCompile Include="..\..\Source\G_010_Main_Component.cpp"/>
     <ClCompile Include="..\..\Source\G_020_Component_MIDI_Devices.cpp"/>
     <ClCompile Include="..\..\Source\G_025_List_MIDI_Devices.cpp"/>
     <ClCompile Include="..\..\Source\G_400_Tabbed_Component_In_Out_Logs.cpp"/>
     <ClCompile Include="..\..\Source\G_500_Table_Message_Log.cpp"/>
     <ClCompile Include="..\..\Source\G_510_Header_Message_Log.cpp"/>
-    <ClCompile Include="..\..\Source\G_520_Cell_Data_Byte.cpp"/>
+    <ClCompile Include="..\..\Source\G_520_Delegate_Data_Byte.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2951,6 +2952,7 @@
     <ClInclude Include="..\..\Source\D_100_Data_User.h"/>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h"/>
     <ClInclude Include="..\..\Source\G_000_Main_Window.h"/>
+    <ClInclude Include="..\..\Source\G_005_MS_Look_And_Feel.h"/>
     <ClInclude Include="..\..\Source\G_010_Main_Component.h"/>
     <ClInclude Include="..\..\Source\G_020_Component_MIDI_Devices.h"/>
     <ClInclude Include="..\..\Source\G_025_List_MIDI_Devices.h"/>
@@ -2958,7 +2960,7 @@
     <ClInclude Include="..\..\Source\G_400_Tabbed_Component_In_Out_Logs.h"/>
     <ClInclude Include="..\..\Source\G_500_Table_Message_Log.h"/>
     <ClInclude Include="..\..\Source\G_510_Header_Message_Log.h"/>
-    <ClInclude Include="..\..\Source\G_520_Cell_Data_Byte.h"/>
+    <ClInclude Include="..\..\Source\G_520_Delegate_Data_Byte.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

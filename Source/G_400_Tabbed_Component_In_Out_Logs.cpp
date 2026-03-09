@@ -7,10 +7,9 @@ Tabbed_Component_In_Out_Logs::Tabbed_Component_In_Out_Logs(Data_Hub* hub) :
 	tab_out_log{ out_log }
 {
 	setTabBarDepth(25);
+	addTab("Incoming", COLOR::list_background, &tab_in_log, true);
+	addTab("Outgoing", COLOR::list_background, &tab_out_log, true);
 	setOutline(1);
-	addTab("Incoming", COLOR::background, &tab_in_log, true);
-	addTab("Outgoing", COLOR::background, &tab_out_log, true);
-	setColour(backgroundColourId, COLOR::background);
 	setWantsKeyboardFocus(true);
 }
 

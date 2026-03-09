@@ -1,17 +1,15 @@
 #include "G_500_Table_message_log.h"
 
+#include "C_000_GUI_Constants.h"
 #include "G_510_Header_message_log.h"
-#include "G_520_Cell_Data_Byte.h"
+#include "G_520_Delegate_Data_Byte.h"
 
 Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages* message_log) :
 	message_log{ message_log }
 {
 	addAndMakeVisible(table);
 	table.setModel(this);
-	table.setColour(ListBox::outlineColourId, Colours::grey);
-	table.setOutlineThickness(1);
 	table.setMultipleSelectionEnabled(true);
-
 	table.setHeader(std::unique_ptr<Header_Message_Log>{ new Header_Message_Log{} });
 	header = static_cast<Header_Message_Log*>(&table.getHeader());
 	message_log->add_listener(this);
@@ -39,7 +37,7 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 	if (row_num > -1 && row_num < message_log->number_of_rows() &&
 		col_num > 0 && col_num <= table.getHeader().getNumColumns(true))
 	{
-		g.setColour(getLookAndFeel().findColour(ListBox::textColourId));
+		g.setColour(COLOR::text);
 		g.setFont(Font{ FontOptions{ 13.0f } });
 		String text{ "" };
 		if (col_num == 1)
@@ -51,6 +49,7 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 		if (col_num == 4)
 			text = String{ message_log->entry_length(row_num) };
 		g.drawText(text, 2, 0, w - 4, h, col_num > 4 ? Justification::centred : Justification::centredLeft);
+		g.setColour(COLOR::outline);
 		g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
 		g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);
 	}
@@ -58,9 +57,9 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 
 Component* Table_Message_Log::refreshComponentForCell(int row_num, int col_num, bool /*is_selected*/, Component* c) {
 	if (col_num > 4) {
-		auto* cell_data_byte{ static_cast<Cell_Data_Byte*>(c) };
+		auto* cell_data_byte{ static_cast<Delegate_Data_Byte*>(c) };
 		if (cell_data_byte == nullptr)
-			cell_data_byte = new Cell_Data_Byte{ row_num, col_num, message_log };
+			cell_data_byte = new Delegate_Data_Byte{ row_num, col_num, message_log };
 		return cell_data_byte;
 	}
 	return c;

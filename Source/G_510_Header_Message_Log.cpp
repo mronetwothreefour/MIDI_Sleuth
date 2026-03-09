@@ -4,8 +4,8 @@ Header_Message_Log::Header_Message_Log()
 {
 	addColumn("#", 1, 30);
 	addColumn("Timestamp", 2, 75);
-	addColumn("Description", 3, 200);
-	addColumn("Length", 4, 75);
+	addColumn("Description", 3, 220);
+	addColumn("Length", 4, 55);
 }
 
 const int Header_Message_Log::byte_column_count() {

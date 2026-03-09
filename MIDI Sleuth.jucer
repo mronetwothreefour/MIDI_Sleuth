@@ -43,6 +43,10 @@
             file="Source/G_000_Main_Window.cpp"/>
       <FILE id="CIRCOp" name="G_000_Main_Window.h" compile="0" resource="0"
             file="Source/G_000_Main_Window.h"/>
+      <FILE id="wGUrNu" name="G_005_MS_Look_And_Feel.cpp" compile="1" resource="0"
+            file="Source/G_005_MS_Look_And_Feel.cpp"/>
+      <FILE id="k7Xo2G" name="G_005_MS_Look_And_Feel.h" compile="0" resource="0"
+            file="Source/G_005_MS_Look_And_Feel.h"/>
       <FILE id="rGU5xL" name="G_010_Main_Component.cpp" compile="1" resource="0"
             file="Source/G_010_Main_Component.cpp"/>
       <FILE id="gMPlWd" name="G_010_Main_Component.h" compile="0" resource="0"
@@ -69,10 +73,10 @@
             file="Source/G_510_Header_Message_Log.cpp"/>
       <FILE id="PyRN1O" name="G_510_Header_Message_Log.h" compile="0" resource="0"
             file="Source/G_510_Header_Message_Log.h"/>
-      <FILE id="WLhtxe" name="G_520_Cell_Data_Byte.cpp" compile="1" resource="0"
-            file="Source/G_520_Cell_Data_Byte.cpp"/>
-      <FILE id="eYBHty" name="G_520_Cell_Data_Byte.h" compile="0" resource="0"
-            file="Source/G_520_Cell_Data_Byte.h"/>
+      <FILE id="WLhtxe" name="G_520_Delegate_Data_Byte.cpp" compile="1" resource="0"
+            file="Source/G_520_Delegate_Data_Byte.cpp"/>
+      <FILE id="eYBHty" name="G_520_Delegate_Data_Byte.h" compile="0" resource="0"
+            file="Source/G_520_Delegate_Data_Byte.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

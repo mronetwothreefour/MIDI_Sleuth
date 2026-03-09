@@ -703,6 +703,9 @@
     <ClCompile Include="..\..\Source\G_000_Main_Window.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\G_005_MS_Look_And_Feel.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\G_010_Main_Component.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -721,7 +724,7 @@
     <ClCompile Include="..\..\Source\G_510_Header_Message_Log.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_520_Cell_Data_Byte.cpp">
+    <ClCompile Include="..\..\Source\G_520_Delegate_Data_Byte.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3711,6 +3714,9 @@
     <ClInclude Include="..\..\Source\G_000_Main_Window.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\G_005_MS_Look_And_Feel.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\G_010_Main_Component.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
@@ -3732,7 +3738,7 @@
     <ClInclude Include="..\..\Source\G_510_Header_Message_Log.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_520_Cell_Data_Byte.h">
+    <ClInclude Include="..\..\Source\G_520_Delegate_Data_Byte.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

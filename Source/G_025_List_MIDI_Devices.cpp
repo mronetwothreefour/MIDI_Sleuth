@@ -8,7 +8,6 @@ List_MIDI_Devices::List_MIDI_Devices(const String& name, Component_MIDI_Devices*
     is_input_list{ is_input_list }
 {
     setModel(this);
-    setColour(ListBox::backgroundColourId, COLOR::list_background);
     setOutlineThickness(1);
     setMultipleSelectionEnabled(true);
     setClickingTogglesRowSelection(true);
