@@ -10,12 +10,11 @@ const int Tree_MIDI_Messages::number_of_rows() {
 	return tree->getNumChildren();
 }
 
-const int Tree_MIDI_Messages::log_message(const MidiMessage& msg) {
+void Tree_MIDI_Messages::log_message(const MidiMessage& msg) {
 	ValueTree entry{ "Entry" };
 	entry.setProperty("Timestamp", msg.getTimeStamp(), nullptr);
 	entry.setProperty("Bytes", String::toHexString(msg.getRawData(), msg.getRawDataSize(), 0), nullptr);
 	tree->addChild(entry, -1, nullptr);
-	return number_of_rows() - 1;
 }
 
 const int Tree_MIDI_Messages::entry_timestamp(const int entry_index) {

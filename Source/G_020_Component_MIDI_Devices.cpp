@@ -142,8 +142,18 @@ void Component_MIDI_Devices::handleAsyncUpdate() {
         messages.swapWith(array_incoming_messages);
     }
     String msg_text;
-    for (auto& msg : messages)
-        in_log->log_message(msg);
+    for (auto& msg : messages) {
+        if (msg.getRawData()[0] < 0xf8) {
+            if ((msg.isNoteOn() || msg.isNoteOff()) && should_log(Message_Type::note_on_off) ||
+                (msg.isAftertouch() || msg.isPitchWheel()) && should_log(Message_Type::aftertouch_pitch_bend) ||
+                msg.isController() && should_log(Message_Type::ctrl_change) ||
+                msg.isProgramChange() && should_log(Message_Type::pgm_change) ||
+                msg.isSysEx() && should_log(Message_Type::sysex))
+            {
+                in_log->log_message(msg);
+            }
+        }
+    }
 }
 
 void Component_MIDI_Devices::send_to_outputs(const MidiMessage& msg) {

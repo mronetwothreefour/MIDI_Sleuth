@@ -16,3 +16,15 @@ void Data_User::set_message_in_slot(const String& msg, const int slot_index) {
 	if (slot_index > -1 && slot_index < 5)
 		hub->get_message_slots().set(slot_index, msg);
 }
+
+bool Data_User::should_log(Message_Type msg_type) {
+	return hub->msg_type_flags & msg_type;
+}
+
+void Data_User::set_should_log(Message_Type msg_type, bool should_log) {
+	if (should_log)
+		hub->msg_type_flags |= msg_type;
+	else
+		hub->msg_type_flags &= ~msg_type;
+}
+
