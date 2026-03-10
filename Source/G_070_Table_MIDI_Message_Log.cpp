@@ -1,40 +1,40 @@
-#include "G_500_Table_message_log.h"
+#include "G_070_Table_MIDI_Message_Log.h"
 
 #include "C_000_GUI_Constants.h"
-#include "G_510_Header_message_log.h"
-#include "G_520_Delegate_Data_Byte.h"
+#include "G_090_Header_MIDI_Message_Log.h"
+#include "G_110_Delegate_Data_Byte.h"
 
-Table_Message_Log::Table_Message_Log(Tree_MIDI_Messages* message_log) :
+Table_MIDI_Message_Log::Table_MIDI_Message_Log(Tree_MIDI_Messages* message_log) :
 	message_log{ message_log }
 {
 	addAndMakeVisible(table);
 	table.setModel(this);
 	table.setMultipleSelectionEnabled(true);
-	table.setHeader(std::unique_ptr<Header_Message_Log>{ new Header_Message_Log{} });
+	table.setHeader(std::unique_ptr<Header_MIDI_Message_Log>{ new Header_MIDI_Message_Log{} });
 	table.setHeaderHeight(21);
-	header = static_cast<Header_Message_Log*>(&table.getHeader());
+	header = static_cast<Header_MIDI_Message_Log*>(&table.getHeader());
 	message_log->add_listener(this);
 }
 
-int Table_Message_Log::getNumRows() {
+int Table_MIDI_Message_Log::getNumRows() {
 	return message_log->number_of_rows();
 }
 
-const String Table_Message_Log::get_bytes_for_first_selected_row() {
+const String Table_MIDI_Message_Log::get_bytes_for_first_selected_row() {
 	auto row_num = table.getSelectedRow(0);
 	return message_log->entry_bytes(row_num);
 }
 
-void Table_Message_Log::scroll_to_row(const int row_num) {
+void Table_MIDI_Message_Log::scroll_to_row(const int row_num) {
 	table.scrollToEnsureRowIsOnscreen(row_num);
 }
 
-void Table_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
+void Table_MIDI_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
 	if (is_selected)
 		g.fillAll(Colour{ 0xff333333 });
 }
 
-void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool /*is_selected*/) {
+void Table_MIDI_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool /*is_selected*/) {
 	if (row_num > -1 && row_num < message_log->number_of_rows() &&
 		col_num > 0 && col_num <= table.getHeader().getNumColumns(true))
 	{
@@ -56,7 +56,7 @@ void Table_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, 
 	}
 }
 
-Component* Table_Message_Log::refreshComponentForCell(int row_num, int col_num, bool /*is_selected*/, Component* c) {
+Component* Table_MIDI_Message_Log::refreshComponentForCell(int row_num, int col_num, bool /*is_selected*/, Component* c) {
 	if (col_num > 4) {
 		auto* cell_data_byte{ static_cast<Delegate_Data_Byte*>(c) };
 		if (cell_data_byte == nullptr)
@@ -66,11 +66,11 @@ Component* Table_Message_Log::refreshComponentForCell(int row_num, int col_num, 
 	return c;
 }
 
-void Table_Message_Log::resized() {
+void Table_MIDI_Message_Log::resized() {
 	table.setBounds(0, 0, getWidth(), getHeight());
 }
 
-void Table_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) {
+void Table_MIDI_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) {
 	int msg_length{ new_row.getProperty("Bytes").toString().length() / 2 };
 	auto num_byte_columns = header->byte_column_count();
 	if (msg_length > num_byte_columns) {
@@ -86,6 +86,6 @@ void Table_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTree& n
 	scroll_to_row(parent_tree.indexOf(new_row));
 }
 
-Table_Message_Log::~Table_Message_Log() {
+Table_MIDI_Message_Log::~Table_MIDI_Message_Log() {
 	message_log->remove_listener(this);
 }

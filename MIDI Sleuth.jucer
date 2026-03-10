@@ -61,22 +61,22 @@
             file="Source/G_025_List_MIDI_Devices.h"/>
       <FILE id="tINJPR" name="G_027_Delegate_MIDI_Device.h" compile="0" resource="0"
             file="Source/G_027_Delegate_MIDI_Device.h"/>
-      <FILE id="TKnv29" name="G_400_Tabbed_Component_In_Out_Logs.cpp" compile="1"
-            resource="0" file="Source/G_400_Tabbed_Component_In_Out_Logs.cpp"/>
-      <FILE id="mMddkZ" name="G_400_Tabbed_Component_In_Out_Logs.h" compile="0"
-            resource="0" file="Source/G_400_Tabbed_Component_In_Out_Logs.h"/>
-      <FILE id="Cq555e" name="G_500_Table_Message_Log.cpp" compile="1" resource="0"
-            file="Source/G_500_Table_Message_Log.cpp"/>
-      <FILE id="gSJrEz" name="G_500_Table_Message_Log.h" compile="0" resource="0"
-            file="Source/G_500_Table_Message_Log.h"/>
-      <FILE id="eejKeP" name="G_510_Header_Message_Log.cpp" compile="1" resource="0"
-            file="Source/G_510_Header_Message_Log.cpp"/>
-      <FILE id="PyRN1O" name="G_510_Header_Message_Log.h" compile="0" resource="0"
-            file="Source/G_510_Header_Message_Log.h"/>
-      <FILE id="WLhtxe" name="G_520_Delegate_Data_Byte.cpp" compile="1" resource="0"
-            file="Source/G_520_Delegate_Data_Byte.cpp"/>
-      <FILE id="eYBHty" name="G_520_Delegate_Data_Byte.h" compile="0" resource="0"
-            file="Source/G_520_Delegate_Data_Byte.h"/>
+      <FILE id="TKnv29" name="G_060_Tabbed_Component_Tables.cpp" compile="1"
+            resource="0" file="Source/G_060_Tabbed_Component_Tables.cpp"/>
+      <FILE id="mMddkZ" name="G_060_Tabbed_Component_Tables.h" compile="0"
+            resource="0" file="Source/G_060_Tabbed_Component_Tables.h"/>
+      <FILE id="Cq555e" name="G_070_Table_MIDI_Message_Log.cpp" compile="1"
+            resource="0" file="Source/G_070_Table_MIDI_Message_Log.cpp"/>
+      <FILE id="gSJrEz" name="G_070_Table_MIDI_Message_Log.h" compile="0"
+            resource="0" file="Source/G_070_Table_MIDI_Message_Log.h"/>
+      <FILE id="eejKeP" name="G_090_Header_MIDI_Message_Log.cpp" compile="1"
+            resource="0" file="Source/G_090_Header_MIDI_Message_Log.cpp"/>
+      <FILE id="PyRN1O" name="G_090_Header_MIDI_Message_Log.h" compile="0"
+            resource="0" file="Source/G_090_Header_MIDI_Message_Log.h"/>
+      <FILE id="WLhtxe" name="G_110_Delegate_Data_Byte.cpp" compile="1" resource="0"
+            file="Source/G_110_Delegate_Data_Byte.cpp"/>
+      <FILE id="eYBHty" name="G_110_Delegate_Data_Byte.h" compile="0" resource="0"
+            file="Source/G_110_Delegate_Data_Byte.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

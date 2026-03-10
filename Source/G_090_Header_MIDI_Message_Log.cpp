@@ -1,6 +1,6 @@
-#include "G_510_Header_Message_Log.h"
+#include "G_090_Header_MIDI_Message_Log.h"
 
-Header_Message_Log::Header_Message_Log()
+Header_MIDI_Message_Log::Header_MIDI_Message_Log()
 {
 	addColumn("#", 1, 30);
 	addColumn("Timestamp", 2, 75);
@@ -8,11 +8,11 @@ Header_Message_Log::Header_Message_Log()
 	addColumn("Length", 4, 55);
 }
 
-const int Header_Message_Log::byte_column_count() {
+const int Header_MIDI_Message_Log::byte_column_count() {
 	return getNumColumns(true) - 4;
 }
 
-void Header_Message_Log::add_data_byte_column(int byte_num) {
+void Header_MIDI_Message_Log::add_data_byte_column(int byte_num) {
 	auto col_id = byte_num + 5;
 	if (col_id > getNumColumns(true)) {
 		String col_name{ byte_num };
