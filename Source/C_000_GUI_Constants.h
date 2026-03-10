@@ -53,9 +53,22 @@ constexpr int menu_h{ 30 };
 constexpr int msg_slot_w{ 130 }, msg_slot_h{ 55 };
 constexpr int msg_slots_y{ 163 };
 constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
+constexpr int filters_w{ 810 }, filters_h{ 15 };
+
+static const Rectangle<int> msg_slot_lbl       {   0,   0,  60,  30 };
+static const Rectangle<int> msg_slot_btn_edit  {   0,  25,  60,  30 };
+static const Rectangle<int> msg_slot_btn_send  {  70,  25,  60,  30 };
 	
-static const Rectangle<int> btn_msg_slot_label {   0,   0,  60,  30 };
-static const Rectangle<int> btn_msg_slot_edit  {   0,  25,  60,  30 };
-static const Rectangle<int> btn_msg_slot_send  {  70,  25,  60,  30 };
+static const Rectangle<int> filters_lbl_include           {   0,  0,  55,  15 };
+static const Rectangle<int> filters_chkbx_note_on_off     {  84,  0,  15,  15 };
+static const Rectangle<int> filters_lbl_note_on_off       {  84,  0,  90,  15 };
+static const Rectangle<int> filters_chkbx_aftertouch_bend {  64,  0,  15,  15 };
+static const Rectangle<int> filters_lbl_aftertouch_bend   { 206,  0, 160,  15 };
+static const Rectangle<int> filters_chkbx_pgm_change      { 378,  0,  15,  15 };
+static const Rectangle<int> filters_lbl_pgm_change        { 398,  0, 120,  15 };
+static const Rectangle<int> filters_chkbx_ctrl_change     { 531,  0,  15,  15 };
+static const Rectangle<int> filters_lbl_ctrl_change       { 551,  0, 110,  15 };
+static const Rectangle<int> filters_chkbx_sysex           { 674,  0,  15,  15 };
+static const Rectangle<int> filters_lbl_sysex             { 694,  0, 120,  15 };
 
 }

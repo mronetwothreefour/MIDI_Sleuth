@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="1"
-     inkscape:cx="474"
-     inkscape:cy="338"
+     inkscape:cx="425"
+     inkscape:cy="327"
      inkscape:window-width="1680"
      inkscape:window-height="1022"
      inkscape:window-x="1600"
@@ -199,15 +199,15 @@
       <text
          xml:space="preserve"
          style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
-         x="218.60178"
-         y="280.85678"
+         x="219.18227"
+         y="281.02869"
          id="text10354"
          inkscape:label="label text"><tspan
            sodipodi:role="line"
            id="tspan10352"
-           x="218.60178"
-           y="280.85678"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Pitch Bend/Aftertouch</tspan></text>
+           x="219.18227"
+           y="281.02869"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Aftertouch/Pitch Bend</tspan></text>
     </g>
     <g
        id="g10387"
@@ -227,13 +227,13 @@
          xml:space="preserve"
          style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
          x="103.82552"
-         y="280.85678"
+         y="281.02869"
          id="text10348"
          inkscape:label="label text"><tspan
            sodipodi:role="line"
            id="tspan10346"
            x="103.82552"
-           y="280.85678"
+           y="281.02869"
            style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Note On/Off</tspan></text>
     </g>
     <text
@@ -511,7 +511,7 @@
          transform="translate(-0.80859375)"><tspan
            x="29.324219"
            y="233.81773"
-           id="tspan13993">Message Slot 2</tspan></text>
+           id="tspan14183">Message Slot 2</tspan></text>
     </g>
     <g
        id="g15937"
