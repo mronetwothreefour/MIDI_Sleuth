@@ -17,6 +17,23 @@ MS_Look_And_Feel::MS_Look_And_Feel()
 	setColour(TableListBox::textColourId, COLOR::text);
 }
 
+void MS_Look_And_Feel::drawToggleButton(Graphics& g, ToggleButton& tgl, 
+										bool hilighted, bool down)
+{
+	drawTickBox(g, tgl, 0.0f, 0.0f, (float)tgl.getWidth(), (float)tgl.getHeight(),
+		tgl.getToggleState(), tgl.isEnabled(), hilighted, down);
+}
+
+void MS_Look_And_Feel::drawTickBox(Graphics& g, Component& /*c*/, float x, float y, 
+								   float w, float h, const bool ticked, 
+								   const bool /*enabled*/, const bool /*hilighted*/, 
+								   const bool /*down*/)
+{
+	g.fillAll(ticked ? COLOR::toggle_on : COLOR::toggle_off);
+	g.setColour(COLOR::outline);
+	g.drawRect(x, y, w, h);
+}
+
 void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c,
 											 const String& col_name, int col_ID,
 											 int w, int h, bool /*mouse_is_over*/,

@@ -715,6 +715,9 @@
     <ClCompile Include="..\..\Source\G_025_List_MIDI_Devices.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\G_050_Component_Filter_Toggles.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\G_060_Tabbed_Component_Tables.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -3727,6 +3730,9 @@
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_027_Delegate_MIDI_Device.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_050_Component_Filter_Toggles.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_060_Tabbed_Component_Tables.h">

@@ -3,9 +3,12 @@
 Main_Component::Main_Component(Data_Hub* hub) :
     Data_User{ hub },
     devices{ hub },
+    filter_toggles{ hub },
     tabs_message_logs{ hub }
 {
     addAndMakeVisible(devices);
+
+    addAndMakeVisible(filter_toggles);
 
     addAndMakeVisible(tabs_message_logs);
 
@@ -18,14 +21,15 @@ Main_Component::Main_Component(Data_Hub* hub) :
 void Main_Component::resized() {
     auto w = getWidth();
     auto h = getHeight();
-    auto devices_w = 2 * XYWH::device_list_min_w + XYWH::margin;
-    if (w > devices_w + 2 * XYWH::margin)
-        devices_w = w - 2 * XYWH::margin;
-    devices.setBounds(XYWH::margin, XYWH::margin, devices_w, XYWH::lbl_device_list_h + XYWH::device_list_h);
-    auto gap = 20;
-    auto keyboard_w = w - (2 * gap);
-    auto monitor_y = (h / 4) + ((2 * 24) + (3 * gap) + 64);
-    tabs_message_logs.setBounds(gap, monitor_y, keyboard_w, h - monitor_y - gap);
+    auto subcomponent_w = 2 * XYWH::device_list_min_w + XYWH::margin;
+    if (w > subcomponent_w + 2 * XYWH::margin)
+        subcomponent_w = w - 2 * XYWH::margin;
+    devices.setBounds(XYWH::margin, XYWH::margin, subcomponent_w, XYWH::lbl_device_list_h + XYWH::device_list_h);
+    filter_toggles.setBounds(XYWH::margin, XYWH::filters_y, XYWH::filters_w, XYWH::filters_h);
+    auto log_area_h = XYWH::log_area_min_h;
+    if (h > 6 * XYWH::margin + XYWH::device_list_h + XYWH::msg_slots_h + XYWH::filters_h + XYWH::log_area_min_h)
+        log_area_h = h - 6 * XYWH::margin - XYWH::device_list_h - XYWH::msg_slots_h - XYWH::filters_h;
+    tabs_message_logs.setBounds(XYWH::margin, XYWH::log_area_y, subcomponent_w, log_area_h);
 }
 
 bool Main_Component::keyPressed(const KeyPress& key) {

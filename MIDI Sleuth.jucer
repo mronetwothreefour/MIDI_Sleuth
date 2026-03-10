@@ -61,6 +61,10 @@
             file="Source/G_025_List_MIDI_Devices.h"/>
       <FILE id="tINJPR" name="G_027_Delegate_MIDI_Device.h" compile="0" resource="0"
             file="Source/G_027_Delegate_MIDI_Device.h"/>
+      <FILE id="OUzx2d" name="G_050_Component_Filter_Toggles.cpp" compile="1"
+            resource="0" file="Source/G_050_Component_Filter_Toggles.cpp"/>
+      <FILE id="o37pA2" name="G_050_Component_Filter_Toggles.h" compile="0"
+            resource="0" file="Source/G_050_Component_Filter_Toggles.h"/>
       <FILE id="TKnv29" name="G_060_Tabbed_Component_Tables.cpp" compile="1"
             resource="0" file="Source/G_060_Tabbed_Component_Tables.cpp"/>
       <FILE id="mMddkZ" name="G_060_Tabbed_Component_Tables.h" compile="0"
