@@ -91,12 +91,12 @@
            y="653.33887">Clear Log</tspan></text>
     </g>
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999991;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:1.00778;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="rect1901"
-       width="809"
-       height="319"
-       x="20.5"
-       y="270.49997"
+       width="808.99219"
+       height="323.99222"
+       x="20.503895"
+       y="270.50388"
        ry="0"
        inkscape:highlight-color="#bb80ee"
        inkscape:label="log entries"
@@ -511,7 +511,7 @@
          transform="translate(-0.80859375)"><tspan
            x="29.324219"
            y="233.81773"
-           id="tspan14278">Message Slot 2</tspan></text>
+           id="tspan14373">Message Slot 2</tspan></text>
     </g>
     <g
        id="g15937"
