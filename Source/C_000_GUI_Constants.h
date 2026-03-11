@@ -49,6 +49,7 @@ constexpr int lbl_device_list_h{ 25 };
 constexpr int lbl_msg_slot_w{ 130 }, lbl_msg_slot_h{ 25 };
 constexpr int log_area_y{ 270 };
 constexpr int log_area_min_w{ 810 }, log_area_min_h{ 320 };
+constexpr int main_win_components_min_w{ 810 }, main_win_components_min_h{ 615 };
 constexpr int main_win_init_w{ 850 }, main_win_init_h{ 655 };
 constexpr int margin{ 20 };
 constexpr int menu_h{ 30 };
