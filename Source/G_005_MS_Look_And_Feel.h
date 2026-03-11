@@ -8,6 +8,10 @@ class MS_Look_And_Feel :
 //==============================================================================
 public: MS_Look_And_Feel();
 
+public: void drawButtonBackground(Graphics& g, Button& btn, const Colour& background, 
+								  bool hilighted, bool down) override;
+public: void drawButtonText(Graphics& g, TextButton& btn, bool hilighted, bool down) override;
+
 public: void drawToggleButton(Graphics& g, ToggleButton& tgl, bool hilighted, bool down) override;
 public: void drawTickBox(Graphics& g, Component& c, float x, float y, 
 						 float w, float h, const bool ticked, const bool enabled, 

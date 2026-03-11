@@ -6,6 +6,8 @@ namespace COLOR
 {
 
 const Colour background{ 0xff202020 };
+const Colour button{ 0xff333333 };
+const Colour button_down{ 0xff505050 };
 const Colour highlight{ 0xff333333 };
 const Colour list_background{ 0xff000000 };
 const Colour outline{ 0xff808080 };
@@ -29,7 +31,7 @@ const Typeface::Ptr type_bold{ Typeface::createSystemTypefaceFor(BinaryData::SEG
 const Typeface::Ptr type_regular{ Typeface::createSystemTypefaceFor(BinaryData::SEGOEUI_0_TTF, BinaryData::SEGOEUI_0_TTFSize) };
 const Typeface::Ptr type_semibold{ Typeface::createSystemTypefaceFor(BinaryData::SEGUISB_0_TTF, BinaryData::SEGUISB_0_TTFSize) };
 
-const Font button{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
+const Font button{ Create_Font::with_typeface_and_point_height(type_bold, 15.0f) };
 const Font device_list{ Create_Font::with_typeface_and_point_height(type_semibold, 14.0f) };
 const Font device_list_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font filter_label{ Create_Font::with_typeface_and_point_height(type_bold, 14.0f) };

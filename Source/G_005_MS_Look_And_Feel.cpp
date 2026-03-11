@@ -17,6 +17,21 @@ MS_Look_And_Feel::MS_Look_And_Feel()
 	setColour(TableListBox::textColourId, COLOR::text);
 }
 
+void MS_Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, 
+											const Colour& /*background*/, 
+											bool /*hilighted*/, bool down)
+{
+	g.fillAll(down ? COLOR::button_down : COLOR::button);
+	g.setColour(COLOR::outline);
+	g.drawRect(0, 0, btn.getWidth(), btn.getHeight(), 1);
+}
+
+void MS_Look_And_Feel::drawButtonText(Graphics& g, TextButton& btn, bool /*hilighted*/, bool /*down*/) {
+	g.setFont(FONT::button);
+	g.setColour(COLOR::text);
+	g.drawText(btn.getButtonText(), 0, 0, btn.getWidth(), btn.getHeight(), Justification::centred);
+}
+
 void MS_Look_And_Feel::drawToggleButton(Graphics& g, ToggleButton& tgl, 
 										bool hilighted, bool down)
 {
