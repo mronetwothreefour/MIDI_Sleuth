@@ -104,7 +104,7 @@
     <g
        id="g10381"
        inkscape:label="sysex"
-       transform="translate(28.494202,-30.000023)"
+       transform="translate(28.494202,-27)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -131,7 +131,7 @@
     <g
        id="g10402"
        inkscape:label="ctrl change"
-       transform="translate(24.426453,-30.000023)"
+       transform="translate(24.426453,-27)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -158,7 +158,7 @@
     <g
        id="g10397"
        inkscape:label="pgm change"
-       transform="translate(15.499999,-30.000023)"
+       transform="translate(15.499999,-27)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -185,7 +185,7 @@
     <g
        id="g10392"
        inkscape:label="bend/aftertouch"
-       transform="translate(6.7461252,-30.000023)"
+       transform="translate(6.7461252,-27)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -212,7 +212,7 @@
     <g
        id="g10387"
        inkscape:label="note on/off"
-       transform="translate(-1,-30.000023)"
+       transform="translate(-1,-27)"
        inkscape:highlight-color="#ff8000">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:none;stroke-width:10.9019"
@@ -240,14 +240,14 @@
        xml:space="preserve"
        style="font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
        x="18.825518"
-       y="250.85675"
+       y="253.8568"
        id="text9516"
        inkscape:label="include label text"
        inkscape:highlight-color="#ff8000"><tspan
          sodipodi:role="line"
          id="tspan9514"
          x="18.825518"
-         y="250.85675"
+         y="253.8568"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:14.6667px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Include:</tspan></text>
     <g
        id="g16397"
@@ -511,7 +511,7 @@
          transform="translate(-0.80859375)"><tspan
            x="29.324219"
            y="233.81773"
-           id="tspan14183">Message Slot 2</tspan></text>
+           id="tspan14278">Message Slot 2</tspan></text>
     </g>
     <g
        id="g15937"
