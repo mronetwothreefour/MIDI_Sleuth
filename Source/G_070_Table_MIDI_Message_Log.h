@@ -26,6 +26,7 @@ public: void paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool
 public: Component* refreshComponentForCell(int row_num, int col_num, bool is_selected, Component* c) override;
 public: void resized() override;
 private: void valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) override;
+private: void valueTreeChildRemoved(ValueTree& parent_tree, ValueTree& row, int row_index) override;
 public: ~Table_MIDI_Message_Log();
 
 //==============================================================================

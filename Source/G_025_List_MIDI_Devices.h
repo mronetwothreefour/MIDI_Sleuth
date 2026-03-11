@@ -21,6 +21,7 @@ public: int getNumRows() override;
 private: void paintListBoxItem(int row, Graphics& g, int w, int h, bool row_is_selected) override;
 private: void selectedRowsChanged(int last_row_selected) override;
 public: void sync_selection_with_device_list(const ReferenceCountedArray<Delegate_MIDI_Device>& device_list);
+public: void stop_and_reset_all_devices(const ReferenceCountedArray<Delegate_MIDI_Device>& device_list);
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(List_MIDI_Devices)

@@ -6,13 +6,25 @@ Main_Component::Main_Component(Data_Hub* hub) :
     Data_User{ hub },
     devices{ hub },
     filter_toggles{ hub },
-    tabs_message_logs{ hub }
+    tabs_message_logs{ hub },
+    btn_clear("Clear Log"),
+    btn_reset("Reset All")
 {
     addAndMakeVisible(devices);
 
     addAndMakeVisible(filter_toggles);
 
     addAndMakeVisible(tabs_message_logs);
+
+    btn_clear.onClick = [this] { clear_visible_message_log();  };
+    btn_clear.setSize(btn_clear_reset_w, btn_clear_reset_h);
+    btn_clear.setTooltip("Clear all messages from\nthe current log.");
+    addAndMakeVisible(btn_clear);
+
+    btn_reset.onClick = [this] { devices.stop_and_reset_all();  };
+    btn_reset.setSize(btn_clear_reset_w, btn_clear_reset_h);
+    btn_reset.setTooltip("Send all notes off to all channels,\nthen stop and reset all devices.");
+    addAndMakeVisible(btn_reset);
 
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);
@@ -37,6 +49,26 @@ void Main_Component::resized() {
     if (components_h < win_h - 2 * margin)
         log_area_h += win_h - 2 * margin - components_h;
     tabs_message_logs.setBounds(margin, log_area_y, components_w, log_area_h);
+    auto btn_clear_reset_y = log_area_y + log_area_h + 10;
+    btn_clear.setTopLeftPosition(margin, btn_clear_reset_y);
+    btn_reset.setTopRightPosition(tabs_message_logs.getRight(), btn_clear_reset_y);
+}
+
+void Main_Component::clear_visible_message_log() {
+    auto tab = tabs_message_logs.getCurrentTabIndex();
+    switch(tab) {
+    case 0:
+        in_log->clear_tree();
+        break;
+    case 1:
+        out_log->clear_tree();
+        break;
+    case 2:
+        compare->clear_tree();
+        break;
+    default:
+        break;
+    }
 }
 
 bool Main_Component::keyPressed(const KeyPress& key) {

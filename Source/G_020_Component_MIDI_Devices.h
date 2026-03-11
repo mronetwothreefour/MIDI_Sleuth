@@ -37,6 +37,7 @@ private: void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& ms
 private: void handleAsyncUpdate() override;
 private: void send_to_outputs(const MidiMessage& msg);
 public: void transmit_stored_message(const int slot_index);
+public: void stop_and_reset_all();
 public: ~Component_MIDI_Devices();
 
 //==============================================================================

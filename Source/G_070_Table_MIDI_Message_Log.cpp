@@ -86,6 +86,10 @@ void Table_MIDI_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTr
 	scroll_to_row(parent_tree.indexOf(new_row));
 }
 
+void Table_MIDI_Message_Log::valueTreeChildRemoved(ValueTree& /*parent_tree*/, ValueTree& /*row*/, int /*row_index*/) {
+	table.updateContent();
+}
+
 Table_MIDI_Message_Log::~Table_MIDI_Message_Log() {
 	message_log->remove_listener(this);
 }

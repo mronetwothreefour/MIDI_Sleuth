@@ -62,3 +62,9 @@ void List_MIDI_Devices::sync_selection_with_device_list(const ReferenceCountedAr
     updateContent();
     setSelectedRows(selected_rows, dontSendNotification);
 }
+
+void List_MIDI_Devices::stop_and_reset_all_devices(const ReferenceCountedArray<Delegate_MIDI_Device>& device_list) {
+    deselectAllRows();
+    for (auto i = 0; i < device_list.size(); ++i)
+        device_list[i]->stop_and_reset();
+}

@@ -13,16 +13,17 @@ class Main_Component final :
     public Data_User
 {
 private: Component_MIDI_Devices devices;
-private: TextButton btn_edit_slot_1;
-private: TextButton btn_transmit_slot_1;
 private: Component_Filter_Toggles filter_toggles;
 private: Tabbed_Component_Tables tabs_message_logs;
+private: TextButton btn_clear;
+private: TextButton btn_reset;
 private: TooltipWindow tooltips;
 
 //==============================================================================
 public: explicit Main_Component(Data_Hub* hub);
 
 public: void resized() override;
+private: void clear_visible_message_log();
 public: bool keyPressed(const KeyPress& key) override;
 
 //==============================================================================

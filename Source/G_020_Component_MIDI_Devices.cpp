@@ -185,6 +185,13 @@ void Component_MIDI_Devices::transmit_stored_message(const int slot_index) {
     }
 }
 
+void Component_MIDI_Devices::stop_and_reset_all() {
+    for (auto channel = 1; channel < 17; ++channel)
+        send_to_outputs(MidiMessage::allNotesOff(channel));
+    in_selector->stop_and_reset_all_devices(array_MIDI_inputs);
+    out_selector->stop_and_reset_all_devices(array_MIDI_outputs);    in_selector->sync_selection_with_device_list(array_MIDI_inputs);
+}
+
 Component_MIDI_Devices::~Component_MIDI_Devices() {
     ump::Endpoints::getInstance()->removeListener(*this);
     array_MIDI_inputs.clear();
