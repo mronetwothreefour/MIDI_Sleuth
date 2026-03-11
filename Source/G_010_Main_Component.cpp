@@ -1,5 +1,7 @@
 #include "G_010_Main_Component.h"
 
+using namespace XYWH;
+
 Main_Component::Main_Component(Data_Hub* hub) :
     Data_User{ hub },
     devices{ hub },
@@ -15,21 +17,26 @@ Main_Component::Main_Component(Data_Hub* hub) :
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);
 
-    setSize(XYWH::main_win_init_w, XYWH::main_win_init_h);
+    setSize(main_win_init_w, main_win_init_h);
 }
 
 void Main_Component::resized() {
-    auto w = getWidth();
-    auto h = getHeight();
-    auto subcomponent_w = 2 * XYWH::device_list_min_w + XYWH::margin;
-    if (w > subcomponent_w + 2 * XYWH::margin)
-        subcomponent_w = w - 2 * XYWH::margin;
-    devices.setBounds(XYWH::margin, XYWH::margin, subcomponent_w, XYWH::lbl_device_list_h + XYWH::device_list_h);
-    filter_toggles.setBounds(XYWH::margin, XYWH::filters_y, XYWH::filters_w, XYWH::filters_h);
-    auto log_area_h = XYWH::log_area_min_h;
-    if (h > 6 * XYWH::margin + XYWH::device_list_h + XYWH::msg_slots_h + XYWH::filters_h + XYWH::log_area_min_h)
-        log_area_h = h - 6 * XYWH::margin - XYWH::device_list_h - XYWH::msg_slots_h - XYWH::filters_h;
-    tabs_message_logs.setBounds(XYWH::margin, XYWH::log_area_y, subcomponent_w, log_area_h);
+    auto win_w = getWidth();
+    auto win_h = getHeight();
+    auto components_w = main_win_components_min_w;
+    auto can_widen_components = components_w < win_w - 2 * margin;
+    if (can_widen_components)
+        components_w = win_w - 2 * margin;
+    devices.setBounds(margin, margin, components_w, lbl_device_list_h + device_list_h);
+    auto flex_x = margin;
+    if (can_widen_components)
+        flex_x = (win_w - main_win_components_min_w) / 2;
+    filter_toggles.setBounds(flex_x, filters_y, filters_w, filters_h);
+    auto log_area_h = log_area_min_h;
+    auto components_h = main_win_components_min_h;
+    if (components_h < win_h - 2 * margin)
+        log_area_h += win_h - 2 * margin - components_h;
+    tabs_message_logs.setBounds(margin, log_area_y, components_w, log_area_h);
 }
 
 bool Main_Component::keyPressed(const KeyPress& key) {
