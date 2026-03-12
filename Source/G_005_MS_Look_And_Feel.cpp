@@ -59,19 +59,19 @@ void MS_Look_And_Feel::drawTabButton(TabBarButton& btn, Graphics& g,
 	g.drawVerticalLine(0, 0.0f, (float)h);
 	g.drawVerticalLine(w - 1, 0.0f, (float)h);
 	g.drawHorizontalLine(h - 1, 0.0f, (float)w);
-	g.setColour(COLOR::text);
+	g.setColour(btn.getToggleState() ? COLOR::text : COLOR::text.darker(0.3f));
 	g.setFont(FONT::tab);
 	g.drawText(btn.getButtonText(), 0, 0, w, h, Justification::centred);
 }
 
-void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c,
+void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& /*c*/,
 											 const String& col_name, int col_ID,
 											 int w, int h, bool /*mouse_is_over*/,
 											 bool /*mouse_is_down*/, int /*col_flags*/)
 {
 	Rectangle<int> area{ w, h };
 	area.reduce(3, 3);
-	g.setColour(c.findColour(TableHeaderComponent::textColourId));
+	g.setColour(COLOR::text);
 	g.setFont(col_ID < 5 ? FONT::table_header : FONT::table_byte_header);
 	g.drawFittedText(col_name, area, Justification::centredBottom, 4);
 }
