@@ -11,6 +11,7 @@ List_MIDI_Devices::List_MIDI_Devices(const String& name, Component_MIDI_Devices*
     setOutlineThickness(1);
     setMultipleSelectionEnabled(true);
     setClickingTogglesRowSelection(true);
+    setTooltip("Select a device to open it.");
 }
 
 int List_MIDI_Devices::getNumRows() {

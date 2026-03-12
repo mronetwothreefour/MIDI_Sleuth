@@ -80,13 +80,6 @@ bool Main_Component::keyPressed(const KeyPress& key) {
         tabs_message_logs.setCurrentTabIndex(0);
     if (key == KeyPress{ 'o', ModifierKeys::altModifier, 0 })
         tabs_message_logs.setCurrentTabIndex(1);
-    if (key == KeyPress{ '1', ModifierKeys::ctrlModifier, 0 }) {
-        auto msg_bytes = tabs_message_logs.get_bytes_for_selected_row_in_current_tab();
-        set_message_in_slot(msg_bytes, 0);
-    }
-    if (key == KeyPress{ '1', ModifierKeys::altModifier, 0 }) {
-       devices.send_stored_message(0);
-    }
     return false;
 }
 

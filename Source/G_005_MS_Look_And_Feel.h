@@ -18,10 +18,16 @@ public: void drawTickBox(Graphics& g, Component& c, float x, float y,
 						 const bool hilighted, const bool down) override;
 
 
-public: void drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c, 
+public: void drawTabButton(TabBarButton& btn, Graphics& g, bool mouse_over, bool mouse_down) override;
+
+public: void drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c,
 								   const String& col_name, int col_ID, int w, int h,
 								   bool mouse_is_over, bool mouse_is_down, int col_flags) override;
 
-//==============================================================================
+public: Rectangle<int> getTooltipBounds(const String& text, Point<int> pos, Rectangle<int> parent_area) override;
+public: void drawTooltip(Graphics& g, const String& text, int w, int h) override;
+public: TextLayout layoutTooltipText(const String& text, Colour color) noexcept;
+
+	  //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(MS_Look_And_Feel)
 };

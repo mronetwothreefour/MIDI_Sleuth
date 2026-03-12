@@ -36,9 +36,11 @@ const Font device_list{ Create_Font::with_typeface_and_point_height(type_semibol
 const Font device_list_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font filter_label{ Create_Font::with_typeface_and_point_height(type_bold, 14.0f) };
 const Font msg_slot_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
+const Font tab{ Create_Font::with_typeface_and_point_height(type_bold, 12.0f) };
 const Font table{ Create_Font::with_typeface_and_point_height(type_regular, 12.0f) };
 const Font table_header{ Create_Font::with_typeface_and_point_height(type_semibold, 12.0f) };
 const Font table_byte_header{ Create_Font::with_typeface_and_point_height(type_semibold, 9.0f) };
+const Font tooltips{ Create_Font::with_typeface_and_point_height(type_regular, 12.0f) };
 
 }
 
@@ -47,6 +49,7 @@ namespace XYWH
 	
 constexpr int btn_clear_reset_w{ 80 }, btn_clear_reset_h{ 30 };
 constexpr int device_list_min_w{ 395 }, device_list_h{ 100 };
+constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
 constexpr int lbl_device_list_h{ 25 };
 constexpr int log_area_y{ 270 };
 constexpr int log_area_min_w{ 810 }, log_area_min_h{ 325 };
@@ -57,7 +60,8 @@ constexpr int menu_h{ 30 };
 constexpr int msg_slot_w{ 130 }, msg_slot_h{ 55 };
 constexpr int msg_slots_y{ 163 };
 constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
-constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
+constexpr int tab_h{ 30 };
+constexpr int tooltip_max_w{ 400 };
 
 static const Rectangle<int> msg_slot_lbl       { 0  , 0  , 130, 30  };
 static const Rectangle<int> msg_slot_btn_edit  { 0  , 25 , 60 , 30  };

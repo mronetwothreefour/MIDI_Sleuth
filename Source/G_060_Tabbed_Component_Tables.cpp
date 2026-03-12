@@ -6,11 +6,9 @@ Tabbed_Component_Tables::Tabbed_Component_Tables(Data_Hub* hub) :
 	tab_in_log{ in_log },
 	tab_out_log{ out_log }
 {
-	setTabBarDepth(25);
+	setTabBarDepth(XYWH::tab_h);
 	addTab("Incoming", COLOR::list_background, &tab_in_log, true);
 	addTab("Outgoing", COLOR::list_background, &tab_out_log, true);
-	setOutline(1);
-	setWantsKeyboardFocus(true);
 }
 
 void Tabbed_Component_Tables::scroll_to_row(const bool scrolling_in_log, const int row_num) {
