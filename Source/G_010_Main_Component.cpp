@@ -85,7 +85,7 @@ bool Main_Component::keyPressed(const KeyPress& key) {
         set_message_in_slot(msg_bytes, 0);
     }
     if (key == KeyPress{ '1', ModifierKeys::altModifier, 0 }) {
-       devices.transmit_stored_message(0);
+       devices.send_stored_message(0);
     }
     return false;
 }

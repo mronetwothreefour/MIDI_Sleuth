@@ -1,6 +1,8 @@
 #include "G_030_Component_MIDI_Message_Slots.h"
 
-inline Component_MIDI_Message_Slots::Component_MIDI_Message_Slots(Data_Hub* hub, Component_MIDI_Devices* devices) :
+#include "C_000_GUI_Constants.h"
+
+Component_MIDI_Message_Slots::Component_MIDI_Message_Slots(Data_Hub* hub, Component_MIDI_Devices* devices) :
 	msg_slot_0{ 0, hub, devices},
 	msg_slot_1{ 1, hub, devices},
 	msg_slot_2{ 2, hub, devices},

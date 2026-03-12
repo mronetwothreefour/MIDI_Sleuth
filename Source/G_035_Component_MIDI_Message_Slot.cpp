@@ -12,7 +12,7 @@ Component_MIDI_Message_Slot::Component_MIDI_Message_Slot(int slot_num, Data_Hub*
 	addAndMakeVisible(btn_edit);
 
 	btn_send.setBounds(XYWH::msg_slot_btn_send);
-	btn_send.onClick = [this, devices, slot_num] { devices->transmit_stored_message(slot_num); };
+	btn_send.onClick = [this, devices, slot_num] { devices->send_stored_message(slot_num); };
 	btn_send.addShortcut(KeyPress{ 0x31 + slot_num, ModifierKeys::ctrlModifier, 0 });
 	addAndMakeVisible(btn_send);
 

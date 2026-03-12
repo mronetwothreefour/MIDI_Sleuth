@@ -36,7 +36,7 @@ private: void update_device_lists();
 private: void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& msg) override;
 private: void handleAsyncUpdate() override;
 private: void send_to_outputs(const MidiMessage& msg);
-public: void transmit_stored_message(const int slot_index);
+public: void send_stored_message(const int slot_index);
 public: void stop_and_reset_all();
 public: ~Component_MIDI_Devices();
 

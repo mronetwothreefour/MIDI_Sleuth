@@ -35,7 +35,7 @@ const Font button{ Create_Font::with_typeface_and_point_height(type_bold, 15.0f)
 const Font device_list{ Create_Font::with_typeface_and_point_height(type_semibold, 14.0f) };
 const Font device_list_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font filter_label{ Create_Font::with_typeface_and_point_height(type_bold, 14.0f) };
-const Font msg_slot_header{ Create_Font::with_typeface_and_point_height(type_bold, 18.0f) };
+const Font msg_slot_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font table{ Create_Font::with_typeface_and_point_height(type_regular, 12.0f) };
 const Font table_header{ Create_Font::with_typeface_and_point_height(type_semibold, 12.0f) };
 const Font table_byte_header{ Create_Font::with_typeface_and_point_height(type_semibold, 9.0f) };
@@ -59,7 +59,7 @@ constexpr int msg_slots_y{ 163 };
 constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
 constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
 
-static const Rectangle<int> msg_slot_lbl       { 0  , 0  , 60 , 30  };
+static const Rectangle<int> msg_slot_lbl       { 0  , 0  , 130, 30  };
 static const Rectangle<int> msg_slot_btn_edit  { 0  , 25 , 60 , 30  };
 static const Rectangle<int> msg_slot_btn_send  { 70 , 25 , 60 , 30  };
 	

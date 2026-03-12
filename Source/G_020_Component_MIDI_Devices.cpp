@@ -162,7 +162,7 @@ void Component_MIDI_Devices::send_to_outputs(const MidiMessage& msg) {
             output->out_device->sendMessageNow(msg);
 }
 
-void Component_MIDI_Devices::transmit_stored_message(const int slot_index) {
+void Component_MIDI_Devices::send_stored_message(const int slot_index) {
     if (slot_index < 5) {
         auto& msg_string = message_in_slot(slot_index);
         if (msg_string.isNotEmpty()) {
