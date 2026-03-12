@@ -61,6 +61,14 @@
             file="Source/G_025_List_MIDI_Devices.h"/>
       <FILE id="tINJPR" name="G_027_Delegate_MIDI_Device.h" compile="0" resource="0"
             file="Source/G_027_Delegate_MIDI_Device.h"/>
+      <FILE id="RO7d0j" name="G_030_Component_MIDI_Message_Slots.cpp" compile="1"
+            resource="0" file="Source/G_030_Component_MIDI_Message_Slots.cpp"/>
+      <FILE id="Twws6N" name="G_030_Component_MIDI_Message_Slots.h" compile="0"
+            resource="0" file="Source/G_030_Component_MIDI_Message_Slots.h"/>
+      <FILE id="G0Jy6C" name="G_035_Component_MIDI_Message_Slot.cpp" compile="1"
+            resource="0" file="Source/G_035_Component_MIDI_Message_Slot.cpp"/>
+      <FILE id="DWL5gr" name="G_035_Component_MIDI_Message_Slot.h" compile="0"
+            resource="0" file="Source/G_035_Component_MIDI_Message_Slot.h"/>
       <FILE id="OUzx2d" name="G_050_Component_Filter_Toggles.cpp" compile="1"
             resource="0" file="Source/G_050_Component_Filter_Toggles.cpp"/>
       <FILE id="o37pA2" name="G_050_Component_Filter_Toggles.h" compile="0"
