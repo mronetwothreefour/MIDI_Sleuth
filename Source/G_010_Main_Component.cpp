@@ -5,12 +5,15 @@ using namespace XYWH;
 Main_Component::Main_Component(Data_Hub* hub) :
     Data_User{ hub },
     devices{ hub },
+    msg_slots{ hub, &devices },
     filter_toggles{ hub },
     tabs_message_logs{ hub },
     btn_clear("Clear Log"),
     btn_reset("Reset All")
 {
     addAndMakeVisible(devices);
+
+    addAndMakeVisible(msg_slots);
 
     addAndMakeVisible(filter_toggles);
 
@@ -43,6 +46,7 @@ void Main_Component::resized() {
     auto flex_x = margin;
     if (can_widen_components)
         flex_x = (win_w - main_win_components_min_w) / 2;
+    msg_slots.setBounds(flex_x, msg_slots_y, msg_slots_w, msg_slots_h);
     filter_toggles.setBounds(flex_x, filters_y, filters_w, filters_h);
     auto log_area_h = log_area_min_h;
     auto components_h = main_win_components_min_h;

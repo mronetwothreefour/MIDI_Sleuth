@@ -48,7 +48,6 @@ namespace XYWH
 constexpr int btn_clear_reset_w{ 80 }, btn_clear_reset_h{ 30 };
 constexpr int device_list_min_w{ 395 }, device_list_h{ 100 };
 constexpr int lbl_device_list_h{ 25 };
-constexpr int lbl_msg_slot_w{ 130 }, lbl_msg_slot_h{ 25 };
 constexpr int log_area_y{ 270 };
 constexpr int log_area_min_w{ 810 }, log_area_min_h{ 325 };
 constexpr int main_win_components_min_w{ 810 }, main_win_components_min_h{ 615 };
