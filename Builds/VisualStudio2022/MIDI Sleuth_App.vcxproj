@@ -2948,6 +2948,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Source\C_000_____CONSTANTS_____.h"/>
     <ClInclude Include="..\..\Source\C_000_GUI_Constants.h"/>
+    <ClInclude Include="..\..\Source\C_010_Enums.h"/>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h"/>
     <ClInclude Include="..\..\Source\D_000_Tree_MIDI_Messages.h"/>
     <ClInclude Include="..\..\Source\D_005_Util_Build_Message_Description.h"/>

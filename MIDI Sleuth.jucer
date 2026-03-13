@@ -19,6 +19,7 @@
             file="Source/C_000_____CONSTANTS_____.h"/>
       <FILE id="tHnURa" name="C_000_GUI_Constants.h" compile="0" resource="0"
             file="Source/C_000_GUI_Constants.h"/>
+      <FILE id="NUzFSp" name="C_010_Enums.h" compile="0" resource="0" file="Source/C_010_Enums.h"/>
       <FILE id="hSe21B" name="D_000_____DATA_____.h" compile="0" resource="0"
             file="Source/D_000_____DATA_____.h"/>
       <FILE id="SkB2OE" name="D_000_Tree_MIDI_Messages.cpp" compile="1" resource="0"

@@ -3,7 +3,10 @@
 #include <JuceHeader.h>
 
 #include "C_000_GUI_Constants.h"
+#include "C_010_Enums.h"
 #include "D_050_Data_Hub.h"
+
+using namespace ENUM;
 
 class Data_User
 {
@@ -11,15 +14,6 @@ protected: Data_Hub* hub;
 protected: Tree_MIDI_Messages* in_log;
 protected: Tree_MIDI_Messages* out_log;
 protected: Tree_MIDI_Messages* compare;
-
-protected: const enum Message_Type
-{
-	note_on_off = 1,
-	aftertouch_pitch_bend = 2,
-	ctrl_change = 4,
-	pgm_change = 8,
-	sysex = 16
-};
 
 //==============================================================================
 public: explicit Data_User(Data_Hub* hub);

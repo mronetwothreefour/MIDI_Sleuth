@@ -3702,6 +3702,9 @@
     <ClInclude Include="..\..\Source\C_000_GUI_Constants.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\C_010_Enums.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
