@@ -4,7 +4,8 @@ Data_User::Data_User(Data_Hub* hub) :
 	hub{ hub },
 	in_log{ hub->get_tree_in_log() },
 	out_log{ hub->get_tree_out_log() },
-	compare{ hub->get_tree_compare() }
+	compare{ hub->get_tree_compare() },
+	cmd_mngr{ hub->get_command_manager() }
 {
 }
 

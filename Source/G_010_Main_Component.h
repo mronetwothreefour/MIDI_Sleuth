@@ -11,7 +11,8 @@
 
 class Main_Component final :
     public Component,
-    public Data_User
+    public Data_User,
+    public ApplicationCommandTarget
 {
 private: Component_MIDI_Devices devices;
 private: Component_MIDI_Message_Slots msg_slots;
@@ -27,6 +28,11 @@ public: explicit Main_Component(Data_Hub* hub);
 public: void resized() override;
 private: void clear_visible_message_log();
 public: bool keyPressed(const KeyPress& key) override;
+public: ApplicationCommandTarget* getNextCommandTarget() override;
+public: void getAllCommands(Array<int>& cmd_list) override;
+public: void getCommandInfo(int cmd, ApplicationCommandInfo& info) override;
+public: bool perform(const InvocationInfo& info) override;
+public: ~Main_Component();
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Main_Component)

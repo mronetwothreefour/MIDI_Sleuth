@@ -14,6 +14,7 @@ protected: Data_Hub* hub;
 protected: Tree_MIDI_Messages* in_log;
 protected: Tree_MIDI_Messages* out_log;
 protected: Tree_MIDI_Messages* compare;
+protected: ApplicationCommandManager& cmd_mngr;
 
 //==============================================================================
 public: explicit Data_User(Data_Hub* hub);

@@ -26,6 +26,10 @@ StringArray& Data_Hub::get_message_slots() {
     return message_slots;
 }
 
+ApplicationCommandManager& Data_Hub::get_command_manager() {
+    return command_manager;
+}
+
 Data_Hub::~Data_Hub() {
     tree_in_log = nullptr;
     tree_out_log = nullptr;

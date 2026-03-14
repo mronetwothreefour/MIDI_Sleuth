@@ -29,10 +29,16 @@ Main_Component::Main_Component(Data_Hub* hub) :
     btn_reset.setTooltip("Send all notes off to all channels,\nthen stop and reset all devices.");
     addAndMakeVisible(btn_reset);
 
+    cmd_mngr.registerAllCommandsForTarget(this);
+    cmd_mngr.setFirstCommandTarget(&tabs_message_logs);
+    addKeyListener(cmd_mngr.getKeyMappings());
+
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);
 
     setSize(main_win_init_w, main_win_init_h);
+
+    Timer::callAfterDelay(100, [this] { grabKeyboardFocus(); });
 }
 
 void Main_Component::resized() {
@@ -81,5 +87,23 @@ bool Main_Component::keyPressed(const KeyPress& key) {
     if (key == KeyPress{ 'o', ModifierKeys::altModifier, 0 })
         tabs_message_logs.setCurrentTabIndex(1);
     return false;
+}
+
+ApplicationCommandTarget* Main_Component::getNextCommandTarget() {
+    return nullptr;
+}
+
+void Main_Component::getAllCommands(Array<int>& /*cmd_list*/) {
+}
+
+void Main_Component::getCommandInfo(int /*cmd*/, ApplicationCommandInfo& /*info*/) {
+}
+
+bool Main_Component::perform(const InvocationInfo& /*info*/) {
+    return false;
+}
+
+Main_Component::~Main_Component() {
+    cmd_mngr.setFirstCommandTarget(nullptr);
 }
 
