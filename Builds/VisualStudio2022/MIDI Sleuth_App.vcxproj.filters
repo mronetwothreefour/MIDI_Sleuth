@@ -3762,6 +3762,9 @@
     <ClInclude Include="..\..\Source\G_110_Delegate_Data_Byte.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\G_120_Popup_Menu_Table.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClInclude>

@@ -27,6 +27,7 @@ public: Component* refreshComponentForCell(int row_num, int col_num, bool is_sel
 public: void resized() override;
 private: void valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) override;
 private: void valueTreeChildRemoved(ValueTree& parent_tree, ValueTree& row, int row_index) override;
+private: void cellClicked(int row_num, int col_num, const MouseEvent& e) override;
 public: ~Table_MIDI_Message_Log();
 
 //==============================================================================

@@ -3,6 +3,7 @@
 #include "C_000_GUI_Constants.h"
 #include "G_090_Header_MIDI_Message_Log.h"
 #include "G_110_Delegate_Data_Byte.h"
+#include "G_120_Popup_Menu_Table.h"
 
 Table_MIDI_Message_Log::Table_MIDI_Message_Log(Tree_MIDI_Messages* message_log) :
 	message_log{ message_log }
@@ -88,6 +89,15 @@ void Table_MIDI_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTr
 
 void Table_MIDI_Message_Log::valueTreeChildRemoved(ValueTree& /*parent_tree*/, ValueTree& /*row*/, int /*row_index*/) {
 	table.updateContent();
+}
+
+void Table_MIDI_Message_Log::cellClicked(int row_num, int col_num, const MouseEvent& e) {
+	if (e.mods == ModifierKeys::rightButtonModifier) {
+		Popup_Menu_Table menu;
+		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_num, row_num)));
+	}
+	else
+		TableListBoxModel::cellClicked(row_num, col_num, e);
 }
 
 Table_MIDI_Message_Log::~Table_MIDI_Message_Log() {
