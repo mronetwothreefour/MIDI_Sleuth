@@ -18,6 +18,7 @@ public: Popup_Menu_Table(Data_Hub* hub) :
 	PopupMenu submenu_store_msg;
 	for (int i = 0; i < 5; ++i)
 		submenu_store_msg.addCommandItem(&cmd_mngr, store_msg_in_slot_1 + i);
+	addSubMenu("Store last-selected message in", submenu_store_msg);
 }
 
 //==============================================================================

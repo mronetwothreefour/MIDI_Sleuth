@@ -181,6 +181,7 @@ void Component_MIDI_Devices::send_stored_message(const int slot_index) {
             if (msg_size > 3)
                 msg = MidiMessage{ &msg_data, (int)msg_data.size(), timestamp };
             send_to_outputs(msg);
+            out_log->log_message(msg);
         }
     }
 }

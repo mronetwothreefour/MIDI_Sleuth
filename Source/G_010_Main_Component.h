@@ -27,7 +27,6 @@ public: explicit Main_Component(Data_Hub* hub);
 
 public: void resized() override;
 private: void clear_visible_message_log();
-public: bool keyPressed(const KeyPress& key) override;
 public: ApplicationCommandTarget* getNextCommandTarget() override;
 public: void getAllCommands(Array<int>& cmd_list) override;
 public: void getCommandInfo(int cmd, ApplicationCommandInfo& info) override;

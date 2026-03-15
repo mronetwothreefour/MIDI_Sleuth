@@ -81,14 +81,6 @@ void Main_Component::clear_visible_message_log() {
     }
 }
 
-bool Main_Component::keyPressed(const KeyPress& key) {
-    if (key == KeyPress{ 'i', ModifierKeys::altModifier, 0 })
-        tabs_message_logs.setCurrentTabIndex(0);
-    if (key == KeyPress{ 'o', ModifierKeys::altModifier, 0 })
-        tabs_message_logs.setCurrentTabIndex(1);
-    return false;
-}
-
 ApplicationCommandTarget* Main_Component::getNextCommandTarget() {
     return nullptr;
 }
@@ -104,6 +96,7 @@ bool Main_Component::perform(const InvocationInfo& /*info*/) {
 }
 
 Main_Component::~Main_Component() {
+    removeKeyListener(cmd_mngr.getKeyMappings());
     cmd_mngr.setFirstCommandTarget(nullptr);
 }
 

@@ -16,6 +16,7 @@ Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages
 	table.setHeaderHeight(21);
 	header = static_cast<Header_MIDI_Message_Log*>(&table.getHeader());
 	message_log->add_listener(this);
+	cmd_mngr.registerAllCommandsForTarget(this);
 }
 
 int Table_MIDI_Message_Log::getNumRows() {
@@ -106,12 +107,33 @@ ApplicationCommandTarget* Table_MIDI_Message_Log::getNextCommandTarget() {
 }
 
 void Table_MIDI_Message_Log::getAllCommands(Array<int>& cmd_list) {
+	cmd_list.add(store_msg_in_slot_1,
+				 store_msg_in_slot_2,
+				 store_msg_in_slot_3,
+				 store_msg_in_slot_4,
+				 store_msg_in_slot_5);
 }
 
 void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
+	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
+		auto slot_num = cmd - 3;
+		String slot{ slot_num };
+		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
+		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier);
+	}
 }
 
 bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
+	auto cmd = info.commandID;
+	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
+		auto row_num = table.getLastRowSelected();
+		if (row_num > -1) {
+			auto slot_num = cmd - 4;
+			auto msg = message_log->entry_bytes(row_num);
+			set_message_in_slot(msg, slot_num);
+			return true;
+		}
+	}
 	return false;
 }
 
