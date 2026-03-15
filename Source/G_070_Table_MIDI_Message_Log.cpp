@@ -5,7 +5,8 @@
 #include "G_110_Delegate_Data_Byte.h"
 #include "G_120_Popup_Menu_Table.h"
 
-Table_MIDI_Message_Log::Table_MIDI_Message_Log(Tree_MIDI_Messages* message_log) :
+Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log) :
+	Data_User{ hub },
 	message_log{ message_log }
 {
 	addAndMakeVisible(table);
@@ -93,11 +94,25 @@ void Table_MIDI_Message_Log::valueTreeChildRemoved(ValueTree& /*parent_tree*/, V
 
 void Table_MIDI_Message_Log::cellClicked(int row_num, int col_num, const MouseEvent& e) {
 	if (e.mods == ModifierKeys::rightButtonModifier) {
-		Popup_Menu_Table menu;
+		Popup_Menu_Table menu{ hub };
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_num, row_num)));
 	}
 	else
 		TableListBoxModel::cellClicked(row_num, col_num, e);
+}
+
+ApplicationCommandTarget* Table_MIDI_Message_Log::getNextCommandTarget() {
+	return findFirstTargetParentComponent();
+}
+
+void Table_MIDI_Message_Log::getAllCommands(Array<int>& cmd_list) {
+}
+
+void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
+}
+
+bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
+	return false;
 }
 
 Table_MIDI_Message_Log::~Table_MIDI_Message_Log() {

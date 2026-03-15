@@ -3,8 +3,8 @@
 Tabbed_Component_Tables::Tabbed_Component_Tables(Data_Hub* hub) :
 	TabbedComponent{ TabbedButtonBar::TabsAtBottom },
 	Data_User{ hub },
-	tab_in_log{ in_log },
-	tab_out_log{ out_log }
+	tab_in_log{ hub, in_log },
+	tab_out_log{ hub, out_log }
 {
 	setTabBarDepth(XYWH::tab_h);
 	addTab("Incoming", COLOR::list_background, &tab_in_log, true);
@@ -28,7 +28,14 @@ const String Tabbed_Component_Tables::get_bytes_for_selected_row_in_current_tab(
 }
 
 ApplicationCommandTarget* Tabbed_Component_Tables::getNextCommandTarget() {
-	return findFirstTargetParentComponent();
+	switch (getCurrentTabIndex()) {
+	case Tab::incoming:
+		return &tab_in_log;
+	case Tab::outgoing:
+		return &tab_out_log;
+	default:
+		return findFirstTargetParentComponent();
+	}
 }
 
 void Tabbed_Component_Tables::getAllCommands(Array<int>& cmd_list) {
