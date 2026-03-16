@@ -5,7 +5,8 @@
 Delegate_Data_Byte::Delegate_Data_Byte(const int row_num, const int col_num, Tree_MIDI_Messages* message_log) :
 	row_num{ row_num },
 	col_num{ col_num },
-	message_log{ message_log }
+	message_log{ message_log },
+	hilighted{ false }
 {
 	auto i = (col_num - 5) * 2;
 	auto bytes_string = message_log->entry_bytes(row_num);
@@ -24,10 +25,16 @@ Delegate_Data_Byte::Delegate_Data_Byte(const int row_num, const int col_num, Tre
 	setTooltip(tooltip);
 }
 
+void Delegate_Data_Byte::set_hilighted(const bool should_be_hilighted) {
+	hilighted = should_be_hilighted;
+}
+
 inline void Delegate_Data_Byte::paint(Graphics& g) {
-	auto i = (col_num - 5) * 2;
+	if (hilighted)
+		g.fillAll(COLOR::hilite_data_byte);
+	auto byte_index = (col_num - 1) * 2;
 	auto bytes_string = message_log->entry_bytes(row_num);
-	auto text = bytes_string.substring(i, i + 2);
+	auto text = bytes_string.substring(byte_index, byte_index + 2);
 	g.setColour(COLOR::text);
 	g.setFont(FONT::table);
 	auto w = getWidth();

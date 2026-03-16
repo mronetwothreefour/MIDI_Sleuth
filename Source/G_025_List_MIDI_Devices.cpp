@@ -20,7 +20,7 @@ int List_MIDI_Devices::getNumRows() {
 
 void List_MIDI_Devices::paintListBoxItem(int row, Graphics& g, int w, int h, bool row_is_selected) {
     if (row_is_selected)
-        g.fillAll(COLOR::highlight);
+        g.fillAll(COLOR::hilite);
     g.setColour(COLOR::text);
     g.setFont(FONT::device_list);
     if (is_input_list) {

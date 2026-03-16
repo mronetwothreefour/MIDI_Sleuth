@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\Source\A_000_Main_Application.cpp"/>
     <ClCompile Include="..\..\Source\D_000_Tree_MIDI_Messages.cpp"/>
     <ClCompile Include="..\..\Source\D_005_Util_Build_Message_Description.cpp"/>
+    <ClCompile Include="..\..\Source\D_010_Util_MIDI.cpp"/>
     <ClCompile Include="..\..\Source\D_050_Data_Hub.cpp"/>
     <ClCompile Include="..\..\Source\D_100_Data_User.cpp"/>
     <ClCompile Include="..\..\Source\G_000_Main_Window.cpp"/>
@@ -2952,6 +2953,7 @@
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h"/>
     <ClInclude Include="..\..\Source\D_000_Tree_MIDI_Messages.h"/>
     <ClInclude Include="..\..\Source\D_005_Util_Build_Message_Description.h"/>
+    <ClInclude Include="..\..\Source\D_010_Util_MIDI.h"/>
     <ClInclude Include="..\..\Source\D_050_Data_Hub.h"/>
     <ClInclude Include="..\..\Source\D_100_Data_User.h"/>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h"/>

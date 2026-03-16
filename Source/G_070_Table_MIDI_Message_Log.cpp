@@ -1,18 +1,20 @@
 #include "G_070_Table_MIDI_Message_Log.h"
 
 #include "C_000_GUI_Constants.h"
+#include "D_010_Util_MIDI.h"
 #include "G_090_Header_MIDI_Message_Log.h"
 #include "G_110_Delegate_Data_Byte.h"
 #include "G_120_Popup_Menu_Table.h"
 
-Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log) :
+Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log, const bool not_compare_table) :
 	Data_User{ hub },
-	message_log{ message_log }
+	message_log{ message_log },
+	not_compare_table{ not_compare_table }
 {
 	addAndMakeVisible(table);
 	table.setModel(this);
 	table.setMultipleSelectionEnabled(true);
-	table.setHeader(std::unique_ptr<Header_MIDI_Message_Log>{ new Header_MIDI_Message_Log{} });
+	table.setHeader(std::unique_ptr<Header_MIDI_Message_Log>{ new Header_MIDI_Message_Log{ not_compare_table } });
 	table.setHeaderHeight(21);
 	header = static_cast<Header_MIDI_Message_Log*>(&table.getHeader());
 	message_log->add_listener(this);
@@ -21,6 +23,21 @@ Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages
 
 int Table_MIDI_Message_Log::getNumRows() {
 	return message_log->number_of_rows();
+}
+
+void Table_MIDI_Message_Log::compare_selected_messages() {
+	auto selection = table.getSelectedRows();
+	if (selection.size() > 1) {
+		Array<MidiMessage> messages{};
+		for (int i = 0; i < selection.size(); ++i) {
+			auto bytes_string = message_log->entry_bytes(selection[i]);
+			messages.add(Util_MIDI::convert_hex_string_to_MIDI_message(bytes_string));
+		}
+		compare->clear_tree();
+		for (auto& msg : messages) {
+			compare->log_message(msg);
+		}
+	}
 }
 
 const String Table_MIDI_Message_Log::get_bytes_for_first_selected_row() {
@@ -34,7 +51,7 @@ void Table_MIDI_Message_Log::scroll_to_row(const int row_num) {
 
 void Table_MIDI_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
 	if (is_selected)
-		g.fillAll(Colour{ 0xff333333 });
+		g.fillAll(COLOR::hilite);
 }
 
 void Table_MIDI_Message_Log::paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool /*is_selected*/) {
@@ -60,10 +77,22 @@ void Table_MIDI_Message_Log::paintCell(Graphics& g, int row_num, int col_num, in
 }
 
 Component* Table_MIDI_Message_Log::refreshComponentForCell(int row_num, int col_num, bool /*is_selected*/, Component* c) {
-	if (col_num > 4) {
+	auto byte_col_num = col_num;
+	byte_col_num -= not_compare_table ? 4 : 1;
+	if (byte_col_num > 0) {
 		auto* cell_data_byte{ static_cast<Delegate_Data_Byte*>(c) };
 		if (cell_data_byte == nullptr)
-			cell_data_byte = new Delegate_Data_Byte{ row_num, col_num, message_log };
+			cell_data_byte = new Delegate_Data_Byte{ row_num, byte_col_num, message_log };
+		if (!not_compare_table && row_num > 0) {
+			auto entry_bytes = compare->entry_bytes(row_num);
+			auto prev_entry_bytes = compare->entry_bytes(row_num - 1);
+			if (prev_entry_bytes.length() == entry_bytes.length()) {
+				auto byte_index = (byte_col_num - 1) * 2;
+				auto byte_val = entry_bytes.substring(byte_index, byte_index + 2).getHexValue32();
+				auto prev_byte_val = prev_entry_bytes.substring(byte_index, byte_index + 2).getHexValue32();
+				cell_data_byte->set_hilighted(byte_val != prev_byte_val);
+			}
+		}
 		return cell_data_byte;
 	}
 	return c;
@@ -111,7 +140,8 @@ void Table_MIDI_Message_Log::getAllCommands(Array<int>& cmd_list) {
 				 store_msg_in_slot_2,
 				 store_msg_in_slot_3,
 				 store_msg_in_slot_4,
-				 store_msg_in_slot_5);
+				 store_msg_in_slot_5,
+				 compare_messages);
 }
 
 void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -120,6 +150,10 @@ void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& inf
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
 		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier);
+	}
+	if (cmd == compare_messages) {
+		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
+		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
 	}
 }
 
@@ -133,6 +167,12 @@ bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
 			set_message_in_slot(msg, slot_num);
 			return true;
 		}
+	}
+	if (cmd == compare_messages) 	{
+		compare_selected_messages();
+		if (not_compare_table)
+			cmd_mngr.invokeDirectly(show_tab_compare, true);
+		return true;
 	}
 	return false;
 }

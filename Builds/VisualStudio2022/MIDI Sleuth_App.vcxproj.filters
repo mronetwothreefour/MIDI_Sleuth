@@ -694,6 +694,9 @@
     <ClCompile Include="..\..\Source\D_005_Util_Build_Message_Description.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\D_010_Util_MIDI.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\D_050_Data_Hub.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -3712,6 +3715,9 @@
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\D_005_Util_Build_Message_Description.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\D_010_Util_MIDI.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\D_050_Data_Hub.h">

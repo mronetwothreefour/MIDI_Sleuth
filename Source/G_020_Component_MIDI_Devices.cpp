@@ -1,5 +1,7 @@
 #include "G_020_Component_MIDI_Devices.h"
 
+#include "D_010_Util_MIDI.h"
+
 Component_MIDI_Devices::Component_MIDI_Devices(Data_Hub* hub) :
 	Data_User{ hub },
     in_selector{ new List_MIDI_Devices{ "Midi Input Selector", this, true } },
@@ -166,20 +168,7 @@ void Component_MIDI_Devices::send_stored_message(const int slot_index) {
     if (slot_index < 5) {
         auto& msg_string = message_in_slot(slot_index);
         if (msg_string.isNotEmpty()) {
-            std::vector<uint8> msg_data;
-            for (auto i = 0; i < msg_string.length(); i += 2) {
-                auto byte_string{ msg_string.substring(i, i + 2) };
-                msg_data.push_back((uint8)byte_string.getHexValue32());
-            }
-            auto msg_size = msg_data.size();
-            auto timestamp = Time::getMillisecondCounterHiRes() * 0.001;
-            MidiMessage msg{};
-            if (msg_size == 2)
-                msg = MidiMessage{ msg_data[0], msg_data[1], timestamp };
-            if (msg_size == 3)
-                msg = MidiMessage{ msg_data[0], msg_data[1], msg_data[2], timestamp };
-            if (msg_size > 3)
-                msg = MidiMessage{ &msg_data, (int)msg_data.size(), timestamp };
+            auto msg = Util_MIDI::convert_hex_string_to_MIDI_message(msg_string);
             send_to_outputs(msg);
             out_log->log_message(msg);
         }

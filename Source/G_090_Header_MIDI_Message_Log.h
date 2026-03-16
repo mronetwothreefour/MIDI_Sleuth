@@ -5,8 +5,10 @@
 class Header_MIDI_Message_Log :
 	public TableHeaderComponent
 {
+private: const bool not_compare_table;
+
 //==============================================================================
-public: Header_MIDI_Message_Log();
+public: explicit Header_MIDI_Message_Log(const bool not_compare_table);
 
 public: const int byte_column_count();
 public: void add_data_byte_column(int byte_num);

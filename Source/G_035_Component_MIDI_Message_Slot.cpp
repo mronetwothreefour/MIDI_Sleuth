@@ -9,7 +9,7 @@ Component_MIDI_Message_Slot::Component_MIDI_Message_Slot(int slot_num, Data_Hub*
 {
 	auto slot_string = String{ slot_num + 1 };
 	btn_edit.setBounds(XYWH::msg_slot_btn_edit);
-	btn_edit.addShortcut(KeyPress{ 0x31 + slot_num, ModifierKeys::ctrlAltCommandModifiers, 0 });
+	btn_edit.addShortcut(KeyPress{ 0x31 + slot_num, ModifierKeys::ctrlModifier | ModifierKeys::altModifier, 0 });
 	btn_edit.setTooltip("Open an editor for the\nmessage stored in slot " + slot_string + ".\nShortcut: Ctrl + Alt + " + slot_string);
 	addAndMakeVisible(btn_edit);
 

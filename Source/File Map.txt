@@ -5,6 +5,7 @@ C_010_Enums
 D_000_____DATA_____
 D_000_Tree_MIDI_Messages
 D_005_Util_Build_Message_Description
+D_010_Util_MIDI
 D_050_Data_Hub
 D_100_Data_User
 G_000_____GUI_____

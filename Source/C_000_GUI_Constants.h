@@ -8,7 +8,8 @@ namespace COLOR
 const Colour background{ 0xff202020 };
 const Colour button{ 0xff333333 };
 const Colour button_down{ 0xff505050 };
-const Colour highlight{ 0xff333333 };
+const Colour hilite{ 0xff333333 };
+const Colour hilite_data_byte{ 0xff505050 };
 const Colour list_background{ 0xff000000 };
 const Colour outline{ 0xff808080 };
 const Colour text{ 0xffffffff };

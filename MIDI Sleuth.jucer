@@ -30,6 +30,10 @@
             resource="0" file="Source/D_005_Util_Build_Message_Description.cpp"/>
       <FILE id="mTLLAX" name="D_005_Util_Build_Message_Description.h" compile="0"
             resource="0" file="Source/D_005_Util_Build_Message_Description.h"/>
+      <FILE id="LWzZ91" name="D_010_Util_MIDI.cpp" compile="1" resource="0"
+            file="Source/D_010_Util_MIDI.cpp"/>
+      <FILE id="mCYqqm" name="D_010_Util_MIDI.h" compile="0" resource="0"
+            file="Source/D_010_Util_MIDI.h"/>
       <FILE id="ZqMhkc" name="D_050_Data_Hub.cpp" compile="1" resource="0"
             file="Source/D_050_Data_Hub.cpp"/>
       <FILE id="AskEvs" name="D_050_Data_Hub.h" compile="0" resource="0"

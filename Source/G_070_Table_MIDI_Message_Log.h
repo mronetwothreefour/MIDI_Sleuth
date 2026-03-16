@@ -15,13 +15,15 @@ class Table_MIDI_Message_Log :
 	public ApplicationCommandTarget
 {
 private: TableListBox table;
+private: const bool not_compare_table;
 private: Tree_MIDI_Messages* message_log;
 private: Header_MIDI_Message_Log* header;
 
 //==============================================================================
-public: Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log);
+public: Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log, const bool not_compare_table);
 
 public: int getNumRows() override;
+public: void compare_selected_messages();
 public: const String get_bytes_for_first_selected_row();
 public: void scroll_to_row(const int row_num);
 public: void paintRowBackground(Graphics& g, int row_num, int w, int h, bool is_selected) override;
