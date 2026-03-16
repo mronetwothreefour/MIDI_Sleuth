@@ -12,6 +12,11 @@ namespace ENUM
 		store_msg_in_slot_3,
 		store_msg_in_slot_4,
 		store_msg_in_slot_5,
+		copy_msg_no_sep,
+		copy_msg_spc_sep,
+		copy_msg_tab_sep,
+		copy_msg_comma_sep,
+		copy_msg_nl_sep,
 		export_messages,
 		compare_messages,
 		jump_to_byte

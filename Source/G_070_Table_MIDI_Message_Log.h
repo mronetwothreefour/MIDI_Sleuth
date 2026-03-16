@@ -24,6 +24,7 @@ public: Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log, c
 
 public: int getNumRows() override;
 public: void compare_selected_messages();
+public: void separate_msg_bytes(String& msg, const String& separator);
 public: const String get_bytes_for_first_selected_row();
 public: void scroll_to_row(const int row_num);
 public: void paintRowBackground(Graphics& g, int row_num, int w, int h, bool is_selected) override;

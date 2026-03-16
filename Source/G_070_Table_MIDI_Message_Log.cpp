@@ -40,6 +40,17 @@ void Table_MIDI_Message_Log::compare_selected_messages() {
 	}
 }
 
+void Table_MIDI_Message_Log::separate_msg_bytes(String& msg, const String& separator) {
+	if (msg.isNotEmpty()) {
+		String msg_separated{ msg.substring(0, 2) };
+		for (int byte_index = 2; byte_index < msg.length(); byte_index += 2) {
+			msg_separated += separator;
+			msg_separated += msg.substring(byte_index, byte_index + 2);
+		}
+		msg.swapWith(msg_separated);
+	}
+}
+
 const String Table_MIDI_Message_Log::get_bytes_for_first_selected_row() {
 	auto row_num = table.getSelectedRow(0);
 	return message_log->entry_bytes(row_num);
@@ -141,6 +152,11 @@ void Table_MIDI_Message_Log::getAllCommands(Array<int>& cmd_list) {
 				 store_msg_in_slot_3,
 				 store_msg_in_slot_4,
 				 store_msg_in_slot_5,
+				 copy_msg_no_sep,
+				 copy_msg_spc_sep,
+				 copy_msg_comma_sep,
+				 copy_msg_tab_sep,
+				 copy_msg_nl_sep,
 				 compare_messages);
 }
 
@@ -150,6 +166,26 @@ void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& inf
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
 		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier);
+	}
+	if (cmd == copy_msg_no_sep) {
+		info.setInfo("Copy message bytes", "Copy last selected message, no separation between bytes", "Copy Message", 0);
+		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier);
+	}
+	if (cmd == copy_msg_spc_sep) {
+		info.setInfo("Space", "Copy last selected message, bytes separated by spaces", "Copy Message", 0);
+		info.addDefaultKeypress('c', ModifierKeys::shiftModifier);
+	}
+	if (cmd == copy_msg_tab_sep) {
+		info.setInfo("Tab (\\t)", "Copy last selected message, bytes separated by tabs", "Copy Message", 0);
+		info.addDefaultKeypress('c', ModifierKeys::altModifier);
+	}
+	if (cmd == copy_msg_comma_sep) {
+		info.setInfo("Comma", "Copy last selected message, bytes separated by commas", "Copy Message", 0);
+		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier | ModifierKeys::altModifier);
+	}
+	if (cmd == copy_msg_nl_sep) {
+		info.setInfo("Newline (\\n)", "Copy last selected message, bytes separated by newlines", "Copy Message", 0);
+		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier | ModifierKeys::altModifier | ModifierKeys::shiftModifier);
 	}
 	if (cmd == compare_messages) {
 		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
@@ -165,6 +201,22 @@ bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
 			auto slot_num = cmd - 4;
 			auto msg = message_log->entry_bytes(row_num);
 			set_message_in_slot(msg, slot_num);
+			return true;
+		}
+	}
+	if (cmd >= copy_msg_no_sep && cmd <= copy_msg_nl_sep) {
+		auto row_num = table.getLastRowSelected();
+		if (row_num > -1) {
+			auto msg = message_log->entry_bytes(row_num);
+			if (cmd == copy_msg_spc_sep)
+				separate_msg_bytes(msg, " ");
+			if (cmd == copy_msg_tab_sep)
+				separate_msg_bytes(msg, "\t");
+			if (cmd == copy_msg_comma_sep)
+				separate_msg_bytes(msg, ",");
+			if (cmd == copy_msg_nl_sep)
+				separate_msg_bytes(msg, "\n");
+			SystemClipboard::copyTextToClipboard(msg);
 			return true;
 		}
 	}
