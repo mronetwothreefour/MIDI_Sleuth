@@ -18,6 +18,7 @@ private: TableListBox table;
 private: const bool not_compare_table;
 private: Tree_MIDI_Messages* message_log;
 private: Header_MIDI_Message_Log* header;
+private: String target_byte;
 
 //==============================================================================
 public: Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log, const bool not_compare_table);
@@ -27,6 +28,7 @@ public: void compare_selected_messages();
 public: void separate_msg_bytes(String& msg, const String& separator);
 public: const String get_bytes_for_first_selected_row();
 public: void scroll_to_row(const int row_num);
+private: void show_jump_to_byte_dialog();
 public: void paintRowBackground(Graphics& g, int row_num, int w, int h, bool is_selected) override;
 public: void paintCell(Graphics& g, int row_num, int col_num, int w, int h, bool is_selected) override;
 public: Component* refreshComponentForCell(int row_num, int col_num, bool is_selected, Component* c) override;

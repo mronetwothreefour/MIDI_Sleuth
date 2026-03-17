@@ -60,6 +60,24 @@ void Table_MIDI_Message_Log::scroll_to_row(const int row_num) {
 	table.scrollToEnsureRowIsOnscreen(row_num);
 }
 
+void Table_MIDI_Message_Log::show_jump_to_byte_dialog() {
+	Component::SafePointer dialog = new AlertWindow{ "Jump to byte", "", MessageBoxIconType::NoIcon };
+	dialog->addTextEditor("Target", "", "Target byte");
+	auto editor = dialog->getTextEditor("Target");
+	editor->setInputRestrictions(4, "0123456789");
+	editor->onTextChange = [this, editor] { target_byte = editor->getText(); };
+	dialog->addButton("Cancel", 0);
+	dialog->addButton("Go", 1);
+	RectanglePlacement placement{ RectanglePlacement::yMid |
+								  RectanglePlacement::xLeft|
+								  RectanglePlacement::doNotResize };
+	dialog->setBounds(placement.appliedTo(dialog->getBounds(), Desktop::getInstance().getDisplays().getPrimaryDisplay()->userArea.reduced(20)));
+	dialog->enterModalState(true, ModalCallbackFunction::create([this] (int result) {
+								if (result)
+									DBG(target_byte);
+							}), true);
+}
+
 void Table_MIDI_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
 	if (is_selected)
 		g.fillAll(COLOR::hilite);
@@ -158,7 +176,8 @@ void Table_MIDI_Message_Log::getAllCommands(Array<int>& cmd_list) {
 				 copy_msg_comma_sep,
 				 copy_msg_tab_sep,
 				 copy_msg_nl_sep,
-				 compare_messages);
+				 compare_messages,
+				 jump_to_byte);
 }
 
 void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -199,6 +218,10 @@ void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& inf
 		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
 		info.setActive(table.getSelectedRows().size() > 0);
 	}
+	if (cmd == jump_to_byte) {
+		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
+		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
+	}
 }
 
 bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
@@ -232,6 +255,11 @@ bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
 		compare_selected_messages();
 		if (not_compare_table)
 			cmd_mngr.invokeDirectly(show_tab_compare, true);
+		return true;
+	}
+	if (cmd == jump_to_byte) 	{
+		target_byte.clear();
+		show_jump_to_byte_dialog();
 		return true;
 	}
 	return false;
