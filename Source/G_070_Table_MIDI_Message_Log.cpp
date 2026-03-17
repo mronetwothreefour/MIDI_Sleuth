@@ -166,31 +166,38 @@ void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& inf
 		auto slot_num = cmd - 3;
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
-		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier);
+		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == copy_msg_no_sep) {
 		info.setInfo("Copy message bytes", "Copy last selected message, no separation between bytes", "Copy Message", 0);
 		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == copy_msg_spc_sep) {
 		info.setInfo("Space", "Copy last selected message, bytes separated by spaces", "Copy Message", 0);
 		info.addDefaultKeypress(' ', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == copy_msg_tab_sep) {
 		info.setInfo("Tab (\\t)", "Copy last selected message, bytes separated by tabs", "Copy Message", 0);
 		info.addDefaultKeypress('t', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == copy_msg_comma_sep) {
 		info.setInfo("Comma", "Copy last selected message, bytes separated by commas", "Copy Message", 0);
 		info.addDefaultKeypress(',', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == copy_msg_nl_sep) {
 		info.setInfo("Newline (\\n)", "Copy last selected message, bytes separated by newlines", "Copy Message", 0);
 		info.addDefaultKeypress('n', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == compare_messages) {
 		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
 		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 }
 
