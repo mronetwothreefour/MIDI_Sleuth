@@ -174,19 +174,19 @@ void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& inf
 	}
 	if (cmd == copy_msg_spc_sep) {
 		info.setInfo("Space", "Copy last selected message, bytes separated by spaces", "Copy Message", 0);
-		info.addDefaultKeypress('c', ModifierKeys::shiftModifier);
+		info.addDefaultKeypress(' ', ModifierKeys::ctrlModifier);
 	}
 	if (cmd == copy_msg_tab_sep) {
 		info.setInfo("Tab (\\t)", "Copy last selected message, bytes separated by tabs", "Copy Message", 0);
-		info.addDefaultKeypress('c', ModifierKeys::altModifier);
+		info.addDefaultKeypress('t', ModifierKeys::ctrlModifier);
 	}
 	if (cmd == copy_msg_comma_sep) {
 		info.setInfo("Comma", "Copy last selected message, bytes separated by commas", "Copy Message", 0);
-		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier | ModifierKeys::altModifier);
+		info.addDefaultKeypress(',', ModifierKeys::ctrlModifier);
 	}
 	if (cmd == copy_msg_nl_sep) {
 		info.setInfo("Newline (\\n)", "Copy last selected message, bytes separated by newlines", "Copy Message", 0);
-		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier | ModifierKeys::altModifier | ModifierKeys::shiftModifier);
+		info.addDefaultKeypress('n', ModifierKeys::ctrlModifier);
 	}
 	if (cmd == compare_messages) {
 		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
