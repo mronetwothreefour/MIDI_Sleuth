@@ -7,6 +7,7 @@ MS_Look_And_Feel::MS_Look_And_Feel()
 	setColour(DocumentWindow::backgroundColourId, COLOR::background);
 	setColour(ListBox::backgroundColourId, COLOR::list_background);
 	setColour(ListBox::outlineColourId, COLOR::outline);
+	setColour(PopupMenu::backgroundColourId, COLOR::background);
 	setColour(TabbedComponent::backgroundColourId, COLOR::background);
 	setColour(TabbedComponent::outlineColourId, COLOR::outline);
 	setColour(TableHeaderComponent::backgroundColourId, COLOR::list_background);
@@ -30,6 +31,50 @@ void MS_Look_And_Feel::drawButtonText(Graphics& g, TextButton& btn, bool /*hilig
 	g.setFont(FONT::button);
 	g.setColour(COLOR::text);
 	g.drawText(btn.getButtonText(), 0, 0, btn.getWidth(), btn.getHeight(), Justification::centred);
+}
+
+void MS_Look_And_Feel::drawPopupMenuBackground(Graphics& g, int w, int h) {
+	g.fillAll(COLOR::background);
+	g.setColour(COLOR::outline);
+	g.drawRect(0, 0, w, h, 1);
+}
+
+void MS_Look_And_Feel::drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, 
+										 const bool /*is_separator*/, const bool active, 
+										 const bool hilighted, const bool /*ticked*/, 
+										 const bool has_submenu, const String& txt, 
+										 const String& shortcut_txt, const Drawable* /*icon*/, 
+										 const Colour* const /*txt_color*/)
+{
+	auto txt_area = area.reduced(8, 6);
+	if (hilighted && active) {
+		g.setColour(COLOR::hilite);
+		g.fillRect(area.reduced(2, 0));
+	}
+	g.setColour(COLOR::text);
+	if (has_submenu) {
+		txt_area.removeFromRight(5);
+		auto arrow_x = (float)txt_area.getRight();
+		Path path;
+		path.startNewSubPath(arrow_x, 5.5f);
+		path.lineTo(arrow_x + 4.0f, 10.5f);
+		path.lineTo(arrow_x, 15.5f);
+		g.strokePath(path, PathStrokeType(2.0f));
+	}
+	g.setFont(FONT::popup_menu);
+	g.drawFittedText(txt, txt_area, Justification::centredLeft, 1);
+	if (shortcut_txt.isNotEmpty()) {
+		g.setFont(FONT::popup_menu_shortcut);
+		g.drawFittedText(shortcut_txt, txt_area, Justification::centredRight, 1);
+	}
+}
+
+void MS_Look_And_Feel::getIdealPopupMenuItemSize(const String& txt, 
+												 const bool /*is_separator*/, int /*item_h*/, 
+												 int& ideal_w, int& ideal_h)
+{
+	ideal_w = GlyphArrangement::getStringWidthInt(FONT::popup_menu, txt) + 27;
+	ideal_h = 21;
 }
 
 void MS_Look_And_Feel::drawToggleButton(Graphics& g, ToggleButton& tgl, 
@@ -65,7 +110,7 @@ void MS_Look_And_Feel::drawTabButton(TabBarButton& btn, Graphics& g,
 }
 
 void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& /*c*/,
-											 const String& col_name, int col_ID,
+											 const String& col_name, int /*col_ID*/,
 											 int w, int h, bool /*mouse_is_over*/,
 											 bool /*mouse_is_down*/, int /*col_flags*/)
 {

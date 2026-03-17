@@ -37,6 +37,8 @@ const Font device_list{ Create_Font::with_typeface_and_point_height(type_semibol
 const Font device_list_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font filter_label{ Create_Font::with_typeface_and_point_height(type_bold, 14.0f) };
 const Font msg_slot_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
+const Font popup_menu{ Create_Font::with_typeface_and_point_height(type_semibold, 12.0f) };
+const Font popup_menu_shortcut{ Create_Font::with_typeface_and_point_height(type_semibold, 9.0f) };
 const Font tab{ Create_Font::with_typeface_and_point_height(type_bold, 12.0f) };
 const Font table{ Create_Font::with_typeface_and_point_height(type_regular, 12.0f) };
 const Font table_header{ Create_Font::with_typeface_and_point_height(type_semibold, 12.0f) };

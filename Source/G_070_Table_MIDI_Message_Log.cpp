@@ -136,6 +136,7 @@ void Table_MIDI_Message_Log::valueTreeChildRemoved(ValueTree& /*parent_tree*/, V
 void Table_MIDI_Message_Log::cellClicked(int row_num, int col_num, const MouseEvent& e) {
 	if (e.mods == ModifierKeys::rightButtonModifier) {
 		Popup_Menu_Table menu{ hub };
+		menu.setLookAndFeel(&getLookAndFeel());
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_num, row_num)));
 	}
 	else

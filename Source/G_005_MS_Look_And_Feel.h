@@ -12,6 +12,14 @@ public: void drawButtonBackground(Graphics& g, Button& btn, const Colour& backgr
 								  bool hilighted, bool down) override;
 public: void drawButtonText(Graphics& g, TextButton& btn, bool hilighted, bool down) override;
 
+public: void drawPopupMenuBackground(Graphics& g, int w, int h) override;
+public: void drawPopupMenuItem(Graphics& g, const Rectangle<int>& area, const bool is_separator,
+							   const bool active, const bool hilighted, const bool ticked,
+							   const bool has_submenu, const String& txt, const String& shortcut_txt,
+							   const Drawable* icon, const Colour* const txt_color) override;
+public: void getIdealPopupMenuItemSize(const String& txt, const bool is_separator, 
+									   int item_h, int& ideal_w, int& ideal_h) override;
+
 public: void drawToggleButton(Graphics& g, ToggleButton& tgl, bool hilighted, bool down) override;
 public: void drawTickBox(Graphics& g, Component& c, float x, float y, 
 						 float w, float h, const bool ticked, const bool enabled, 
