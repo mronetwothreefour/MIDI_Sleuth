@@ -16,6 +16,9 @@ MS_Look_And_Feel::MS_Look_And_Feel()
 	setColour(TableListBox::backgroundColourId, COLOR::list_background);
 	setColour(TableListBox::outlineColourId, COLOR::outline);
 	setColour(TableListBox::textColourId, COLOR::text);
+	setColour(TextEditor::backgroundColourId, COLOR::txt_editor_background);
+	setColour(TextEditor::textColourId, COLOR::text);
+	setColour(TextEditor::highlightColourId, COLOR::hilite);
 }
 
 void MS_Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, 

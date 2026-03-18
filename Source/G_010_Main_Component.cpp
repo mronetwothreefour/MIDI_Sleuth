@@ -20,12 +20,12 @@ Main_Component::Main_Component(Data_Hub* hub) :
     addAndMakeVisible(tabs_message_logs);
 
     btn_clear.onClick = [this] { clear_visible_message_log();  };
-    btn_clear.setSize(btn_clear_reset_w, btn_clear_reset_h);
+    btn_clear.setSize(btn_clear_reset_w, btn_h);
     btn_clear.setTooltip("Clear all messages from\nthe current log.");
     addAndMakeVisible(btn_clear);
 
     btn_reset.onClick = [this] { devices.stop_and_reset_all();  };
-    btn_reset.setSize(btn_clear_reset_w, btn_clear_reset_h);
+    btn_reset.setSize(btn_clear_reset_w, btn_h);
     btn_reset.setTooltip("Send all notes off to all channels,\nthen stop and reset all devices.");
     addAndMakeVisible(btn_reset);
 

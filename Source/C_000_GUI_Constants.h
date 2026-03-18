@@ -13,6 +13,7 @@ const Colour hilite_data_byte{ 0xff505050 };
 const Colour list_background{ 0xff000000 };
 const Colour outline{ 0xff808080 };
 const Colour text{ 0xffffffff };
+const Colour txt_editor_background{ 0xff000000 };
 const Colour toggle_off{ 0xff000000 };
 const Colour toggle_on{ 0xff606060 };
 
@@ -50,9 +51,11 @@ const Font tooltips{ Create_Font::with_typeface_and_point_height(type_regular, 1
 namespace XYWH
 {
 	
-constexpr int btn_clear_reset_w{ 80 }, btn_clear_reset_h{ 30 };
+constexpr int btn_h{ 30 };
+constexpr int btn_clear_reset_w{ 80 };
 constexpr int device_list_min_w{ 395 }, device_list_h{ 100 };
 constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
+constexpr int jump_to_byte_w{ 170 }, jump_to_byte_h{ 120 };
 constexpr int lbl_device_list_h{ 25 };
 constexpr int log_area_y{ 270 };
 constexpr int log_area_min_w{ 810 }, log_area_min_h{ 325 };
@@ -65,6 +68,11 @@ constexpr int msg_slots_y{ 163 };
 constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
 constexpr int tab_h{ 30 };
 constexpr int tooltip_max_w{ 400 };
+
+static const Rectangle<int> jump_to_byte_lbl        { 20 , 20 , 130, 30  };
+static const Rectangle<int> jump_to_byte_edit       { 20 , 50 , 130, 30  };
+static const Rectangle<int> jump_to_byte_btn_cancel { 20 , 90 , 60 , 30  };
+static const Rectangle<int> jump_to_byte_btn_jump   { 90 , 90 , 60 , 30  };
 
 static const Rectangle<int> msg_slot_lbl       { 0  , 0  , 130, 30  };
 static const Rectangle<int> msg_slot_btn_edit  { 0  , 25 , 60 , 30  };

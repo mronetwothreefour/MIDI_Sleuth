@@ -5,11 +5,13 @@
 #include "G_090_Header_MIDI_Message_Log.h"
 #include "G_110_Delegate_Data_Byte.h"
 #include "G_120_Popup_Menu_Table.h"
+#include "G_130_Dialog_Jump_To_Byte.h"
 
 Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log, const bool not_compare_table) :
 	Data_User{ hub },
 	message_log{ message_log },
-	not_compare_table{ not_compare_table }
+	not_compare_table{ not_compare_table },
+	num_non_byte_columns{ not_compare_table ? 4 : 1 }
 {
 	addAndMakeVisible(table);
 	table.setModel(this);
@@ -60,22 +62,28 @@ void Table_MIDI_Message_Log::scroll_to_row(const int row_num) {
 	table.scrollToEnsureRowIsOnscreen(row_num);
 }
 
+void Table_MIDI_Message_Log::scroll_table_to_byte(const int byte_num) {
+	auto byte_col = byte_num + num_non_byte_columns;
+	auto num_columns = header->getNumColumns(true);
+	if (byte_col >= num_columns)
+		byte_col = num_columns - 1;
+	table.scrollToEnsureColumnIsOnscreen(byte_col);
+}
+
 void Table_MIDI_Message_Log::show_jump_to_byte_dialog() {
-	Component::SafePointer dialog = new AlertWindow{ "Jump to byte", "", MessageBoxIconType::NoIcon };
-	dialog->addTextEditor("Target", "", "Target byte");
-	auto editor = dialog->getTextEditor("Target");
-	editor->setInputRestrictions(4, "0123456789");
-	editor->onTextChange = [this, editor] { target_byte = editor->getText(); };
-	dialog->addButton("Cancel", 0);
-	dialog->addButton("Go", 1);
-	RectanglePlacement placement{ RectanglePlacement::yMid |
-								  RectanglePlacement::xLeft|
-								  RectanglePlacement::doNotResize };
-	dialog->setBounds(placement.appliedTo(dialog->getBounds(), Desktop::getInstance().getDisplays().getPrimaryDisplay()->userArea.reduced(20)));
-	dialog->enterModalState(true, ModalCallbackFunction::create([this] (int result) {
-								if (result)
-									DBG(target_byte);
-							}), true);
+	auto* dialog = new Dialog_Jump_To_Byte{ *this };
+	DialogWindow::LaunchOptions o;
+	o.content.setOwned(dialog);
+	o.dialogTitle = "Jump to byte";
+	o.dialogBackgroundColour = COLOR::background;
+	o.escapeKeyTriggersCloseButton = true;
+	o.useNativeTitleBar = true;
+	o.resizable = false;
+	Component::SafePointer<DialogWindow> dialog_win;
+	dialog_win = o.launchAsync();
+	if (dialog_win != nullptr)
+		dialog_win->setLookAndFeel(&getLookAndFeel());
+		dialog_win->centreAroundComponent(this, dialog->getWidth(), dialog->getHeight());
 }
 
 void Table_MIDI_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {
@@ -107,16 +115,16 @@ void Table_MIDI_Message_Log::paintCell(Graphics& g, int row_num, int col_num, in
 
 Component* Table_MIDI_Message_Log::refreshComponentForCell(int row_num, int col_num, bool /*is_selected*/, Component* c) {
 	auto byte_col_num = col_num;
-	byte_col_num -= not_compare_table ? 4 : 1;
+	byte_col_num -= num_non_byte_columns;
 	if (byte_col_num > 0) {
 		auto* cell_data_byte{ static_cast<Delegate_Data_Byte*>(c) };
 		if (cell_data_byte == nullptr)
 			cell_data_byte = new Delegate_Data_Byte{ row_num, byte_col_num, message_log };
 		if (!not_compare_table && row_num > 0) {
 			auto entry_bytes = compare->entry_bytes(row_num);
-			auto prev_entry_bytes = compare->entry_bytes(row_num - 1);
+			auto prev_entry_bytes = compare->entry_bytes(row_num - num_non_byte_columns);
 			if (prev_entry_bytes.length() == entry_bytes.length()) {
-				auto byte_index = (byte_col_num - 1) * 2;
+				auto byte_index = (byte_col_num - num_non_byte_columns) * 2;
 				auto byte_val = entry_bytes.substring(byte_index, byte_index + 2).getHexValue32();
 				auto prev_byte_val = prev_entry_bytes.substring(byte_index, byte_index + 2).getHexValue32();
 				cell_data_byte->set_hilighted(byte_val != prev_byte_val);
@@ -221,6 +229,7 @@ void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& inf
 	if (cmd == jump_to_byte) {
 		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
 		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
+		//info.setActive(table.getHeader().getNumColumns(true) > 25);
 	}
 }
 

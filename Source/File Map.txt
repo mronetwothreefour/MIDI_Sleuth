@@ -26,3 +26,4 @@ G_090_Header_MIDI_Message_Log
 G_100_Header_MIDI_Message_Compare
 G_110_Delegate_Data_Byte
 G_120_Popup_Menu_Table
+G_130_Dialog_Jump_To_Byte
