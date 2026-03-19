@@ -7,6 +7,8 @@ namespace COLOR
 
 const Colour background{ 0xff202020 };
 const Colour button{ 0xff333333 };
+const Colour button_disabled{ 0xff202020 };
+const Colour button_disabled_txt{ 0xff909090 };
 const Colour button_down{ 0xff505050 };
 const Colour hilite{ 0xff333333 };
 const Colour hilite_data_byte{ 0xff505050 };
@@ -37,6 +39,8 @@ const Font button{ Create_Font::with_typeface_and_point_height(type_bold, 15.0f)
 const Font device_list{ Create_Font::with_typeface_and_point_height(type_semibold, 14.0f) };
 const Font device_list_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font filter_label{ Create_Font::with_typeface_and_point_height(type_bold, 14.0f) };
+const Font jump_to_byte_lbl{ Create_Font::with_typeface_and_point_height(type_semibold, 15.0f) };
+const Font jump_to_byte_edit{ Create_Font::with_typeface_and_point_height(type_regular, 12.0f) };
 const Font msg_slot_header{ Create_Font::with_typeface_and_point_height(type_bold, 17.0f) };
 const Font popup_menu{ Create_Font::with_typeface_and_point_height(type_semibold, 12.0f) };
 const Font popup_menu_shortcut{ Create_Font::with_typeface_and_point_height(type_semibold, 9.0f) };
@@ -55,7 +59,7 @@ constexpr int btn_h{ 30 };
 constexpr int btn_clear_reset_w{ 80 };
 constexpr int device_list_min_w{ 395 }, device_list_h{ 100 };
 constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
-constexpr int jump_to_byte_w{ 170 }, jump_to_byte_h{ 120 };
+constexpr int jump_to_byte_w{ 160 }, jump_to_byte_h{ 115 };
 constexpr int lbl_device_list_h{ 25 };
 constexpr int log_area_y{ 270 };
 constexpr int log_area_min_w{ 810 }, log_area_min_h{ 325 };
@@ -69,10 +73,10 @@ constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
 constexpr int tab_h{ 30 };
 constexpr int tooltip_max_w{ 400 };
 
-static const Rectangle<int> jump_to_byte_lbl        { 20 , 20 , 130, 30  };
-static const Rectangle<int> jump_to_byte_edit       { 20 , 50 , 130, 30  };
-static const Rectangle<int> jump_to_byte_btn_cancel { 20 , 90 , 60 , 30  };
-static const Rectangle<int> jump_to_byte_btn_jump   { 90 , 90 , 60 , 30  };
+static const Rectangle<int> jump_to_byte_lbl        { 15 , 10 , 130, 25  };
+static const Rectangle<int> jump_to_byte_edit       { 15 , 35 , 130, 25  };
+static const Rectangle<int> jump_to_byte_btn_cancel { 15 , 70 , 60 , 30  };
+static const Rectangle<int> jump_to_byte_btn_jump   { 85 , 70 , 60 , 30  };
 
 static const Rectangle<int> msg_slot_lbl       { 0  , 0  , 130, 30  };
 static const Rectangle<int> msg_slot_btn_edit  { 0  , 25 , 60 , 30  };

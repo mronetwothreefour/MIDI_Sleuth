@@ -25,14 +25,17 @@ void MS_Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn,
 											const Colour& /*background*/, 
 											bool /*hilighted*/, bool down)
 {
-	g.fillAll(down ? COLOR::button_down : COLOR::button);
+	if (btn.isEnabled())
+		g.fillAll(down ? COLOR::button_down : COLOR::button);
+	else
+		g.fillAll(COLOR::button_disabled);
 	g.setColour(COLOR::outline);
 	g.drawRect(0, 0, btn.getWidth(), btn.getHeight(), 1);
 }
 
 void MS_Look_And_Feel::drawButtonText(Graphics& g, TextButton& btn, bool /*hilighted*/, bool /*down*/) {
 	g.setFont(FONT::button);
-	g.setColour(COLOR::text);
+	g.setColour(btn.isEnabled() ? COLOR::text : COLOR::button_disabled_txt);
 	g.drawText(btn.getButtonText(), 0, 0, btn.getWidth(), btn.getHeight(), Justification::centred);
 }
 

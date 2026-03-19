@@ -81,9 +81,10 @@ void Table_MIDI_Message_Log::show_jump_to_byte_dialog() {
 	o.resizable = false;
 	Component::SafePointer<DialogWindow> dialog_win;
 	dialog_win = o.launchAsync();
-	if (dialog_win != nullptr)
+	if (dialog_win != nullptr) {
 		dialog_win->setLookAndFeel(&getLookAndFeel());
-		dialog_win->centreAroundComponent(this, dialog->getWidth(), dialog->getHeight());
+		dialog_win->centreAroundComponent(this, XYWH::jump_to_byte_w, XYWH::jump_to_byte_h);
+	}
 }
 
 void Table_MIDI_Message_Log::paintRowBackground(Graphics& g, int /*row_num*/, int /*w*/, int /*h*/, bool is_selected) {

@@ -4,12 +4,15 @@
 
 Dialog_Jump_To_Byte::Dialog_Jump_To_Byte(Table_MIDI_Message_Log& table) :
 	table{ table },
-	btn_cancel{ "Cancel" },
-	btn_jump{ "Jump" }
+	btn_cancel{ "Cancel", "Alt+C or Esc" },
+	btn_jump{ "Jump", "Alt+J or Return" }
 {
 	edit_byte.setBounds(XYWH::jump_to_byte_edit);
-	edit_byte.setFont(FONT::popup_menu);
+	edit_byte.setFont(FONT::jump_to_byte_edit);
+	edit_byte.setInputRestrictions(4, "0123456789");
+	edit_byte.setWantsKeyboardFocus(true);
 	addAndMakeVisible(edit_byte);
+	edit_byte.addListener(this);
 
 	btn_cancel.setBounds(XYWH::jump_to_byte_btn_cancel);
 	btn_cancel.onClick = [this] {
@@ -19,13 +22,11 @@ Dialog_Jump_To_Byte::Dialog_Jump_To_Byte(Table_MIDI_Message_Log& table) :
 		}
 	};
 	btn_cancel.addShortcut(KeyPress{ KeyPress::escapeKey });
-	btn_cancel.addShortcut(KeyPress{ 'c', ModifierKeys::altModifier, 0 });
 	addAndMakeVisible(btn_cancel);
 
 	btn_jump.setBounds(XYWH::jump_to_byte_btn_jump);
 	btn_jump.onClick = [this] { jump_to_byte_and_close(); };
-	btn_jump.addShortcut(KeyPress{ KeyPress::returnKey });
-	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::altModifier, 0 });
+	btn_jump.setEnabled(false);
 	addAndMakeVisible(btn_jump);
 
 	setSize(XYWH::jump_to_byte_w, XYWH::jump_to_byte_h);
@@ -33,18 +34,27 @@ Dialog_Jump_To_Byte::Dialog_Jump_To_Byte(Table_MIDI_Message_Log& table) :
 
 void Dialog_Jump_To_Byte::paint(Graphics& g) {
 	g.setColour(COLOR::text);
-	g.setFont(FONT::msg_slot_header);
-	g.drawText("Target byte", XYWH::jump_to_byte_lbl, Justification::topLeft, false);
+	g.setFont(FONT::jump_to_byte_lbl);
+	g.drawText("Enter byte", XYWH::jump_to_byte_lbl, Justification::topLeft, false);
 }
 
 void Dialog_Jump_To_Byte::jump_to_byte_and_close() {
 	if (DialogWindow* dw = findParentComponentOfClass<DialogWindow>()) {
-		auto num_text = edit_byte.getText();
-		if (num_text.isNotEmpty()) {
-			auto byte_num = num_text.getIntValue();
-			table.scroll_table_to_byte(byte_num);
-		}
+		auto byte_num = edit_byte.getText().getIntValue();
+		table.scroll_table_to_byte(byte_num);
 		dw->exitModalState();
 		dw->escapeKeyPressed();
 	}
+}
+
+void Dialog_Jump_To_Byte::textEditorTextChanged(TextEditor& editor) {
+	btn_jump.setEnabled(editor.getText().isNotEmpty());
+}
+
+void Dialog_Jump_To_Byte::textEditorReturnKeyPressed(TextEditor& /*editor*/) {
+	btn_jump.triggerClick();
+}
+
+Dialog_Jump_To_Byte::~Dialog_Jump_To_Byte() {
+	edit_byte.removeListener(this);
 }
