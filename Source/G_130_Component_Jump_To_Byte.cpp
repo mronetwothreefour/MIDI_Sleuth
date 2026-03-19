@@ -1,8 +1,8 @@
-#include "G_130_Dialog_Jump_To_Byte.h"
+#include "G_130_Component_Jump_To_Byte.h"
 
 #include "C_000_GUI_Constants.h"
 
-Dialog_Jump_To_Byte::Dialog_Jump_To_Byte(Table_MIDI_Message_Log& table) :
+Component_Jump_To_Byte::Component_Jump_To_Byte(Table_MIDI_Message_Log& table) :
 	table{ table },
 	btn_cancel{ "Cancel", "Alt+C or Esc" },
 	btn_jump{ "Jump", "Alt+J or Return" }
@@ -10,7 +10,6 @@ Dialog_Jump_To_Byte::Dialog_Jump_To_Byte(Table_MIDI_Message_Log& table) :
 	edit_byte.setBounds(XYWH::jump_to_byte_edit);
 	edit_byte.setFont(FONT::jump_to_byte_edit);
 	edit_byte.setInputRestrictions(4, "0123456789");
-	edit_byte.setWantsKeyboardFocus(true);
 	addAndMakeVisible(edit_byte);
 	edit_byte.addListener(this);
 
@@ -30,15 +29,17 @@ Dialog_Jump_To_Byte::Dialog_Jump_To_Byte(Table_MIDI_Message_Log& table) :
 	addAndMakeVisible(btn_jump);
 
 	setSize(XYWH::jump_to_byte_w, XYWH::jump_to_byte_h);
+
+	Timer::callAfterDelay(100, [this] { edit_byte.grabKeyboardFocus(); });
 }
 
-void Dialog_Jump_To_Byte::paint(Graphics& g) {
+void Component_Jump_To_Byte::paint(Graphics& g) {
 	g.setColour(COLOR::text);
 	g.setFont(FONT::jump_to_byte_lbl);
 	g.drawText("Enter byte", XYWH::jump_to_byte_lbl, Justification::topLeft, false);
 }
 
-void Dialog_Jump_To_Byte::jump_to_byte_and_close() {
+void Component_Jump_To_Byte::jump_to_byte_and_close() {
 	if (DialogWindow* dw = findParentComponentOfClass<DialogWindow>()) {
 		auto byte_num = edit_byte.getText().getIntValue();
 		table.scroll_table_to_byte(byte_num);
@@ -47,14 +48,14 @@ void Dialog_Jump_To_Byte::jump_to_byte_and_close() {
 	}
 }
 
-void Dialog_Jump_To_Byte::textEditorTextChanged(TextEditor& editor) {
+void Component_Jump_To_Byte::textEditorTextChanged(TextEditor& editor) {
 	btn_jump.setEnabled(editor.getText().isNotEmpty());
 }
 
-void Dialog_Jump_To_Byte::textEditorReturnKeyPressed(TextEditor& /*editor*/) {
+void Component_Jump_To_Byte::textEditorReturnKeyPressed(TextEditor& /*editor*/) {
 	btn_jump.triggerClick();
 }
 
-Dialog_Jump_To_Byte::~Dialog_Jump_To_Byte() {
+Component_Jump_To_Byte::~Component_Jump_To_Byte() {
 	edit_byte.removeListener(this);
 }

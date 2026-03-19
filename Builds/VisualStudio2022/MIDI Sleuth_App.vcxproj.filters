@@ -739,7 +739,7 @@
     <ClCompile Include="..\..\Source\G_110_Delegate_Data_Byte.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_130_Dialog_Jump_To_Byte.cpp">
+    <ClCompile Include="..\..\Source\G_130_Component_Jump_To_Byte.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3774,7 +3774,7 @@
     <ClInclude Include="..\..\Source\G_120_Popup_Menu_Table.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_130_Dialog_Jump_To_Byte.h">
+    <ClInclude Include="..\..\Source\G_130_Component_Jump_To_Byte.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

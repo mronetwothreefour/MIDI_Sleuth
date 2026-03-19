@@ -96,10 +96,10 @@
             file="Source/G_110_Delegate_Data_Byte.h"/>
       <FILE id="XK1uMY" name="G_120_Popup_Menu_Table.h" compile="0" resource="0"
             file="Source/G_120_Popup_Menu_Table.h"/>
-      <FILE id="NDnkEC" name="G_130_Dialog_Jump_To_Byte.cpp" compile="1"
-            resource="0" file="Source/G_130_Dialog_Jump_To_Byte.cpp"/>
-      <FILE id="kEYU5x" name="G_130_Dialog_Jump_To_Byte.h" compile="0" resource="0"
-            file="Source/G_130_Dialog_Jump_To_Byte.h"/>
+      <FILE id="NDnkEC" name="G_130_Component_Jump_To_Byte.cpp" compile="1"
+            resource="0" file="Source/G_130_Component_Jump_To_Byte.cpp"/>
+      <FILE id="kEYU5x" name="G_130_Component_Jump_To_Byte.h" compile="0"
+            resource="0" file="Source/G_130_Component_Jump_To_Byte.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

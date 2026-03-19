@@ -5,7 +5,7 @@
 #include "G_090_Header_MIDI_Message_Log.h"
 #include "G_110_Delegate_Data_Byte.h"
 #include "G_120_Popup_Menu_Table.h"
-#include "G_130_Dialog_Jump_To_Byte.h"
+#include "G_130_Component_Jump_To_Byte.h"
 
 Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages* message_log, const bool not_compare_table) :
 	Data_User{ hub },
@@ -71,7 +71,7 @@ void Table_MIDI_Message_Log::scroll_table_to_byte(const int byte_num) {
 }
 
 void Table_MIDI_Message_Log::show_jump_to_byte_dialog() {
-	auto* dialog = new Dialog_Jump_To_Byte{ *this };
+	auto* dialog = new Component_Jump_To_Byte{ *this };
 	DialogWindow::LaunchOptions o;
 	o.content.setOwned(dialog);
 	o.dialogTitle = "Jump to byte";
