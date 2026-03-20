@@ -58,6 +58,7 @@ namespace XYWH
 constexpr int btn_h{ 30 };
 constexpr int btn_clear_reset_w{ 80 };
 constexpr int device_list_min_w{ 395 }, device_list_h{ 100 };
+constexpr int edit_msg_w{ 830 }, edit_msg_h{ 114 };
 constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
 constexpr int jump_to_byte_w{ 160 }, jump_to_byte_h{ 115 };
 constexpr int lbl_device_list_h{ 25 };

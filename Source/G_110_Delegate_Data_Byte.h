@@ -8,12 +8,12 @@ class Delegate_Data_Byte :
 	public Component,
 	public SettableTooltipClient
 {
-private: const int row_num, col_num;
+private: const int row_num, col_ID;
 private: Tree_MIDI_Messages* message_log;
 private: bool hilighted;
 
 //==============================================================================
-public: Delegate_Data_Byte(const int row_num, const int col_num, Tree_MIDI_Messages* message_log);
+public: Delegate_Data_Byte(const int row_num, const int col_ID, Tree_MIDI_Messages* message_log);
 
 public: void set_hilighted(const bool should_be_hilighted);
 public: void paint(Graphics& g) override;

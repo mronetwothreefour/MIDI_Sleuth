@@ -2,13 +2,13 @@
 
 #include "C_000_GUI_Constants.h"
 
-Delegate_Data_Byte::Delegate_Data_Byte(const int row_num, const int col_num, Tree_MIDI_Messages* message_log) :
+Delegate_Data_Byte::Delegate_Data_Byte(const int row_num, const int col_ID, Tree_MIDI_Messages* message_log) :
 	row_num{ row_num },
-	col_num{ col_num },
+	col_ID{ col_ID },
 	message_log{ message_log },
 	hilighted{ false }
 {
-	auto i = (col_num - 5) * 2;
+	auto i = (col_ID - 5) * 2;
 	auto bytes_string = message_log->entry_bytes(row_num);
 	auto byte_int = bytes_string.substring(i, i + 2).getHexValue32();
 	String tooltip{ "Byte " + String{ i / 2 } };
@@ -32,7 +32,7 @@ void Delegate_Data_Byte::set_hilighted(const bool should_be_hilighted) {
 inline void Delegate_Data_Byte::paint(Graphics& g) {
 	if (hilighted)
 		g.fillAll(COLOR::hilite_data_byte);
-	auto byte_index = (col_num - 1) * 2;
+	auto byte_index = (col_ID - 1) * 2;
 	auto bytes_string = message_log->entry_bytes(row_num);
 	auto text = bytes_string.substring(byte_index, byte_index + 2);
 	g.setColour(COLOR::text);

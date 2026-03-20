@@ -724,6 +724,12 @@
     <ClCompile Include="..\..\Source\G_035_Component_MIDI_Message_Slot.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\G_040_Component_Edit_MIDI_Message.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\G_045_Delegate_Edit_Byte.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\G_050_Component_Filter_Toggles.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -3754,6 +3760,12 @@
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_035_Component_MIDI_Message_Slot.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_040_Component_Edit_MIDI_Message.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_045_Delegate_Edit_Byte.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_050_Component_Filter_Toggles.h">

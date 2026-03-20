@@ -74,6 +74,14 @@
             resource="0" file="Source/G_035_Component_MIDI_Message_Slot.cpp"/>
       <FILE id="DWL5gr" name="G_035_Component_MIDI_Message_Slot.h" compile="0"
             resource="0" file="Source/G_035_Component_MIDI_Message_Slot.h"/>
+      <FILE id="XItyAt" name="G_040_Component_Edit_MIDI_Message.cpp" compile="1"
+            resource="0" file="Source/G_040_Component_Edit_MIDI_Message.cpp"/>
+      <FILE id="ptF2tA" name="G_040_Component_Edit_MIDI_Message.h" compile="0"
+            resource="0" file="Source/G_040_Component_Edit_MIDI_Message.h"/>
+      <FILE id="o9NJw3" name="G_045_Delegate_Edit_Byte.cpp" compile="1" resource="0"
+            file="Source/G_045_Delegate_Edit_Byte.cpp"/>
+      <FILE id="Horst0" name="G_045_Delegate_Edit_Byte.h" compile="0" resource="0"
+            file="Source/G_045_Delegate_Edit_Byte.h"/>
       <FILE id="OUzx2d" name="G_050_Component_Filter_Toggles.cpp" compile="1"
             resource="0" file="Source/G_050_Component_Filter_Toggles.cpp"/>
       <FILE id="o37pA2" name="G_050_Component_Filter_Toggles.h" compile="0"

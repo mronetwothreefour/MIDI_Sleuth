@@ -13,12 +13,12 @@ Table_MIDI_Message_Log::Table_MIDI_Message_Log(Data_Hub* hub, Tree_MIDI_Messages
 	not_compare_table{ not_compare_table },
 	num_non_byte_columns{ not_compare_table ? 4 : 1 }
 {
-	addAndMakeVisible(table);
 	table.setModel(this);
 	table.setMultipleSelectionEnabled(true);
 	table.setHeader(std::unique_ptr<Header_MIDI_Message_Log>{ new Header_MIDI_Message_Log{ not_compare_table } });
 	table.setHeaderHeight(21);
 	header = static_cast<Header_MIDI_Message_Log*>(&table.getHeader());
+	addAndMakeVisible(table);
 	message_log->add_listener(this);
 	cmd_mngr.registerAllCommandsForTarget(this);
 }
@@ -191,7 +191,7 @@ void Table_MIDI_Message_Log::getAllCommands(Array<int>& cmd_list) {
 
 void Table_MIDI_Message_Log::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
-		auto slot_num = cmd - 3;
+		auto slot_num = cmd - (store_msg_in_slot_1 - 1);
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
 		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier);
@@ -239,9 +239,9 @@ bool Table_MIDI_Message_Log::perform(const InvocationInfo& info) {
 	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
 		auto row_num = table.getLastRowSelected();
 		if (row_num > -1) {
-			auto slot_num = cmd - 4;
+			auto slot_index = cmd - store_msg_in_slot_1;
 			auto msg = message_log->entry_bytes(row_num);
-			set_message_in_slot(msg, slot_num);
+			set_message_in_slot(msg, slot_index);
 			return true;
 		}
 	}
