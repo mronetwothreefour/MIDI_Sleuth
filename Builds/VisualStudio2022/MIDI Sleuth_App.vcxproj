@@ -2968,6 +2968,7 @@
     <ClInclude Include="..\..\Source\G_027_Delegate_MIDI_Device.h"/>
     <ClInclude Include="..\..\Source\G_030_Component_MIDI_Message_Slots.h"/>
     <ClInclude Include="..\..\Source\G_035_Component_MIDI_Message_Slot.h"/>
+    <ClInclude Include="..\..\Source\G_037_Window_Edit_MIDI_Message.h"/>
     <ClInclude Include="..\..\Source\G_040_Component_Edit_MIDI_Message.h"/>
     <ClInclude Include="..\..\Source\G_045_Delegate_Edit_Byte.h"/>
     <ClInclude Include="..\..\Source\G_050_Component_Filter_Toggles.h"/>

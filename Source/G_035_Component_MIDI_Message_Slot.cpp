@@ -1,7 +1,5 @@
 #include "G_035_Component_MIDI_Message_Slot.h"
 
-#include "G_040_Component_Edit_MIDI_Message.h"
-
 Component_MIDI_Message_Slot::Component_MIDI_Message_Slot(int slot_index, Data_Hub* hub, Component_MIDI_Devices* devices) :
 	Data_User{ hub },
 	slot_index{ slot_index },
@@ -11,7 +9,7 @@ Component_MIDI_Message_Slot::Component_MIDI_Message_Slot(int slot_index, Data_Hu
 {
 	auto slot_string = String{ slot_index + 1 };
 	btn_edit.setBounds(XYWH::msg_slot_btn_edit);
-	btn_edit.onClick = [this] { show_edit_window_for_slot(); };
+	btn_edit.onClick = [this] { show_message_editor(); };
 	btn_edit.addShortcut(KeyPress{ 0x31 + slot_index, ModifierKeys::altModifier, 0 });
 	btn_edit.setTooltip("Open an editor for the\nmessage stored in slot " + slot_string + ".\nShortcut: Alt + " + slot_string);
 	addAndMakeVisible(btn_edit);
@@ -31,19 +29,13 @@ void Component_MIDI_Message_Slot::paint(Graphics& g) {
 	g.drawText("Message Slot " + String{ slot_index + 1 }, XYWH::msg_slot_lbl, Justification::centredTop);
 }
 
-void Component_MIDI_Message_Slot::show_edit_window_for_slot() {
-	auto* dialog = new Component_Edit_MIDI_Message{ slot_index, hub };
-	DialogWindow::LaunchOptions o;
-	o.content.setOwned(dialog);
-	o.dialogTitle = "Edit message in slot " + String{ slot_index + 1 };
-	o.dialogBackgroundColour = COLOR::background;
-	o.escapeKeyTriggersCloseButton = true;
-	o.useNativeTitleBar = true;
-	o.resizable = false;
-	Component::SafePointer<DialogWindow> dialog_win;
-	dialog_win = o.launchAsync();
-	if (dialog_win != nullptr) {
-		dialog_win->setLookAndFeel(&getLookAndFeel());
-		dialog_win->centreAroundComponent(getParentComponent(), XYWH::edit_msg_w, XYWH::edit_msg_h);
-	}
+void Component_MIDI_Message_Slot::show_message_editor() {
+	Component::SafePointer<Window_Edit_MIDI_Message> win_edit_msg = new Window_Edit_MIDI_Message{ slot_index, hub };
+	win_edit_msg->setLookAndFeel(&getLookAndFeel());
+	win_edit_msg->setSize(XYWH::edit_msg_w, XYWH::edit_msg_h);
+	auto parent_bounds = getParentComponent()->getBounds();
+	auto cntr_x = parent_bounds.getCentreX();
+	auto cntr_y = parent_bounds.getCentreY() - XYWH::msg_slot_h;
+	win_edit_msg->setCentrePosition(cntr_x, cntr_y);
+	win_edit_msg->setVisible(true);
 }

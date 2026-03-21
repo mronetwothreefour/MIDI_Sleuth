@@ -20,11 +20,13 @@ Delegate_Edit_Byte::Delegate_Edit_Byte(const int slot_index, const int col_ID, D
 }
 
 void Delegate_Edit_Byte::paint(Graphics& g) {
-	g.setColour(COLOR::text);
-	g.setFont(FONT::table);
 	auto w = getWidth();
 	auto h = getHeight();
-	g.drawText(getText(), 2, 0, w - 4, h, Justification::centred);
+	if (!getCurrentTextEditor()) {
+		g.setColour(COLOR::text);
+		g.setFont(FONT::table);
+		g.drawText(getText(), 2, 0, w - 4, h, Justification::centred);
+	}
 	g.setColour(COLOR::outline);
 	g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
 	g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);

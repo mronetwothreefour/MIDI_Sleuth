@@ -3762,6 +3762,9 @@
     <ClInclude Include="..\..\Source\G_035_Component_MIDI_Message_Slot.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\G_037_Window_Edit_MIDI_Message.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\G_040_Component_Edit_MIDI_Message.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>

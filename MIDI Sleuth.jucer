@@ -74,6 +74,8 @@
             resource="0" file="Source/G_035_Component_MIDI_Message_Slot.cpp"/>
       <FILE id="DWL5gr" name="G_035_Component_MIDI_Message_Slot.h" compile="0"
             resource="0" file="Source/G_035_Component_MIDI_Message_Slot.h"/>
+      <FILE id="HpWdsY" name="G_037_Window_Edit_MIDI_Message.h" compile="0"
+            resource="0" file="Source/G_037_Window_Edit_MIDI_Message.h"/>
       <FILE id="XItyAt" name="G_040_Component_Edit_MIDI_Message.cpp" compile="1"
             resource="0" file="Source/G_040_Component_Edit_MIDI_Message.cpp"/>
       <FILE id="ptF2tA" name="G_040_Component_Edit_MIDI_Message.h" compile="0"

@@ -20,7 +20,6 @@ public: void add_columns_for_message_bytes();
 public: void paintRowBackground(Graphics& /*g*/, int /*row_num*/, int /*w*/, int /*h*/, bool /*selected*/) override {}
 public: void paintCell(Graphics& /*g*/, int /*row_num*/, int /*col_ID*/, int /*w*/, int /*h*/, bool /*selected*/) override {}
 public: Component* refreshComponentForCell(int row_num, int col_ID, bool selected, Component* c) override;
-//public: void cellClicked(int row_num, int col_ID, const MouseEvent& e) override;
 //public: bool keyPressed(const KeyPress& key) override;
 
 //==============================================================================

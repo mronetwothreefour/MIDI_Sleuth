@@ -8,7 +8,7 @@ Component_Edit_MIDI_Message::Component_Edit_MIDI_Message(const int slot_index, D
 {
 	table.setModel(this);
 	table.setRowSelectedOnMouseDown(false);
-	table.setBounds(15, 15, 800, 84);
+	table.setBounds(XYWH::edit_msg_table);
 	addAndMakeVisible(&table);
 	add_columns_for_message_bytes();
 
@@ -41,7 +41,7 @@ void Component_Edit_MIDI_Message::add_columns_for_message_bytes() {
 	table.updateContent();
 }
 
-Component* Component_Edit_MIDI_Message::refreshComponentForCell(int row_num, int col_ID, 
+Component* Component_Edit_MIDI_Message::refreshComponentForCell(int /*row_num*/, int col_ID, 
 																bool /*selected*/, 
 																Component* c)
 {
@@ -51,9 +51,6 @@ Component* Component_Edit_MIDI_Message::refreshComponentForCell(int row_num, int
 	return cell_data_byte;
 }
 
-//void Window_Edit_MIDI_Message::cellClicked(int row_num, int col_ID, const MouseEvent& e) {
-//}
-//
 //bool Window_Edit_MIDI_Message::keyPressed(const KeyPress& key) {
 //	return false;
 //}
