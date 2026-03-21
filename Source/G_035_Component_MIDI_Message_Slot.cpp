@@ -30,12 +30,14 @@ void Component_MIDI_Message_Slot::paint(Graphics& g) {
 }
 
 void Component_MIDI_Message_Slot::show_message_editor() {
-	Component::SafePointer<Window_Edit_MIDI_Message> win_edit_msg = new Window_Edit_MIDI_Message{ slot_index, hub };
-	win_edit_msg->setLookAndFeel(&getLookAndFeel());
-	win_edit_msg->setSize(XYWH::edit_msg_w, XYWH::edit_msg_h);
+	win_edit_msg.reset(new Window_Edit_MIDI_Message{ slot_index, hub });
 	auto parent_bounds = getParentComponent()->getBounds();
 	auto cntr_x = parent_bounds.getCentreX();
 	auto cntr_y = parent_bounds.getCentreY() - XYWH::msg_slot_h;
 	win_edit_msg->setCentrePosition(cntr_x, cntr_y);
 	win_edit_msg->setVisible(true);
+}
+
+Component_MIDI_Message_Slot::~Component_MIDI_Message_Slot() {
+	win_edit_msg = nullptr;
 }

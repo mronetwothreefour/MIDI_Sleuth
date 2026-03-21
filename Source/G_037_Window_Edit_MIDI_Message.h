@@ -14,6 +14,7 @@ public: Window_Edit_MIDI_Message(const int slot_index, Data_Hub* hub) :
 			setUsingNativeTitleBar(true);
 			setResizable(false, false);
 			setContentOwned(new Component_Edit_MIDI_Message{ slot_index, hub }, false);
+			setSize(XYWH::edit_msg_w, XYWH::edit_msg_h);
 		}
 
 public: bool keyPressed(const KeyPress& key) override {
@@ -24,7 +25,6 @@ public: bool keyPressed(const KeyPress& key) override {
 	return false;
 }
 public: void closeButtonPressed() override { delete this; }
-public: ~Window_Edit_MIDI_Message() { setLookAndFeel(nullptr); }
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Window_Edit_MIDI_Message)

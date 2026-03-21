@@ -3,7 +3,7 @@
 Main_Window::Main_Window(String name, Data_Hub* hub) :
     DocumentWindow(name, COLOR::background, DocumentWindow::allButtons)
 {
-    setLookAndFeel(&look_and_feel);
+    LookAndFeel::setDefaultLookAndFeel(&look_and_feel);
     setUsingNativeTitleBar(true);
     setResizable(true, false);
     setContentOwned(new Main_Component(hub), true);
@@ -15,6 +15,6 @@ void Main_Window::closeButtonPressed() {
 }
 
 Main_Window::~Main_Window() {
-    setLookAndFeel(nullptr);
+    LookAndFeel::setDefaultLookAndFeel(nullptr);
 }
 

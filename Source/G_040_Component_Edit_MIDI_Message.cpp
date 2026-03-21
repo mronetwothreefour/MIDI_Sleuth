@@ -13,6 +13,8 @@ Component_Edit_MIDI_Message::Component_Edit_MIDI_Message(const int slot_index, D
 	add_columns_for_message_bytes();
 
 	setSize(XYWH::edit_msg_w, XYWH::edit_msg_h);
+
+	Timer::callAfterDelay(100, [this] { grabKeyboardFocus(); });
 }
 
 int Component_Edit_MIDI_Message::getNumRows() {
@@ -51,6 +53,18 @@ Component* Component_Edit_MIDI_Message::refreshComponentForCell(int /*row_num*/,
 	return cell_data_byte;
 }
 
-//bool Window_Edit_MIDI_Message::keyPressed(const KeyPress& key) {
-//	return false;
-//}
+bool Component_Edit_MIDI_Message::keyPressed(const KeyPress& key) {
+	if (key == KeyPress{ 'v', ModifierKeys::ctrlModifier, 0 }) {
+		auto msg = SystemClipboard::getTextFromClipboard();
+		if (msg.isNotEmpty()) {
+			msg = msg.removeCharacters(" ,\t\n\r");
+			msg = msg.toLowerCase();
+			if (msg.containsOnly("0123456789abcdef") && msg.length() % 2 == 0) {
+				set_message_in_slot(msg, slot_index);
+				add_columns_for_message_bytes();
+			}
+			return true;
+		}
+	}
+	return false;
+}
