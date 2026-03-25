@@ -50,8 +50,10 @@ void Component_MIDI_Devices::open_device(bool is_input, int index) {
         jassert(array_MIDI_outputs[index]->out_device.get() == nullptr);
         auto& device_id = array_MIDI_outputs[index]->device_info.identifier;
         array_MIDI_outputs[index]->out_device = MidiOutput::openDevice(device_id);
-        if (array_MIDI_outputs[index]->out_device.get() == nullptr)
+        if (array_MIDI_outputs[index]->out_device.get() == nullptr) {
             DBG("Main_Component::openDevice: open output device for index = " << index << " failed!");
+            return;
+        }
     }
 }
 

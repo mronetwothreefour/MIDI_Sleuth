@@ -24,7 +24,7 @@ public: bool keyPressed(const KeyPress& key) override {
 	}
 	return false;
 }
-public: void closeButtonPressed() override { delete this; }
+public: void closeButtonPressed() override { setVisible(false); }
 
 //==============================================================================
 private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Window_Edit_MIDI_Message)

@@ -145,10 +145,10 @@ void Table_MIDI_Message_Log::valueTreeChildAdded(ValueTree& parent_tree, ValueTr
 	auto num_byte_columns = header->byte_column_count();
 	if (msg_length > num_byte_columns) {
 		auto current_header_h = table.getHeaderHeight();
-		if (msg_length > 299 && current_header_h < 63)
-			table.setHeaderHeight(63);
-		if (msg_length > 199 && current_header_h < 42)
-			table.setHeaderHeight(42);
+		if (msg_length > 100 && current_header_h < 45)
+			table.setHeaderHeight(45);
+		if (msg_length > 10 && current_header_h < 33)
+			table.setHeaderHeight(33);
 		for (int i = num_byte_columns; i < msg_length; ++i)
 			header->add_data_byte_column(i);
 	}

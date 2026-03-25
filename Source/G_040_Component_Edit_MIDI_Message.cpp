@@ -25,9 +25,11 @@ void Component_Edit_MIDI_Message::add_columns_for_message_bytes() {
 	auto& msg = message_in_slot(slot_index);
 	auto& header = table.getHeader();
 	header.removeAllColumns();
+	table.setHeaderHeight(18);
 	if (msg.isNotEmpty()) {
 		auto num_bytes = msg.length() / 2;
-		table.setHeaderHeight(num_bytes > 99 ? 63 : num_bytes > 9 ? 42 : 21);
+		if (num_bytes > 10)
+			table.setHeaderHeight(num_bytes > 100 ? 42 : 30);
 		for (int byte_num = 0; byte_num < num_bytes; ++byte_num) {
 			String col_name{ byte_num };
 			auto num_digits = col_name.length();
