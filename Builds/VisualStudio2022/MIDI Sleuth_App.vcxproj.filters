@@ -685,67 +685,10 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\A_000_Main_Application.cpp">
+    <ClCompile Include="..\..\Source\A_000_Main_App.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\D_000_Tree_MIDI_Messages.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\D_005_Util_Build_Message_Description.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\D_010_Util_MIDI.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\D_050_Data_Hub.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\D_100_Data_User.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_000_Main_Window.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_005_MS_Look_And_Feel.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_010_Main_Component.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_020_Component_MIDI_Devices.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_025_List_MIDI_Devices.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_030_Component_MIDI_Message_Slots.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_035_Component_MIDI_Message_Slot.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_040_Component_Edit_MIDI_Message.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_045_Delegate_Edit_Byte.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_050_Component_Filter_Toggles.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_060_Tabbed_Component_Tables.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_070_Table_MIDI_Message_Log.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_090_Header_MIDI_Message_Log.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_110_Delegate_Data_Byte.cpp">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\G_130_Component_Jump_To_Byte.cpp">
+    <ClCompile Include="..\..\Source\G_100_Comp_Main.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3711,85 +3654,13 @@
     <ClInclude Include="..\..\Source\C_000_____CONSTANTS_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\C_000_GUI_Constants.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\C_010_Enums.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\D_000_Tree_MIDI_Messages.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\D_005_Util_Build_Message_Description.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\D_010_Util_MIDI.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\D_050_Data_Hub.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\D_100_Data_User.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_000_Main_Window.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_005_MS_Look_And_Feel.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_010_Main_Component.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_020_Component_MIDI_Devices.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_025_List_MIDI_Devices.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_027_Delegate_MIDI_Device.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_030_Component_MIDI_Message_Slots.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_035_Component_MIDI_Message_Slot.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_037_Window_Edit_MIDI_Message.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_040_Component_Edit_MIDI_Message.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_045_Delegate_Edit_Byte.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_050_Component_Filter_Toggles.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_060_Tabbed_Component_Tables.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_070_Table_MIDI_Message_Log.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_090_Header_MIDI_Message_Log.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_110_Delegate_Data_Byte.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_120_Popup_Menu_Table.h">
-      <Filter>MIDI Sleuth\Source</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\G_130_Component_Jump_To_Byte.h">
+    <ClInclude Include="..\..\Source\G_100_Comp_Main.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">
@@ -7905,9 +7776,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Resources\icon_app.svg">
-      <Filter>MIDI Sleuth\Resources</Filter>
-    </None>
-    <None Include="..\..\Resources\MIDI Sleuth.ico">
       <Filter>MIDI Sleuth\Resources</Filter>
     </None>
     <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGOEUIB_0.TTF">

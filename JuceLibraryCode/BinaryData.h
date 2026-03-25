@@ -11,9 +11,6 @@ namespace BinaryData
     extern const char*   icon_app_svg;
     const int            icon_app_svgSize = 4078;
 
-    extern const char*   MIDI_Sleuth_ico;
-    const int            MIDI_Sleuth_icoSize = 16308;
-
     extern const char*   SEGOEUIB_0_TTF;
     const int            SEGOEUIB_0_TTFSize = 968516;
 
@@ -24,7 +21,7 @@ namespace BinaryData
     const int            SEGUISB_0_TTFSize = 997264;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 5;
+    const int namedResourceListSize = 4;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];
