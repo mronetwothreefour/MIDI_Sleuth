@@ -2932,6 +2932,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\C_000_____CONSTANTS_____.h"/>
+    <ClInclude Include="..\..\Source\C_000_ENUM.h"/>
+    <ClInclude Include="..\..\Source\C_010_XYWH.h"/>
+    <ClInclude Include="..\..\Source\C_020_COLOR.h"/>
+    <ClInclude Include="..\..\Source\C_030_FONT.h"/>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h"/>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h"/>
     <ClInclude Include="..\..\Source\G_100_Comp_Main.h"/>

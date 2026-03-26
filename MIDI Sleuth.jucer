@@ -16,6 +16,10 @@
             file="Source/A_000_Main_App.cpp"/>
       <FILE id="hRLMcQ" name="C_000_____CONSTANTS_____.h" compile="0" resource="0"
             file="Source/C_000_____CONSTANTS_____.h"/>
+      <FILE id="jRebk7" name="C_000_ENUM.h" compile="0" resource="0" file="Source/C_000_ENUM.h"/>
+      <FILE id="nfYAVI" name="C_010_XYWH.h" compile="0" resource="0" file="Source/C_010_XYWH.h"/>
+      <FILE id="JImoFN" name="C_020_COLOR.h" compile="0" resource="0" file="Source/C_020_COLOR.h"/>
+      <FILE id="d45PFU" name="C_030_FONT.h" compile="0" resource="0" file="Source/C_030_FONT.h"/>
       <FILE id="nDtRPS" name="D_000_____DATA_____.h" compile="0" resource="0"
             file="Source/D_000_____DATA_____.h"/>
       <FILE id="wWc9OS" name="G_000_____GUI_____.h" compile="0" resource="0"

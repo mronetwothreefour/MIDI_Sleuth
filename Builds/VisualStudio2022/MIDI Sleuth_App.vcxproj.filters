@@ -3654,6 +3654,18 @@
     <ClInclude Include="..\..\Source\C_000_____CONSTANTS_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\C_000_ENUM.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_010_XYWH.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_020_COLOR.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_030_FONT.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>

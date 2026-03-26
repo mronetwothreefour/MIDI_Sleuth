@@ -2,11 +2,12 @@ A_000_Main_App
 C_000_____CONSTANTS_____
 C_000_Enums
 C_010_XYWH
-C_020_Colors
-C_030_Fonts
+C_020_COLOR
+C_030_FONT
 C_100_Util_Msg_Description
 C_110_Util_MIDI
-D_130_Util_Commands
+C_200_Util_Cmd_Info
+C_210_Util_Cmd_Perform
 D_000_____DATA_____
 D_000_Tree_Message_Log
 D_100_Data_Hub
