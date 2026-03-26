@@ -20,6 +20,10 @@
       <FILE id="nfYAVI" name="C_010_XYWH.h" compile="0" resource="0" file="Source/C_010_XYWH.h"/>
       <FILE id="JImoFN" name="C_020_COLOR.h" compile="0" resource="0" file="Source/C_020_COLOR.h"/>
       <FILE id="d45PFU" name="C_030_FONT.h" compile="0" resource="0" file="Source/C_030_FONT.h"/>
+      <FILE id="md7D5x" name="C_100_Util_Describe_MIDI.cpp" compile="1" resource="0"
+            file="Source/C_100_Util_Describe_MIDI.cpp"/>
+      <FILE id="RDENb2" name="C_100_Util_Describe_MIDI.h" compile="0" resource="0"
+            file="Source/C_100_Util_Describe_MIDI.h"/>
       <FILE id="nDtRPS" name="D_000_____DATA_____.h" compile="0" resource="0"
             file="Source/D_000_____DATA_____.h"/>
       <FILE id="wWc9OS" name="G_000_____GUI_____.h" compile="0" resource="0"

@@ -15,8 +15,8 @@ namespace XYWH
 	constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };
 	constexpr int msg_slots_y{ 163 };
 	constexpr int tab_h{ 30 };
-	constexpr int tabs_log_min_w{ 810 }, tabs_log_min_h{ 325 };
-	constexpr int tabs_log_y{ 270 };
+	constexpr int tables_min_w{ 810 }, tables_min_h{ 325 };
+	constexpr int tables_y{ 270 };
 	constexpr int tips_max_w{ 400 };
 	constexpr int win_edit_msg_w{ 730 }, win_edit_msg_h{ 114 };
 	constexpr int win_jump_to_byte_w{ 160 }, win_jump_to_byte_h{ 115 };
