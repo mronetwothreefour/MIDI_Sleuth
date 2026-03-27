@@ -148,7 +148,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\A_000_Main_App.cpp"/>
-    <ClCompile Include="..\..\Source\C_100_Util_Describe_MIDI.cpp"/>
+    <ClCompile Include="..\..\Source\C_100_Util_Build_Description.cpp"/>
+    <ClCompile Include="..\..\Source\D_000_Tree_Msg_Log.cpp"/>
+    <ClCompile Include="..\..\Source\D_010_Tree_Msg_Slots.cpp"/>
     <ClCompile Include="..\..\Source\G_100_Comp_Main.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
@@ -2937,8 +2939,11 @@
     <ClInclude Include="..\..\Source\C_010_XYWH.h"/>
     <ClInclude Include="..\..\Source\C_020_COLOR.h"/>
     <ClInclude Include="..\..\Source\C_030_FONT.h"/>
-    <ClInclude Include="..\..\Source\C_100_Util_Describe_MIDI.h"/>
+    <ClInclude Include="..\..\Source\C_100_Util_Build_Description.h"/>
+    <ClInclude Include="..\..\Source\C_110_Util_Convert.h"/>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h"/>
+    <ClInclude Include="..\..\Source\D_000_Tree_Msg_Log.h"/>
+    <ClInclude Include="..\..\Source\D_010_Tree_Msg_Slots.h"/>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h"/>
     <ClInclude Include="..\..\Source\G_100_Comp_Main.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

@@ -688,7 +688,13 @@
     <ClCompile Include="..\..\Source\A_000_Main_App.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\C_100_Util_Describe_MIDI.cpp">
+    <ClCompile Include="..\..\Source\C_100_Util_Build_Description.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\D_000_Tree_Msg_Log.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\D_010_Tree_Msg_Slots.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\G_100_Comp_Main.cpp">
@@ -3669,10 +3675,19 @@
     <ClInclude Include="..\..\Source\C_030_FONT.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\C_100_Util_Describe_MIDI.h">
+    <ClInclude Include="..\..\Source\C_100_Util_Build_Description.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_110_Util_Convert.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\D_000_____DATA_____.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\D_000_Tree_Msg_Log.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\D_010_Tree_Msg_Slots.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_000_____GUI_____.h">
