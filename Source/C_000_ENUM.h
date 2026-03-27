@@ -47,3 +47,5 @@ namespace ENUM
 		outgoing,
 		compare
 	};
+
+}

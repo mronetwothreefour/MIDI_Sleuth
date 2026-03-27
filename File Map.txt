@@ -10,7 +10,7 @@ C_200_Util_Cmd_Info
 C_210_Util_Cmd_Perform
 D_000_____DATA_____
 D_000_Tree_Msg_Log
-D_010_Tree_Msg_Slot
+D_010_Tree_Msg_Slots
 D_100_Data_Hub
 D_110_Data_User
 G_000_____GUI_____
