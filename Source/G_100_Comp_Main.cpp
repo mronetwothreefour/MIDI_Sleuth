@@ -1,17 +1,18 @@
 #include "G_100_Comp_Main.h"
 
 //==============================================================================
-MainComponent::MainComponent()
+Comp_Main::Comp_Main(Data_Hub* hub) :
+    Data_User{ hub }
 {
     setSize (600, 400);
 }
 
-MainComponent::~MainComponent()
+Comp_Main::~Comp_Main()
 {
 }
 
 //==============================================================================
-void MainComponent::paint (juce::Graphics& g)
+void Comp_Main::paint (juce::Graphics& g)
 {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll (getLookAndFeel().findColour (juce::ResizableWindow::backgroundColourId));
@@ -21,7 +22,7 @@ void MainComponent::paint (juce::Graphics& g)
     g.drawText ("Hello World!", getLocalBounds(), juce::Justification::centred, true);
 }
 
-void MainComponent::resized()
+void Comp_Main::resized()
 {
     // This is called when the MainComponent is resized.
     // If you add any child components, this is where you should
