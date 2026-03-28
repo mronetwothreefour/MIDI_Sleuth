@@ -12,52 +12,46 @@
       <FILE id="Z3yHPb" name="SEGUISB_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGUISB_0.TTF"/>
     </GROUP>
     <GROUP id="{E6092632-923E-4346-5AE5-E0C598F15266}" name="Source">
-      <FILE id="AQ3WKC" name="A_000_Main_App.cpp" compile="1" resource="0"
-            file="Source/A_000_Main_App.cpp"/>
-      <FILE id="hRLMcQ" name="C_000_____CONSTANTS_____.h" compile="0" resource="0"
-            file="Source/C_000_____CONSTANTS_____.h"/>
-      <FILE id="jRebk7" name="C_000_ENUM.h" compile="0" resource="0" file="Source/C_000_ENUM.h"/>
-      <FILE id="nfYAVI" name="C_010_XYWH.h" compile="0" resource="0" file="Source/C_010_XYWH.h"/>
-      <FILE id="JImoFN" name="C_020_COLOR.h" compile="0" resource="0" file="Source/C_020_COLOR.h"/>
-      <FILE id="d45PFU" name="C_030_FONT.h" compile="0" resource="0" file="Source/C_030_FONT.h"/>
-      <FILE id="md7D5x" name="C_100_Util_Build_Description.cpp" compile="1"
-            resource="0" file="Source/C_100_Util_Build_Description.cpp"/>
-      <FILE id="RDENb2" name="C_100_Util_Build_Description.h" compile="0"
-            resource="0" file="Source/C_100_Util_Build_Description.h"/>
-      <FILE id="VgVNqx" name="C_110_Util_Convert.h" compile="0" resource="0"
-            file="Source/C_110_Util_Convert.h"/>
-      <FILE id="nDtRPS" name="D_000_____DATA_____.h" compile="0" resource="0"
-            file="Source/D_000_____DATA_____.h"/>
-      <FILE id="VkRAnO" name="D_000_Tree_Msg_Log.cpp" compile="1" resource="0"
-            file="Source/D_000_Tree_Msg_Log.cpp"/>
-      <FILE id="NoEqAn" name="D_000_Tree_Msg_Log.h" compile="0" resource="0"
-            file="Source/D_000_Tree_Msg_Log.h"/>
-      <FILE id="rax2GK" name="D_010_Tree_Msg_Slots.cpp" compile="1" resource="0"
-            file="Source/D_010_Tree_Msg_Slots.cpp"/>
-      <FILE id="FeyH1A" name="D_010_Tree_Msg_Slots.h" compile="0" resource="0"
-            file="Source/D_010_Tree_Msg_Slots.h"/>
-      <FILE id="rDWkhV" name="D_100_Data_Hub.cpp" compile="1" resource="0"
-            file="Source/D_100_Data_Hub.cpp"/>
-      <FILE id="amCMZA" name="D_100_Data_Hub.h" compile="0" resource="0"
-            file="Source/D_100_Data_Hub.h"/>
-      <FILE id="V2VR2E" name="D_110_Data_User.cpp" compile="1" resource="0"
-            file="Source/D_110_Data_User.cpp"/>
-      <FILE id="dNVv2D" name="D_110_Data_User.h" compile="0" resource="0"
-            file="Source/D_110_Data_User.h"/>
-      <FILE id="wWc9OS" name="G_000_____GUI_____.h" compile="0" resource="0"
-            file="Source/G_000_____GUI_____.h"/>
-      <FILE id="hklOxA" name="G_000_Look_And_Feel.cpp" compile="1" resource="0"
-            file="Source/G_000_Look_And_Feel.cpp"/>
-      <FILE id="e125KU" name="G_000_Look_And_Feel.h" compile="0" resource="0"
-            file="Source/G_000_Look_And_Feel.h"/>
-      <FILE id="LmNGim" name="G_010_Win_Main.cpp" compile="1" resource="0"
-            file="Source/G_010_Win_Main.cpp"/>
-      <FILE id="KBrBQe" name="G_010_Win_Main.h" compile="0" resource="0"
-            file="Source/G_010_Win_Main.h"/>
-      <FILE id="s0St9Q" name="G_100_Comp_Main.cpp" compile="1" resource="0"
-            file="Source/G_100_Comp_Main.cpp"/>
-      <FILE id="IibCn2" name="G_100_Comp_Main.h" compile="0" resource="0"
-            file="Source/G_100_Comp_Main.h"/>
+      <FILE id="AQ3WKC" name="A_Main_App.cpp" compile="1" resource="0" file="Source/A_Main_App.cpp"/>
+      <FILE id="hRLMcQ" name="C_____CONSTANTS_____.h" compile="0" resource="0"
+            file="Source/C_____CONSTANTS_____.h"/>
+      <FILE id="jRebk7" name="C_ENUM.h" compile="0" resource="0" file="Source/C_ENUM.h"/>
+      <FILE id="JImoFN" name="C_GUI_COLOR.h" compile="0" resource="0" file="Source/C_GUI_COLOR.h"/>
+      <FILE id="d45PFU" name="C_GUI_FONT.h" compile="0" resource="0" file="Source/C_GUI_FONT.h"/>
+      <FILE id="nfYAVI" name="C_GUI_XYWH.h" compile="0" resource="0" file="Source/C_GUI_XYWH.h"/>
+      <FILE id="md7D5x" name="C_Util_Build_Description.cpp" compile="1" resource="0"
+            file="Source/C_Util_Build_Description.cpp"/>
+      <FILE id="RDENb2" name="C_Util_Build_Description.h" compile="0" resource="0"
+            file="Source/C_Util_Build_Description.h"/>
+      <FILE id="VgVNqx" name="C_Util_Convert.h" compile="0" resource="0"
+            file="Source/C_Util_Convert.h"/>
+      <FILE id="nDtRPS" name="D_____DATA_____.h" compile="0" resource="0"
+            file="Source/D_____DATA_____.h"/>
+      <FILE id="rDWkhV" name="D_Data_Hub.cpp" compile="1" resource="0" file="Source/D_Data_Hub.cpp"/>
+      <FILE id="amCMZA" name="D_Data_Hub.h" compile="0" resource="0" file="Source/D_Data_Hub.h"/>
+      <FILE id="V2VR2E" name="D_Data_User.cpp" compile="1" resource="0" file="Source/D_Data_User.cpp"/>
+      <FILE id="dNVv2D" name="D_Data_User.h" compile="0" resource="0" file="Source/D_Data_User.h"/>
+      <FILE id="VkRAnO" name="D_Tree_Msg_Log.cpp" compile="1" resource="0"
+            file="Source/D_Tree_Msg_Log.cpp"/>
+      <FILE id="NoEqAn" name="D_Tree_Msg_Log.h" compile="0" resource="0"
+            file="Source/D_Tree_Msg_Log.h"/>
+      <FILE id="rax2GK" name="D_Tree_Msg_Slots.cpp" compile="1" resource="0"
+            file="Source/D_Tree_Msg_Slots.cpp"/>
+      <FILE id="FeyH1A" name="D_Tree_Msg_Slots.h" compile="0" resource="0"
+            file="Source/D_Tree_Msg_Slots.h"/>
+      <FILE id="wWc9OS" name="G_____GUI_____.h" compile="0" resource="0"
+            file="Source/G_____GUI_____.h"/>
+      <FILE id="hklOxA" name="G_0_Look_And_Feel.cpp" compile="1" resource="0"
+            file="Source/G_0_Look_And_Feel.cpp"/>
+      <FILE id="e125KU" name="G_0_Look_And_Feel.h" compile="0" resource="0"
+            file="Source/G_0_Look_And_Feel.h"/>
+      <FILE id="LmNGim" name="G_1_Win_Main.cpp" compile="1" resource="0"
+            file="Source/G_1_Win_Main.cpp"/>
+      <FILE id="KBrBQe" name="G_1_Win_Main.h" compile="0" resource="0" file="Source/G_1_Win_Main.h"/>
+      <FILE id="s0St9Q" name="G_2_Comp_Main.cpp" compile="1" resource="0"
+            file="Source/G_2_Comp_Main.cpp"/>
+      <FILE id="IibCn2" name="G_2_Comp_Main.h" compile="0" resource="0" file="Source/G_2_Comp_Main.h"/>
+      <FILE id="HKeP81" name="G_Dele_Device.h" compile="0" resource="0" file="Source/G_Dele_Device.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

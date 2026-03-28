@@ -147,15 +147,15 @@
     <Lib/>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\A_000_Main_App.cpp"/>
-    <ClCompile Include="..\..\Source\C_100_Util_Build_Description.cpp"/>
-    <ClCompile Include="..\..\Source\D_000_Tree_Msg_Log.cpp"/>
-    <ClCompile Include="..\..\Source\D_010_Tree_Msg_Slots.cpp"/>
-    <ClCompile Include="..\..\Source\D_100_Data_Hub.cpp"/>
-    <ClCompile Include="..\..\Source\D_110_Data_User.cpp"/>
-    <ClCompile Include="..\..\Source\G_000_Look_And_Feel.cpp"/>
-    <ClCompile Include="..\..\Source\G_010_Win_Main.cpp"/>
-    <ClCompile Include="..\..\Source\G_100_Comp_Main.cpp"/>
+    <ClCompile Include="..\..\Source\A_Main_App.cpp"/>
+    <ClCompile Include="..\..\Source\C_Util_Build_Description.cpp"/>
+    <ClCompile Include="..\..\Source\D_Data_Hub.cpp"/>
+    <ClCompile Include="..\..\Source\D_Data_User.cpp"/>
+    <ClCompile Include="..\..\Source\D_Tree_Msg_Log.cpp"/>
+    <ClCompile Include="..\..\Source\D_Tree_Msg_Slots.cpp"/>
+    <ClCompile Include="..\..\Source\G_0_Look_And_Feel.cpp"/>
+    <ClCompile Include="..\..\Source\G_1_Win_Main.cpp"/>
+    <ClCompile Include="..\..\Source\G_2_Comp_Main.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2938,22 +2938,23 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_midi_ci.cpp"/>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\C_000_____CONSTANTS_____.h"/>
-    <ClInclude Include="..\..\Source\C_000_ENUM.h"/>
-    <ClInclude Include="..\..\Source\C_010_XYWH.h"/>
-    <ClInclude Include="..\..\Source\C_020_COLOR.h"/>
-    <ClInclude Include="..\..\Source\C_030_FONT.h"/>
-    <ClInclude Include="..\..\Source\C_100_Util_Build_Description.h"/>
-    <ClInclude Include="..\..\Source\C_110_Util_Convert.h"/>
-    <ClInclude Include="..\..\Source\D_000_____DATA_____.h"/>
-    <ClInclude Include="..\..\Source\D_000_Tree_Msg_Log.h"/>
-    <ClInclude Include="..\..\Source\D_010_Tree_Msg_Slots.h"/>
-    <ClInclude Include="..\..\Source\D_100_Data_Hub.h"/>
-    <ClInclude Include="..\..\Source\D_110_Data_User.h"/>
-    <ClInclude Include="..\..\Source\G_000_____GUI_____.h"/>
-    <ClInclude Include="..\..\Source\G_000_Look_And_Feel.h"/>
-    <ClInclude Include="..\..\Source\G_010_Win_Main.h"/>
-    <ClInclude Include="..\..\Source\G_100_Comp_Main.h"/>
+    <ClInclude Include="..\..\Source\C_____CONSTANTS_____.h"/>
+    <ClInclude Include="..\..\Source\C_ENUM.h"/>
+    <ClInclude Include="..\..\Source\C_GUI_COLOR.h"/>
+    <ClInclude Include="..\..\Source\C_GUI_FONT.h"/>
+    <ClInclude Include="..\..\Source\C_GUI_XYWH.h"/>
+    <ClInclude Include="..\..\Source\C_Util_Build_Description.h"/>
+    <ClInclude Include="..\..\Source\C_Util_Convert.h"/>
+    <ClInclude Include="..\..\Source\D_____DATA_____.h"/>
+    <ClInclude Include="..\..\Source\D_Data_Hub.h"/>
+    <ClInclude Include="..\..\Source\D_Data_User.h"/>
+    <ClInclude Include="..\..\Source\D_Tree_Msg_Log.h"/>
+    <ClInclude Include="..\..\Source\D_Tree_Msg_Slots.h"/>
+    <ClInclude Include="..\..\Source\G_____GUI_____.h"/>
+    <ClInclude Include="..\..\Source\G_0_Look_And_Feel.h"/>
+    <ClInclude Include="..\..\Source\G_1_Win_Main.h"/>
+    <ClInclude Include="..\..\Source\G_2_Comp_Main.h"/>
+    <ClInclude Include="..\..\Source\G_Dele_Device.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

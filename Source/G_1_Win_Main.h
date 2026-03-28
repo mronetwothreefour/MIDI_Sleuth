@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "G_000_Look_And_Feel.h"
-#include "G_100_Comp_Main.h"
+#include "G_0_Look_And_Feel.h"
+#include "G_2_Comp_Main.h"
 
 class Win_Main :
     public DocumentWindow

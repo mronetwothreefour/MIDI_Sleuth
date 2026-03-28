@@ -2,9 +2,9 @@
 
 #include <JuceHeader.h>
 
-#include "C_010_XYWH.h"
-#include "C_020_COLOR.h"
-#include "C_030_FONT.h"
+#include "C_GUI_XYWH.h"
+#include "C_GUI_COLOR.h"
+#include "C_GUI_FONT.h"
 
 class MS_Look_And_Feel :
 	public LookAndFeel_V4

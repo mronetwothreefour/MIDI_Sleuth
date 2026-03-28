@@ -2,11 +2,11 @@
 
 #include <JuceHeader.h>
 
-#include "C_000_ENUM.h"
-#include "C_010_XYWH.h"
-#include "C_020_COLOR.h"
-#include "C_030_FONT.h"
-#include "D_100_Data_Hub.h"
+#include "C_ENUM.h"
+#include "C_GUI_XYWH.h"
+#include "C_GUI_COLOR.h"
+#include "C_GUI_FONT.h"
+#include "D_Data_Hub.h"
 
 using namespace ENUM;
 

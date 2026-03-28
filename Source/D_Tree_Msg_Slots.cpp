@@ -1,4 +1,4 @@
-#include "D_010_Tree_Msg_Slots.h"
+#include "D_Tree_Msg_Slots.h"
 
 Tree_Msg_Slots::Tree_Msg_Slots() :
 	tree{ new ValueTree{ "MIDI Message Slots" } }

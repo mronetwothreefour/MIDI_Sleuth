@@ -2,8 +2,8 @@
 
 #include <JuceHeader.h>
 
-#include "D_000_Tree_Msg_Log.h"
-#include "D_010_Tree_Msg_Slots.h"
+#include "D_Tree_Msg_Log.h"
+#include "D_Tree_Msg_Slots.h"
 
 class Data_Hub
 {
