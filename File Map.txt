@@ -27,7 +27,7 @@ G_Dele_Byte_Edit
 G_Dele_Device
 G_Head_Msg_Compare
 G_Head_Msg_Log
-G_List_Devices
+G_Lbox_Devices
 G_Popup_Table
 G_Table_Msg_Log
 G_Table_Msg_Compare

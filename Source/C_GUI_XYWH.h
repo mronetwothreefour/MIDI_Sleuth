@@ -8,8 +8,8 @@ namespace XYWH
 	constexpr int btn_h{ 30 };
 	constexpr int btn_clear_reset_w{ 80 };
 	constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
-	constexpr int lbl_device_list_h{ 25 };
-	constexpr int list_devices_min_w{ 395 }, list_devices_h{ 100 };
+	constexpr int lbl_lbox_devices_h{ 25 };
+	constexpr int lbox_devices_min_w{ 395 }, lbox_devices_h{ 100 };
 	constexpr int menu_h{ 30 };
 	constexpr int msg_slot_w{ 130 }, msg_slot_h{ 55 };
 	constexpr int msg_slots_w{ 810 }, msg_slots_h{ 55 };

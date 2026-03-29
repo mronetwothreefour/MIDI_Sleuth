@@ -156,6 +156,8 @@
     <ClCompile Include="..\..\Source\G_0_Look_And_Feel.cpp"/>
     <ClCompile Include="..\..\Source\G_1_Win_Main.cpp"/>
     <ClCompile Include="..\..\Source\G_2_Comp_Main.cpp"/>
+    <ClCompile Include="..\..\Source\G_Comp_Devices.cpp"/>
+    <ClCompile Include="..\..\Source\G_Lbox_Devices.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2954,7 +2956,9 @@
     <ClInclude Include="..\..\Source\G_0_Look_And_Feel.h"/>
     <ClInclude Include="..\..\Source\G_1_Win_Main.h"/>
     <ClInclude Include="..\..\Source\G_2_Comp_Main.h"/>
+    <ClInclude Include="..\..\Source\G_Comp_Devices.h"/>
     <ClInclude Include="..\..\Source\G_Dele_Device.h"/>
+    <ClInclude Include="..\..\Source\G_Lbox_Devices.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

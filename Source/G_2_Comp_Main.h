@@ -3,16 +3,13 @@
 #include <JuceHeader.h>
 
 #include "D_Data_User.h"
+#include "G_Comp_Devices.h"
 
-//==============================================================================
-/*
-    This component lives inside our window, and this is where you should put all
-    your controls and content.
-*/
 class Comp_Main :
     public Component,
     public Data_User
 {
+private: Comp_Devices devices;
 private: TooltipWindow tooltips;
 
 //==============================================================================
