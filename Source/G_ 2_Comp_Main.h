@@ -3,13 +3,13 @@
 #include <JuceHeader.h>
 
 #include "D_Data_User.h"
-#include "G_Comp_Devices.h"
+#include "G_Comp_Msg_Handler.h"
 
 class Comp_Main :
     public Component,
     public Data_User
 {
-private: Comp_Devices devices;
+private: Comp_Msg_Handler devices;
 private: TooltipWindow tooltips;
 
 //==============================================================================

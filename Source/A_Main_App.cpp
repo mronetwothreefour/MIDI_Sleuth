@@ -1,6 +1,6 @@
 #include <JuceHeader.h>
 
-#include "G_1_Win_Main.h"
+#include "G_ 1_Win_Main.h"
 
 class Main_App :
     public JUCEApplication

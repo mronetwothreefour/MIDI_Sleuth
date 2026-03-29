@@ -703,19 +703,19 @@
     <ClCompile Include="..\..\Source\D_Tree_Msg_Slots.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_0_Look_And_Feel.cpp">
+    <ClCompile Include="..\..\Source\G_ 0_Look_And_Feel.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_1_Win_Main.cpp">
+    <ClCompile Include="..\..\Source\G_ 1_Win_Main.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_2_Comp_Main.cpp">
+    <ClCompile Include="..\..\Source\G_ 2_Comp_Main.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_Comp_Devices.cpp">
+    <ClCompile Include="..\..\Source\G_Comp_Msg_Handler.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_Lbox_Devices.cpp">
+    <ClCompile Include="..\..\Source\G_Lbox_Device_Select.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3678,7 +3678,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\C_____CONSTANTS_____.h">
+    <ClInclude Include="..\..\Source\C _____CONSTANTS_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\C_ENUM.h">
@@ -3699,7 +3699,7 @@
     <ClInclude Include="..\..\Source\C_Util_Convert.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\D_____DATA_____.h">
+    <ClInclude Include="..\..\Source\D _____DATA_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\D_Data_Hub.h">
@@ -3714,25 +3714,25 @@
     <ClInclude Include="..\..\Source\D_Tree_Msg_Slots.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_____GUI_____.h">
+    <ClInclude Include="..\..\Source\G _____GUI_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_0_Look_And_Feel.h">
+    <ClInclude Include="..\..\Source\G_ 0_Look_And_Feel.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_1_Win_Main.h">
+    <ClInclude Include="..\..\Source\G_ 1_Win_Main.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_2_Comp_Main.h">
+    <ClInclude Include="..\..\Source\G_ 2_Comp_Main.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_Comp_Devices.h">
+    <ClInclude Include="..\..\Source\G_Comp_Msg_Handler.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_Dele_Device.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_Lbox_Devices.h">
+    <ClInclude Include="..\..\Source\G_Lbox_Device_Select.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

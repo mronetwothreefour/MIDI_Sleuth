@@ -3,9 +3,9 @@
 #include <JuceHeader.h>
 
 #include "D_Data_User.h"
-#include "G_Lbox_Devices.h"
+#include "G_Lbox_Device_Select.h"
 
-class Comp_Devices :
+class Comp_Msg_Handler :
     public Component,
     private MidiInputCallback,
     private AsyncUpdater,
@@ -13,12 +13,12 @@ class Comp_Devices :
     public Data_User
 {
 private: Device_Array list_inputs, list_outputs;
-private: std::unique_ptr<Lbox_Devices> lbox_inputs, lbox_outputs;
+private: std::unique_ptr<Lbox_Device_Select> lbox_inputs, lbox_outputs;
 private: CriticalSection monitor_lock;
 private: Array<MidiMessage> list_received_messages;
 
 //==============================================================================
-public: explicit Comp_Devices(Data_Hub* hub);
+public: explicit Comp_Msg_Handler(Data_Hub* hub);
 
 public: void paint(Graphics& g) override;
 public: void resized() override;
@@ -38,8 +38,8 @@ private: void handleAsyncUpdate() override;
 private: void send_msg(const MidiMessage& msg);
 public: void send_msg_in_slot(const int slot_index);
 public: void stop_and_reset_all();
-public: ~Comp_Devices();
+public: ~Comp_Msg_Handler();
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Comp_Devices)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Comp_Msg_Handler)
 };

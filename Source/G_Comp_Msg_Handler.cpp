@@ -1,11 +1,11 @@
-#include "G_Comp_Devices.h"
+#include "G_Comp_Msg_Handler.h"
 
 using namespace XYWH;
 
-Comp_Devices::Comp_Devices(Data_Hub* hub) :
+Comp_Msg_Handler::Comp_Msg_Handler(Data_Hub* hub) :
     Data_User{ hub },
-    lbox_inputs{ new Lbox_Devices{ "Midi Input Selector", this, true } },
-    lbox_outputs{ new Lbox_Devices{ "Midi Output Selector", this, false } }
+    lbox_inputs{ new Lbox_Device_Select{ "Midi Input Selector", this, true } },
+    lbox_outputs{ new Lbox_Device_Select{ "Midi Output Selector", this, false } }
 {
     addAndMakeVisible(lbox_inputs.get());
     addAndMakeVisible(lbox_outputs.get());
@@ -13,7 +13,7 @@ Comp_Devices::Comp_Devices(Data_Hub* hub) :
     ump::Endpoints::getInstance()->addListener(*this);
 }
 
-void Comp_Devices::paint(Graphics& g) {
+void Comp_Msg_Handler::paint(Graphics& g) {
     g.setFont(FONT::title_device);
     g.setColour(COLOR::txt);
     auto w = lbox_inputs->getWidth();
@@ -23,7 +23,7 @@ void Comp_Devices::paint(Graphics& g) {
     g.drawText("MIDI Output Devices", lbl_output_area, Justification::centredTop);
 }
 
-void Comp_Devices::resized() {
+void Comp_Msg_Handler::resized() {
     auto y = lbl_lbox_devices_h;
     auto w = lbox_devices_min_w;
     if (getWidth() > w + win_main_comp_inset)
@@ -33,7 +33,7 @@ void Comp_Devices::resized() {
     lbox_outputs->setBounds(w + win_main_comp_inset, y, w, h);
 }
 
-void Comp_Devices::open_device(bool input, int index) {
+void Comp_Msg_Handler::open_device(bool input, int index) {
     if (input) {
         auto device = list_inputs[index];
         jassert(device->in_device.get() == nullptr);
@@ -57,20 +57,20 @@ void Comp_Devices::open_device(bool input, int index) {
     }
 }
 
-void Comp_Devices::close_device(bool input, int index) {
+void Comp_Msg_Handler::close_device(bool input, int index) {
     auto& list = input ? list_inputs : list_outputs;
     list[index]->stop_and_reset();
 }
 
-int Comp_Devices::count_inputs() const noexcept {
+int Comp_Msg_Handler::count_inputs() const noexcept {
     return list_inputs.size();
 }
 
-int Comp_Devices::count_outputs() const noexcept {
+int Comp_Msg_Handler::count_outputs() const noexcept {
     return list_outputs.size();
 }
 
-bool Comp_Devices::device_list_changed(const Array<MidiDeviceInfo>& connected_devices, bool inputs) {
+bool Comp_Msg_Handler::device_list_changed(const Array<MidiDeviceInfo>& connected_devices, bool inputs) {
     auto& list = inputs ? list_inputs : list_outputs;
     if (connected_devices.size() != list.size())
         return true;
@@ -80,15 +80,15 @@ bool Comp_Devices::device_list_changed(const Array<MidiDeviceInfo>& connected_de
     return false;
 }
 
-void Comp_Devices::endpointsChanged() {
+void Comp_Msg_Handler::endpointsChanged() {
     update_lists();
 }
 
-Dele_Device::Ptr Comp_Devices::get_device(int index, bool input) const noexcept {
+Dele_Device::Ptr Comp_Msg_Handler::get_device(int index, bool input) const noexcept {
     return input ? list_inputs[index] : list_outputs[index];
 }
 
-Dele_Device::Ptr Comp_Devices::find_device(MidiDeviceInfo device_info, bool input) const {
+Dele_Device::Ptr Comp_Msg_Handler::find_device(MidiDeviceInfo device_info, bool input) const {
     const auto& list = input ? list_inputs : list_outputs;
     for (auto& device : list)
         if (device->device_info == device_info)
@@ -96,7 +96,7 @@ Dele_Device::Ptr Comp_Devices::find_device(MidiDeviceInfo device_info, bool inpu
     return nullptr;
 }
 
-void Comp_Devices::close_connected_devices(const Array<MidiDeviceInfo>& connected_devices, bool input) {
+void Comp_Msg_Handler::close_connected_devices(const Array<MidiDeviceInfo>& connected_devices, bool input) {
     auto& list = input ? list_inputs : list_outputs;
     for (auto i = list.size(); --i >= 0;) {
         auto& device = *list[i];
@@ -108,7 +108,7 @@ void Comp_Devices::close_connected_devices(const Array<MidiDeviceInfo>& connecte
     }
 }
 
-void Comp_Devices::update_list(bool input) {
+void Comp_Msg_Handler::update_list(bool input) {
     auto available_devices = input ? MidiInput::getAvailableDevices() : MidiOutput::getAvailableDevices();
     if (device_list_changed(available_devices, input)) {
         auto& list = input ? list_inputs : list_outputs;
@@ -126,19 +126,19 @@ void Comp_Devices::update_list(bool input) {
     }
 }
 
-void Comp_Devices::update_lists() {
+void Comp_Msg_Handler::update_lists() {
     for (const auto input : { true, false })
         update_list(input);
 }
 
-void Comp_Devices::handleIncomingMidiMessage(MidiInput* /*source*/, const MidiMessage& msg) {
+void Comp_Msg_Handler::handleIncomingMidiMessage(MidiInput* /*source*/, const MidiMessage& msg) {
     // This is called on the MIDI thread
     const ScopedLock scoped_lock(monitor_lock);
     list_received_messages.add(msg);
     triggerAsyncUpdate();
 }
 
-void Comp_Devices::handleAsyncUpdate() {
+void Comp_Msg_Handler::handleAsyncUpdate() {
     // This is called on the message loop
     Array<MidiMessage> messages;
     {
@@ -160,13 +160,13 @@ void Comp_Devices::handleAsyncUpdate() {
     }
 }
 
-void Comp_Devices::send_msg(const MidiMessage& msg) {
+void Comp_Msg_Handler::send_msg(const MidiMessage& msg) {
     for (auto output : list_outputs)
         if (output->out_device != nullptr)
             output->out_device->sendMessageNow(msg);
 }
 
-void Comp_Devices::send_msg_in_slot(const int slot_index) {
+void Comp_Msg_Handler::send_msg_in_slot(const int slot_index) {
     if (slot_index > 0 && slot_index < 5) {
         auto msg_string = slots->msg_in_slot(slot_index);
         if (msg_string.isNotEmpty()) {
@@ -177,7 +177,7 @@ void Comp_Devices::send_msg_in_slot(const int slot_index) {
     }
 }
 
-void Comp_Devices::stop_and_reset_all() {
+void Comp_Msg_Handler::stop_and_reset_all() {
     for (auto chan = 1; chan < 17; ++chan)
         send_msg(MidiMessage::allNotesOff(chan));
     lbox_inputs->stop_and_reset_all_devices(list_inputs);
@@ -185,7 +185,7 @@ void Comp_Devices::stop_and_reset_all() {
     lbox_inputs->sync_selection_with_device_list(list_inputs);
 }
 
-Comp_Devices::~Comp_Devices() {
+Comp_Msg_Handler::~Comp_Msg_Handler() {
     ump::Endpoints::getInstance()->removeListener(*this);
     list_inputs.clear();
     list_outputs.clear();

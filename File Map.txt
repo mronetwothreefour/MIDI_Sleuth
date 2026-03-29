@@ -1,36 +1,36 @@
 A_Main_App
-C_____CONSTANTS_____
+C _____CONSTANTS_____
 C_ENUM
-C_GUI_XYWH
 C_GUI_COLOR
 C_GUI_FONT
+C_GUI_XYWH
 C_Util_Build_Description
 C_Util_Cmd_Info
 C_Util_Cmd_Perform
 C_Util_Convert
-D_____DATA_____
+D _____DATA_____
 D_Data_Hub
 D_Data_User
 D_Tree_Msg_Log
 D_Tree_Msg_Slots
-G_____GUI_____
+G _____GUI_____
 G_0_Look_And_Feel
 G_1_Win_Main
 G_2_Comp_Main
-G_Comp_Devices
-G_Comp_Msg_Edit
+G_Comp_Msg_Handler
 G_Comp_Msg_Filters
 G_Comp_Msg_Slot
 G_Comp_Msg_Slots
+G_Comp_Msg_Slot_Edit
 G_Dele_Byte
 G_Dele_Byte_Edit
 G_Dele_Device
 G_Head_Msg_Compare
 G_Head_Msg_Log
-G_Lbox_Devices
+G_Lbox_Device_Select
 G_Popup_Table
 G_Table_Msg_Log
 G_Table_Msg_Compare
 G_Tabs_Table
 G_Win_Jump_To_Byte
-G_Win_Msg_Edit
+G_Win_Msg_Slot_Edit
