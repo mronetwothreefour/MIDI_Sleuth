@@ -2,20 +2,20 @@
 
 #include <JuceHeader.h>
 
-#include "G_ 0_Look_And_Feel.h"
-#include "G_ 2_Comp_Main.h"
+#include "G_Look_And_Feel.h"
+#include "G_Main_Comp.h"
 
-class Win_Main :
+class Main_Win :
     public DocumentWindow
 {
 private: MS_Look_And_Feel l_a_f;
 
 //==============================================================================
-public: Win_Main(String name, Data_Hub* hub);
+public: Main_Win(String name, Data_Hub* hub);
 
 public: void closeButtonPressed() override;
-public: ~Win_Main();
+public: ~Main_Win();
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Win_Main)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Main_Win)
 };

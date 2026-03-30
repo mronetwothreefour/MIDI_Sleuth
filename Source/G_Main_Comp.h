@@ -3,21 +3,21 @@
 #include <JuceHeader.h>
 
 #include "D_Data_User.h"
-#include "G_Comp_Msg_Handler.h"
+#include "G_MIDI_Handler.h"
 
-class Comp_Main :
+class Main_Comp :
     public Component,
     public Data_User
 {
-private: Comp_Msg_Handler devices;
+private: MIDI_Handler devices;
 private: TooltipWindow tooltips;
 
 //==============================================================================
-public: explicit Comp_Main(Data_Hub* hub);
+public: explicit Main_Comp(Data_Hub* hub);
 
 public: void resized() override;
-public: ~Comp_Main() override;
+public: ~Main_Comp() override;
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Comp_Main)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Main_Comp)
 };

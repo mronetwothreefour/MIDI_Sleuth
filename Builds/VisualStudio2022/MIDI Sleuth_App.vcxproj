@@ -153,11 +153,12 @@
     <ClCompile Include="..\..\Source\D_Data_User.cpp"/>
     <ClCompile Include="..\..\Source\D_Tree_Msg_Log.cpp"/>
     <ClCompile Include="..\..\Source\D_Tree_Msg_Slots.cpp"/>
-    <ClCompile Include="..\..\Source\G_ 0_Look_And_Feel.cpp"/>
-    <ClCompile Include="..\..\Source\G_ 1_Win_Main.cpp"/>
-    <ClCompile Include="..\..\Source\G_ 2_Comp_Main.cpp"/>
-    <ClCompile Include="..\..\Source\G_Comp_Msg_Handler.cpp"/>
-    <ClCompile Include="..\..\Source\G_Lbox_Device_Select.cpp"/>
+    <ClCompile Include="..\..\Source\G_Look_And_Feel.cpp"/>
+    <ClCompile Include="..\..\Source\G_Main_Comp.cpp"/>
+    <ClCompile Include="..\..\Source\G_Main_Win.cpp"/>
+    <ClCompile Include="..\..\Source\G_MIDI_Device_Lbox.cpp"/>
+    <ClCompile Include="..\..\Source\G_MIDI_Handler.cpp"/>
+    <ClCompile Include="..\..\Source\G_Table_Log.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2953,12 +2954,14 @@
     <ClInclude Include="..\..\Source\D_Tree_Msg_Log.h"/>
     <ClInclude Include="..\..\Source\D_Tree_Msg_Slots.h"/>
     <ClInclude Include="..\..\Source\G _____GUI_____.h"/>
-    <ClInclude Include="..\..\Source\G_ 0_Look_And_Feel.h"/>
-    <ClInclude Include="..\..\Source\G_ 1_Win_Main.h"/>
-    <ClInclude Include="..\..\Source\G_ 2_Comp_Main.h"/>
-    <ClInclude Include="..\..\Source\G_Comp_Msg_Handler.h"/>
-    <ClInclude Include="..\..\Source\G_Dele_Device.h"/>
-    <ClInclude Include="..\..\Source\G_Lbox_Device_Select.h"/>
+    <ClInclude Include="..\..\Source\G_Look_And_Feel.h"/>
+    <ClInclude Include="..\..\Source\G_Main_Comp.h"/>
+    <ClInclude Include="..\..\Source\G_Main_Win.h"/>
+    <ClInclude Include="..\..\Source\G_MIDI_Device.h"/>
+    <ClInclude Include="..\..\Source\G_MIDI_Device_Lbox.h"/>
+    <ClInclude Include="..\..\Source\G_MIDI_Handler.h"/>
+    <ClInclude Include="..\..\Source\G_Table_Log.h"/>
+    <ClInclude Include="..\..\Source\G_Table_Pop_Menu.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

@@ -41,26 +41,27 @@
             file="Source/D_Tree_Msg_Slots.h"/>
       <FILE id="wWc9OS" name="G _____GUI_____.h" compile="0" resource="0"
             file="Source/G _____GUI_____.h"/>
-      <FILE id="hklOxA" name="G_ 0_Look_And_Feel.cpp" compile="1" resource="0"
-            file="Source/G_ 0_Look_And_Feel.cpp"/>
-      <FILE id="e125KU" name="G_ 0_Look_And_Feel.h" compile="0" resource="0"
-            file="Source/G_ 0_Look_And_Feel.h"/>
-      <FILE id="LmNGim" name="G_ 1_Win_Main.cpp" compile="1" resource="0"
-            file="Source/G_ 1_Win_Main.cpp"/>
-      <FILE id="KBrBQe" name="G_ 1_Win_Main.h" compile="0" resource="0" file="Source/G_ 1_Win_Main.h"/>
-      <FILE id="s0St9Q" name="G_ 2_Comp_Main.cpp" compile="1" resource="0"
-            file="Source/G_ 2_Comp_Main.cpp"/>
-      <FILE id="IibCn2" name="G_ 2_Comp_Main.h" compile="0" resource="0"
-            file="Source/G_ 2_Comp_Main.h"/>
-      <FILE id="u1D1WJ" name="G_Comp_Msg_Handler.cpp" compile="1" resource="0"
-            file="Source/G_Comp_Msg_Handler.cpp"/>
-      <FILE id="UAUZXq" name="G_Comp_Msg_Handler.h" compile="0" resource="0"
-            file="Source/G_Comp_Msg_Handler.h"/>
-      <FILE id="HKeP81" name="G_Dele_Device.h" compile="0" resource="0" file="Source/G_Dele_Device.h"/>
-      <FILE id="x3Gqfz" name="G_Lbox_Device_Select.cpp" compile="1" resource="0"
-            file="Source/G_Lbox_Device_Select.cpp"/>
-      <FILE id="ggzn3H" name="G_Lbox_Device_Select.h" compile="0" resource="0"
-            file="Source/G_Lbox_Device_Select.h"/>
+      <FILE id="hklOxA" name="G_Look_And_Feel.cpp" compile="1" resource="0"
+            file="Source/G_Look_And_Feel.cpp"/>
+      <FILE id="e125KU" name="G_Look_And_Feel.h" compile="0" resource="0"
+            file="Source/G_Look_And_Feel.h"/>
+      <FILE id="s0St9Q" name="G_Main_Comp.cpp" compile="1" resource="0" file="Source/G_Main_Comp.cpp"/>
+      <FILE id="IibCn2" name="G_Main_Comp.h" compile="0" resource="0" file="Source/G_Main_Comp.h"/>
+      <FILE id="LmNGim" name="G_Main_Win.cpp" compile="1" resource="0" file="Source/G_Main_Win.cpp"/>
+      <FILE id="KBrBQe" name="G_Main_Win.h" compile="0" resource="0" file="Source/G_Main_Win.h"/>
+      <FILE id="HKeP81" name="G_MIDI_Device.h" compile="0" resource="0" file="Source/G_MIDI_Device.h"/>
+      <FILE id="x3Gqfz" name="G_MIDI_Device_Lbox.cpp" compile="1" resource="0"
+            file="Source/G_MIDI_Device_Lbox.cpp"/>
+      <FILE id="ggzn3H" name="G_MIDI_Device_Lbox.h" compile="0" resource="0"
+            file="Source/G_MIDI_Device_Lbox.h"/>
+      <FILE id="u1D1WJ" name="G_MIDI_Handler.cpp" compile="1" resource="0"
+            file="Source/G_MIDI_Handler.cpp"/>
+      <FILE id="UAUZXq" name="G_MIDI_Handler.h" compile="0" resource="0"
+            file="Source/G_MIDI_Handler.h"/>
+      <FILE id="nlZ3N8" name="G_Table_Log.cpp" compile="1" resource="0" file="Source/G_Table_Log.cpp"/>
+      <FILE id="HJIQBh" name="G_Table_Log.h" compile="0" resource="0" file="Source/G_Table_Log.h"/>
+      <FILE id="FlOhgs" name="G_Table_Pop_Menu.h" compile="0" resource="0"
+            file="Source/G_Table_Pop_Menu.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

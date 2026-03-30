@@ -1,8 +1,8 @@
-#include "G_ 2_Comp_Main.h"
+#include "G_Main_Comp.h"
 
 using namespace XYWH;
 
-Comp_Main::Comp_Main(Data_Hub* hub) :
+Main_Comp::Main_Comp(Data_Hub* hub) :
     Data_User{ hub },
     devices{ hub }
 {
@@ -16,7 +16,7 @@ Comp_Main::Comp_Main(Data_Hub* hub) :
     Timer::callAfterDelay(100, [this] { grabKeyboardFocus(); });
 }
 
-void Comp_Main::resized() {
+void Main_Comp::resized() {
     auto win_w = getWidth();
     auto win_h = getHeight();
     auto components_w = win_main_comp_min_w;
@@ -27,5 +27,5 @@ void Comp_Main::resized() {
                       components_w, lbl_lbox_devices_h + lbox_devices_h);
 }
 
-Comp_Main::~Comp_Main() {
+Main_Comp::~Main_Comp() {
 }
