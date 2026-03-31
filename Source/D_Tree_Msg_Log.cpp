@@ -13,14 +13,14 @@ const int Tree_Msg_Log::first_byte_col_id() {
 }
 
 void Tree_Msg_Log::add_msg(const MidiMessage& msg, String description) {
-	ValueTree entry{ "Entry" };
-	entry.setProperty("Timestamp", msg.getTimeStamp(), nullptr);
+	ValueTree row{ "Entry" };
+	row.setProperty("Timestamp", msg.getTimeStamp(), nullptr);
 	auto bytes = Convert::MIDI_message_to_hex_string(msg);
 	if (description.isEmpty())
 		description = Build_Description::from_hex_string(bytes);
-	entry.setProperty("Description", description, nullptr);
-	entry.setProperty("Bytes", bytes, nullptr);
-	tree->addChild(entry, -1, nullptr);
+	row.setProperty("Description", description, nullptr);
+	row.setProperty("Bytes", bytes, nullptr);
+	tree->addChild(row, -1, nullptr);
 }
 
 const int Tree_Msg_Log::msg_timestamp(const int msg_index) {
@@ -44,7 +44,8 @@ const String Tree_Msg_Log::msg_bytes(const int msg_index) {
 }
 
 const String Tree_Msg_Log::msg_byte(const int msg_index, const int byte_index) {
-	return msg_bytes(msg_index).substring(byte_index, byte_index + 2);
+	auto i = byte_index * 2;
+	return msg_bytes(msg_index).substring(i, i + 2);
 }
 
 void Tree_Msg_Log::clear_log() {

@@ -74,6 +74,9 @@
             resource="0" file="Source/G_Table_Jump_To_Byte_Dialog.h"/>
       <FILE id="FlOhgs" name="G_Table_Pop_Menu.h" compile="0" resource="0"
             file="Source/G_Table_Pop_Menu.h"/>
+      <FILE id="U6SHT3" name="G_Table_Tabs.cpp" compile="1" resource="0"
+            file="Source/G_Table_Tabs.cpp"/>
+      <FILE id="SYQeXT" name="G_Table_Tabs.h" compile="0" resource="0" file="Source/G_Table_Tabs.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -17,18 +17,18 @@ void MIDI_Handler::paint(Graphics& g) {
     auto w = lbox_inputs->getWidth();
     Rectangle<int> lbl_input_area{ 0, 0, w, lbl_lbox_devices_h };
     g.drawText("MIDI Input Devices", lbl_input_area, Justification::centredTop);
-    Rectangle<int> lbl_output_area{ w + win_main_comp_inset, 0, w, lbl_lbox_devices_h };
+    Rectangle<int> lbl_output_area{ w + win_main_inset, 0, w, lbl_lbox_devices_h };
     g.drawText("MIDI Output Devices", lbl_output_area, Justification::centredTop);
 }
 
 void MIDI_Handler::resized() {
     auto y = lbl_lbox_devices_h;
     auto w = lbox_devices_min_w;
-    if (getWidth() > w + win_main_comp_inset)
-        w = (getWidth() / 2) - (win_main_comp_inset / 2);
+    if (getWidth() > w + win_main_inset)
+        w = (getWidth() / 2) - (win_main_inset / 2);
     auto h = lbox_devices_h;
     lbox_inputs->setBounds(0, y, w, h);
-    lbox_outputs->setBounds(w + win_main_comp_inset, y, w, h);
+    lbox_outputs->setBounds(w + win_main_inset, y, w, h);
 }
 
 void MIDI_Handler::handleIncomingMidiMessage(MidiInput* /*source*/, const MidiMessage& msg) {

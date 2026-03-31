@@ -1,18 +1,14 @@
 #include "G_Table_Cell_Byte.h"
 
-Table_Cell_Byte::Table_Cell_Byte(const int row_index, const int byte_index, 
-								 const Table_Type table_type, Data_Hub* hub) :
+Table_Cell_Byte::Table_Cell_Byte(const int byte_index, const Table_Type table_type, Data_Hub* hub) :
 	Data_User{ hub },
-	row_index{ row_index },
+	row_index{ -1 },
 	byte_index{ byte_index },
 	table_type{ table_type }
 {
 	setEditable(table_type >= msg_slot_1);
 	setMinimumHorizontalScale(1.0f);
 	setHasFocusOutline(false);
-	current_txt = get_byte_string();
-	setText(current_txt, dontSendNotification);
-	setTooltip(build_tooltip());
 	onEditorShow = [this] {
 		auto editor{ getCurrentTextEditor() };
 		editor->setFont(FONT::table_cell);
@@ -47,6 +43,13 @@ inline void Table_Cell_Byte::paint(Graphics& g) {
 	g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);
 }
 
+void Table_Cell_Byte::set_row_index(const int index) {
+	row_index = index;
+	current_txt = get_byte_string();
+	setText(current_txt, dontSendNotification);
+	setTooltip(build_tooltip());
+}
+
 String Table_Cell_Byte::get_byte_string() {
 	String byte_string{ "" };
 	if (table_type == log_in)
@@ -63,7 +66,6 @@ String Table_Cell_Byte::get_byte_string() {
 }
 
 String Table_Cell_Byte::build_tooltip() const {
-	String tooltip{ "" };
 	auto byte_int = current_txt.getHexValue32();
 	String tooltip{ "Byte " + String{ byte_index } };
 	tooltip += "\nDecimal: ";
@@ -88,4 +90,5 @@ void Table_Cell_Byte::textWasEdited() {
 		current_txt = new_txt;
 	}
 	setText(current_txt, dontSendNotification);
+	setTooltip(build_tooltip());
 }

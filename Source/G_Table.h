@@ -25,7 +25,6 @@ public: Table(const Table_Type table_type, Data_Hub* hub);
 public: int getNumRows() override;
 public: void compare_selected_messages();
 public: void separate_msg_bytes(String& msg, const String& separator);
-public: const String get_bytes_for_first_selected_row();
 public: void scroll_to_msg_row(const int row_index);
 public: void scroll_to_byte_col(const int byte_index);
 private: void show_jump_to_byte_dialog();

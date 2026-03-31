@@ -4,7 +4,7 @@ namespace ENUM
 {
 
 	const enum Command {
-		compare_messages,
+		compare_messages = 1,
 		copy_msg_no_sep,
 		copy_msg_spc_sep,
 		copy_msg_tab_sep,
@@ -17,7 +17,7 @@ namespace ENUM
 		edit_msg_in_slot_5,
 		export_messages,
 		jump_to_byte,
-		show_tab_incoming = 1,
+		show_tab_incoming,
 		show_tab_outgoing,
 		show_tab_compare,
 		store_msg_in_slot_1,

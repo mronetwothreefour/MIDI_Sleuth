@@ -162,6 +162,7 @@
     <ClCompile Include="..\..\Source\G_Table_Cell_Byte.cpp"/>
     <ClCompile Include="..\..\Source\G_Table_Header.cpp"/>
     <ClCompile Include="..\..\Source\G_Table_Jump_To_Byte_Dialog.cpp"/>
+    <ClCompile Include="..\..\Source\G_Table_Tabs.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2968,6 +2969,7 @@
     <ClInclude Include="..\..\Source\G_Table_Header.h"/>
     <ClInclude Include="..\..\Source\G_Table_Jump_To_Byte_Dialog.h"/>
     <ClInclude Include="..\..\Source\G_Table_Pop_Menu.h"/>
+    <ClInclude Include="..\..\Source\G_Table_Tabs.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>

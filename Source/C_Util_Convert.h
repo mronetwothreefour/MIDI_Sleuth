@@ -5,7 +5,7 @@
 struct Convert
 {
 public: static String MIDI_message_to_hex_string(const MidiMessage& msg) {
-            return String::toHexString(msg.getRawData(), msg.getRawDataSize(), 0);;
+            return String::toHexString(msg.getRawData(), msg.getRawDataSize(), 0);
         }
 
 public: static MidiMessage hex_string_to_MIDI_message(const String& hex_string) {

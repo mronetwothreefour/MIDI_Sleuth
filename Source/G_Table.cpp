@@ -68,13 +68,6 @@ void Table::separate_msg_bytes(String& msg, const String& separator) {
 	}
 }
 
-const String Table::get_bytes_for_first_selected_row() {
-	if (tree) {
-		auto row_index = table.getSelectedRow(0);
-		return tree->msg_bytes(row_index);
-	}
-}
-
 void Table::scroll_to_msg_row(const int row_index) {
 	table.scrollToEnsureRowIsOnscreen(row_index);
 }
@@ -135,8 +128,9 @@ Component* Table::refreshComponentForCell(int row_index, int col_id, bool /*is_s
 	if (col_id > num_non_byte_cols) {
 		auto byte_index = col_id - num_non_byte_cols - 1;
 		auto* cell_byte{ static_cast<Table_Cell_Byte*>(c) };
-		if (cell_byte == nullptr)
-			cell_byte = new Table_Cell_Byte{ row_index, byte_index, table_type, hub };
+		if (!cell_byte)
+			cell_byte = new Table_Cell_Byte{ byte_index, table_type, hub };
+		cell_byte->set_row_index(row_index);
 		return cell_byte;
 	}
 	return c;
@@ -146,12 +140,13 @@ void Table::resized() {
 	table.setBounds(0, 0, getWidth(), getHeight());
 }
 
-void Table::valueTreePropertyChanged(ValueTree& parent_tree, const Identifier& property_id) {
+void Table::valueTreePropertyChanged(ValueTree& /*parent_tree*/, const Identifier& /*property_id*/) {
+	table.updateContent();
 }
 
-void Table::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTree& new_row) {
+void Table::valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) {
 	int msg_length{ new_row.getProperty("Bytes").toString().length() / 2 };
-	auto num_byte_columns = header->getNumColumns(true) - header->num_non_byte_cols;
+	auto num_byte_columns = header->byte_col_count();
 	if (msg_length > num_byte_columns) {
 		auto current_header_h = table.getHeaderHeight();
 		if (msg_length > 100 && current_header_h < 45)
@@ -159,7 +154,7 @@ void Table::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTree& new_row) 
 		if (msg_length > 10 && current_header_h < 33)
 			table.setHeaderHeight(33);
 		for (int i = num_byte_columns; i < msg_length; ++i)
-			header->add_data_byte_column(i);
+			header->add_byte_col(i);
 	}
 	table.updateContent();
 	scroll_to_msg_row(parent_tree.indexOf(new_row));
@@ -171,7 +166,7 @@ void Table::valueTreeChildRemoved(ValueTree& /*parent_tree*/, ValueTree& /*row*/
 
 void Table::cellClicked(int row_index, int col_id, const MouseEvent& e) {
 	if (e.mods == ModifierKeys::rightButtonModifier) {
-		Popup_Menu_Table menu{ hub };
+		Table_Pop_Menu menu{ table_type, hub };
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_id, row_index)));
 	}
 	else
@@ -183,18 +178,20 @@ ApplicationCommandTarget* Table::getNextCommandTarget() {
 }
 
 void Table::getAllCommands(Array<int>& cmd_list) {
-	cmd_list.add(store_msg_in_slot_1,
-		store_msg_in_slot_2,
-		store_msg_in_slot_3,
-		store_msg_in_slot_4,
-		store_msg_in_slot_5,
-		copy_msg_no_sep,
-		copy_msg_spc_sep,
-		copy_msg_comma_sep,
-		copy_msg_tab_sep,
-		copy_msg_nl_sep,
-		compare_messages,
-		jump_to_byte);
+	if (table_type < msg_slot_1) {
+		cmd_list.add(store_msg_in_slot_1,
+					 store_msg_in_slot_2,
+					 store_msg_in_slot_3,
+					 store_msg_in_slot_4,
+					 store_msg_in_slot_5,
+					 compare_messages);
+	}
+	cmd_list.add(copy_msg_no_sep,
+				 copy_msg_spc_sep,
+				 copy_msg_comma_sep,
+				 copy_msg_tab_sep,
+				 copy_msg_nl_sep,
+				 jump_to_byte);
 }
 
 void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -238,7 +235,7 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 	if (cmd == jump_to_byte) {
 		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
 		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
-		//info.setActive(table.getHeader().getNumColumns(true) > 25);
+		info.setActive(table.getHeader().getNumColumns(true) > 25);
 	}
 }
 
@@ -247,31 +244,36 @@ bool Table::perform(const InvocationInfo& info) {
 	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
 		auto row_index = table.getLastRowSelected();
 		if (row_index > -1) {
-			auto slot_index = cmd - store_msg_in_slot_1;
-			auto msg = message_log->entry_bytes(row_index);
-			set_message_in_slot(msg, slot_index);
+			auto msg = tree->msg_bytes(row_index);
+			slots->set_msg_in_slot(msg, slot_index);
 			return true;
 		}
 	}
 	if (cmd >= copy_msg_no_sep && cmd <= copy_msg_nl_sep) {
 		auto row_index = table.getLastRowSelected();
 		if (row_index > -1) {
-			auto msg = message_log->entry_bytes(row_index);
-			if (cmd == copy_msg_spc_sep)
-				separate_msg_bytes(msg, " ");
-			if (cmd == copy_msg_tab_sep)
-				separate_msg_bytes(msg, "\t");
-			if (cmd == copy_msg_comma_sep)
-				separate_msg_bytes(msg, ",");
-			if (cmd == copy_msg_nl_sep)
-				separate_msg_bytes(msg, "\n");
+			String msg{ "" };
+			if (table_type < msg_slot_1)
+				msg = tree->msg_bytes(row_index);
+			else
+				msg = slots->msg_in_slot(slot_index);
+			if (msg.isNotEmpty()) {
+				if (cmd == copy_msg_spc_sep)
+					separate_msg_bytes(msg, " ");
+				if (cmd == copy_msg_tab_sep)
+					separate_msg_bytes(msg, "\t");
+				if (cmd == copy_msg_comma_sep)
+					separate_msg_bytes(msg, ",");
+				if (cmd == copy_msg_nl_sep)
+					separate_msg_bytes(msg, "\n");
+			}
 			SystemClipboard::copyTextToClipboard(msg);
 			return true;
 		}
 	}
 	if (cmd == compare_messages) {
 		compare_selected_messages();
-		if (not_compare_table)
+		if (table_type == log_in || table_type == log_out)
 			cmd_mngr.invokeDirectly(show_tab_compare, true);
 		return true;
 	}

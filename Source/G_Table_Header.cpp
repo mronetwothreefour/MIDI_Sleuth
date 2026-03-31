@@ -8,7 +8,7 @@ Table_Header::Table_Header(const Table_Type table_type) :
 		addColumn("#", 1, 30);
 		if (num_non_byte_cols == 4) {
 			addColumn("Timestamp", 2, 75);
-			addColumn("Description", 3, 220);
+			addColumn("Description", 3, 300);
 			addColumn("Length", 4, 55);
 		}
 	}

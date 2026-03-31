@@ -6,7 +6,6 @@ C_GUI_FONT
 C_GUI_XYWH
 C_Util_Build_Description
 C_Util_Cmd_Info
-C_Util_Cmd_Perform
 C_Util_Convert
 D _____DATA_____
 D_Data_Hub

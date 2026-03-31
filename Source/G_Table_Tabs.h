@@ -3,30 +3,26 @@
 #include <JuceHeader.h>
 
 #include "D_Data_User.h"
-#include "G_MIDI_Handler.h"
-#include "G_Table_Tabs.h"
+#include "G_Table.h"
 
-class Main_Comp :
-    public Component,
-    public Data_User,
-    public ApplicationCommandTarget
+class Table_Tabs :
+	public TabbedComponent,
+	public Data_User,
+	public ApplicationCommandTarget
 {
-private: MIDI_Handler devices;
-private: Table_Tabs table_tabs;
-private: TextButton btn_clear;
-private: TextButton btn_reset;
-private: TooltipWindow tooltips;
+private: Table tab_in_log;
+private: Table tab_out_log;
+private: Table tab_compare;
 
 //==============================================================================
-public: explicit Main_Comp(Data_Hub* hub);
+public: explicit Table_Tabs(Data_Hub* hub);
 
-public: void resized() override;
+public: void clear_visible_table();
 public: ApplicationCommandTarget* getNextCommandTarget() override;
 public: void getAllCommands(Array<int>& cmd_list) override;
 public: void getCommandInfo(int cmd, ApplicationCommandInfo& info) override;
 public: bool perform(const InvocationInfo& info) override;
-public: ~Main_Comp() override;
 
 //==============================================================================
-private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Main_Comp)
+private: JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(Table_Tabs)
 };

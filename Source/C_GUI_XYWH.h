@@ -20,7 +20,7 @@ namespace XYWH
 	constexpr int tables_y{ 270 };
 	constexpr int tips_max_w{ 400 };
 	constexpr int win_edit_msg_w{ 730 }, win_edit_msg_h{ 114 };
-	constexpr int win_main_comp_inset{ 20 };
+	constexpr int win_main_inset{ 20 };
 	constexpr int win_main_comp_min_w{ 810 }, win_main_comp_min_h{ 615 };
 	constexpr int win_main_init_w{ 850 }, win_main_init_h{ 655 };
 

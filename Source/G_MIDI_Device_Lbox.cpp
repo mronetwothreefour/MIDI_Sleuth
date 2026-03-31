@@ -76,11 +76,11 @@ void MIDI_Device_Lbox::update_list() {
     auto available_devices = for_inputs ? MidiInput::getAvailableDevices() : MidiOutput::getAvailableDevices();
     if (list_needs_update(available_devices)) {
         close_open_devices(available_devices);
-        ReferenceCountedArray<Dele_Device> new_list;
+        ReferenceCountedArray<MIDI_Device> new_list;
         for (auto& available_device : available_devices) {
             auto device = find_device(available_device);
             if (!device)
-                device = new Dele_Device{ available_device };
+                device = new MIDI_Device{ available_device };
             new_list.add(device);
         }
         list_devices = new_list;
@@ -88,7 +88,7 @@ void MIDI_Device_Lbox::update_list() {
     }
 }
 
-Dele_Device::Ptr MIDI_Device_Lbox::find_device(MidiDeviceInfo device_info) const {
+MIDI_Device::Ptr MIDI_Device_Lbox::find_device(MidiDeviceInfo device_info) const {
     for (auto& device : list_devices)
         if (device->device_info == device_info)
             return device;
