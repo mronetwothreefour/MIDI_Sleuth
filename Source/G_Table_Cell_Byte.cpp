@@ -1,9 +1,9 @@
 #include "G_Table_Cell_Byte.h"
 
-Table_Cell_Byte::Table_Cell_Byte(const int byte_index, const Table_Type table_type, Data_Hub* hub) :
+Table_Cell_Byte::Table_Cell_Byte(const Table_Type table_type, Data_Hub* hub) :
 	Data_User{ hub },
 	row_index{ -1 },
-	byte_index{ byte_index },
+	byte_index{ -1 },
 	table_type{ table_type }
 {
 	setEditable(table_type >= msg_slot_1);
@@ -43,11 +43,14 @@ inline void Table_Cell_Byte::paint(Graphics& g) {
 	g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);
 }
 
-void Table_Cell_Byte::set_row_index(const int index) {
-	row_index = index;
-	current_txt = get_byte_string();
-	setText(current_txt, dontSendNotification);
-	setTooltip(build_tooltip());
+void Table_Cell_Byte::set_indexes(const int new_row_index, const int new_byte_index) {
+	row_index = new_row_index;
+	byte_index = new_byte_index;
+	if (row_index > -1 && byte_index > -1) {
+		current_txt = get_byte_string();
+		setText(current_txt, dontSendNotification);
+		setTooltip(build_tooltip());
+	}
 }
 
 String Table_Cell_Byte::get_byte_string() {

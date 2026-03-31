@@ -129,8 +129,8 @@ Component* Table::refreshComponentForCell(int row_index, int col_id, bool /*is_s
 		auto byte_index = col_id - num_non_byte_cols - 1;
 		auto* cell_byte{ static_cast<Table_Cell_Byte*>(c) };
 		if (!cell_byte)
-			cell_byte = new Table_Cell_Byte{ byte_index, table_type, hub };
-		cell_byte->set_row_index(row_index);
+			cell_byte = new Table_Cell_Byte{ table_type, hub };
+		cell_byte->set_indexes(row_index, byte_index);
 		return cell_byte;
 	}
 	return c;
