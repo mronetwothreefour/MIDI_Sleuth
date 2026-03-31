@@ -43,6 +43,10 @@ const String Tree_Msg_Log::msg_bytes(const int msg_index) {
 	return msg.getProperty("Bytes").toString();
 }
 
+const String Tree_Msg_Log::msg_byte(const int msg_index, const int byte_index) {
+	return msg_bytes(msg_index).substring(byte_index, byte_index + 2);
+}
+
 void Tree_Msg_Log::clear_log() {
 	tree->removeAllChildren(nullptr);
 }

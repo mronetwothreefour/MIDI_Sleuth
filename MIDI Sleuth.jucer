@@ -58,8 +58,20 @@
             file="Source/G_MIDI_Handler.cpp"/>
       <FILE id="UAUZXq" name="G_MIDI_Handler.h" compile="0" resource="0"
             file="Source/G_MIDI_Handler.h"/>
-      <FILE id="nlZ3N8" name="G_Table_Log.cpp" compile="1" resource="0" file="Source/G_Table_Log.cpp"/>
-      <FILE id="HJIQBh" name="G_Table_Log.h" compile="0" resource="0" file="Source/G_Table_Log.h"/>
+      <FILE id="nlZ3N8" name="G_Table.cpp" compile="1" resource="0" file="Source/G_Table.cpp"/>
+      <FILE id="HJIQBh" name="G_Table.h" compile="0" resource="0" file="Source/G_Table.h"/>
+      <FILE id="DDZuaK" name="G_Table_Cell_Byte.cpp" compile="1" resource="0"
+            file="Source/G_Table_Cell_Byte.cpp"/>
+      <FILE id="CpsJuw" name="G_Table_Cell_Byte.h" compile="0" resource="0"
+            file="Source/G_Table_Cell_Byte.h"/>
+      <FILE id="I2e9Cr" name="G_Table_Header.cpp" compile="1" resource="0"
+            file="Source/G_Table_Header.cpp"/>
+      <FILE id="Lr3SaE" name="G_Table_Header.h" compile="0" resource="0"
+            file="Source/G_Table_Header.h"/>
+      <FILE id="N7OaC3" name="G_Table_Jump_To_Byte_Dialog.cpp" compile="1"
+            resource="0" file="Source/G_Table_Jump_To_Byte_Dialog.cpp"/>
+      <FILE id="PNEOzz" name="G_Table_Jump_To_Byte_Dialog.h" compile="0"
+            resource="0" file="Source/G_Table_Jump_To_Byte_Dialog.h"/>
       <FILE id="FlOhgs" name="G_Table_Pop_Menu.h" compile="0" resource="0"
             file="Source/G_Table_Pop_Menu.h"/>
     </GROUP>

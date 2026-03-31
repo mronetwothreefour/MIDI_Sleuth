@@ -48,4 +48,15 @@ namespace ENUM
 		compare
 	};
 
+	const enum Table_Type {
+		log_in = 0,
+		log_out,
+		compare_msg,
+		msg_slot_1,
+		msg_slot_2,
+		msg_slot_3,
+		msg_slot_4,
+		msg_slot_5
+	};
+
 }

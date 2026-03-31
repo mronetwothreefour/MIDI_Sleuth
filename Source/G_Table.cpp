@@ -1,0 +1,290 @@
+#include "G_Table.h"
+
+#include "G_Table_Header.h"
+#include "G_Table_Cell_Byte.h"
+#include "G_Table_Pop_Menu.h"
+#include "G_Table_Jump_To_Byte_Dialog.h"
+
+Table::Table(const Table_Type table_type, Data_Hub* hub) :
+	table_type{ table_type },
+	Data_User{ hub },
+	tree{ nullptr },
+	slot_index{ table_type >= msg_slot_1 ? table_type - msg_slot_1 : -1 }
+{
+	table.setModel(this);
+	table.setRowSelectedOnMouseDown(table_type < msg_slot_1);
+	table.setMultipleSelectionEnabled(table_type < msg_slot_1);
+	table.setHeader(std::unique_ptr<Table_Header>{ new Table_Header{ table_type } });
+	table.setHeaderHeight(21);
+	header = static_cast<Table_Header*>(&table.getHeader());
+	addAndMakeVisible(table);
+
+	if (slot_index >= 0)
+		slots->add_listener_to_slot(this, slot_index);
+	else {
+		if (table_type == log_in)
+			tree = in_log;
+		if (table_type == log_out)
+			tree = out_log;
+		if (table_type == compare_msg)
+			tree = compare;
+		if (tree)
+			tree->add_listener(this);
+	}
+
+	cmd_mngr.registerAllCommandsForTarget(this);
+}
+
+int Table::getNumRows() {
+	if (tree)
+		return tree->number_of_rows();
+	return 1;
+}
+
+void Table::compare_selected_messages() {
+	auto selection = table.getSelectedRows();
+	if (selection.size() > 1) {
+		Array<MidiMessage> messages{};
+		if (tree) {
+			for (int i = 0; i < selection.size(); ++i) {
+				auto hex_string = tree->msg_bytes(selection[i]);
+				messages.add(Convert::hex_string_to_MIDI_message(hex_string));
+			}
+			compare->clear_log();
+			for (auto& msg : messages)
+				compare->add_msg(msg);
+		}
+	}
+}
+
+void Table::separate_msg_bytes(String& msg, const String& separator) {
+	if (msg.isNotEmpty()) {
+		String msg_separated{ msg.substring(0, 2) };
+		for (int byte_index = 2; byte_index < msg.length(); byte_index += 2) {
+			msg_separated += separator;
+			msg_separated += msg.substring(byte_index, byte_index + 2);
+		}
+		msg.swapWith(msg_separated);
+	}
+}
+
+const String Table::get_bytes_for_first_selected_row() {
+	if (tree) {
+		auto row_index = table.getSelectedRow(0);
+		return tree->msg_bytes(row_index);
+	}
+}
+
+void Table::scroll_to_msg_row(const int row_index) {
+	table.scrollToEnsureRowIsOnscreen(row_index);
+}
+
+void Table::scroll_to_byte_col(const int byte_index) {
+	auto byte_col_id = byte_index + 1 + header->num_non_byte_cols;
+	auto num_cols = header->getNumColumns(true);
+	if (byte_col_id >= num_cols)
+		byte_col_id = num_cols - 1;
+	table.scrollToEnsureColumnIsOnscreen(byte_col_id);
+}
+
+void Table::show_jump_to_byte_dialog() {
+	auto* dialog = new Jump_To_Byte_Dialog{ this };
+	DialogWindow::LaunchOptions o;
+	o.content.setOwned(dialog);
+	o.dialogTitle = "Jump to byte";
+	o.dialogBackgroundColour = COLOR::bkgrnd;
+	o.escapeKeyTriggersCloseButton = true;
+	o.useNativeTitleBar = true;
+	o.resizable = false;
+	Component::SafePointer<DialogWindow> dialog_win;
+	dialog_win = o.launchAsync();
+	if (dialog_win)
+		dialog_win->centreAroundComponent(this, XYWH::jump_to_byte_dialog_w, XYWH::jump_to_byte_dialog_h);
+}
+
+void Table::paintRowBackground(Graphics& g, int /*row_index*/, int /*w*/, int /*h*/, bool is_selected) {
+	if (is_selected)
+		g.fillAll(COLOR::hilite);
+}
+
+void Table::paintCell(Graphics& g, int row_index, int col_id, int w, int h, bool /*is_selected*/) {
+	auto num_non_byte_cols = header->num_non_byte_cols;
+	if (tree && row_index > -1 && row_index < tree->number_of_rows() &&
+		col_id > 0 && col_id <= num_non_byte_cols)
+	{
+		g.setColour(COLOR::txt);
+		g.setFont(FONT::table_cell);
+		String text{ "" };
+		if (col_id == 1)
+			text = String{ row_index + 1 };
+		if (col_id == 2)
+			text = String{ tree->msg_timestamp(row_index) };
+		if (col_id == 3)
+			text = tree->msg_description(row_index);
+		if (col_id == 4)
+			text = String{ tree->msg_length(row_index) };
+		g.drawText(text, 2, 0, w - 4, h, col_id > 4 ? Justification::centred : Justification::centredLeft);
+		g.setColour(COLOR::outline);
+		g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
+		g.drawVerticalLine(w - 1, 0.0f, h * 1.0f);
+	}
+}
+
+Component* Table::refreshComponentForCell(int row_index, int col_id, bool /*is_selected*/, Component* c) {
+	auto num_non_byte_cols = header->num_non_byte_cols;
+	if (col_id > num_non_byte_cols) {
+		auto byte_index = col_id - num_non_byte_cols - 1;
+		auto* cell_byte{ static_cast<Table_Cell_Byte*>(c) };
+		if (cell_byte == nullptr)
+			cell_byte = new Table_Cell_Byte{ row_index, byte_index, table_type, hub };
+		return cell_byte;
+	}
+	return c;
+}
+
+void Table::resized() {
+	table.setBounds(0, 0, getWidth(), getHeight());
+}
+
+void Table::valueTreePropertyChanged(ValueTree& parent_tree, const Identifier& property_id) {
+}
+
+void Table::valueTreeChildAdded(ValueTree& /*parent_tree*/, ValueTree& new_row) {
+	int msg_length{ new_row.getProperty("Bytes").toString().length() / 2 };
+	auto num_byte_columns = header->getNumColumns(true) - header->num_non_byte_cols;
+	if (msg_length > num_byte_columns) {
+		auto current_header_h = table.getHeaderHeight();
+		if (msg_length > 100 && current_header_h < 45)
+			table.setHeaderHeight(45);
+		if (msg_length > 10 && current_header_h < 33)
+			table.setHeaderHeight(33);
+		for (int i = num_byte_columns; i < msg_length; ++i)
+			header->add_data_byte_column(i);
+	}
+	table.updateContent();
+	scroll_to_msg_row(parent_tree.indexOf(new_row));
+}
+
+void Table::valueTreeChildRemoved(ValueTree& /*parent_tree*/, ValueTree& /*row*/, int /*row_index*/) {
+	table.updateContent();
+}
+
+void Table::cellClicked(int row_index, int col_id, const MouseEvent& e) {
+	if (e.mods == ModifierKeys::rightButtonModifier) {
+		Popup_Menu_Table menu{ hub };
+		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_id, row_index)));
+	}
+	else
+		TableListBoxModel::cellClicked(row_index, col_id, e);
+}
+
+ApplicationCommandTarget* Table::getNextCommandTarget() {
+	return findFirstTargetParentComponent();
+}
+
+void Table::getAllCommands(Array<int>& cmd_list) {
+	cmd_list.add(store_msg_in_slot_1,
+		store_msg_in_slot_2,
+		store_msg_in_slot_3,
+		store_msg_in_slot_4,
+		store_msg_in_slot_5,
+		copy_msg_no_sep,
+		copy_msg_spc_sep,
+		copy_msg_comma_sep,
+		copy_msg_tab_sep,
+		copy_msg_nl_sep,
+		compare_messages,
+		jump_to_byte);
+}
+
+void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
+	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
+		auto slot_num = cmd - (store_msg_in_slot_1 - 1);
+		String slot{ slot_num };
+		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
+		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == copy_msg_no_sep) {
+		info.setInfo("Copy message bytes", "Copy last selected message, no separation between bytes", "Copy Message", 0);
+		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == copy_msg_spc_sep) {
+		info.setInfo("Space", "Copy last selected message, bytes separated by spaces", "Copy Message", 0);
+		info.addDefaultKeypress(' ', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == copy_msg_tab_sep) {
+		info.setInfo("Tab (\\t)", "Copy last selected message, bytes separated by tabs", "Copy Message", 0);
+		info.addDefaultKeypress('t', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == copy_msg_comma_sep) {
+		info.setInfo("Comma", "Copy last selected message, bytes separated by commas", "Copy Message", 0);
+		info.addDefaultKeypress(',', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == copy_msg_nl_sep) {
+		info.setInfo("Newline (\\n)", "Copy last selected message, bytes separated by newlines", "Copy Message", 0);
+		info.addDefaultKeypress('n', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == compare_messages) {
+		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
+		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
+		info.setActive(table.getSelectedRows().size() > 0);
+	}
+	if (cmd == jump_to_byte) {
+		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
+		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
+		//info.setActive(table.getHeader().getNumColumns(true) > 25);
+	}
+}
+
+bool Table::perform(const InvocationInfo& info) {
+	auto cmd = info.commandID;
+	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
+		auto row_index = table.getLastRowSelected();
+		if (row_index > -1) {
+			auto slot_index = cmd - store_msg_in_slot_1;
+			auto msg = message_log->entry_bytes(row_index);
+			set_message_in_slot(msg, slot_index);
+			return true;
+		}
+	}
+	if (cmd >= copy_msg_no_sep && cmd <= copy_msg_nl_sep) {
+		auto row_index = table.getLastRowSelected();
+		if (row_index > -1) {
+			auto msg = message_log->entry_bytes(row_index);
+			if (cmd == copy_msg_spc_sep)
+				separate_msg_bytes(msg, " ");
+			if (cmd == copy_msg_tab_sep)
+				separate_msg_bytes(msg, "\t");
+			if (cmd == copy_msg_comma_sep)
+				separate_msg_bytes(msg, ",");
+			if (cmd == copy_msg_nl_sep)
+				separate_msg_bytes(msg, "\n");
+			SystemClipboard::copyTextToClipboard(msg);
+			return true;
+		}
+	}
+	if (cmd == compare_messages) {
+		compare_selected_messages();
+		if (not_compare_table)
+			cmd_mngr.invokeDirectly(show_tab_compare, true);
+		return true;
+	}
+	if (cmd == jump_to_byte) {
+		show_jump_to_byte_dialog();
+		return true;
+	}
+	return false;
+}
+
+Table::~Table() {
+	if (tree)
+		tree->remove_listener(this);
+	if (slot_index >= 0)
+		slots->remove_listener_from_slot(this, slot_index);
+}

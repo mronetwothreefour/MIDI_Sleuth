@@ -718,7 +718,16 @@
     <ClCompile Include="..\..\Source\G_MIDI_Handler.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\G_Table_Log.cpp">
+    <ClCompile Include="..\..\Source\G_Table.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\G_Table_Cell_Byte.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\G_Table_Header.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\G_Table_Jump_To_Byte_Dialog.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -3738,7 +3747,16 @@
     <ClInclude Include="..\..\Source\G_MIDI_Handler.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\G_Table_Log.h">
+    <ClInclude Include="..\..\Source\G_Table.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Table_Cell_Byte.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Table_Header.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Table_Jump_To_Byte_Dialog.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_Table_Pop_Menu.h">

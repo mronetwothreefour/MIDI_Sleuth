@@ -18,7 +18,7 @@ namespace FONT
 
 	const Font btn{ Create_Font::with_typeface_and_point_height(face_bld, 15.0f) };
 	const Font dele_device{ Create_Font::with_typeface_and_point_height(type_sbld, 14.0f) };
-	const Font dele_log{ Create_Font::with_typeface_and_point_height(type_reg, 12.0f) };
+	const Font table_cell{ Create_Font::with_typeface_and_point_height(type_reg, 12.0f) };
 	const Font header{ Create_Font::with_typeface_and_point_height(type_sbld, 12.0f) };
 	const Font header_byte{ Create_Font::with_typeface_and_point_height(type_sbld, 9.0f) };
 	const Font lbl_filter{ Create_Font::with_typeface_and_point_height(face_bld, 14.0f) };

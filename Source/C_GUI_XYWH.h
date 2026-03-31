@@ -8,6 +8,7 @@ namespace XYWH
 	constexpr int btn_h{ 30 };
 	constexpr int btn_clear_reset_w{ 80 };
 	constexpr int filters_y{ 235 }, filters_w{ 810 }, filters_h{ 19 };
+	constexpr int jump_to_byte_dialog_w{ 160 }, jump_to_byte_dialog_h{ 115 };
 	constexpr int lbl_lbox_devices_h{ 25 };
 	constexpr int lbox_devices_min_w{ 395 }, lbox_devices_h{ 100 };
 	constexpr int menu_h{ 30 };
@@ -19,7 +20,6 @@ namespace XYWH
 	constexpr int tables_y{ 270 };
 	constexpr int tips_max_w{ 400 };
 	constexpr int win_edit_msg_w{ 730 }, win_edit_msg_h{ 114 };
-	constexpr int win_jump_to_byte_w{ 160 }, win_jump_to_byte_h{ 115 };
 	constexpr int win_main_comp_inset{ 20 };
 	constexpr int win_main_comp_min_w{ 810 }, win_main_comp_min_h{ 615 };
 	constexpr int win_main_init_w{ 850 }, win_main_init_h{ 655 };
@@ -27,7 +27,7 @@ namespace XYWH
 	static const Rectangle<int> edit_msg_table{ 15 , 15 , 700, 84 };
 
 	static const Rectangle<int> jump_to_byte_lbl{ 15 , 10 , 130, 25 };
-	static const Rectangle<int> jump_to_byte_edit{ 15 , 35 , 130, 25 };
+	static const Rectangle<int> jump_to_byte_txt_edit{ 15 , 35 , 130, 25 };
 	static const Rectangle<int> jump_to_byte_btn_cancel{ 15 , 70 , 60 , 30 };
 	static const Rectangle<int> jump_to_byte_btn_jump{ 85 , 70 , 60 , 30 };
 

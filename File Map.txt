@@ -25,12 +25,9 @@ G_Msg_Slot
 G_Msg_Slots
 G_Msg_Slot_Edit_Comp
 G_Msg_Slot_Edit_Win
-G_Table_Compare
-G_Table_Dele_Byte
-G_Table_Dele_Edit_Byte
-G_Table_Header_Compare
-G_Table_Header_Log
-G_Table_Jump_To_Byte_Win
-G_Table_Log
+G_Table
+G_Table_Cell_Byte
+G_Table_Header
+G_Table_Jump_To_Byte_Dialog
 G_Table_Pop_Menu
 G_Table_Tabs
