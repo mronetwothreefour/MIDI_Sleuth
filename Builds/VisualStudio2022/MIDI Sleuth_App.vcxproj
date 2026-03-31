@@ -158,6 +158,7 @@
     <ClCompile Include="..\..\Source\G_Main_Win.cpp"/>
     <ClCompile Include="..\..\Source\G_MIDI_Device_Lbox.cpp"/>
     <ClCompile Include="..\..\Source\G_MIDI_Handler.cpp"/>
+    <ClCompile Include="..\..\Source\G_Msg_Filters.cpp"/>
     <ClCompile Include="..\..\Source\G_Table.cpp"/>
     <ClCompile Include="..\..\Source\G_Table_Cell_Byte.cpp"/>
     <ClCompile Include="..\..\Source\G_Table_Header.cpp"/>
@@ -2964,6 +2965,7 @@
     <ClInclude Include="..\..\Source\G_MIDI_Device.h"/>
     <ClInclude Include="..\..\Source\G_MIDI_Device_Lbox.h"/>
     <ClInclude Include="..\..\Source\G_MIDI_Handler.h"/>
+    <ClInclude Include="..\..\Source\G_Msg_Filters.h"/>
     <ClInclude Include="..\..\Source\G_Table.h"/>
     <ClInclude Include="..\..\Source\G_Table_Cell_Byte.h"/>
     <ClInclude Include="..\..\Source\G_Table_Header.h"/>

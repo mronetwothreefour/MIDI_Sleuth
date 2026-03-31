@@ -5,11 +5,14 @@ using namespace XYWH;
 Main_Comp::Main_Comp(Data_Hub* hub) :
     Data_User{ hub },
     devices{ hub },
+    filters{ hub },
     table_tabs{ hub },
     btn_clear("Clear Log"),
     btn_reset("Reset All")
 {
     addAndMakeVisible(devices);
+
+    addAndMakeVisible(filters);
 
     addAndMakeVisible(table_tabs);
 
@@ -39,11 +42,18 @@ void Main_Comp::resized() {
     auto win_w = getWidth();
     auto win_h = getHeight();
     auto all_comp_w = win_main_comp_min_w;
+    auto can_widen_comps = false;
     auto available_comp_w = win_w - 2 * win_main_inset;
-    if (all_comp_w < available_comp_w)
+    if (all_comp_w < available_comp_w) {
         all_comp_w = available_comp_w;
+        can_widen_comps = true;
+    }
     devices.setBounds(win_main_inset, win_main_inset, 
                       all_comp_w, lbl_lbox_devices_h + lbox_devices_h);
+    auto flex_x = win_main_inset;
+    if (can_widen_comps)
+        flex_x = (win_w - win_main_comp_min_w) / 2;
+    filters.setBounds(flex_x, filters_y, filters_w, filters_h);
     auto tables_h = tables_min_h;
     auto all_comp_h = win_main_comp_min_h;
     auto available_comp_h = win_h - 2 * win_main_inset;
