@@ -19,7 +19,7 @@ Table::Table(const Table_Type table_type, Data_Hub* hub) :
 	header = static_cast<Table_Header*>(&table.getHeader());
 	addAndMakeVisible(table);
 
-	if (slot_index >= 0)
+	if (slot_index > -1)
 		slots->add_listener_to_slot(this, slot_index);
 	else {
 		if (table_type == log_in)
@@ -244,10 +244,11 @@ bool Table::perform(const InvocationInfo& info) {
 	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
 		auto row_index = table.getLastRowSelected();
 		if (row_index > -1) {
+			auto target_slot_index = cmd - store_msg_in_slot_1;
 			auto msg = tree->msg_bytes(row_index);
-			slots->set_msg_in_slot(msg, slot_index);
+			slots->set_msg_in_slot(msg, target_slot_index);
 			auto description = tree->msg_description(row_index);
-			slots->set_description_in_slot(description, slot_index);
+			slots->set_description_in_slot(description, target_slot_index);
 			return true;
 		}
 	}

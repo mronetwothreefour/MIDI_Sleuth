@@ -15,7 +15,7 @@ Msg_Slot::Msg_Slot(int slot_index, Data_Hub* hub, MIDI_Handler* midi_handler) :
 	addAndMakeVisible(btn_edit);
 
 	btn_send.setBounds(XYWH::msg_slot_btn_send);
-	btn_send.onClick = [this, midi_handler, slot_index] { 
+	btn_send.onClick = [this, midi_handler, slot_index] {
 		midi_handler->send_msg_in_slot(slot_index); 
 	};
 	btn_send.addShortcut(KeyPress{ 0x31 + slot_index, ModifierKeys::noModifiers, 0 });
@@ -32,7 +32,8 @@ void Msg_Slot::paint(Graphics& g) {
 }
 
 void Msg_Slot::show_message_editor() {
-	win_edit_msg.reset(new Msg_Slot_Edit_Win{ (Table_Type)(msg_slot_1 + slot_index), hub });
+	auto table_type = (Table_Type)(msg_slot_1 + slot_index);
+	win_edit_msg.reset(new Msg_Slot_Edit_Win{ table_type, hub });
 	auto parent_bounds = getParentComponent()->getBounds();
 	auto cntr_x = parent_bounds.getCentreX();
 	auto cntr_y = parent_bounds.getCentreY() - XYWH::msg_slot_h;
