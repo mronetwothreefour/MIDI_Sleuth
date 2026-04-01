@@ -4,13 +4,16 @@ using namespace XYWH;
 
 Main_Comp::Main_Comp(Data_Hub* hub) :
     Data_User{ hub },
-    devices{ hub },
+    midi_handler{ hub },
+    msg_slots{ hub, &midi_handler },
     filters{ hub },
     table_tabs{ hub },
     btn_clear("Clear Log"),
     btn_reset("Reset All")
 {
-    addAndMakeVisible(devices);
+    addAndMakeVisible(midi_handler);
+
+    addAndMakeVisible(msg_slots);
 
     addAndMakeVisible(filters);
 
@@ -21,7 +24,7 @@ Main_Comp::Main_Comp(Data_Hub* hub) :
     btn_clear.setTooltip("Clear all messages in\nthe current tab.");
     addAndMakeVisible(btn_clear);
 
-    btn_reset.onClick = [this] { devices.stop_and_reset_all();  };
+    btn_reset.onClick = [this] { midi_handler.stop_and_reset_all();  };
     btn_reset.setSize(btn_clear_reset_w, btn_h);
     btn_reset.setTooltip("Send all notes off to all channels,\nthen stop and reset all devices.");
     addAndMakeVisible(btn_reset);
@@ -48,11 +51,12 @@ void Main_Comp::resized() {
         all_comp_w = available_comp_w;
         can_widen_comps = true;
     }
-    devices.setBounds(win_main_inset, win_main_inset, 
+    midi_handler.setBounds(win_main_inset, win_main_inset, 
                       all_comp_w, lbl_lbox_devices_h + lbox_devices_h);
     auto flex_x = win_main_inset;
     if (can_widen_comps)
         flex_x = (win_w - win_main_comp_min_w) / 2;
+    msg_slots.setBounds(flex_x, msg_slots_y, msg_slots_w, msg_slots_h);
     filters.setBounds(flex_x, filters_y, filters_w, filters_h);
     auto tables_h = tables_min_h;
     auto all_comp_h = win_main_comp_min_h;

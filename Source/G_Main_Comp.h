@@ -5,6 +5,7 @@
 #include "D_Data_User.h"
 #include "G_MIDI_Handler.h"
 #include "G_Msg_Filters.h"
+#include "G_Msg_Slots.h"
 #include "G_Table_Tabs.h"
 
 class Main_Comp :
@@ -12,7 +13,8 @@ class Main_Comp :
     public Data_User,
     public ApplicationCommandTarget
 {
-private: MIDI_Handler devices;
+private: MIDI_Handler midi_handler;
+private: Msg_Slots msg_slots;
 private: Msg_Filters filters;
 private: Table_Tabs table_tabs;
 private: TextButton btn_clear;

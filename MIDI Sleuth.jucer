@@ -61,6 +61,16 @@
       <FILE id="YzWQBh" name="G_Msg_Filters.cpp" compile="1" resource="0"
             file="Source/G_Msg_Filters.cpp"/>
       <FILE id="Uf3p1Z" name="G_Msg_Filters.h" compile="0" resource="0" file="Source/G_Msg_Filters.h"/>
+      <FILE id="teUFaI" name="G_Msg_Slot.cpp" compile="1" resource="0" file="Source/G_Msg_Slot.cpp"/>
+      <FILE id="RNWHJ9" name="G_Msg_Slot.h" compile="0" resource="0" file="Source/G_Msg_Slot.h"/>
+      <FILE id="xzpqNn" name="G_Msg_Slot_Edit_Comp.cpp" compile="1" resource="0"
+            file="Source/G_Msg_Slot_Edit_Comp.cpp"/>
+      <FILE id="ya2LSL" name="G_Msg_Slot_Edit_Comp.h" compile="0" resource="0"
+            file="Source/G_Msg_Slot_Edit_Comp.h"/>
+      <FILE id="Aee14c" name="G_Msg_Slot_Edit_Win.h" compile="0" resource="0"
+            file="Source/G_Msg_Slot_Edit_Win.h"/>
+      <FILE id="thKxGF" name="G_Msg_Slots.cpp" compile="1" resource="0" file="Source/G_Msg_Slots.cpp"/>
+      <FILE id="ejMWQk" name="G_Msg_Slots.h" compile="0" resource="0" file="Source/G_Msg_Slots.h"/>
       <FILE id="nlZ3N8" name="G_Table.cpp" compile="1" resource="0" file="Source/G_Table.cpp"/>
       <FILE id="HJIQBh" name="G_Table.h" compile="0" resource="0" file="Source/G_Table.h"/>
       <FILE id="DDZuaK" name="G_Table_Cell_Byte.cpp" compile="1" resource="0"

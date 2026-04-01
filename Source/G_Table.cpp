@@ -246,6 +246,8 @@ bool Table::perform(const InvocationInfo& info) {
 		if (row_index > -1) {
 			auto msg = tree->msg_bytes(row_index);
 			slots->set_msg_in_slot(msg, slot_index);
+			auto description = tree->msg_description(row_index);
+			slots->set_description_in_slot(description, slot_index);
 			return true;
 		}
 	}

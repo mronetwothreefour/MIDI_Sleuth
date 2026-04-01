@@ -159,6 +159,9 @@
     <ClCompile Include="..\..\Source\G_MIDI_Device_Lbox.cpp"/>
     <ClCompile Include="..\..\Source\G_MIDI_Handler.cpp"/>
     <ClCompile Include="..\..\Source\G_Msg_Filters.cpp"/>
+    <ClCompile Include="..\..\Source\G_Msg_Slot.cpp"/>
+    <ClCompile Include="..\..\Source\G_Msg_Slot_Edit_Comp.cpp"/>
+    <ClCompile Include="..\..\Source\G_Msg_Slots.cpp"/>
     <ClCompile Include="..\..\Source\G_Table.cpp"/>
     <ClCompile Include="..\..\Source\G_Table_Cell_Byte.cpp"/>
     <ClCompile Include="..\..\Source\G_Table_Header.cpp"/>
@@ -2966,6 +2969,10 @@
     <ClInclude Include="..\..\Source\G_MIDI_Device_Lbox.h"/>
     <ClInclude Include="..\..\Source\G_MIDI_Handler.h"/>
     <ClInclude Include="..\..\Source\G_Msg_Filters.h"/>
+    <ClInclude Include="..\..\Source\G_Msg_Slot.h"/>
+    <ClInclude Include="..\..\Source\G_Msg_Slot_Edit_Comp.h"/>
+    <ClInclude Include="..\..\Source\G_Msg_Slot_Edit_Win.h"/>
+    <ClInclude Include="..\..\Source\G_Msg_Slots.h"/>
     <ClInclude Include="..\..\Source\G_Table.h"/>
     <ClInclude Include="..\..\Source\G_Table_Cell_Byte.h"/>
     <ClInclude Include="..\..\Source\G_Table_Header.h"/>

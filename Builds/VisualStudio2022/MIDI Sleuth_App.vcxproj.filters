@@ -721,6 +721,15 @@
     <ClCompile Include="..\..\Source\G_Msg_Filters.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\G_Msg_Slot.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\G_Msg_Slot_Edit_Comp.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\G_Msg_Slots.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\G_Table.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -3754,6 +3763,18 @@
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_Msg_Filters.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Msg_Slot.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Msg_Slot_Edit_Comp.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Msg_Slot_Edit_Win.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Msg_Slots.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_Table.h">
