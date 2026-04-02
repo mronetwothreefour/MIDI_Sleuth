@@ -66,11 +66,13 @@ void MIDI_Handler::send_msg(const MidiMessage& msg) {
 
 void MIDI_Handler::send_msg_in_slot(const int slot_index) {
     if (slot_index > -1 && slot_index < 5) {
-        auto msg_string = msg_slot(slot_index)->msg_bytes();
-        if (msg_string.isNotEmpty()) {
-            auto msg = Convert::hex_string_to_MIDI_message(msg_string);
+        auto slot_tree = msg_slot(slot_index);
+        auto bytes = slot_tree->msg_bytes();
+        auto description = slot_tree->msg_description();
+        if (bytes.isNotEmpty()) {
+            auto msg = Convert::hex_string_to_MIDI_message(bytes);
             send_msg(msg);
-            out_log->add_msg(msg);
+            out_log->add_msg(msg, description);
         }
     }
 }

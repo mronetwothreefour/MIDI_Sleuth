@@ -12,6 +12,7 @@ Msg_Slot_Edit_Comp::Msg_Slot_Edit_Comp(const Table_Type table_type, Data_Hub* hu
 
 	edit_description.setFont(FONT::txt_edit_description);
 	edit_description.setBounds(XYWH::edit_msg_edit_description);
+	edit_description.setText(slot_tree->msg_description());
 	edit_description.addListener(this);
 	addAndMakeVisible(edit_description);
 

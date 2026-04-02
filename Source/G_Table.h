@@ -21,20 +21,26 @@ private: Data_Tree* tree;
 //==============================================================================
 public: Table(const Table_Type table_type, Data_Hub* hub);
 
-public: int getNumRows() override;
-public: void compare_selected_messages();
-public: void separate_msg_bytes(String& msg, const String& separator);
-public: void scroll_to_msg_row(const int row_index);
-public: void scroll_to_byte_col(const int byte_index);
-private: void show_jump_to_byte_dialog();
+public: void resized() override;
 public: void paintRowBackground(Graphics& g, int row_index, int w, int h, bool is_selected) override;
 public: void paintCell(Graphics& g, int row_index, int col_id, int w, int h, bool is_selected) override;
 public: Component* refreshComponentForCell(int row_index, int col_id, bool is_selected, Component* c) override;
-public: void resized() override;
+
+public: int getNumRows() override;
+private: void adjust_header_height(const int msg_length);
+private: void adjust_col_count(const int msg_length);
+public: void scroll_to_msg_row(const int row_index);
+public: void scroll_to_byte_col(const int byte_index);
+private: void show_jump_to_byte_dialog();
+
+public: void compare_selected_messages();
+public: void separate_msg_bytes(String& msg, const String& separator);
+
 private: void valueTreePropertyChanged(ValueTree& parent_tree, const Identifier& property_id) override;
 private: void valueTreeChildAdded(ValueTree& parent_tree, ValueTree& new_row) override;
 private: void valueTreeChildRemoved(ValueTree& parent_tree, ValueTree& row, int row_index) override;
 private: void cellClicked(int row_index, int col_id, const MouseEvent& e) override;
+
 public: ApplicationCommandTarget* getNextCommandTarget() override;
 public: void getAllCommands(Array<int>& cmd_list) override;
 public: void getCommandInfo(int cmd, ApplicationCommandInfo& info) override;
