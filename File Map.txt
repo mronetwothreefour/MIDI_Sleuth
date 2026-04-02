@@ -9,9 +9,8 @@ C_Util_Cmd_Info
 C_Util_Convert
 D _____DATA_____
 D_Data_Hub
+D_Data_Tree
 D_Data_User
-D_Tree_Msg_Log
-D_Tree_Msg_Slots
 G _____GUI_____
 G_Look_And_Feel
 G_Main_Comp

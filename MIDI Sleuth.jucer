@@ -29,16 +29,10 @@
             file="Source/D _____DATA_____.h"/>
       <FILE id="rDWkhV" name="D_Data_Hub.cpp" compile="1" resource="0" file="Source/D_Data_Hub.cpp"/>
       <FILE id="amCMZA" name="D_Data_Hub.h" compile="0" resource="0" file="Source/D_Data_Hub.h"/>
+      <FILE id="VkRAnO" name="D_Data_Tree.cpp" compile="1" resource="0" file="Source/D_Data_Tree.cpp"/>
+      <FILE id="NoEqAn" name="D_Data_Tree.h" compile="0" resource="0" file="Source/D_Data_Tree.h"/>
       <FILE id="V2VR2E" name="D_Data_User.cpp" compile="1" resource="0" file="Source/D_Data_User.cpp"/>
       <FILE id="dNVv2D" name="D_Data_User.h" compile="0" resource="0" file="Source/D_Data_User.h"/>
-      <FILE id="VkRAnO" name="D_Tree_Msg_Log.cpp" compile="1" resource="0"
-            file="Source/D_Tree_Msg_Log.cpp"/>
-      <FILE id="NoEqAn" name="D_Tree_Msg_Log.h" compile="0" resource="0"
-            file="Source/D_Tree_Msg_Log.h"/>
-      <FILE id="rax2GK" name="D_Tree_Msg_Slots.cpp" compile="1" resource="0"
-            file="Source/D_Tree_Msg_Slots.cpp"/>
-      <FILE id="FeyH1A" name="D_Tree_Msg_Slots.h" compile="0" resource="0"
-            file="Source/D_Tree_Msg_Slots.h"/>
       <FILE id="wWc9OS" name="G _____GUI_____.h" compile="0" resource="0"
             file="Source/G _____GUI_____.h"/>
       <FILE id="hklOxA" name="G_Look_And_Feel.cpp" compile="1" resource="0"

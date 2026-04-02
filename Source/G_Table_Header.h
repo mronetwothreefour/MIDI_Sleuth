@@ -10,7 +10,7 @@ class Table_Header :
 	public TableHeaderComponent
 {
 private: const Table_Type table_type;
-public: const int num_non_byte_cols;
+private: const int num_non_byte_cols;
 
 //==============================================================================
 public: explicit Table_Header(const Table_Type table_type);

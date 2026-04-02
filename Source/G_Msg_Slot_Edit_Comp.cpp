@@ -5,6 +5,8 @@ Msg_Slot_Edit_Comp::Msg_Slot_Edit_Comp(const Table_Type table_type, Data_Hub* hu
 	Data_User{ hub },
 	table{ table_type, hub }
 {
+	slot_tree = msg_slot(slot_index);
+
 	table.setBounds(XYWH::edit_msg_table);
 	addAndMakeVisible(table);
 
@@ -24,9 +26,9 @@ void Msg_Slot_Edit_Comp::paint(Graphics& g) {
 	g.drawText("Description", XYWH::edit_msg_lbl_description, Justification::centredLeft);
 }
 
-void Msg_Slot_Edit_Comp::textEditorTextChanged(TextEditor& editor) {
+void Msg_Slot_Edit_Comp::textEditorTextChanged(TextEditor& /*editor*/) {
 	auto description = edit_description.getText();
-	slots->set_description_in_slot(description, slot_index);
+	slot_tree->set_msg_description(description);
 }
 
 bool Msg_Slot_Edit_Comp::keyPressed(const KeyPress& key) {
@@ -36,7 +38,7 @@ bool Msg_Slot_Edit_Comp::keyPressed(const KeyPress& key) {
 			msg = msg.removeCharacters(" ,\t\n\r");
 			msg = msg.toLowerCase();
 			if (msg.containsOnly("0123456789abcdef") && msg.length() % 2 == 0)
-				slots->set_msg_in_slot(msg, slot_index);
+				slot_tree->set_msg_bytes(msg);
 			return true;
 		}
 	}

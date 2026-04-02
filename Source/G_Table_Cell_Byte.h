@@ -10,11 +10,11 @@ class Table_Cell_Byte :
 {
 private: int row_index;
 private: int byte_index;
-private: const Table_Type table_type;
+private: Data_Tree* tree;
 private: String current_txt;
 
 //==============================================================================
-public: Table_Cell_Byte(const Table_Type table_type, Data_Hub* hub);
+public: Table_Cell_Byte(Data_Tree* tree, Data_Hub* hub);
 
 private: bool should_be_hilited() const;
 public: void paint(Graphics& g) override;

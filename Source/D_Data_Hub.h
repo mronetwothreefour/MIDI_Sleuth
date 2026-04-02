@@ -2,25 +2,24 @@
 
 #include <JuceHeader.h>
 
-#include "D_Tree_Msg_Log.h"
-#include "D_Tree_Msg_Slots.h"
+#include "D_Data_Tree.h"
 
 class Data_Hub
 {
-private: std::unique_ptr<Tree_Msg_Log> tree_in_log;
-private: std::unique_ptr<Tree_Msg_Log> tree_out_log;
-private: std::unique_ptr<Tree_Msg_Log> tree_compare;
-private: std::unique_ptr<Tree_Msg_Slots> tree_msg_slots;
+private: std::unique_ptr<Data_Tree> tree_in_log;
+private: std::unique_ptr<Data_Tree> tree_out_log;
+private: std::unique_ptr<Data_Tree> tree_compare;
+private: std::unique_ptr<Data_Tree> trees_msg_slot[5];
 public: int msg_filter_flags;
 private: ApplicationCommandManager command_manager;
 
 //==============================================================================
 public: Data_Hub();
 
-public: Tree_Msg_Log* get_tree_in_log();
-public: Tree_Msg_Log* get_tree_out_log();
-public: Tree_Msg_Log* get_tree_compare();
-public: Tree_Msg_Slots* get_tree_msg_slots();
+public: Data_Tree* get_tree_in_log();
+public: Data_Tree* get_tree_out_log();
+public: Data_Tree* get_tree_compare();
+public: Data_Tree* get_tree_msg_slot(const int slot_index);
 public: ApplicationCommandManager& get_command_manager();
 public: ~Data_Hub();
 

@@ -66,7 +66,7 @@ void MIDI_Handler::send_msg(const MidiMessage& msg) {
 
 void MIDI_Handler::send_msg_in_slot(const int slot_index) {
     if (slot_index > -1 && slot_index < 5) {
-        auto msg_string = slots->msg_in_slot(slot_index);
+        auto msg_string = msg_slot(slot_index)->msg_bytes();
         if (msg_string.isNotEmpty()) {
             auto msg = Convert::hex_string_to_MIDI_message(msg_string);
             send_msg(msg);

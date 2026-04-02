@@ -16,8 +16,7 @@ class Table :
 private: TableListBox table;
 private: const Table_Type table_type;
 private: Table_Header* header;
-private: Tree_Msg_Log* tree;
-private: const int slot_index;
+private: Data_Tree* tree;
 
 //==============================================================================
 public: Table(const Table_Type table_type, Data_Hub* hub);

@@ -11,6 +11,7 @@ class Msg_Slot_Edit_Comp :
 	public Data_User
 {
 private: const int slot_index;
+private: Data_Tree* slot_tree;
 private: Table table;
 private: TextEditor edit_description;
 

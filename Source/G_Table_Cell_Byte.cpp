@@ -1,12 +1,12 @@
 #include "G_Table_Cell_Byte.h"
 
-Table_Cell_Byte::Table_Cell_Byte(const Table_Type table_type, Data_Hub* hub) :
+Table_Cell_Byte::Table_Cell_Byte(Data_Tree* tree, Data_Hub* hub) :
 	Data_User{ hub },
 	row_index{ -1 },
 	byte_index{ -1 },
-	table_type{ table_type }
+	tree{ tree }
 {
-	setEditable(table_type >= msg_slot_1);
+	setEditable(tree->table_type >= msg_slot_1);
 	setMinimumHorizontalScale(1.0f);
 	setHasFocusOutline(false);
 	onEditorShow = [this] {
@@ -19,9 +19,9 @@ Table_Cell_Byte::Table_Cell_Byte(const Table_Type table_type, Data_Hub* hub) :
 }
 
 bool Table_Cell_Byte::should_be_hilited() const {
-	if (table_type == compare_msg && row_index > 0) {
+	if (tree->table_type == compare_msg && row_index > 0) {
 		auto this_cell_as_int = current_txt.getHexValue32();
-		auto cell_above_this = compare->msg_byte(row_index - 1, byte_index);
+		auto cell_above_this = compare->single_byte_in_msg(byte_index, row_index - 1);
 		auto cell_above_this_as_int = cell_above_this.getHexValue32();
 		return (this_cell_as_int != cell_above_this_as_int);
 	}
@@ -54,18 +54,7 @@ void Table_Cell_Byte::set_indexes(const int new_row_index, const int new_byte_in
 }
 
 String Table_Cell_Byte::get_byte_string() {
-	String byte_string{ "" };
-	if (table_type == log_in)
-		byte_string = in_log->msg_byte(row_index, byte_index);
-	if (table_type == log_out)
-		byte_string = out_log->msg_byte(row_index, byte_index);
-	if (table_type == compare_msg)
-		byte_string = compare->msg_byte(row_index, byte_index);
-	if (table_type >= msg_slot_1) {
-		const int slot_index = table_type - msg_slot_1;
-		byte_string = slots->msg_in_slot_byte(slot_index, byte_index);
-	}
-	return byte_string;
+	return tree->single_byte_in_msg(byte_index, row_index);
 }
 
 String Table_Cell_Byte::build_tooltip() const {
@@ -88,8 +77,7 @@ void Table_Cell_Byte::textWasEdited() {
 	auto new_txt = getText();
 	if (new_txt.length() == 2) {
 		new_txt = new_txt.toLowerCase();
-		auto slot_index = table_type - msg_slot_1;
-		slots->set_msg_in_slot_byte(new_txt, slot_index, byte_index);
+		tree->set_single_byte_in_msg(new_txt, byte_index);
 		current_txt = new_txt;
 	}
 	setText(current_txt, dontSendNotification);

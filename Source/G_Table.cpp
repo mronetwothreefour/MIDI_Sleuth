@@ -8,8 +8,7 @@
 Table::Table(const Table_Type table_type, Data_Hub* hub) :
 	table_type{ table_type },
 	Data_User{ hub },
-	tree{ nullptr },
-	slot_index{ table_type >= msg_slot_1 ? table_type - msg_slot_1 : -1 }
+	tree{ nullptr }
 {
 	table.setModel(this);
 	table.setRowSelectedOnMouseDown(table_type < msg_slot_1);
@@ -19,40 +18,41 @@ Table::Table(const Table_Type table_type, Data_Hub* hub) :
 	header = static_cast<Table_Header*>(&table.getHeader());
 	addAndMakeVisible(table);
 
-	if (slot_index > -1)
-		slots->add_listener_to_slot(this, slot_index);
-	else {
-		if (table_type == log_in)
-			tree = in_log;
-		if (table_type == log_out)
-			tree = out_log;
-		if (table_type == compare_msg)
-			tree = compare;
-		if (tree)
-			tree->add_listener(this);
+	if (table_type == log_in)
+		tree = in_log;
+	if (table_type == log_out)
+		tree = out_log;
+	if (table_type == compare_msg)
+		tree = compare;
+	if (table_type >= msg_slot_1 && table_type <= msg_slot_5) {
+		auto slot_index = table_type - msg_slot_1;
+		tree = msg_slot(slot_index);
 	}
 
+	if (tree)
+		tree->add_listener(this);
+
 	cmd_mngr.registerAllCommandsForTarget(this);
+
+	table.updateContent();
 }
 
 int Table::getNumRows() {
 	if (tree)
-		return tree->number_of_rows();
-	return 1;
+		return tree->row_count();
+	return 0;
 }
 
 void Table::compare_selected_messages() {
 	auto selection = table.getSelectedRows();
 	if (selection.size() > 1) {
-		Array<MidiMessage> messages{};
 		if (tree) {
 			for (int i = 0; i < selection.size(); ++i) {
 				auto hex_string = tree->msg_bytes(selection[i]);
-				messages.add(Convert::hex_string_to_MIDI_message(hex_string));
+				auto description = tree->msg_description(selection[i]);
+				auto msg = Convert::hex_string_to_MIDI_message(hex_string);
+				compare->add_msg(msg, description);
 			}
-			compare->clear_log();
-			for (auto& msg : messages)
-				compare->add_msg(msg);
 		}
 	}
 }
@@ -73,7 +73,7 @@ void Table::scroll_to_msg_row(const int row_index) {
 }
 
 void Table::scroll_to_byte_col(const int byte_index) {
-	auto byte_col_id = byte_index + 1 + header->num_non_byte_cols;
+	auto byte_col_id = tree->first_byte_col_id() + byte_index;
 	auto num_cols = header->getNumColumns(true);
 	if (byte_col_id >= num_cols)
 		byte_col_id = num_cols - 1;
@@ -101,9 +101,8 @@ void Table::paintRowBackground(Graphics& g, int /*row_index*/, int /*w*/, int /*
 }
 
 void Table::paintCell(Graphics& g, int row_index, int col_id, int w, int h, bool /*is_selected*/) {
-	auto num_non_byte_cols = header->num_non_byte_cols;
-	if (tree && row_index > -1 && row_index < tree->number_of_rows() &&
-		col_id > 0 && col_id <= num_non_byte_cols)
+	if (tree && row_index > -1 && row_index < tree->row_count() &&
+		col_id > 0 && col_id < tree->first_byte_col_id())
 	{
 		g.setColour(COLOR::txt);
 		g.setFont(FONT::table_cell);
@@ -124,12 +123,11 @@ void Table::paintCell(Graphics& g, int row_index, int col_id, int w, int h, bool
 }
 
 Component* Table::refreshComponentForCell(int row_index, int col_id, bool /*is_selected*/, Component* c) {
-	auto num_non_byte_cols = header->num_non_byte_cols;
-	if (col_id > num_non_byte_cols) {
-		auto byte_index = col_id - num_non_byte_cols - 1;
+	if (col_id >= tree->first_byte_col_id()) {
+		auto byte_index = col_id - tree->first_byte_col_id();
 		auto* cell_byte{ static_cast<Table_Cell_Byte*>(c) };
 		if (!cell_byte)
-			cell_byte = new Table_Cell_Byte{ table_type, hub };
+			cell_byte = new Table_Cell_Byte{ tree, hub };
 		cell_byte->set_indexes(row_index, byte_index);
 		return cell_byte;
 	}
@@ -196,7 +194,7 @@ void Table::getAllCommands(Array<int>& cmd_list) {
 
 void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
-		auto slot_num = cmd - (store_msg_in_slot_1 - 1);
+		auto slot_num = cmd - store_msg_in_slot_1 + 1;
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Store Messages", 0);
 		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::ctrlModifier);
@@ -244,22 +242,19 @@ bool Table::perform(const InvocationInfo& info) {
 	if (cmd >= store_msg_in_slot_1 && cmd <= store_msg_in_slot_5) {
 		auto row_index = table.getLastRowSelected();
 		if (row_index > -1) {
-			auto target_slot_index = cmd - store_msg_in_slot_1;
-			auto msg = tree->msg_bytes(row_index);
-			slots->set_msg_in_slot(msg, target_slot_index);
+			auto slot_index = cmd - store_msg_in_slot_1;
+			auto bytes = tree->msg_bytes(row_index);
 			auto description = tree->msg_description(row_index);
-			slots->set_description_in_slot(description, target_slot_index);
+			auto* slot_tree = msg_slot(slot_index);
+			slot_tree->set_msg_bytes(bytes);
+			slot_tree->set_msg_description(description);
 			return true;
 		}
 	}
 	if (cmd >= copy_msg_no_sep && cmd <= copy_msg_nl_sep) {
-		auto row_index = table.getLastRowSelected();
+		auto row_index = table_type < msg_slot_1 ? table.getLastRowSelected() : 0;
 		if (row_index > -1) {
-			String msg{ "" };
-			if (table_type < msg_slot_1)
-				msg = tree->msg_bytes(row_index);
-			else
-				msg = slots->msg_in_slot(slot_index);
+			String msg{ tree->msg_bytes(row_index) };
 			if (msg.isNotEmpty()) {
 				if (cmd == copy_msg_spc_sep)
 					separate_msg_bytes(msg, " ");
@@ -290,6 +285,4 @@ bool Table::perform(const InvocationInfo& info) {
 Table::~Table() {
 	if (tree)
 		tree->remove_listener(this);
-	if (slot_index >= 0)
-		slots->remove_listener_from_slot(this, slot_index);
 }
