@@ -7,6 +7,7 @@ Table_Cell_Byte::Table_Cell_Byte(Data_Tree* tree, Data_Hub* hub) :
 	tree{ tree }
 {
 	setEditable(tree->table_type >= msg_slot_1);
+	setFont(FONT::table_cell);
 	setMinimumHorizontalScale(1.0f);
 	setHasFocusOutline(false);
 	onEditorShow = [this] {

@@ -19,14 +19,15 @@ namespace XYWH
 	constexpr int tables_min_w{ 810 }, tables_min_h{ 325 };
 	constexpr int tables_y{ 270 };
 	constexpr int tips_max_w{ 400 };
-	constexpr int win_edit_msg_w{ 680 }, win_edit_msg_h{ 149 };
+	constexpr int win_edit_msg_w{ 680 }, win_edit_msg_h{ 154 };
 	constexpr int win_main_inset{ 20 };
 	constexpr int win_main_comp_min_w{ 810 }, win_main_comp_min_h{ 615 };
 	constexpr int win_main_init_w{ 850 }, win_main_init_h{ 655 };
 
 	static const Rectangle<int> edit_msg_table{ 15 , 15 , 650, 84 };
-	static const Rectangle<int> edit_msg_lbl_description{ 15 , 109 , 100, 25 };
-	static const Rectangle<int> edit_msg_edit_description{ 115 , 109 , 550, 25 };
+	static const Rectangle<int> edit_msg_lbl_description{ 15 , 109 , 100, 30 };
+	static const Rectangle<int> edit_msg_edit_description{ 115 , 109 , 480, 30 };
+	static const Rectangle<int> edit_msg_btn_send{ 605 , 109 , 60 , 30 };
 
 	static const Rectangle<int> jump_to_byte_lbl{ 15 , 10 , 130, 25 };
 	static const Rectangle<int> jump_to_byte_txt_edit{ 15 , 35 , 130, 25 };

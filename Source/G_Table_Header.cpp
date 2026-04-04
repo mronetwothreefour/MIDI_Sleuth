@@ -12,6 +12,8 @@ Table_Header::Table_Header(const Table_Type table_type) :
 			addColumn("Length", 4, 55);
 		}
 	}
+	if (table_type >= msg_slot_1)
+		setComponentID("Message Slot");
 }
 
 const int Table_Header::byte_col_count() {
@@ -30,6 +32,10 @@ void Table_Header::add_byte_col(int byte_index) {
 			if (i + 1 < num_digits)
 				vertical_col_name << "\n";
 		}
-		addColumn(vertical_col_name, col_id, 30);
+		addColumn(vertical_col_name, col_id, 30, 30, 30, ColumnPropertyFlags::visible);
 	}
+}
+
+void Table_Header::columnClicked(int col_id, const ModifierKeys& /*mods*/) {
+	setSortColumnId(col_id, true);
 }

@@ -24,7 +24,7 @@ const String Build_Description::from_hex_string(const String& hex_string) {
 			return Build_Description::pitch_bend(hex_string);
 	}
 
-	if (hex_string.startsWith("F0") && hex_string.endsWith("F7"))
+	if (hex_string.startsWith("f0") && hex_string.endsWith("f7"))
 		return "System Exclusive";
 
 	return description;

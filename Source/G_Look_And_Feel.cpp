@@ -3,6 +3,7 @@
 MS_Look_And_Feel::MS_Look_And_Feel()
 {
 	setColour(DocumentWindow::backgroundColourId, COLOR::bkgrnd);
+	setColour(Label::textColourId, COLOR::txt);
 	setColour(ListBox::backgroundColourId, COLOR::list_bkgrnd);
 	setColour(ListBox::outlineColourId, COLOR::outline);
 	setColour(PopupMenu::backgroundColourId, COLOR::bkgrnd);
@@ -113,12 +114,16 @@ void MS_Look_And_Feel::drawTabButton(TabBarButton& btn, Graphics& g,
 	g.drawText(btn.getButtonText(), 0, 0, w, h, Justification::centred);
 }
 
-void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& /*c*/,
-											 const String& col_name, int /*col_id*/,
+void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c,
+											 const String& col_name, int col_id,
 											 int w, int h, bool /*mouse_over*/,
 											 bool /*mouse_down*/, int /*col_flags*/)
 {
 	Rectangle<int> area{ w, h };
+	if (c.getComponentID() == "Message Slot" && c.getSortColumnId() == col_id) {
+		g.setColour(COLOR::hilite);
+		g.fillRect(0, 0, w - 1, h - 1);
+	}
 	area.reduce(3, 3);
 	g.setColour(COLOR::txt);
 	g.setFont(col_name.containsOnly("0123456789") ? FONT::header_byte : FONT::header);

@@ -112,6 +112,14 @@ void Table::adjust_col_count(const int msg_length) {
 	}
 }
 
+int Table::active_col_id() const {
+	return header->getSortColumnId();
+}
+
+void Table::reset_active_col_id() {
+	header->setSortColumnId(0, true);
+}
+
 void Table::scroll_to_msg_row(const int row_index) {
 	table.scrollToEnsureRowIsOnscreen(row_index);
 }
@@ -191,6 +199,10 @@ void Table::cellClicked(int row_index, int col_id, const MouseEvent& e) {
 	}
 	else
 		TableListBoxModel::cellClicked(row_index, col_id, e);
+}
+
+void Table::backgroundClicked(const MouseEvent& /*e*/) {
+	reset_active_col_id();
 }
 
 ApplicationCommandTarget* Table::getNextCommandTarget() {

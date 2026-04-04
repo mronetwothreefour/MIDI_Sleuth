@@ -33,7 +33,7 @@ void Msg_Slot::paint(Graphics& g) {
 
 void Msg_Slot::show_message_editor() {
 	auto table_type = (Table_Type)(msg_slot_1 + slot_index);
-	win_edit_msg.reset(new Msg_Slot_Edit_Win{ table_type, hub });
+	win_edit_msg.reset(new Msg_Slot_Edit_Win{ table_type, hub, midi_handler });
 	auto parent_bounds = getParentComponent()->getBounds();
 	auto cntr_x = parent_bounds.getCentreX();
 	auto cntr_y = parent_bounds.getCentreY() - XYWH::msg_slot_h;

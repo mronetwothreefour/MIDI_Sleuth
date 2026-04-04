@@ -8,12 +8,12 @@ class Msg_Slot_Edit_Win :
 	public DocumentWindow
 {
 //==============================================================================
-public: Msg_Slot_Edit_Win(const Table_Type table_type, Data_Hub* hub) :
+public: Msg_Slot_Edit_Win(const Table_Type table_type, Data_Hub* hub, MIDI_Handler* midi_handler) :
 			DocumentWindow{ "Edit message in slot " + String{ table_type - msg_slot_1 + 1 }, COLOR::bkgrnd, closeButton }
 		{
 			setUsingNativeTitleBar(true);
 			setResizable(false, false);
-			setContentOwned(new Msg_Slot_Edit_Comp{ table_type, hub }, false);
+			setContentOwned(new Msg_Slot_Edit_Comp{ table_type, hub, midi_handler }, false);
 			setSize(XYWH::win_edit_msg_w, XYWH::win_edit_msg_h);
 		}
 
