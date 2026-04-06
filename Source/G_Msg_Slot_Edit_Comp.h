@@ -16,6 +16,7 @@ private: Data_Tree* slot_tree;
 private: Table table;
 private: Label edit_description;
 private: TextButton btn_send;
+private: TooltipWindow tooltips;
 
 //==============================================================================
 public: Msg_Slot_Edit_Comp(const Table_Type table_type, Data_Hub* hub, MIDI_Handler* midi_handler);

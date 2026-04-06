@@ -126,7 +126,7 @@ void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& 
 	}
 	area.reduce(3, 3);
 	g.setColour(COLOR::txt);
-	g.setFont(col_name.containsOnly("0123456789") ? FONT::header_byte : FONT::header);
+	g.setFont(col_name.containsOnly("0123456789\n") ? FONT::header_byte : FONT::header);
 	g.drawFittedText(col_name, area, Justification::centredBottom, 4);
 }
 

@@ -89,10 +89,14 @@ int Table::getNumRows() {
 
 void Table::adjust_header_height(const int msg_length) {
 	auto current_header_h = table.getHeaderHeight();
-	if (msg_length > 100 && current_header_h != 45)
+	if (msg_length > 100 && current_header_h != 45) {
 		table.setHeaderHeight(45);
-	if (msg_length > 10 && current_header_h != 33)
+		return;
+	}
+	if (msg_length > 10 && msg_length <= 100 && current_header_h != 33) {
 		table.setHeaderHeight(33);
+		return;
+	}
 	if (msg_length <= 10 && current_header_h != 21)
 		table.setHeaderHeight(21);
 }
@@ -193,6 +197,11 @@ void Table::valueTreeChildRemoved(ValueTree& /*parent_tree*/, ValueTree& /*row*/
 }
 
 void Table::cellClicked(int row_index, int col_id, const MouseEvent& e) {
+	if (table_type >= msg_slot_1 && e.mods == ModifierKeys::leftButtonModifier) {
+		table.deselectRow(row_index);
+		auto c = static_cast<Table_Cell_Byte*>(table.getCellComponent(col_id, row_index));
+		c->showEditor();
+	}
 	if (e.mods == ModifierKeys::rightButtonModifier) {
 		Table_Pop_Menu menu{ table_type, hub };
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_id, row_index)));
@@ -206,7 +215,7 @@ void Table::backgroundClicked(const MouseEvent& /*e*/) {
 }
 
 ApplicationCommandTarget* Table::getNextCommandTarget() {
-	return findFirstTargetParentComponent();
+	return nullptr;
 }
 
 void Table::getAllCommands(Array<int>& cmd_list) {
@@ -216,14 +225,17 @@ void Table::getAllCommands(Array<int>& cmd_list) {
 					 store_msg_in_slot_3,
 					 store_msg_in_slot_4,
 					 store_msg_in_slot_5,
-					 compare_messages);
+					 compare_messages,
+					 jump_to_byte_in_log);
 	}
+	if (table_type >= msg_slot_1)
+		cmd_list.add(jump_to_byte_in_slot);
 	cmd_list.add(copy_msg_no_sep,
 				 copy_msg_spc_sep,
 				 copy_msg_comma_sep,
 				 copy_msg_tab_sep,
 				 copy_msg_nl_sep,
-				 jump_to_byte);
+				 jump_to_byte_in_log);
 }
 
 void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -264,10 +276,10 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
 		info.setActive(table.getSelectedRows().size() > 0);
 	}
-	if (cmd == jump_to_byte) {
+	if (cmd == jump_to_byte_in_log || cmd == jump_to_byte_in_slot) {
 		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
 		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
-		info.setActive(table.getHeader().getNumColumns(true) > 25);
+		//info.setActive(table.getHeader().getNumColumns(true) > 25);
 	}
 }
 
@@ -309,7 +321,7 @@ bool Table::perform(const InvocationInfo& info) {
 			cmd_mngr.invokeDirectly(show_tab_compare, true);
 		return true;
 	}
-	if (cmd == jump_to_byte) {
+	if (cmd == jump_to_byte_in_log || cmd == jump_to_byte_in_slot) {
 		show_jump_to_byte_dialog();
 		return true;
 	}

@@ -31,6 +31,9 @@ Msg_Slot_Edit_Comp::Msg_Slot_Edit_Comp(const Table_Type table_type, Data_Hub* hu
 	btn_send.setTooltip("Send the message\nstored in slot " + slot_string + " to the\nselected outputs.\nShortcut: " + slot_string);
 	addAndMakeVisible(btn_send);
 
+	addChildComponent(tooltips);
+	tooltips.setMillisecondsBeforeTipAppears(2000);
+
 	setSize(XYWH::win_edit_msg_w, XYWH::win_edit_msg_h);
 
 	Timer::callAfterDelay(100, [this] { grabKeyboardFocus(); });
