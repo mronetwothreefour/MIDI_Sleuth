@@ -35,7 +35,6 @@ Table::Table(const Table_Type table_type, Data_Hub* hub) :
 		tree->add_listener(this);
 
 	cmd_mngr.registerAllCommandsForTarget(this);
-
 }
 
 void Table::resized() {
@@ -215,7 +214,7 @@ void Table::backgroundClicked(const MouseEvent& /*e*/) {
 }
 
 ApplicationCommandTarget* Table::getNextCommandTarget() {
-	return nullptr;
+	return findFirstTargetParentComponent();
 }
 
 void Table::getAllCommands(Array<int>& cmd_list) {
@@ -225,17 +224,14 @@ void Table::getAllCommands(Array<int>& cmd_list) {
 					 store_msg_in_slot_3,
 					 store_msg_in_slot_4,
 					 store_msg_in_slot_5,
-					 compare_messages,
-					 jump_to_byte_in_log);
+					 compare_messages);
 	}
-	if (table_type >= msg_slot_1)
-		cmd_list.add(jump_to_byte_in_slot);
+	cmd_list.add(jump_to_byte);
 	cmd_list.add(copy_msg_no_sep,
 				 copy_msg_spc_sep,
 				 copy_msg_comma_sep,
 				 copy_msg_tab_sep,
-				 copy_msg_nl_sep,
-				 jump_to_byte_in_log);
+				 copy_msg_nl_sep);
 }
 
 void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -276,10 +272,9 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
 		info.setActive(table.getSelectedRows().size() > 0);
 	}
-	if (cmd == jump_to_byte_in_log || cmd == jump_to_byte_in_slot) {
+	if (cmd == jump_to_byte) {
 		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
 		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
-		//info.setActive(table.getHeader().getNumColumns(true) > 25);
 	}
 }
 
@@ -321,7 +316,7 @@ bool Table::perform(const InvocationInfo& info) {
 			cmd_mngr.invokeDirectly(show_tab_compare, true);
 		return true;
 	}
-	if (cmd == jump_to_byte_in_log || cmd == jump_to_byte_in_slot) {
+	if (cmd == jump_to_byte) {
 		show_jump_to_byte_dialog();
 		return true;
 	}
