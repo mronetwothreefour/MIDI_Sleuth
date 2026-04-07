@@ -14,7 +14,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{11F5CD20-EE87-0FAF-66C5-DC55DBD55532}</ProjectGuid>
+    <ProjectGuid>{743BF731-4F66-1558-97BA-F8B71CC50995}</ProjectGuid>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props"/>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"
@@ -148,24 +148,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\A_Main_App.cpp"/>
-    <ClCompile Include="..\..\Source\C_Util_Build_Description.cpp"/>
-    <ClCompile Include="..\..\Source\D_Data_Hub.cpp"/>
-    <ClCompile Include="..\..\Source\D_Data_Tree.cpp"/>
-    <ClCompile Include="..\..\Source\D_Data_User.cpp"/>
-    <ClCompile Include="..\..\Source\G_Look_And_Feel.cpp"/>
     <ClCompile Include="..\..\Source\G_Main_Comp.cpp"/>
     <ClCompile Include="..\..\Source\G_Main_Win.cpp"/>
-    <ClCompile Include="..\..\Source\G_MIDI_Device_Lbox.cpp"/>
-    <ClCompile Include="..\..\Source\G_MIDI_Handler.cpp"/>
-    <ClCompile Include="..\..\Source\G_Msg_Filters.cpp"/>
-    <ClCompile Include="..\..\Source\G_Msg_Slot.cpp"/>
-    <ClCompile Include="..\..\Source\G_Msg_Slot_Edit_Comp.cpp"/>
-    <ClCompile Include="..\..\Source\G_Msg_Slots.cpp"/>
-    <ClCompile Include="..\..\Source\G_Table.cpp"/>
-    <ClCompile Include="..\..\Source\G_Table_Cell_Byte.cpp"/>
-    <ClCompile Include="..\..\Source\G_Table_Header.cpp"/>
-    <ClCompile Include="..\..\Source\G_Table_Jump_To_Byte_Dialog.cpp"/>
-    <ClCompile Include="..\..\Source\G_Table_Tabs.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <ExcludedFromBuild>true</ExcludedFromBuild>
     </ClCompile>
@@ -2949,34 +2933,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\C _____CONSTANTS_____.h"/>
-    <ClInclude Include="..\..\Source\C_ENUM.h"/>
     <ClInclude Include="..\..\Source\C_GUI_COLOR.h"/>
-    <ClInclude Include="..\..\Source\C_GUI_FONT.h"/>
-    <ClInclude Include="..\..\Source\C_GUI_XYWH.h"/>
-    <ClInclude Include="..\..\Source\C_Util_Build_Description.h"/>
-    <ClInclude Include="..\..\Source\C_Util_Convert.h"/>
     <ClInclude Include="..\..\Source\D _____DATA_____.h"/>
-    <ClInclude Include="..\..\Source\D_Data_Hub.h"/>
-    <ClInclude Include="..\..\Source\D_Data_Tree.h"/>
-    <ClInclude Include="..\..\Source\D_Data_User.h"/>
     <ClInclude Include="..\..\Source\G _____GUI_____.h"/>
-    <ClInclude Include="..\..\Source\G_Look_And_Feel.h"/>
     <ClInclude Include="..\..\Source\G_Main_Comp.h"/>
     <ClInclude Include="..\..\Source\G_Main_Win.h"/>
-    <ClInclude Include="..\..\Source\G_MIDI_Device.h"/>
-    <ClInclude Include="..\..\Source\G_MIDI_Device_Lbox.h"/>
-    <ClInclude Include="..\..\Source\G_MIDI_Handler.h"/>
-    <ClInclude Include="..\..\Source\G_Msg_Filters.h"/>
-    <ClInclude Include="..\..\Source\G_Msg_Slot.h"/>
-    <ClInclude Include="..\..\Source\G_Msg_Slot_Edit_Comp.h"/>
-    <ClInclude Include="..\..\Source\G_Msg_Slot_Edit_Win.h"/>
-    <ClInclude Include="..\..\Source\G_Msg_Slots.h"/>
-    <ClInclude Include="..\..\Source\G_Table.h"/>
-    <ClInclude Include="..\..\Source\G_Table_Cell_Byte.h"/>
-    <ClInclude Include="..\..\Source\G_Table_Header.h"/>
-    <ClInclude Include="..\..\Source\G_Table_Jump_To_Byte_Dialog.h"/>
-    <ClInclude Include="..\..\Source\G_Table_Pop_Menu.h"/>
-    <ClInclude Include="..\..\Source\G_Table_Tabs.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioChannelSet.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\buffers\juce_AudioDataConverters.h"/>
@@ -4350,7 +4311,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\Resources\icon_app.svg"/>
-    <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGOEUIB_0.TTF"/>
+    <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGUIBL_0.TTF"/>
     <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGOEUI_0.TTF"/>
     <None Include="..\..\..\..\..\..\WINDOWS\Fonts\SEGUISB_0.TTF"/>
     <None Include="..\..\..\JUCE\modules\juce_audio_devices\native\asio\LICENSE.txt"/>

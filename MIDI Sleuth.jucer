@@ -1,89 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="RhUyQS" name="MIDI Sleuth" projectType="guiapp" useAppConfig="1"
-              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" companyName="Mister 1-2-3-4 Programming"
-              companyWebsite="http://programming.mr1234.com" companyEmail="programming@mr1234.com"
-              cppLanguageStandard="20">
-  <MAINGROUP id="tvENf8" name="MIDI Sleuth">
-    <GROUP id="{19983410-9135-A9EC-CF02-124BFFD30029}" name="Resources">
-      <FILE id="oVWkpN" name="icon_app.svg" compile="0" resource="1" file="Resources/icon_app.svg"/>
-      <FILE id="vpp7hq" name="SEGOEUIB_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGOEUIB_0.TTF"/>
-      <FILE id="w7uT6B" name="SEGOEUI_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGOEUI_0.TTF"/>
-      <FILE id="Z3yHPb" name="SEGUISB_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGUISB_0.TTF"/>
+<JUCERPROJECT id="V7DlBW" name="MIDI Sleuth" projectType="guiapp" useAppConfig="1"
+              addUsingNamespaceToJuceHeader="1" jucerFormatVersion="1" companyWebsite="https://programming.mr1234.com"
+              companyEmail="programming@mr1234.com" cppLanguageStandard="20"
+              companyName="Mister 1-2-3-4 Programming">
+  <MAINGROUP id="KVV71D" name="MIDI Sleuth">
+    <GROUP id="{50E0F3AE-088C-ED3D-856E-0BB2AA962E93}" name="Resources">
+      <FILE id="wUL7Tq" name="icon_app.svg" compile="0" resource="1" file="Resources/icon_app.svg"/>
+      <FILE id="hdP5KY" name="SEGUIBL_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGUIBL_0.TTF"/>
+      <FILE id="BG5U8G" name="SEGOEUI_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGOEUI_0.TTF"/>
+      <FILE id="U81AZS" name="SEGUISB_0.TTF" compile="0" resource="1" file="../../../../WINDOWS/Fonts/SEGUISB_0.TTF"/>
     </GROUP>
-    <GROUP id="{E6092632-923E-4346-5AE5-E0C598F15266}" name="Source">
-      <FILE id="AQ3WKC" name="A_Main_App.cpp" compile="1" resource="0" file="Source/A_Main_App.cpp"/>
-      <FILE id="hRLMcQ" name="C _____CONSTANTS_____.h" compile="0" resource="0"
+    <GROUP id="{08F2ECDF-D653-522A-86D8-84EDA4F080F5}" name="Source">
+      <FILE id="AykRwB" name="A_Main_App.cpp" compile="1" resource="0" file="Source/A_Main_App.cpp"/>
+      <FILE id="du9euF" name="C _____CONSTANTS_____.h" compile="0" resource="0"
             file="Source/C _____CONSTANTS_____.h"/>
-      <FILE id="jRebk7" name="C_ENUM.h" compile="0" resource="0" file="Source/C_ENUM.h"/>
-      <FILE id="JImoFN" name="C_GUI_COLOR.h" compile="0" resource="0" file="Source/C_GUI_COLOR.h"/>
-      <FILE id="d45PFU" name="C_GUI_FONT.h" compile="0" resource="0" file="Source/C_GUI_FONT.h"/>
-      <FILE id="nfYAVI" name="C_GUI_XYWH.h" compile="0" resource="0" file="Source/C_GUI_XYWH.h"/>
-      <FILE id="md7D5x" name="C_Util_Build_Description.cpp" compile="1" resource="0"
-            file="Source/C_Util_Build_Description.cpp"/>
-      <FILE id="RDENb2" name="C_Util_Build_Description.h" compile="0" resource="0"
-            file="Source/C_Util_Build_Description.h"/>
-      <FILE id="VgVNqx" name="C_Util_Convert.h" compile="0" resource="0"
-            file="Source/C_Util_Convert.h"/>
-      <FILE id="nDtRPS" name="D _____DATA_____.h" compile="0" resource="0"
+      <FILE id="S52e1i" name="C_GUI_COLOR.h" compile="0" resource="0" file="Source/C_GUI_COLOR.h"/>
+      <FILE id="pN2UMv" name="D _____DATA_____.h" compile="0" resource="0"
             file="Source/D _____DATA_____.h"/>
-      <FILE id="rDWkhV" name="D_Data_Hub.cpp" compile="1" resource="0" file="Source/D_Data_Hub.cpp"/>
-      <FILE id="amCMZA" name="D_Data_Hub.h" compile="0" resource="0" file="Source/D_Data_Hub.h"/>
-      <FILE id="VkRAnO" name="D_Data_Tree.cpp" compile="1" resource="0" file="Source/D_Data_Tree.cpp"/>
-      <FILE id="NoEqAn" name="D_Data_Tree.h" compile="0" resource="0" file="Source/D_Data_Tree.h"/>
-      <FILE id="V2VR2E" name="D_Data_User.cpp" compile="1" resource="0" file="Source/D_Data_User.cpp"/>
-      <FILE id="dNVv2D" name="D_Data_User.h" compile="0" resource="0" file="Source/D_Data_User.h"/>
-      <FILE id="wWc9OS" name="G _____GUI_____.h" compile="0" resource="0"
+      <FILE id="neIsou" name="G _____GUI_____.h" compile="0" resource="0"
             file="Source/G _____GUI_____.h"/>
-      <FILE id="hklOxA" name="G_Look_And_Feel.cpp" compile="1" resource="0"
-            file="Source/G_Look_And_Feel.cpp"/>
-      <FILE id="e125KU" name="G_Look_And_Feel.h" compile="0" resource="0"
-            file="Source/G_Look_And_Feel.h"/>
-      <FILE id="s0St9Q" name="G_Main_Comp.cpp" compile="1" resource="0" file="Source/G_Main_Comp.cpp"/>
-      <FILE id="IibCn2" name="G_Main_Comp.h" compile="0" resource="0" file="Source/G_Main_Comp.h"/>
-      <FILE id="LmNGim" name="G_Main_Win.cpp" compile="1" resource="0" file="Source/G_Main_Win.cpp"/>
-      <FILE id="KBrBQe" name="G_Main_Win.h" compile="0" resource="0" file="Source/G_Main_Win.h"/>
-      <FILE id="HKeP81" name="G_MIDI_Device.h" compile="0" resource="0" file="Source/G_MIDI_Device.h"/>
-      <FILE id="x3Gqfz" name="G_MIDI_Device_Lbox.cpp" compile="1" resource="0"
-            file="Source/G_MIDI_Device_Lbox.cpp"/>
-      <FILE id="ggzn3H" name="G_MIDI_Device_Lbox.h" compile="0" resource="0"
-            file="Source/G_MIDI_Device_Lbox.h"/>
-      <FILE id="u1D1WJ" name="G_MIDI_Handler.cpp" compile="1" resource="0"
-            file="Source/G_MIDI_Handler.cpp"/>
-      <FILE id="UAUZXq" name="G_MIDI_Handler.h" compile="0" resource="0"
-            file="Source/G_MIDI_Handler.h"/>
-      <FILE id="YzWQBh" name="G_Msg_Filters.cpp" compile="1" resource="0"
-            file="Source/G_Msg_Filters.cpp"/>
-      <FILE id="Uf3p1Z" name="G_Msg_Filters.h" compile="0" resource="0" file="Source/G_Msg_Filters.h"/>
-      <FILE id="teUFaI" name="G_Msg_Slot.cpp" compile="1" resource="0" file="Source/G_Msg_Slot.cpp"/>
-      <FILE id="RNWHJ9" name="G_Msg_Slot.h" compile="0" resource="0" file="Source/G_Msg_Slot.h"/>
-      <FILE id="xzpqNn" name="G_Msg_Slot_Edit_Comp.cpp" compile="1" resource="0"
-            file="Source/G_Msg_Slot_Edit_Comp.cpp"/>
-      <FILE id="ya2LSL" name="G_Msg_Slot_Edit_Comp.h" compile="0" resource="0"
-            file="Source/G_Msg_Slot_Edit_Comp.h"/>
-      <FILE id="Aee14c" name="G_Msg_Slot_Edit_Win.h" compile="0" resource="0"
-            file="Source/G_Msg_Slot_Edit_Win.h"/>
-      <FILE id="thKxGF" name="G_Msg_Slots.cpp" compile="1" resource="0" file="Source/G_Msg_Slots.cpp"/>
-      <FILE id="ejMWQk" name="G_Msg_Slots.h" compile="0" resource="0" file="Source/G_Msg_Slots.h"/>
-      <FILE id="nlZ3N8" name="G_Table.cpp" compile="1" resource="0" file="Source/G_Table.cpp"/>
-      <FILE id="HJIQBh" name="G_Table.h" compile="0" resource="0" file="Source/G_Table.h"/>
-      <FILE id="DDZuaK" name="G_Table_Cell_Byte.cpp" compile="1" resource="0"
-            file="Source/G_Table_Cell_Byte.cpp"/>
-      <FILE id="CpsJuw" name="G_Table_Cell_Byte.h" compile="0" resource="0"
-            file="Source/G_Table_Cell_Byte.h"/>
-      <FILE id="I2e9Cr" name="G_Table_Header.cpp" compile="1" resource="0"
-            file="Source/G_Table_Header.cpp"/>
-      <FILE id="Lr3SaE" name="G_Table_Header.h" compile="0" resource="0"
-            file="Source/G_Table_Header.h"/>
-      <FILE id="N7OaC3" name="G_Table_Jump_To_Byte_Dialog.cpp" compile="1"
-            resource="0" file="Source/G_Table_Jump_To_Byte_Dialog.cpp"/>
-      <FILE id="PNEOzz" name="G_Table_Jump_To_Byte_Dialog.h" compile="0"
-            resource="0" file="Source/G_Table_Jump_To_Byte_Dialog.h"/>
-      <FILE id="FlOhgs" name="G_Table_Pop_Menu.h" compile="0" resource="0"
-            file="Source/G_Table_Pop_Menu.h"/>
-      <FILE id="U6SHT3" name="G_Table_Tabs.cpp" compile="1" resource="0"
-            file="Source/G_Table_Tabs.cpp"/>
-      <FILE id="SYQeXT" name="G_Table_Tabs.h" compile="0" resource="0" file="Source/G_Table_Tabs.h"/>
+      <FILE id="Ip02s0" name="G_Main_Comp.cpp" compile="1" resource="0" file="Source/G_Main_Comp.cpp"/>
+      <FILE id="kgRo9B" name="G_Main_Comp.h" compile="0" resource="0" file="Source/G_Main_Comp.h"/>
+      <FILE id="WxwiuX" name="G_Main_Win.cpp" compile="1" resource="0" file="Source/G_Main_Win.cpp"/>
+      <FILE id="X0EsJj" name="G_Main_Win.h" compile="0" resource="0" file="Source/G_Main_Win.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>
@@ -104,7 +44,7 @@
   </MODULES>
   <JUCEOPTIONS JUCE_STRICT_REFCOUNTEDPOINTER="1"/>
   <EXPORTFORMATS>
-    <VS2022 targetFolder="Builds/VisualStudio2022" smallIcon="oVWkpN" bigIcon="oVWkpN">
+    <VS2022 targetFolder="Builds/VisualStudio2022" smallIcon="wUL7Tq" bigIcon="wUL7Tq">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" targetName="MIDI Sleuth (Debug)" enableIncrementalLinking="1"/>
         <CONFIGURATION isDebug="0" name="Release" targetName="MIDI Sleuth" useRuntimeLibDLL="0"/>

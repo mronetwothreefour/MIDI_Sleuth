@@ -11,8 +11,8 @@ namespace BinaryData
     extern const char*   icon_app_svg;
     const int            icon_app_svgSize = 4078;
 
-    extern const char*   SEGOEUIB_0_TTF;
-    const int            SEGOEUIB_0_TTFSize = 968516;
+    extern const char*   SEGUIBL_0_TTF;
+    const int            SEGUIBL_0_TTFSize = 324260;
 
     extern const char*   SEGOEUI_0_TTF;
     const int            SEGOEUI_0_TTFSize = 980960;
