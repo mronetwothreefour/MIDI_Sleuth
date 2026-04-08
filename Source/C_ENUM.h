@@ -1,0 +1,72 @@
+#pragma once
+
+namespace ENUM
+{
+
+	const enum Command {
+		compare_messages = 1,
+		copy_msg__no_sep,
+		copy_msg__spc_sep,
+		copy_msg__tab_sep,
+		copy_msg__comma_sep,
+		copy_msg__nl_sep,
+		msg_export,
+		msg_import,
+		jump_to_byte,
+		show_tab__devices_in,
+		show_tab__devices_out,
+		show_tab__log_in,
+		show_tab__log_out,
+		show_tab__compare,
+		show_tab__slot_1,
+		show_tab__slot_2,
+		show_tab__slot_3,
+		show_tab__slot_4,
+		show_tab__slot_5,
+		store_msg__slot_1,
+		store_msg__slot_2,
+		store_msg__slot_3,
+		store_msg__slot_4,
+		store_msg__slot_5
+	};
+
+	const enum Message_Type {
+		note_on_off = 1,
+		aftertouch_bend = 2,
+		ctrl_change = 4,
+		pgm_change = 8,
+		sysex = 16
+	};
+
+	const enum Byte_Separator {
+		none = 0,
+		space,
+		tab,
+		newline
+	};
+
+	const enum Tab {
+		devices_in = 0,
+		devices_out = 0,
+		log_in,
+		log_out,
+		compare,
+		slot_1,
+		slot_2,
+		slot_3,
+		slot_4,
+		slot_5
+	};
+
+	const enum Table_Type {
+		log_in = 0,
+		log_out,
+		comparison,
+		msg_slot_1,
+		msg_slot_2,
+		msg_slot_3,
+		msg_slot_4,
+		msg_slot_5
+	};
+
+}

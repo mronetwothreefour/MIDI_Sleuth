@@ -688,6 +688,9 @@
     <ClCompile Include="..\..\Source\A_Main_App.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\C_Util_Build_Description.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\G_Main_Comp.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -3657,7 +3660,22 @@
     <ClInclude Include="..\..\Source\C _____CONSTANTS_____.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Source\C_ENUM.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Source\C_GUI_COLOR.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_GUI_FONT.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_GUI_XYWH.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_Util_Build_Description.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\C_Util_Convert.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\D _____DATA_____.h">
