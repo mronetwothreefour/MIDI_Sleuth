@@ -13,8 +13,9 @@ namespace XYWH
 	constexpr int logs_lbl_section_x{ 0 }, logs_lbl_section_y{ 0 };
 	constexpr int logs_tabs_x{ 0 }, logs_tabs_y{ 20 }, logs_tabs_min_h{ 295 };
 	constexpr int slots_x{ 15 }, slots_min_w{ 730 }, slots_h{ 315 };
-	constexpr int slots_lbl_section_x{ 0 }, logs_lbl_section_y{ 0 };
+	constexpr int slots_lbl_section_x{ 0 }, slots_lbl_section_y{ 0 };
 	constexpr int slots_tabs_x{ 0 }, slots_tabs_y{ 20 }, slots_tabs_h{ 65 };
+	constexpr int tips_max_w{ 400 };
 	constexpr int tab_h{ 25 };
 	constexpr int win_inset{ 15 };
 

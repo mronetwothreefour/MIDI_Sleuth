@@ -35,6 +35,10 @@
       <FILE id="YEiYVu" name="D_Data_User.h" compile="0" resource="0" file="Source/D_Data_User.h"/>
       <FILE id="neIsou" name="G _____GUI_____.h" compile="0" resource="0"
             file="Source/G _____GUI_____.h"/>
+      <FILE id="eeyYMv" name="G_Look_And_Feel.cpp" compile="1" resource="0"
+            file="Source/G_Look_And_Feel.cpp"/>
+      <FILE id="Vqy3aS" name="G_Look_And_Feel.h" compile="0" resource="0"
+            file="Source/G_Look_And_Feel.h"/>
       <FILE id="Ip02s0" name="G_Main_Comp.cpp" compile="1" resource="0" file="Source/G_Main_Comp.cpp"/>
       <FILE id="kgRo9B" name="G_Main_Comp.h" compile="0" resource="0" file="Source/G_Main_Comp.h"/>
       <FILE id="WxwiuX" name="G_Main_Win.cpp" compile="1" resource="0" file="Source/G_Main_Win.cpp"/>

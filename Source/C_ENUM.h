@@ -48,8 +48,8 @@ namespace ENUM
 	const enum Tab {
 		devices_in = 0,
 		devices_out = 0,
-		log_in,
-		log_out,
+		incoming,
+		outgoing,
 		compare,
 		slot_1,
 		slot_2,

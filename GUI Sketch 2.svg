@@ -168,7 +168,7 @@
        x="15.000001"
        y="520.00024"
        inkscape:highlight-color="#ffff00"
-       inkscape:label="input devices label box" />
+       inkscape:label="msg slots label box" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:15px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
@@ -176,7 +176,7 @@
        y="531.10352"
        id="text10"
        inkscape:highlight-color="#ffff00"
-       inkscape:label="input devices label"><tspan
+       inkscape:label="msg slots label"><tspan
          sodipodi:role="line"
          id="tspan10"
          x="379.60449"

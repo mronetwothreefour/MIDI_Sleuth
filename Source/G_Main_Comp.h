@@ -9,7 +9,6 @@ class Main_Comp :
 //==============================================================================
 public: Main_Comp();
 
-public: void paint (Graphics&) override;
 public: void resized() override;
 public: ~Main_Comp() override;
 

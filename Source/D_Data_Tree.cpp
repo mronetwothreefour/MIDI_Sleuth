@@ -19,7 +19,7 @@ const int Data_Tree::row_count() {
 }
 
 const int Data_Tree::non_byte_col_count() const {
-	if (table_type < Table_Type::comparison)
+	if (table_type < comparison)
 		return 4;
 	return 1;
 }
@@ -32,7 +32,7 @@ void Data_Tree::add_msg(const MidiMessage& msg, String description) {
 	if (table_type < msg_slot_1) {
 		ValueTree row{ "Message" };
 		auto bytes = Convert::MIDI_message_to_hex_string(msg);
-		if (table_type < Table_Type::comparison) {
+		if (table_type < comparison) {
 			row.setProperty("Timestamp", msg.getTimeStamp(), nullptr);
 			if (description.isEmpty())
 				description = Build_Description::from_hex_string(bytes);
@@ -44,7 +44,7 @@ void Data_Tree::add_msg(const MidiMessage& msg, String description) {
 }
 
 const int Data_Tree::msg_timestamp(const int msg_index) {
-	if (table_type < Table_Type::comparison) {
+	if (table_type < comparison) {
 		auto msg = tree->getChild(msg_index);
 		double timestamp{ msg.getProperty("Timestamp") };
 		return roundToInt(timestamp * 1000.0);

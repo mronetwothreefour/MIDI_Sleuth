@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\Source\D_Data_Hub.cpp"/>
     <ClCompile Include="..\..\Source\D_Data_Tree.cpp"/>
     <ClCompile Include="..\..\Source\D_Data_User.cpp"/>
+    <ClCompile Include="..\..\Source\G_Look_And_Feel.cpp"/>
     <ClCompile Include="..\..\Source\G_Main_Comp.cpp"/>
     <ClCompile Include="..\..\Source\G_Main_Win.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -2948,6 +2949,7 @@
     <ClInclude Include="..\..\Source\D_Data_Tree.h"/>
     <ClInclude Include="..\..\Source\D_Data_User.h"/>
     <ClInclude Include="..\..\Source\G _____GUI_____.h"/>
+    <ClInclude Include="..\..\Source\G_Look_And_Feel.h"/>
     <ClInclude Include="..\..\Source\G_Main_Comp.h"/>
     <ClInclude Include="..\..\Source\G_Main_Win.h"/>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h"/>

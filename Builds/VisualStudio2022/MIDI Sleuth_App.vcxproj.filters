@@ -700,6 +700,9 @@
     <ClCompile Include="..\..\Source\D_Data_User.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\G_Look_And_Feel.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Source\G_Main_Comp.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
@@ -3700,6 +3703,9 @@
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G _____GUI_____.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Look_And_Feel.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_Main_Comp.h">
