@@ -27,6 +27,12 @@
             file="Source/C_Util_Convert.h"/>
       <FILE id="pN2UMv" name="D _____DATA_____.h" compile="0" resource="0"
             file="Source/D _____DATA_____.h"/>
+      <FILE id="kASbaK" name="D_Data_Hub.cpp" compile="1" resource="0" file="Source/D_Data_Hub.cpp"/>
+      <FILE id="bapAGk" name="D_Data_Hub.h" compile="0" resource="0" file="Source/D_Data_Hub.h"/>
+      <FILE id="COYGBT" name="D_Data_Tree.cpp" compile="1" resource="0" file="Source/D_Data_Tree.cpp"/>
+      <FILE id="SgPgJc" name="D_Data_Tree.h" compile="0" resource="0" file="Source/D_Data_Tree.h"/>
+      <FILE id="EHFj68" name="D_Data_User.cpp" compile="1" resource="0" file="Source/D_Data_User.cpp"/>
+      <FILE id="YEiYVu" name="D_Data_User.h" compile="0" resource="0" file="Source/D_Data_User.h"/>
       <FILE id="neIsou" name="G _____GUI_____.h" compile="0" resource="0"
             file="Source/G _____GUI_____.h"/>
       <FILE id="Ip02s0" name="G_Main_Comp.cpp" compile="1" resource="0" file="Source/G_Main_Comp.cpp"/>

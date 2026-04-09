@@ -149,6 +149,9 @@
   <ItemGroup>
     <ClCompile Include="..\..\Source\A_Main_App.cpp"/>
     <ClCompile Include="..\..\Source\C_Util_Build_Description.cpp"/>
+    <ClCompile Include="..\..\Source\D_Data_Hub.cpp"/>
+    <ClCompile Include="..\..\Source\D_Data_Tree.cpp"/>
+    <ClCompile Include="..\..\Source\D_Data_User.cpp"/>
     <ClCompile Include="..\..\Source\G_Main_Comp.cpp"/>
     <ClCompile Include="..\..\Source\G_Main_Win.cpp"/>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
@@ -2941,6 +2944,9 @@
     <ClInclude Include="..\..\Source\C_Util_Build_Description.h"/>
     <ClInclude Include="..\..\Source\C_Util_Convert.h"/>
     <ClInclude Include="..\..\Source\D _____DATA_____.h"/>
+    <ClInclude Include="..\..\Source\D_Data_Hub.h"/>
+    <ClInclude Include="..\..\Source\D_Data_Tree.h"/>
+    <ClInclude Include="..\..\Source\D_Data_User.h"/>
     <ClInclude Include="..\..\Source\G _____GUI_____.h"/>
     <ClInclude Include="..\..\Source\G_Main_Comp.h"/>
     <ClInclude Include="..\..\Source\G_Main_Win.h"/>
