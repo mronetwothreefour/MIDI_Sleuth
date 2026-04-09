@@ -24,9 +24,9 @@
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.66666667"
-     inkscape:cx="329.25"
-     inkscape:cy="234"
+     inkscape:zoom="1"
+     inkscape:cx="393.5"
+     inkscape:cy="370"
      inkscape:window-width="1366"
      inkscape:window-height="745"
      inkscape:window-x="-8"
@@ -55,7 +55,7 @@
          inkscape:label="button" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
          x="53.538086"
          y="646.60583"
          id="text11"
@@ -65,7 +65,7 @@
            id="tspan11"
            x="53.538086"
            y="646.60583"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Clear Slot</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996;font-size:11px">Clear Slot</tspan></text>
     </g>
     <g
        id="g7"
@@ -82,7 +82,7 @@
          inkscape:label="button" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
          x="58.538082"
          y="646.60583"
          id="text7"
@@ -92,7 +92,7 @@
            id="tspan7"
            x="58.538082"
            y="646.60583"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Transmit</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996;font-size:11px">Transmit</tspan></text>
     </g>
     <g
        id="g8"
@@ -109,7 +109,7 @@
          inkscape:label="button" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
          x="53.722656"
          y="646.60583"
          id="text8"
@@ -119,7 +119,7 @@
            id="tspan8"
            x="53.722656"
            y="646.60583"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Jump To...</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996;font-size:11px">Jump To...</tspan></text>
     </g>
     <g
        id="g9"
@@ -147,7 +147,7 @@
            id="tspan9"
            x="40.265869"
            y="585.24194"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Slot 1</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Slot 1</tspan></text>
     </g>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
@@ -197,7 +197,7 @@
          inkscape:label="button" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
          x="53.69043"
          y="646.60583"
          id="text13452"
@@ -207,7 +207,7 @@
            id="tspan13450"
            x="53.69043"
            y="646.60583"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Clear Log</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996;font-size:11px">Clear Log</tspan></text>
     </g>
     <g
        id="g2"
@@ -224,7 +224,7 @@
          inkscape:label="button" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
          x="53.722656"
          y="646.60583"
          id="text2"
@@ -234,7 +234,7 @@
            id="tspan2"
            x="53.722656"
            y="646.60583"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:12px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Jump To...</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996;font-size:11px">Jump To...</tspan></text>
     </g>
     <g
        id="g1"
@@ -262,7 +262,7 @@
            id="tspan9514-4"
            x="49.940918"
            y="585.24194"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Incoming</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Incoming</tspan></text>
     </g>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999988;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
@@ -461,7 +461,7 @@
          inkscape:label="button" />
       <text
          xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11.5898px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.96582;stroke-dasharray:none;paint-order:normal"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:10.62401831px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.96582;stroke-dasharray:none;paint-order:normal"
          x="65.590881"
          y="617.22168"
          id="text10022-1-1"
@@ -471,7 +471,7 @@
            id="tspan10020-8-2"
            x="65.590881"
            y="617.22168"
-           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11.5898px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.96582">Reset All</tspan></text>
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.96582;font-size:10.62401831px">Reset All</tspan></text>
     </g>
     <g
        id="g1-4"
@@ -487,13 +487,19 @@
          y="570.5"
          inkscape:label="tab box"
          inkscape:highlight-color="#00ff00" />
-      <path
-         style="font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;stroke-width:15"
-         d="m 28.763669,585.24194 h -0.902343 v -7.70215 h 0.902343 z m 6.472168,0 h -0.880859 v -3.13672 q 0,-1.75097 -1.27832,-1.75097 -0.660645,0 -1.095704,0.49951 -0.429687,0.49414 -0.429687,1.25146 v 3.13672 h -0.880859 v -5.5 h 0.880859 v 0.91309 h 0.02148 q 0.623047,-1.04199 1.804688,-1.04199 0.902344,0 1.380371,0.58545 0.478027,0.58007 0.478027,1.68115 z m 2.562012,-0.79492 h -0.02148 v 3.32471 h -0.88086 v -8.02979 h 0.88086 v 0.9668 h 0.02148 q 0.649902,-1.0957 1.901367,-1.0957 1.063477,0 1.659669,0.74121 0.596192,0.73584 0.596192,1.97656 0,1.38037 -0.671388,2.21289 -0.671387,0.82715 -1.836914,0.82715 -1.068848,0 -1.648926,-0.92383 z m -0.02148,-2.21826 v 0.76807 q 0,0.68213 0.440428,1.16015 0.445801,0.47266 1.127931,0.47266 0.800292,0 1.251464,-0.61231 0.456544,-0.6123 0.456544,-1.70263 0,-0.91846 -0.424317,-1.43946 -0.424316,-0.52099 -1.149415,-0.52099 -0.768065,0 -1.23535,0.53711 -0.467285,0.53174 -0.467285,1.3374 z m 10.033203,3.01318 h -0.88086 v -0.87011 h -0.02148 q -0.547853,0.99902 -1.697266,0.99902 -1.965821,0 -1.965821,-2.3418 v -3.28711 h 0.875489 v 3.14746 q 0,1.74024 1.332032,1.74024 0.644531,0 1.058104,-0.47266 0.418945,-0.47802 0.418945,-1.24609 v -3.16895 h 0.88086 z m 4.329101,-0.0537 q -0.311523,0.17188 -0.821777,0.17188 -1.444824,0 -1.444824,-1.61133 v -3.25488 H 48.92676 v -0.75196 h 0.945313 v -1.34277 l 0.880859,-0.28467 v 1.62744 h 1.385742 v 0.75196 h -1.385747 v 3.09912 q 0,0.55322 0.187989,0.78955 0.187989,0.23633 0.623047,0.23633 0.333007,0 0.574706,-0.18262 z"
-         id="text9516-9-5"
-         inkscape:highlight-color="#00ff00"
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#333333;fill-opacity:1;stroke:none;stroke-width:15"
+         x="39.932861"
+         y="585.24194"
+         id="text9516-9-9"
          inkscape:label="tab text"
-         aria-label="Input" />
+         inkscape:highlight-color="#00ff00"><tspan
+           sodipodi:role="line"
+           id="tspan9514-4-4"
+           x="39.932861"
+           y="585.24194"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Inputs</tspan></text>
     </g>
     <rect
        style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999991;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"

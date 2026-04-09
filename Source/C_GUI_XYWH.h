@@ -18,6 +18,8 @@ namespace XYWH
 	constexpr int tips_max_w{ 400 };
 	constexpr int tab_h{ 25 };
 	constexpr int win_inset{ 15 };
+	constexpr int win_main_comp_min_w{ 730 }, win_main_comp_min_h{ 615 };
+	constexpr int win_main_init_w{ 760 }, win_main_init_h{ 645 };
 
 	static const Rectangle<int> devices             { 15 , 15 , 385, 160 };
 	static const Rectangle<int> devices_lbl_section { 0  , 0  , 385, 20  };

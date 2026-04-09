@@ -8,11 +8,11 @@ Data_User::Data_User(Data_Hub* hub) :
 	cmd_mngr{ hub->get_command_manager() }
 {}
 
-bool Data_User::should_be_logged(Message_Type msg_type) {
+bool Data_User::should_be_logged(Msg_Type msg_type) {
 	return hub->msg_filter_flags & msg_type;
 }
 
-void Data_User::set_should_be_logged(Message_Type msg_type, bool should_log) {
+void Data_User::set_should_be_logged(Msg_Type msg_type, bool should_log) {
 	if (should_log)
 		hub->msg_filter_flags |= msg_type;
 	else

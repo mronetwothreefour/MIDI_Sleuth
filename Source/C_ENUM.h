@@ -13,8 +13,6 @@ namespace ENUM
 		msg_export,
 		msg_import,
 		jump_to_byte,
-		show_tab__devices_in,
-		show_tab__devices_out,
 		show_tab__log_in,
 		show_tab__log_out,
 		show_tab__compare,
@@ -27,10 +25,11 @@ namespace ENUM
 		store_msg__slot_2,
 		store_msg__slot_3,
 		store_msg__slot_4,
-		store_msg__slot_5
+		store_msg__slot_5,
+		toggle_tab__devices
 	};
 
-	const enum Message_Type {
+	const enum Msg_Type {
 		note_on_off = 1,
 		aftertouch_bend = 2,
 		ctrl_change = 4,
@@ -45,13 +44,19 @@ namespace ENUM
 		newline
 	};
 
-	const enum Tab {
-		devices_in = 0,
-		devices_out = 0,
-		incoming,
+	const enum Tab__Devices {
+		inputs = 0,
+		outputs
+	};
+
+	const enum Tab__Log {
+		incoming = 0,
 		outgoing,
-		compare,
-		slot_1,
+		compare
+	};
+
+	const enum Tab__Slot {
+		slot_1 = 0,
 		slot_2,
 		slot_3,
 		slot_4,

@@ -43,6 +43,15 @@
       <FILE id="kgRo9B" name="G_Main_Comp.h" compile="0" resource="0" file="Source/G_Main_Comp.h"/>
       <FILE id="WxwiuX" name="G_Main_Win.cpp" compile="1" resource="0" file="Source/G_Main_Win.cpp"/>
       <FILE id="X0EsJj" name="G_Main_Win.h" compile="0" resource="0" file="Source/G_Main_Win.h"/>
+      <FILE id="jOE1EQ" name="G_MIDI_Device.h" compile="0" resource="0" file="Source/G_MIDI_Device.h"/>
+      <FILE id="JkEuN4" name="G_MIDI_Device_Lbox.cpp" compile="1" resource="0"
+            file="Source/G_MIDI_Device_Lbox.cpp"/>
+      <FILE id="mCvTXU" name="G_MIDI_Device_Lbox.h" compile="0" resource="0"
+            file="Source/G_MIDI_Device_Lbox.h"/>
+      <FILE id="zpRwYi" name="G_MIDI_Handler.cpp" compile="1" resource="0"
+            file="Source/G_MIDI_Handler.cpp"/>
+      <FILE id="UCNwrB" name="G_MIDI_Handler.h" compile="0" resource="0"
+            file="Source/G_MIDI_Handler.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

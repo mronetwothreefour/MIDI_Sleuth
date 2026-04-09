@@ -11,7 +11,7 @@ class Main_Win :
 private: MS_Look_And_Feel l_a_f;
 
 //==============================================================================
-public: Main_Win(String name/*, Data_Hub* hub*/);
+public: Main_Win(String name, Data_Hub* hub);
 
 public: void closeButtonPressed() override;
 public: ~Main_Win();

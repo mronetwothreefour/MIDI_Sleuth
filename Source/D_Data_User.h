@@ -21,8 +21,8 @@ protected: ApplicationCommandManager& cmd_mngr;
 //==============================================================================
 public: explicit Data_User(Data_Hub* hub);
 
-protected: bool should_be_logged(Message_Type msg_type);
-protected: void set_should_be_logged(Message_Type msg_type, bool should_log);
+protected: bool should_be_logged(Msg_Type msg_type);
+protected: void set_should_be_logged(Msg_Type msg_type, bool should_log);
 protected: Data_Tree* msg_slot(const int slot_index);
 
 //==============================================================================

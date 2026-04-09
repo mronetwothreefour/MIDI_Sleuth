@@ -12,7 +12,7 @@ namespace COLOR
 	const Colour btn_down{ 0xff505050 };
 	const Colour hilite{ 0xff333333 };
 	const Colour hilite_byte_delta{ 0xff505050 };
-	const Colour list_bkgrnd{ 0xff000000 };
+	const Colour lbox_bkgrnd{ 0xff000000 };
 	const Colour outline{ 0xff808080 };
 	const Colour table_bkgrnd{ 0xff000000 };
 	const Colour tgl_off{ 0xff000000 };

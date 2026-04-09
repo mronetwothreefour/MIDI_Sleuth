@@ -2,12 +2,18 @@
 
 #include <JuceHeader.h>
 
+#include "D_Data_User.h"
+#include "G_MIDI_Handler.h"
+
 class Main_Comp :
-    public Component
+    public Component,
+    public Data_User
 {
+private: MIDI_Handler midi_handler;
+private: TooltipWindow tooltips;
 
 //==============================================================================
-public: Main_Comp();
+public: explicit Main_Comp(Data_Hub* hub);
 
 public: void resized() override;
 public: ~Main_Comp() override;
