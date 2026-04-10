@@ -8,6 +8,7 @@ namespace XYWH
 	constexpr int btn_h{ 20 };
 	constexpr int btn_logs_w{ 65 };
 	constexpr int btn_slots_w{ 65 };
+	constexpr int jump_to_byte_dialog_w{ 160 }, jump_to_byte_dialog_h{ 115 };
 	constexpr int lbl_section_h{ 20 };
 	constexpr int logs_x{ 15 }, logs_y{ 180 }, logs_min_w{ 730 }, logs_min_h{ 315 };
 	constexpr int logs_lbl_section_x{ 0 }, logs_lbl_section_y{ 0 };
@@ -38,5 +39,10 @@ namespace XYWH
 	static const Rectangle<int> filters_lbl_ctrl_change { 25 , 114, 145, 17  };
 	static const Rectangle<int> filters_tgl_sysex       { 0  , 145, 15 , 15  };
 	static const Rectangle<int> filters_lbl_sysex       { 25 , 144, 145, 17  };
+
+	static const Rectangle<int> jump_to_byte_lbl        { 15 , 10 , 130, 25 };
+	static const Rectangle<int> jump_to_byte_txt_edit   { 15 , 35 , 130, 25 };
+	static const Rectangle<int> jump_to_byte_btn_cancel { 15 , 70 , 60 , 30 };
+	static const Rectangle<int> jump_to_byte_btn_jump   { 85 , 70 , 60 , 30 };
 
 }

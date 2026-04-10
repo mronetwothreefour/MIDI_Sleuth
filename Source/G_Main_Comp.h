@@ -4,14 +4,12 @@
 
 #include "D_Data_User.h"
 #include "G_MIDI_Handler.h"
-#include "G_Msg_Filters.h"
 
 class Main_Comp :
     public Component,
     public Data_User
 {
 private: MIDI_Handler midi_handler;
-private: Msg_Filters msg_filters;
 private: TooltipWindow tooltips;
 
 //==============================================================================
