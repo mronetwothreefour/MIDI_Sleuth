@@ -715,6 +715,9 @@
     <ClCompile Include="..\..\Source\G_MIDI_Handler.cpp">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\G_Msg_Filters.cpp">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.cpp">
       <Filter>JUCE Modules\juce_audio_basics\audio_play_head</Filter>
     </ClCompile>
@@ -3727,6 +3730,9 @@
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Source\G_MIDI_Handler.h">
+      <Filter>MIDI Sleuth\Source</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\G_Msg_Filters.h">
       <Filter>MIDI Sleuth\Source</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\JUCE\modules\juce_audio_basics\audio_play_head\juce_AudioPlayHead.h">

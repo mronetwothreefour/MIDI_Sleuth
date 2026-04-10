@@ -52,6 +52,9 @@
             file="Source/G_MIDI_Handler.cpp"/>
       <FILE id="UCNwrB" name="G_MIDI_Handler.h" compile="0" resource="0"
             file="Source/G_MIDI_Handler.h"/>
+      <FILE id="WoZuIL" name="G_Msg_Filters.cpp" compile="1" resource="0"
+            file="Source/G_Msg_Filters.cpp"/>
+      <FILE id="WXxH4x" name="G_Msg_Filters.h" compile="0" resource="0" file="Source/G_Msg_Filters.h"/>
     </GROUP>
   </MAINGROUP>
   <MODULES>

@@ -17,7 +17,6 @@ G_Main_Comp
 G_Main_Win
 G_MIDI_Device
 G_MIDI_Device_Lbox
-G_MIDI_Device_Tabs
 G_MIDI_Handler
 G_Msg_Filters
 G_Msg_Slot

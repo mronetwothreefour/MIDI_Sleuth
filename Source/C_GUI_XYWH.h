@@ -29,14 +29,14 @@ namespace XYWH
 	static const Rectangle<int> filters                 { 420, 15 , 170, 165 };
 	static const Rectangle<int> filters_lbl_section     { 0  , 0  , 170, 20  };
 	static const Rectangle<int> filters_tgl_note        { 0  , 25 , 15 , 15  };
-	static const Rectangle<int> filters_1bl_note        { 25 , 24 , 145, 17  };
+	static const Rectangle<int> filters_lbl_note        { 25 , 24 , 145, 17  };
 	static const Rectangle<int> filters_tgl_bend        { 0  , 55 , 15 , 15  };
-	static const Rectangle<int> filters_1bl_bend        { 25 , 54 , 145, 17  };
+	static const Rectangle<int> filters_lbl_bend        { 25 , 54 , 145, 17  };
 	static const Rectangle<int> filters_tgl_pgm_change  { 0  , 85 , 15 , 15  };
-	static const Rectangle<int> filters_1bl_pgm_change  { 25 , 84 , 145, 17  };
+	static const Rectangle<int> filters_lbl_pgm_change  { 25 , 84 , 145, 17  };
 	static const Rectangle<int> filters_tgl_ctrl_change { 0  , 115, 15 , 15  };
-	static const Rectangle<int> filters_1bl_ctrl_change { 25 , 114, 145, 17  };
+	static const Rectangle<int> filters_lbl_ctrl_change { 25 , 114, 145, 17  };
 	static const Rectangle<int> filters_tgl_sysex       { 0  , 145, 15 , 15  };
-	static const Rectangle<int> filters_1bl_sysex       { 25 , 144, 145, 17  };
+	static const Rectangle<int> filters_lbl_sysex       { 25 , 144, 145, 17  };
 
 }
