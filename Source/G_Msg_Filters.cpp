@@ -37,7 +37,8 @@ Msg_Filters::Msg_Filters(Data_Hub* hub) :
 void Msg_Filters::paint(Graphics& g) {
 	g.setColour(COLOR::txt);
 	g.setFont(FONT::lbl_section);
-	g.drawText("Include In Logs:", XYWH::filters_lbl_section, Justification::centredLeft);
+	auto lbl_section_area = XYWH::devices_lbl_section.translated(0, -3);
+	g.drawText("Include In Logs:", lbl_section_area, Justification::topLeft);
 	g.setFont(FONT::lbl_filter);
 	g.drawText("Note On / Note Off", XYWH::filters_lbl_note, Justification::centredLeft);
 	g.drawText("Aftertouch / Pitch Bend", XYWH::filters_lbl_bend, Justification::centredLeft);

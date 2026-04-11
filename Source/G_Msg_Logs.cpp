@@ -40,8 +40,8 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 void Msg_Logs::paint(Graphics& g) {
 	g.setColour(COLOR::txt);
 	g.setFont(FONT::lbl_section);
-	Rectangle<int> txt_area{ 0, 0, getWidth(), XYWH::lbl_section_h };
-	g.drawText("Message Logs", txt_area, Justification::centredTop);
+	Rectangle<int> lbl_section_area{ 0, 0, getWidth(), XYWH::lbl_section_h };
+	g.drawText("Message Logs", lbl_section_area.translated(0, -3), Justification::centredTop);
 }
 
 void Msg_Logs::resized() {

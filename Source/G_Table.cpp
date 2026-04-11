@@ -49,11 +49,10 @@ void Table::paintRowBackground(Graphics& g, int /*row_index*/, int /*w*/, int /*
 }
 
 Component* Table::refreshComponentForCell(int row_index, int col_id, bool /*is_selected*/, Component* c) {
-	auto byte_index = col_id - tree->first_byte_col_id();
 	auto* cell_byte{ static_cast<Table_Cell*>(c) };
 	if (!cell_byte)
 		cell_byte = new Table_Cell{ tree, hub };
-	cell_byte->set_row_and_col(row_index, byte_index);
+	cell_byte->set_row_and_col(row_index, col_id);
 	return cell_byte;
 }
 

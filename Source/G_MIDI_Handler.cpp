@@ -31,9 +31,10 @@ MIDI_Handler::MIDI_Handler(Data_Hub* hub) :
 }
 
 void MIDI_Handler::paint(Graphics& g) {
+	auto lbl_section_area = XYWH::devices_lbl_section.translated(0, -3);
 	g.setColour(COLOR::txt);
 	g.setFont(FONT::lbl_section);
-	g.drawText("MIDI Devices (select to open)", XYWH::devices_lbl_section, Justification::centredTop);
+	g.drawText("MIDI Devices (select to open)", lbl_section_area, Justification::centredTop);
 }
 
 void MIDI_Handler::handleIncomingMidiMessage(MidiInput* /*source*/, const MidiMessage& msg) {
