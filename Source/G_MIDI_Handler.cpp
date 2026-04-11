@@ -100,6 +100,8 @@ ApplicationCommandTarget* MIDI_Handler::getNextCommandTarget() {
 
 void MIDI_Handler::getAllCommands(Array<int>& cmd_list) {
 	cmd_list.add(toggle_tab__devices);
+	for (int cmd = transmit_msg__slot_1; cmd <= transmit_msg__slot_5; ++cmd)
+		cmd_list.add(cmd);
 }
 
 void MIDI_Handler::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -109,11 +111,23 @@ void MIDI_Handler::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 					 "MIDI Devices", 0);
 		info.addDefaultKeypress('d', ModifierKeys::altModifier);
 	}
+	if (cmd >= transmit_msg__slot_1 && cmd <= transmit_msg__slot_5) {
+		auto slot_index = cmd - transmit_msg__slot_1;
+		String slot_num{ slot_index + 1 };
+		info.setInfo("Slot " + slot_num, "Transmit the message in slot " + slot_num + "\nthrough the open output devices", "Table", 0);
+		info.addDefaultKeypress(0x31 + slot_index, ModifierKeys::ctrlModifier);
+	}
 }
 
 bool MIDI_Handler::perform(const InvocationInfo& info) {
-	if (info.commandID == toggle_tab__devices) {
+	auto cmd = info.commandID;
+	if (cmd == toggle_tab__devices) {
 		tabs.setCurrentTabIndex(1 - tabs.getCurrentTabIndex());
+		return true;
+	}
+	if (cmd >= transmit_msg__slot_1 && cmd <= transmit_msg__slot_5) {
+		auto slot_index = cmd - transmit_msg__slot_1;
+		send_msg_in_slot(slot_index);
 		return true;
 	}
 	return false;

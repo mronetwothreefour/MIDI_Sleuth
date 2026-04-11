@@ -6,6 +6,7 @@
 #include "G_MIDI_Handler.h"
 #include "G_Msg_Filters.h"
 #include "G_Msg_Logs.h"
+#include "G_Msg_Slots.h"
 
 class Main_Comp :
     public Component,
@@ -14,6 +15,7 @@ class Main_Comp :
 private: MIDI_Handler midi_handler;
 private: Msg_Filters msg_filters;
 private: Msg_Logs msg_logs;
+private: Msg_Slots msg_slots;
 private: TooltipWindow tooltips;
 
 //==============================================================================

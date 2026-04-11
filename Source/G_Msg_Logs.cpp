@@ -29,7 +29,7 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 
 	btn_clear.onClick = [this] { clear_visible_table(); };
 	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier, 0 });
-	btn_clear.setTooltip("Scroll table horizontally to\nshow a specified byte index.\nShortcut: Alt+J");
+	btn_clear.setTooltip("Remove all messages from the log.\nShortcut: Alt+L");
 	btn_clear.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
 
@@ -114,17 +114,17 @@ bool Msg_Logs::perform(const InvocationInfo& info) {
 	switch (info.commandID) {
 	case show_tab__incoming:
 		tabs.setCurrentTabIndex(Tab__Log::incoming);
-		break;
+		return true;
 	case show_tab__outgoing:
 		tabs.setCurrentTabIndex(Tab__Log::outgoing);
-		break;
+		return true;
 	case show_tab__compare:
 		tabs.setCurrentTabIndex(Tab__Log::compare);
-		break;
+		return true;
 	default:
-		return false;
+		break;
 	}
-	return true;
+	return false;
 }
 
 Msg_Logs::~Msg_Logs() {

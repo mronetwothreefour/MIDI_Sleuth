@@ -26,6 +26,11 @@ namespace ENUM
 		store_msg__slot_3,
 		store_msg__slot_4,
 		store_msg__slot_5,
+		transmit_msg__slot_1,
+		transmit_msg__slot_2,
+		transmit_msg__slot_3,
+		transmit_msg__slot_4,
+		transmit_msg__slot_5,
 		toggle_tab__devices
 	};
 

@@ -15,7 +15,7 @@ Table_Cell::Table_Cell(Data_Tree* tree, Data_Hub* hub) :
 	onEditorShow = [this] {
 		auto editor{ getCurrentTextEditor() };
 		editor->setFont(FONT::table_cell);
-		if (table_type >= msg_slot_1)
+		if (table_type >= msg_slot_1 && byte_index > -1)
 			editor->setInputRestrictions(2, "0123456789abcdefABCDEF");
 		editor->setText(current_txt);
 		editor->selectAll();
