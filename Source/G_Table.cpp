@@ -15,6 +15,7 @@ Table::Table(const Table_Type table_type, Data_Hub* hub) :
 	table.setMultipleSelectionEnabled(table_type < msg_slot_1);
 	table.setHeader(std::unique_ptr<Table_Header>{ new Table_Header{ table_type } });
 	table.setHeaderHeight(21);
+	table.setOutlineThickness(0);
 	header = static_cast<Table_Header*>(&table.getHeader());
 	addAndMakeVisible(table);
 
@@ -244,8 +245,8 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 		info.setActive(table.getSelectedRows().size() > 1);
 	}
 	if (cmd == jump_to_byte) {
-		info.setInfo("Jump to byte", "Scroll table to show specified byte", "Jump", 0);
-		info.addDefaultKeypress('j', ModifierKeys::ctrlModifier);
+		info.setInfo("Jump to byte", "Scroll table horizontally to show specified byte index", "Jump", 0);
+		info.addDefaultKeypress('j', ModifierKeys::altModifier);
 		info.setActive(hasKeyboardFocus(true));
 	}
 	if (cmd >= copy_msg__no_sep && cmd <= copy_msg__nl_sep)

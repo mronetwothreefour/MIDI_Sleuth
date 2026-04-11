@@ -3,10 +3,10 @@
 #include "C_GUI_COLOR.h"
 #include "C_GUI_XYWH.h"
 
-MIDI_Handler::MIDI_Handler(Data_Hub* hub, MidiInputCallback* input_handler) :
+MIDI_Handler::MIDI_Handler(Data_Hub* hub) :
 	Data_User{ hub },
 	tabs{ TabbedButtonBar::TabsAtBottom },
-	lbox_inputs{ new MIDI_Device_Lbox{ "MIDI Inputs", true, input_handler } },
+	lbox_inputs{ new MIDI_Device_Lbox{ "MIDI Inputs", true, this } },
 	lbox_outputs{ new MIDI_Device_Lbox{ "MIDI Outputs" } },
 	btn_reset("Reset All")
 {
@@ -17,7 +17,6 @@ MIDI_Handler::MIDI_Handler(Data_Hub* hub, MidiInputCallback* input_handler) :
 	auto& btn_bar = tabs.getTabbedButtonBar();
 	btn_bar.getTabButton(Tab__Devices::inputs)->setTooltip(tip);
 	btn_bar.getTabButton(Tab__Devices::outputs)->setTooltip(tip);
-	btn_bar.getTabButton(1)->setTooltip(tip);
 	tabs.setBounds(XYWH::devices_tabs);
 	addAndMakeVisible(tabs);
 

@@ -57,28 +57,27 @@ void Table_Cell::set_row_and_col(const int new_row_index, const int new_col_id) 
 				current_txt = String{ row_index + 1 };
 			else
 				current_txt = tree->msg_description();
-			return;
 		}
 		if (table_type < comparison) {
 			switch (col_id) {
 			case 2:
 				current_txt = String{ tree->msg_timestamp(row_index) };
-				return;
+				break;
 			case 3:
 				current_txt = tree->msg_description(row_index);
-				return;
+				break;
 			case 4:
 				current_txt = String{ tree->msg_length(row_index) };
-				return;
+				break;
 			default:
 				break;
 			}
 		}
 		if (byte_index > -1) {
 			current_txt = get_byte_string();
-			setText(current_txt, dontSendNotification);
 			setTooltip(build_tooltip());
 		}
+		setText(current_txt, dontSendNotification);
 	}
 }
 

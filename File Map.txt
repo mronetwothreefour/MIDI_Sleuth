@@ -19,8 +19,8 @@ G_MIDI_Device
 G_MIDI_Device_Lbox
 G_MIDI_Handler
 G_Msg_Filters
-G_Msg_Log_Tabs
-G_Msg_Slot_Tabs
+G_Msg_Logs
+G_Msg_Slots
 G_Table
 G_Table_Cell
 G_Table_Header

@@ -24,7 +24,7 @@ private: Array<MidiMessage> list_received_messages;
 private: ApplicationCommandTarget* next_cmd_target;
 
 //==============================================================================
-public: MIDI_Handler(Data_Hub* hub, MidiInputCallback* input_handler = nullptr);
+public: MIDI_Handler(Data_Hub* hub);
 
 public: void paint(Graphics& g) override;
 private: void handleIncomingMidiMessage(MidiInput* source, const MidiMessage& msg) override;
