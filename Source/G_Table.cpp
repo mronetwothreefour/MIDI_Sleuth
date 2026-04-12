@@ -98,7 +98,7 @@ void Table::adjust_col_count(const int msg_length) {
 		}
 		if (tree->table_type >= msg_slot_1 && msg_length < byte_col_count) {
 			for (int i = byte_col_count; i > msg_length; --i)
-					header->removeColumn(i);
+					header->removeColumn(i + 1);
 		}
 	}
 }

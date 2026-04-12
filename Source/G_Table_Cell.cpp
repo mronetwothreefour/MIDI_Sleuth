@@ -40,7 +40,11 @@ inline void Table_Cell::paint(Graphics& g) {
 	if (!getCurrentTextEditor()) {
 		g.setColour(COLOR::txt);
 		g.setFont(FONT::table_cell);
-		g.drawText(getText(), 2, 0, w - 4, h, Justification::centred);
+		auto justification = Justification::centred;
+		if ((tree->table_type >= msg_slot_1 && col_id == 1) ||
+			(tree->table_type < comparison && col_id == 3))
+			justification = Justification::left;
+		g.drawText(getText(), 2, 0, w - 4, h, justification);
 	}
 	g.setColour(COLOR::outline);
 	g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
