@@ -3,15 +3,11 @@
 MS_Look_And_Feel::MS_Look_And_Feel()
 {
 	setColour(Label::textColourId, COLOR::txt);
-	setColour(ListBox::backgroundColourId, COLOR::lbox_bkgrnd);
 	setColour(ListBox::outlineColourId, COLOR::outline);
 	setColour(PopupMenu::backgroundColourId, COLOR::bkgrnd);
-	setColour(TabbedComponent::backgroundColourId, COLOR::bkgrnd);
 	setColour(TabbedComponent::outlineColourId, COLOR::outline);
-	setColour(TableHeaderComponent::backgroundColourId, COLOR::lbox_bkgrnd);
 	setColour(TableHeaderComponent::outlineColourId, COLOR::outline);
 	setColour(TableHeaderComponent::textColourId, COLOR::txt);
-	setColour(TableListBox::backgroundColourId, COLOR::lbox_bkgrnd);
 	setColour(TableListBox::outlineColourId, COLOR::outline);
 	setColour(TableListBox::textColourId, COLOR::txt);
 	setColour(TextEditor::backgroundColourId, COLOR::txt_edit_bkgrnd);
@@ -101,14 +97,14 @@ void MS_Look_And_Feel::drawTickBox(Graphics& g, Component& /*c*/, float x, float
 void MS_Look_And_Feel::drawTabButton(TabBarButton& btn, Graphics& g, 
 									 bool /*mouse_over*/, bool /*mouse_down*/)
 {
-	g.fillAll(COLOR::lbox_bkgrnd);
+	g.fillAll(btn.getTabBackgroundColour());
 	auto w = btn.getWidth();
 	auto h = btn.getHeight();
 	g.setColour(COLOR::outline);
 	g.drawVerticalLine(0, 0.0f, (float)h);
 	g.drawVerticalLine(w - 1, 0.0f, (float)h);
 	g.drawHorizontalLine(h - 1, 0.0f, (float)w);
-	g.setColour(btn.getToggleState() ? COLOR::txt : COLOR::txt.darker(0.3f));
+	g.setColour(btn.getToggleState() ? COLOR::txt : COLOR::txt.darker(0.45f));
 	g.setFont(FONT::tab);
 	g.drawText(btn.getButtonText(), 0, 0, w, h, Justification::centred);
 }

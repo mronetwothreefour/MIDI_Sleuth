@@ -12,7 +12,24 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	for (int i = 0; i < 5; ++i) {
 		auto slot_num = String{ i + 1 };
 		slots[i].reset(new Table{ (Table_Type)(msg_slot_1 + i), hub, });
-		tabs.addTab("Slot " + slot_num, COLOR::table_bkgrnd, slots[i].get(), true, Tab__Slot::slot_1 + i);
+		Colour tab_color = COLOR::tab_bkgrnd_red;
+		switch (i) {
+		case 1:
+			tab_color = COLOR::tab_bkgrnd_orange;
+			break;
+		case 2:
+			tab_color = COLOR::tab_bkgrnd_yellow;
+			break;
+		case 3:
+			tab_color = COLOR::tab_bkgrnd_green;
+			break;
+		case 4:
+			tab_color = COLOR::tab_bkgrnd_blue;
+			break;
+		default:
+			break;
+		}
+		tabs.addTab("Slot " + slot_num, tab_color, slots[i].get(), true, Tab__Slot::slot_1 + i);
 		btn_bar.getTabButton(Tab__Slot::slot_1 + i)->setTooltip("Shortcut: Alt+" + slot_num);
 	}
 	addAndMakeVisible(tabs);

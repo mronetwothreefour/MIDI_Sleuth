@@ -11,8 +11,8 @@ MIDI_Handler::MIDI_Handler(Data_Hub* hub) :
 	btn_reset("Reset All")
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
-	tabs.addTab("Inputs", COLOR::lbox_bkgrnd, lbox_inputs.get(), true);
-	tabs.addTab("Outputs", COLOR::lbox_bkgrnd, lbox_outputs.get(), true);
+	tabs.addTab("Inputs", COLOR::tab_bkgrnd_green, lbox_inputs.get(), true);
+	tabs.addTab("Outputs", COLOR::tab_bkgrnd_red, lbox_outputs.get(), true);
 	String tip{ "Use Alt+D to toggle the visible tab." };
 	auto& btn_bar = tabs.getTabbedButtonBar();
 	btn_bar.getTabButton(Tab__Devices::inputs)->setTooltip(tip);

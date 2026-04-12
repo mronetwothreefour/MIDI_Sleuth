@@ -24,9 +24,9 @@
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="393.5"
-     inkscape:cy="370"
+     inkscape:zoom="0.85271318"
+     inkscape:cx="380.55"
+     inkscape:cy="322.5"
      inkscape:window-width="1366"
      inkscape:window-height="745"
      inkscape:window-x="-8"
@@ -150,7 +150,7 @@
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Slot 1</tspan></text>
     </g>
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="fill:#100000;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="rect9"
        width="729"
        height="64.000008"
@@ -158,7 +158,51 @@
        y="540.50024"
        ry="0"
        inkscape:highlight-color="#ffff00"
-       inkscape:label="msg slots"
+       inkscape:label="msg slot 1"
+       rx="0" />
+    <rect
+       style="display:inline;fill:#120c00;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect12"
+       width="729"
+       height="64.000008"
+       x="15.500001"
+       y="540.50024"
+       ry="0"
+       inkscape:highlight-color="#ffff00"
+       inkscape:label="msg slot 2"
+       rx="0" />
+    <rect
+       style="display:inline;fill:#121200;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect13"
+       width="729"
+       height="64.000008"
+       x="15.500001"
+       y="540.50024"
+       ry="0"
+       inkscape:highlight-color="#ffff00"
+       inkscape:label="msg slot 3"
+       rx="0" />
+    <rect
+       style="display:inline;fill:#03100f;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect14"
+       width="729"
+       height="64.000008"
+       x="15.500001"
+       y="540.50024"
+       ry="0"
+       inkscape:highlight-color="#ffff00"
+       inkscape:label="msg slot 4"
+       rx="0" />
+    <rect
+       style="display:inline;fill:#000d14;fill-opacity:1;stroke:#969696;stroke-width:0.99999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect15"
+       width="729"
+       height="64.000008"
+       x="15.500001"
+       y="540.50024"
+       ry="0"
+       inkscape:highlight-color="#ffff00"
+       inkscape:label="msg slot 5"
        rx="0" />
     <rect
        style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
@@ -265,7 +309,18 @@
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Incoming</tspan></text>
     </g>
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999988;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="fill:#000d14;fill-opacity:1;stroke:#969696;stroke-width:0.999988;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect16"
+       width="729"
+       height="269"
+       x="15.500001"
+       y="215.5"
+       ry="0"
+       inkscape:highlight-color="#bb80ee"
+       inkscape:label="log compare"
+       rx="0" />
+    <rect
+       style="display:none;fill:#100000;fill-opacity:1;stroke:#969696;stroke-width:0.999988;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="rect1901"
        width="729"
        height="269"
@@ -273,7 +328,18 @@
        y="215.5"
        ry="0"
        inkscape:highlight-color="#bb80ee"
-       inkscape:label="log entries"
+       inkscape:label="log entries - outgoing"
+       rx="0" />
+    <rect
+       style="display:none;fill:#031000;fill-opacity:1;stroke:#969696;stroke-width:0.999988;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect4"
+       width="729"
+       height="269"
+       x="15.500001"
+       y="215.5"
+       ry="0"
+       inkscape:highlight-color="#bb80ee"
+       inkscape:label="log entries - incoming"
        rx="0" />
     <rect
        style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
@@ -283,7 +349,7 @@
        x="15.000001"
        y="195"
        inkscape:highlight-color="#bb80ee"
-       inkscape:label="input devices label box" />
+       inkscape:label="msg logs label box" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:15px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;paint-order:normal"
@@ -291,7 +357,7 @@
        y="205.50293"
        id="text6"
        inkscape:highlight-color="#bb80ee"
-       inkscape:label="input devices label"><tspan
+       inkscape:label="msg logs label"><tspan
          sodipodi:role="line"
          id="tspan6"
          x="379.60449"
@@ -303,7 +369,7 @@
        transform="translate(-245.50624,-107)"
        inkscape:highlight-color="#ff8000">
       <rect
-         style="fill:#606060;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         style="fill:#ffffff;fill-opacity:0.32941177;stroke:none;stroke-width:10.9019"
          id="rect10368"
          width="15"
          height="15"
@@ -330,7 +396,7 @@
        transform="translate(-106.57398,-137)"
        inkscape:highlight-color="#ff8000">
       <rect
-         style="fill:#606060;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         style="fill:#ffffff;fill-opacity:0.32941177;stroke:none;stroke-width:10.9019"
          id="rect10362"
          width="15"
          height="15"
@@ -357,7 +423,7 @@
        transform="translate(37.499565,-167)"
        inkscape:highlight-color="#ff8000">
       <rect
-         style="fill:#606060;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         style="fill:#ffffff;fill-opacity:0.32941177;stroke:none;stroke-width:10.9019"
          id="rect10356"
          width="15"
          height="15"
@@ -384,7 +450,7 @@
        transform="translate(220.2233,-197)"
        inkscape:highlight-color="#ff8000">
       <rect
-         style="fill:#606060;fill-opacity:1;stroke:none;stroke-width:10.9019"
+         style="fill:#ffffff;fill-opacity:0.33000001;stroke:none;stroke-width:10.9019"
          id="rect10350"
          width="15"
          height="15"
@@ -502,7 +568,7 @@
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff">Inputs</tspan></text>
     </g>
     <rect
-       style="fill:#000000;fill-opacity:1;stroke:#969696;stroke-width:0.999991;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       style="display:inline;fill:#100000;fill-opacity:1;stroke:#969696;stroke-width:0.999991;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
        id="rect6525"
        width="384"
        height="114.00002"
@@ -510,7 +576,18 @@
        y="35.5"
        ry="0"
        inkscape:highlight-color="#00ff00"
-       inkscape:label="input devices"
+       inkscape:label="input devices - outputs"
+       rx="0" />
+    <rect
+       style="display:none;fill:#031000;fill-opacity:1;stroke:#969696;stroke-width:0.999991;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+       id="rect3"
+       width="384"
+       height="114.00002"
+       x="15.500001"
+       y="35.5"
+       ry="0"
+       inkscape:highlight-color="#00ff00"
+       inkscape:label="input devices - inputs"
        rx="0" />
     <rect
        style="fill:none;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"

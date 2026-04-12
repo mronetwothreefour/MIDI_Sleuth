@@ -14,6 +14,7 @@ MIDI_Device_Lbox::MIDI_Device_Lbox(const String& name, bool for_inputs, MidiInpu
     setMultipleSelectionEnabled(true);
     setClickingTogglesRowSelection(true);
     setTooltip("Select a device to open it.");
+    setColour(ListBox::backgroundColourId, for_inputs ? COLOR::tab_bkgrnd_green : COLOR::tab_bkgrnd_red);
     ump::Endpoints::getInstance()->addListener(*this);
     update_list();
 }

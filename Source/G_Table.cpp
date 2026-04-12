@@ -32,6 +32,18 @@ Table::Table(const Table_Type table_type, Data_Hub* hub) :
 		table.updateContent();
 	}
 
+	auto tab_color = COLOR::tab_bkgrnd_red;
+	if (table_type == msg_slot_2)
+		tab_color = COLOR::tab_bkgrnd_orange;
+	if (table_type == msg_slot_3)
+		tab_color = COLOR::tab_bkgrnd_yellow;
+	if (table_type == msg_slot_4 || table_type == log_in)
+		tab_color = COLOR::tab_bkgrnd_green;
+	if (table_type == msg_slot_5 || table_type == comparison)
+		tab_color = COLOR::tab_bkgrnd_blue;
+	table.setColour(TableListBox::backgroundColourId, tab_color);
+	header->setColour(TableHeaderComponent::backgroundColourId, tab_color);
+
 	if (tree)
 		tree->add_listener(this);
 

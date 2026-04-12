@@ -10,9 +10,9 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_clear{ "Clear Log" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
-	tabs.addTab("Incoming", COLOR::table_bkgrnd, tab_incoming.get(), true, Tab__Log::incoming);
-	tabs.addTab("Outgoing", COLOR::table_bkgrnd, tab_outgoing.get(), true, Tab__Log::outgoing);
-	tabs.addTab("Compare", COLOR::table_bkgrnd, tab_compare.get(), true, Tab__Log::compare);
+	tabs.addTab("Incoming", COLOR::tab_bkgrnd_green, tab_incoming.get(), true, Tab__Log::incoming);
+	tabs.addTab("Outgoing", COLOR::tab_bkgrnd_red, tab_outgoing.get(), true, Tab__Log::outgoing);
+	tabs.addTab("Compare", COLOR::tab_bkgrnd_blue, tab_compare.get(), true, Tab__Log::compare);
 	auto& btn_bar = tabs.getTabbedButtonBar();
 	btn_bar.getTabButton(Tab__Log::incoming)->setTooltip("Shortcut: Alt+I");
 	btn_bar.getTabButton(Tab__Log::outgoing)->setTooltip("Shortcut: Alt+O");
