@@ -8,6 +8,7 @@
 class Msg_Logs :
 	public Component,
 	public Data_User,
+	public ChangeListener,
 	public ApplicationCommandTarget
 {
 private: std::unique_ptr<Table> tab_incoming;
@@ -20,10 +21,12 @@ private: TextButton btn_clear;
 //==============================================================================
 public: explicit Msg_Logs(Data_Hub* hub);
 
+private: void match_btn_color_to_visible_tab();
 public: void paint(Graphics& g) override;
 public: void resized() override;
 public: void clear_visible_table();
 public: void set_next_cmd_target_for_tabs(ApplicationCommandTarget* new_target);
+private: void changeListenerCallback(ChangeBroadcaster* source) override;
 public: ApplicationCommandTarget* getNextCommandTarget() override;
 public: void getAllCommands(Array<int>& cmd_list) override;
 public: void getCommandInfo(int cmd, ApplicationCommandInfo& info) override;

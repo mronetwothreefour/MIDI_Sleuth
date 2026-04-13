@@ -10,19 +10,20 @@ MS_Look_And_Feel::MS_Look_And_Feel()
 	setColour(TableHeaderComponent::textColourId, COLOR::txt);
 	setColour(TableListBox::outlineColourId, COLOR::outline);
 	setColour(TableListBox::textColourId, COLOR::txt);
+	setColour(TextButton::buttonColourId, COLOR::btn);
 	setColour(TextEditor::backgroundColourId, COLOR::txt_edit_bkgrnd);
 	setColour(TextEditor::textColourId, COLOR::txt);
 	setColour(TextEditor::highlightColourId, COLOR::hilite);
 }
 
 void MS_Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn, 
-											const Colour& /*bkgrnd*/, 
+											const Colour& bkgrnd, 
 											bool /*hilited*/, bool down)
 {
 	if (btn.isEnabled())
-		g.fillAll(down ? COLOR::btn_down : COLOR::btn);
+		g.fillAll(down ? bkgrnd.brighter(0.2f) : bkgrnd);
 	else
-		g.fillAll(COLOR::btn_disabled);
+		g.fillAll(bkgrnd.darker(0.2f));
 	g.setColour(COLOR::outline);
 	g.drawRect(0, 0, btn.getWidth(), btn.getHeight(), 1);
 }

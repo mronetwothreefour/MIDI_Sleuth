@@ -3,8 +3,8 @@
 Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	Data_User{ hub },
 	tabs{ TabbedButtonBar::TabsAtBottom },
-	btn_jump{ "Jump To..." },
 	btn_transmit{ "Transmit" },
+	btn_jump{ "Jump To..." },
 	btn_clear{ "Clear Slot" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
@@ -32,15 +32,8 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 		tabs.addTab("Slot " + slot_num, tab_color, slots[i].get(), true, Tab__Slot::slot_1 + i);
 		btn_bar.getTabButton(Tab__Slot::slot_1 + i)->setTooltip("Shortcut: Alt+" + slot_num);
 	}
+	btn_bar.addChangeListener(this);
 	addAndMakeVisible(tabs);
-
-	btn_jump.onClick = [this] { 
-		tabs.getTabContentComponent(tabs.getCurrentTabIndex())->grabKeyboardFocus();
-		cmd_mngr.invokeDirectly(jump_to_byte, true); 
-	};
-	btn_jump.setTooltip("Scroll table horizontally to\nshow a specified byte index.\nShortcut: Alt+J");
-	btn_jump.setSize(XYWH::btn_slots_w, XYWH::btn_h);
-	addAndMakeVisible(btn_jump);
 
 	btn_transmit.onClick = [this] { 
 		auto current_tab = tabs.getCurrentTabIndex();
@@ -51,14 +44,47 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	btn_transmit.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_transmit);
 
+	btn_jump.onClick = [this] { 
+		tabs.getTabContentComponent(tabs.getCurrentTabIndex())->grabKeyboardFocus();
+		cmd_mngr.invokeDirectly(jump_to_byte, true); 
+	};
+	btn_jump.setTooltip("Scroll table horizontally to\nshow a specified byte index.\nShortcut: Alt+J");
+	btn_jump.setSize(XYWH::btn_slots_w, XYWH::btn_h);
+	addAndMakeVisible(btn_jump);
+
 	btn_clear.onClick = [this] { clear_visible_slot(); };
 	btn_clear.addShortcut(KeyPress{ 's', ModifierKeys::altModifier, 0 });
 	btn_clear.setTooltip("Clear the message in the slot.\nShortcut: Alt+S");
 	btn_clear.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
 
+	match_btn_color_to_visible_tab();
+
 	cmd_mngr.registerAllCommandsForTarget(this);
 	addKeyListener(cmd_mngr.getKeyMappings());
+}
+
+void Msg_Slots::match_btn_color_to_visible_tab() {
+	auto tab_color = COLOR::tab_bkgrnd_red;
+	switch (tabs.getCurrentTabIndex()) {
+	case 1: 
+		tab_color = COLOR::tab_bkgrnd_orange;
+		break;
+	case 2: 
+		tab_color = COLOR::tab_bkgrnd_yellow;
+		break;
+	case 3: 
+		tab_color = COLOR::tab_bkgrnd_green;
+		break;
+	case 4: 
+		tab_color = COLOR::tab_bkgrnd_blue;
+		break;
+	default:
+		break;
+	}
+	btn_transmit.setColour(TextButton::buttonColourId, tab_color);
+	btn_jump.setColour(TextButton::buttonColourId, tab_color);
+	btn_clear.setColour(TextButton::buttonColourId, tab_color);
 }
 
 void Msg_Slots::paint(Graphics& g) {
@@ -72,14 +98,18 @@ void Msg_Slots::resized() {
 	tabs.setBounds(0, XYWH::lbl_section_h, getWidth(), getHeight() - XYWH::lbl_section_h);
 	auto btn_y = getHeight() - XYWH::btn_h;
 	btn_clear.setTopRightPosition(getWidth(), btn_y);
-	btn_transmit.setTopRightPosition(btn_clear.getX() - 5, btn_y);
-	btn_jump.setTopRightPosition(btn_transmit.getX() - 5, btn_y);
+	btn_jump.setTopRightPosition(btn_clear.getX() - 5, btn_y);
+	btn_transmit.setTopRightPosition(btn_jump.getX() - 5, btn_y);
 }
 
 void Msg_Slots::clear_visible_slot() {
 	auto slot_tree = msg_slot(tabs.getCurrentTabIndex());
 	slot_tree->set_msg_bytes("");
 	slot_tree->set_msg_description("");
+}
+
+void Msg_Slots::changeListenerCallback(ChangeBroadcaster* /*source*/) {
+	match_btn_color_to_visible_tab();
 }
 
 ApplicationCommandTarget* Msg_Slots::getNextCommandTarget() {
@@ -110,6 +140,7 @@ bool Msg_Slots::perform(const InvocationInfo& info) {
 }
 
 Msg_Slots::~Msg_Slots() {
+	tabs.getTabbedButtonBar().removeChangeListener(this);
 	for (int i = 0; i < 5; ++i)
 		slots[i].reset();
 	removeKeyListener(cmd_mngr.getKeyMappings());

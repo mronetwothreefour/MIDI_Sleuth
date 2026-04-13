@@ -17,6 +17,7 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_bar.getTabButton(Tab__Log::incoming)->setTooltip("Shortcut: Alt+I");
 	btn_bar.getTabButton(Tab__Log::outgoing)->setTooltip("Shortcut: Alt+O");
 	btn_bar.getTabButton(Tab__Log::compare)->setTooltip("Shortcut: Alt+=");
+	btn_bar.addChangeListener(this);
 	addAndMakeVisible(tabs);
 
 	btn_jump.onClick = [this] { 
@@ -33,8 +34,20 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_clear.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
 
+	match_btn_color_to_visible_tab();
+
 	cmd_mngr.registerAllCommandsForTarget(this);
 	addKeyListener(cmd_mngr.getKeyMappings());
+}
+
+void Msg_Logs::match_btn_color_to_visible_tab() {
+	auto tab_color = COLOR::tab_bkgrnd_green;
+	if (tabs.getCurrentTabIndex() == 1)
+		tab_color = COLOR::tab_bkgrnd_red;
+	if (tabs.getCurrentTabIndex() == 2)
+		tab_color = COLOR::tab_bkgrnd_blue;
+	btn_jump.setColour(TextButton::buttonColourId, tab_color);
+	btn_clear.setColour(TextButton::buttonColourId, tab_color);
 }
 
 void Msg_Logs::paint(Graphics& g) {
@@ -70,6 +83,10 @@ void Msg_Logs::set_next_cmd_target_for_tabs(ApplicationCommandTarget* new_target
 	tab_incoming->set_next_cmd_target(new_target);
 	tab_outgoing->set_next_cmd_target(new_target);
 	tab_compare->set_next_cmd_target(new_target);
+}
+
+void Msg_Logs::changeListenerCallback(ChangeBroadcaster* /*source*/) {
+	match_btn_color_to_visible_tab();
 }
 
 ApplicationCommandTarget* Msg_Logs::getNextCommandTarget() {
@@ -128,6 +145,7 @@ bool Msg_Logs::perform(const InvocationInfo& info) {
 }
 
 Msg_Logs::~Msg_Logs() {
+	tabs.getTabbedButtonBar().removeChangeListener(this);
 	tab_incoming.reset();
 	tab_outgoing.reset();
 	tab_compare.reset();
