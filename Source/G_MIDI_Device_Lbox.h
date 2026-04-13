@@ -29,6 +29,7 @@ private: void close_device(int index);
 private: void endpointsChanged() override;
 private: bool list_needs_update(const Array<MidiDeviceInfo>& available_devices);
 private: void update_list();
+public: String getTooltipForRow(int row) override;
 private: MIDI_Device::Ptr find_device(MidiDeviceInfo device_info) const;
 private: void selectedRowsChanged(int last_row_selected) override;
 private: void sync_selection_with_device_list();

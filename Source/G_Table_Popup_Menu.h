@@ -15,7 +15,7 @@ class Table_Popup_Menu :
 public: Table_Popup_Menu(const Table_Type table_type, Data_Hub* hub) :
 	Data_User{ hub }
 {
-	addCommandItem(&cmd_mngr, jump_to_byte);
+	addCommandItem(&cmd_mngr, jump_to_byte__log);
 	if (table_type < msg_slot_1) {
 		PopupMenu submenu_store_msg;
 		for (int cmd_id = store_msg__slot_1; cmd_id <= store_msg__slot_5; ++cmd_id)

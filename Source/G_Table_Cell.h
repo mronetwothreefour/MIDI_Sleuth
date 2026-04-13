@@ -22,7 +22,6 @@ private: bool should_be_hilited() const;
 public: void paint(Graphics& g) override;
 public: void set_row_and_col(const int new_row_index, const int new_col_id);
 private: String get_byte_string();
-private: String build_tooltip() const;
 public: void textWasEdited() override;
 
 //==============================================================================

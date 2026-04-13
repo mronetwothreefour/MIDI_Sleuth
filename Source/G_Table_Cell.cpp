@@ -40,11 +40,11 @@ inline void Table_Cell::paint(Graphics& g) {
 	if (!getCurrentTextEditor()) {
 		g.setColour(COLOR::txt);
 		g.setFont(FONT::table_cell);
-		auto justification = Justification::centred;
+		auto justify = Justification::centred;
 		if ((tree->table_type >= msg_slot_1 && col_id == 1) ||
 			(tree->table_type < comparison && col_id == 3))
-			justification = Justification::left;
-		g.drawText(getText(), 2, 0, w - 4, h, justification);
+			justify = Justification::left;
+		g.drawText(getText(), 2, 0, w - 4, h, justify);
 	}
 	g.setColour(COLOR::outline);
 	g.drawHorizontalLine(h - 1, 0.0f, w * 1.0f);
@@ -79,7 +79,6 @@ void Table_Cell::set_row_and_col(const int new_row_index, const int new_col_id) 
 		}
 		if (byte_index > -1) {
 			current_txt = get_byte_string();
-			setTooltip(build_tooltip());
 		}
 		setText(current_txt, dontSendNotification);
 	}
@@ -88,25 +87,6 @@ void Table_Cell::set_row_and_col(const int new_row_index, const int new_col_id) 
 String Table_Cell::get_byte_string() {
 	if (byte_index > -1)
 		return tree->single_byte_in_msg(byte_index, row_index);
-	return String{};
-}
-
-String Table_Cell::build_tooltip() const {
-	if (byte_index > -1) {
-		auto byte_int = current_txt.getHexValue32();
-		String tooltip{ "Byte " + String{ byte_index } };
-		tooltip += "\nDecimal: ";
-		tooltip << byte_int;
-		tooltip += "\nBinary: 0";
-		tooltip += byte_int & 64 ? "1" : "0";
-		tooltip += byte_int & 32 ? "1" : "0";
-		tooltip += byte_int & 16 ? "1" : "0";
-		tooltip += byte_int & 8 ? "1" : "0";
-		tooltip += byte_int & 4 ? "1" : "0";
-		tooltip += byte_int & 2 ? "1" : "0";
-		tooltip += byte_int & 1 ? "1" : "0";
-		return tooltip;
-	}
 	return String{};
 }
 
@@ -122,5 +102,4 @@ void Table_Cell::textWasEdited() {
 		current_txt = new_txt;
 	}
 	setText(current_txt, dontSendNotification);
-	setTooltip(build_tooltip());
 }

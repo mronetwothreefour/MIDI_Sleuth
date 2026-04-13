@@ -13,7 +13,6 @@ MIDI_Device_Lbox::MIDI_Device_Lbox(const String& name, bool for_inputs, MidiInpu
     setOutlineThickness(0);
     setMultipleSelectionEnabled(true);
     setClickingTogglesRowSelection(true);
-    setTooltip("Select a device to open it.");
     setColour(ListBox::backgroundColourId, for_inputs ? COLOR::tab_bkgrnd_green : COLOR::tab_bkgrnd_red);
     ump::Endpoints::getInstance()->addListener(*this);
     update_list();
@@ -88,6 +87,10 @@ void MIDI_Device_Lbox::update_list() {
         list_devices = new_list;
         sync_selection_with_device_list();
     }
+}
+
+String MIDI_Device_Lbox::getTooltipForRow(int /*row*/) {
+    return "Select a device to open it.";
 }
 
 MIDI_Device::Ptr MIDI_Device_Lbox::find_device(MidiDeviceInfo device_info) const {

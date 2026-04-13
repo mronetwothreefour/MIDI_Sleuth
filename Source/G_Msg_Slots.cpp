@@ -44,11 +44,9 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	btn_transmit.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_transmit);
 
-	btn_jump.onClick = [this] { 
-		tabs.getTabContentComponent(tabs.getCurrentTabIndex())->grabKeyboardFocus();
-		cmd_mngr.invokeDirectly(jump_to_byte, true); 
-	};
-	btn_jump.setTooltip("Scroll table horizontally to\nshow a specified byte index.\nShortcut: Alt+J");
+	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__slot, true); };
+	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::ctrlModifier | ModifierKeys::altModifier, 0 });
+	btn_jump.setTooltip("Scroll the slot horizontally\nto show a specified byte index.\nShortcut: Ctrl+Alt+J");
 	btn_jump.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_jump);
 

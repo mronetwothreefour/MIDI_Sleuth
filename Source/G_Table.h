@@ -26,7 +26,7 @@ public: void resized() override;
 public: void paintRowBackground(Graphics& g, int row_index, int w, int h, bool is_selected) override;
 public: void paintCell(Graphics& /*g*/, int /*row_index*/, int /*col_id*/, int /*w*/, int /*h*/, bool /*is_selected*/) override {}
 public: Component* refreshComponentForCell(int row_index, int col_id, bool is_selected, Component* c) override;
-
+public: String getCellTooltip(int row_index, int col_id) override;
 public: int getNumRows() override;
 private: void adjust_header_height(const int msg_length);
 private: void adjust_col_count(const int msg_length);
@@ -45,8 +45,6 @@ private: void valueTreeChildRemoved(ValueTree& parent_tree, ValueTree& row, int 
 private: void cellClicked(int row_index, int col_id, const MouseEvent& e) override;
 private: void backgroundClicked(const MouseEvent& e) override;
 
-private: void focusGained(FocusChangeType cause) override;
-private: void focusLost(FocusChangeType cause) override;
 private: void selectedRowsChanged(int last_row_selected) override;
 
 public: void set_next_cmd_target(ApplicationCommandTarget* new_target);

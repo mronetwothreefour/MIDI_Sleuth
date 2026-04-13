@@ -68,6 +68,26 @@ Component* Table::refreshComponentForCell(int row_index, int col_id, bool /*is_s
 	return cell_byte;
 }
 
+String Table::getCellTooltip(int row_index, int col_id) {
+	auto byte_index = col_id - tree->non_byte_col_count() - 1;
+	if (byte_index > -1) {
+		auto byte_int = tree->single_byte_in_msg(byte_index, row_index).getHexValue32();
+		String tooltip{ "Byte " + String{ byte_index } };
+		tooltip += "\nDecimal: ";
+		tooltip << byte_int;
+		tooltip += "\nBinary: 0";
+		tooltip += byte_int & 64 ? "1" : "0";
+		tooltip += byte_int & 32 ? "1" : "0";
+		tooltip += byte_int & 16 ? "1" : "0";
+		tooltip += byte_int & 8 ?  "1" : "0";
+		tooltip += byte_int & 4 ?  "1" : "0";
+		tooltip += byte_int & 2 ?  "1" : "0";
+		tooltip += byte_int & 1 ?  "1" : "0";
+		return tooltip;
+	}
+	return String{};
+}
+
 int Table::getNumRows() {
 	if (tree)
 		return tree->row_count();
@@ -204,14 +224,6 @@ void Table::backgroundClicked(const MouseEvent& e) {
 		show_jump_to_byte_dialog();
 }
 
-void Table::focusGained(FocusChangeType /*cause*/) {
-	cmd_mngr.commandStatusChanged();
-}
-
-void Table::focusLost(FocusChangeType /*cause*/) {
-	cmd_mngr.commandStatusChanged();
-}
-
 void Table::selectedRowsChanged(int /*last_row_selected*/) {
 	cmd_mngr.commandStatusChanged();
 }
@@ -225,21 +237,27 @@ ApplicationCommandTarget* Table::getNextCommandTarget() {
 }
 
 void Table::getAllCommands(Array<int>& cmd_list) {
-	if (table_type < msg_slot_1) {
-		cmd_list.add(store_msg__slot_1,
-					 store_msg__slot_2,
-					 store_msg__slot_3,
-					 store_msg__slot_4,
-					 store_msg__slot_5);
-	}
-	if (table_type < comparison)
-		cmd_list.add(compare_messages);
-	cmd_list.add(jump_to_byte);
 	cmd_list.add(copy_msg__no_sep,
 				 copy_msg__spc_sep,
 				 copy_msg__comma_sep,
 				 copy_msg__tab_sep,
 				 copy_msg__nl_sep);
+	if (table_type < comparison)
+		cmd_list.add(compare_messages);
+	if (table_type < msg_slot_1) {
+		cmd_list.add(jump_to_byte__log,
+					 store_msg__slot_1,
+					 store_msg__slot_2,
+					 store_msg__slot_3,
+					 store_msg__slot_4,
+					 store_msg__slot_5);
+	}
+	if (table_type >= msg_slot_1) {
+		cmd_list.add(jump_to_byte__slot,
+					 msg_byte_delete,
+					 msg_byte_insert,
+					 msg_paste);
+	}
 }
 
 void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
@@ -248,14 +266,14 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Table", 0);
 		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::shiftModifier);
-		info.setActive(table_type < msg_slot_1);
+		info.setActive(table.getSelectedRows().size() > 0);
 	}
 	if (cmd == compare_messages) {
 		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
 		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
 		info.setActive(table.getSelectedRows().size() > 1);
 	}
-	if (cmd == jump_to_byte) {
+	if (cmd == jump_to_byte__log) {
 		info.setInfo("Jump to byte", "Scroll table horizontally to show specified byte index", "Jump", 0);
 		info.addDefaultKeypress('j', ModifierKeys::altModifier);
 		info.setActive(hasKeyboardFocus(true));
@@ -282,6 +300,23 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 	if (cmd == copy_msg__nl_sep) {
 		info.setInfo("Newline (\\n)", "Copy last selected message, bytes separated by newlines", "Table", 0);
 		info.addDefaultKeypress('n', ModifierKeys::ctrlModifier);
+	}
+	if (cmd == jump_to_byte__log)
+		info.setInfo("Jump to byte", "Scroll the log horizontally so that a specified byte is visible (if it exists)", "Table", 0);
+	if (cmd == jump_to_byte__slot)
+		info.setInfo("Jump to byte", "Scroll the message storage slot horizontally so that a specified byte is visible (if it exists)", "Table", 0);
+	if (cmd == msg_byte_delete) {
+		info.setInfo("Delete byte", "Delete the selected byte in the current message storage slot", "Slot", 0);
+		info.addDefaultKeypress(KeyPress::deleteKey, ModifierKeys::noModifiers);
+		info.addDefaultKeypress(KeyPress::backspaceKey, ModifierKeys::noModifiers);
+	}
+	if (cmd == msg_byte_insert) {
+		info.setInfo("Insert byte", "Insert a byte at the end of the current message storage slot", "Slot", 0);
+		info.addDefaultKeypress(KeyPress::insertKey, ModifierKeys::noModifiers);
+	}
+	if (cmd == msg_paste) {
+		info.setInfo("Paste message", "Paste a message from the clipoard into the current message storage slot (if the message is validly formatted)", "Slot", 0);
+		info.addDefaultKeypress('v', ModifierKeys::ctrlModifier);
 	}
 }
 
@@ -323,8 +358,39 @@ bool Table::perform(const InvocationInfo& info) {
 			cmd_mngr.invokeDirectly(show_tab__compare, true);
 		return true;
 	}
-	if (cmd == jump_to_byte) {
+	if (cmd == jump_to_byte__log || cmd == jump_to_byte__slot) {
 		show_jump_to_byte_dialog();
+		return true;
+	}
+	if (cmd == msg_byte_delete || cmd == msg_byte_insert) {
+		auto byte_index = 0;
+		if (active_col_id() > 1)
+			byte_index = (active_col_id() - 2) * 2;
+		if (cmd == msg_byte_delete) {
+			auto msg = tree->msg_bytes();
+			if (msg.isNotEmpty()) {
+				if (active_col_id() < 2)
+					tree->set_msg_bytes(msg.dropLastCharacters(2));
+				else {
+					msg = msg.replaceSection(byte_index, 2, "");
+					tree->set_msg_bytes(msg);
+				}
+			}
+		}
+		if (cmd == msg_byte_insert) {
+			auto msg = tree->msg_bytes();
+			tree->set_msg_bytes(msg + "00");
+		}
+		return true;
+	}
+	if (cmd == msg_paste) {
+		auto msg = SystemClipboard::getTextFromClipboard();
+		if (msg.isNotEmpty()) {
+			msg = msg.removeCharacters(" ,\t\n\r");
+			msg = msg.toLowerCase();
+			if (msg.containsOnly("0123456789abcdef") && msg.length() % 2 == 0)
+				tree->set_msg_bytes(msg);
+		}
 		return true;
 	}
 	return false;

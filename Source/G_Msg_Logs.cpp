@@ -20,11 +20,9 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_bar.addChangeListener(this);
 	addAndMakeVisible(tabs);
 
-	btn_jump.onClick = [this] { 
-		tabs.getTabContentComponent(tabs.getCurrentTabIndex())->grabKeyboardFocus();
-		cmd_mngr.invokeDirectly(jump_to_byte, true); 
-	};
-	btn_jump.setTooltip("Scroll table horizontally to\nshow a specified byte index.\nShortcut: Alt+J");
+	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__log, true); };
+	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::ctrlModifier, 0 });
+	btn_jump.setTooltip("Scroll the log horizontally\nto show a specified byte index.\nShortcut: Ctrl+J");
 	btn_jump.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	addAndMakeVisible(btn_jump);
 
