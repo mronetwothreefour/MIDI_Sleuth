@@ -2,13 +2,13 @@
 
 #include "G_Table_Header.h"
 #include "G_Table_Cell.h"
-#include "G_Table_Popup_Menu.h"
 #include "G_Table_Jump_To_Byte_Dialog.h"
 
 Table::Table(const Table_Type table_type, Data_Hub* hub) :
 	table_type{ table_type },
 	Data_User{ hub },
-	tree{ nullptr }
+	tree{ nullptr },
+	at_least_one_row_selected{ false }
 {
 	table.setModel(this);
 	table.setRowSelectedOnMouseDown(table_type < msg_slot_1);
@@ -209,23 +209,21 @@ void Table::cellClicked(int row_index, int col_id, const MouseEvent& e) {
 		auto c = static_cast<Table_Cell*>(table.getCellComponent(col_id, row_index));
 		c->showEditor();
 	}
-	if (e.mods == ModifierKeys::rightButtonModifier) {
-		Table_Popup_Menu menu{ table_type, hub };
-		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(table.getCellComponent(col_id, row_index)));
-	}
 	else
 		TableListBoxModel::cellClicked(row_index, col_id, e);
 }
 
-void Table::backgroundClicked(const MouseEvent& e) {
-	if (table_type >= msg_slot_1 && e.mods == ModifierKeys::leftButtonModifier)
+void Table::backgroundClicked(const MouseEvent& /*e*/) {
+	if (table_type < msg_slot_1)
+		table.deselectAllRows();
+	else
 		reset_active_col_id();
-	if (e.mods == ModifierKeys::rightButtonModifier)
-		show_jump_to_byte_dialog();
 }
 
 void Table::selectedRowsChanged(int /*last_row_selected*/) {
+	at_least_one_row_selected = table.getSelectedRows().size() > 0;
 	cmd_mngr.commandStatusChanged();
+	sendChangeMessage();
 }
 
 void Table::set_next_cmd_target(ApplicationCommandTarget* new_target) {
@@ -237,15 +235,20 @@ ApplicationCommandTarget* Table::getNextCommandTarget() {
 }
 
 void Table::getAllCommands(Array<int>& cmd_list) {
-	cmd_list.add(copy_msg__no_sep,
-				 copy_msg__spc_sep,
-				 copy_msg__comma_sep,
-				 copy_msg__tab_sep,
-				 copy_msg__nl_sep);
+	cmd_list.add(copy_msg__log__no_sep,
+				 copy_msg__log__spc_sep,
+				 copy_msg__log__comma_sep,
+				 copy_msg__log__tab_sep,
+				 copy_msg__log__nl_sep);
 	if (table_type < comparison)
 		cmd_list.add(compare_messages);
 	if (table_type < msg_slot_1) {
-		cmd_list.add(jump_to_byte__log,
+		cmd_list.add(copy_msg__log__no_sep,
+					 copy_msg__log__spc_sep,
+					 copy_msg__log__comma_sep,
+					 copy_msg__log__tab_sep,
+					 copy_msg__log__nl_sep,
+					 jump_to_byte__log,
 					 store_msg__slot_1,
 					 store_msg__slot_2,
 					 store_msg__slot_3,
@@ -253,7 +256,12 @@ void Table::getAllCommands(Array<int>& cmd_list) {
 					 store_msg__slot_5);
 	}
 	if (table_type >= msg_slot_1) {
-		cmd_list.add(jump_to_byte__slot,
+		cmd_list.add(copy_msg__slot__no_sep,
+					 copy_msg__slot__spc_sep,
+					 copy_msg__slot__comma_sep,
+					 copy_msg__slot__tab_sep,
+					 copy_msg__slot__nl_sep,
+					 jump_to_byte__slot,
 					 msg_byte_delete,
 					 msg_byte_insert,
 					 msg_paste);
@@ -261,45 +269,63 @@ void Table::getAllCommands(Array<int>& cmd_list) {
 }
 
 void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
+	auto no_mod = ModifierKeys::noModifiers;
+	auto mod_ctrl = ModifierKeys::ctrlModifier;
+	auto mod_ctrl_shift = ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier;
+	auto mod_shift = ModifierKeys::shiftModifier;
 	if (cmd >= store_msg__slot_1 && cmd <= store_msg__slot_5) {
 		auto slot_num = cmd - store_msg__slot_1 + 1;
 		String slot{ slot_num };
 		info.setInfo("Slot " + slot, "Store last selected message in slot " + slot, "Table", 0);
-		info.addDefaultKeypress(0x30 + slot_num, ModifierKeys::shiftModifier);
-		info.setActive(table.getSelectedRows().size() > 0);
+		info.addDefaultKeypress(0x30 + slot_num, mod_shift);
+		info.setActive(at_least_one_row_selected);
 	}
 	if (cmd == compare_messages) {
 		info.setInfo("Compare messages", "Compare the selected messages", "Compare Messages", 0);
-		info.addDefaultKeypress('=', ModifierKeys::ctrlModifier);
+		info.addDefaultKeypress('=', mod_ctrl);
 		info.setActive(table.getSelectedRows().size() > 1);
 	}
-	if (cmd == jump_to_byte__log) {
-		info.setInfo("Jump to byte", "Scroll table horizontally to show specified byte index", "Jump", 0);
-		info.addDefaultKeypress('j', ModifierKeys::altModifier);
-		info.setActive(hasKeyboardFocus(true));
+	if (cmd == copy_msg__log__no_sep) {
+		info.setInfo("No separation", "Copy log message, bytes unseparated", "Table", 0);
+		info.addDefaultKeypress('c', mod_ctrl);
 	}
-	if (cmd >= copy_msg__no_sep && cmd <= copy_msg__nl_sep)
-		info.setActive(hasKeyboardFocus(true) && table.getSelectedRows().size() > 0);
-	if (cmd == copy_msg__no_sep) {
-		info.setInfo("Copy message bytes", "Copy last selected message, no separation between bytes", "Table", 0);
-		info.addDefaultKeypress('c', ModifierKeys::ctrlModifier);
+	if (cmd == copy_msg__log__spc_sep) {
+		info.setInfo("Separated by spaces", "Copy log message, bytes separated by spaces", "Table", 0);
+		info.addDefaultKeypress(' ', mod_ctrl);
 	}
-	if (cmd == copy_msg__spc_sep) {
-		info.setInfo("Space", "Copy last selected message, bytes separated by spaces", "Table", 0);
-		info.addDefaultKeypress(' ', ModifierKeys::ctrlModifier);
-		info.setActive(table.getSelectedRows().size() > 0);
+	if (cmd == copy_msg__log__tab_sep) {
+		info.setInfo("Separated by tabs (\\t)", "Copy log message, bytes separated by tabs", "Table", 0);
+		info.addDefaultKeypress('t', mod_ctrl);
 	}
-	if (cmd == copy_msg__tab_sep) {
-		info.setInfo("Tab (\\t)", "Copy last selected message, bytes separated by tabs", "Table", 0);
-		info.addDefaultKeypress('t', ModifierKeys::ctrlModifier);
+	if (cmd == copy_msg__log__comma_sep) {
+		info.setInfo("Separated by commas", "Copy log message, bytes separated by commas", "Table", 0);
+		info.addDefaultKeypress(',', mod_ctrl);
 	}
-	if (cmd == copy_msg__comma_sep) {
-		info.setInfo("Comma", "Copy last selected message, bytes separated by commas", "Table", 0);
-		info.addDefaultKeypress(',', ModifierKeys::ctrlModifier);
+	if (cmd == copy_msg__log__nl_sep) {
+		info.setInfo("Separated by newlines (\\n)", "Copy log message, bytes separated by newlines", "Table", 0);
+		info.addDefaultKeypress('n', mod_ctrl);
 	}
-	if (cmd == copy_msg__nl_sep) {
-		info.setInfo("Newline (\\n)", "Copy last selected message, bytes separated by newlines", "Table", 0);
-		info.addDefaultKeypress('n', ModifierKeys::ctrlModifier);
+	if (cmd >= copy_msg__log__no_sep && cmd <= copy_msg__log__nl_sep)
+		info.setActive(at_least_one_row_selected);
+	if (cmd == copy_msg__slot__no_sep) {
+		info.setInfo("No separation", "Copy slot message, bytes unseparated", "Table", 0);
+		info.addDefaultKeypress('c', mod_ctrl_shift);
+	}
+	if (cmd == copy_msg__slot__spc_sep) {
+		info.setInfo("Separated by spaces", "Copy slot message, bytes separated by spaces", "Table", 0);
+		info.addDefaultKeypress(' ', mod_ctrl_shift);
+	}
+	if (cmd == copy_msg__slot__tab_sep) {
+		info.setInfo("Separated by tabs (\\t)", "Copy slot message, bytes separated by tabs", "Table", 0);
+		info.addDefaultKeypress('t', mod_ctrl_shift);
+	}
+	if (cmd == copy_msg__slot__comma_sep) {
+		info.setInfo("Separated by commas", "Copy slot message, bytes separated by commas", "Table", 0);
+		info.addDefaultKeypress(',', mod_ctrl_shift);
+	}
+	if (cmd == copy_msg__slot__nl_sep) {
+		info.setInfo("Separated by newlines (\\n)", "Copy slot message, bytes separated by newlines", "Table", 0);
+		info.addDefaultKeypress('n', mod_ctrl_shift);
 	}
 	if (cmd == jump_to_byte__log)
 		info.setInfo("Jump to byte", "Scroll the log horizontally so that a specified byte is visible (if it exists)", "Table", 0);
@@ -307,16 +333,16 @@ void Table::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 		info.setInfo("Jump to byte", "Scroll the message storage slot horizontally so that a specified byte is visible (if it exists)", "Table", 0);
 	if (cmd == msg_byte_delete) {
 		info.setInfo("Delete byte", "Delete the selected byte in the current message storage slot", "Slot", 0);
-		info.addDefaultKeypress(KeyPress::deleteKey, ModifierKeys::noModifiers);
-		info.addDefaultKeypress(KeyPress::backspaceKey, ModifierKeys::noModifiers);
+		info.addDefaultKeypress(KeyPress::deleteKey, no_mod);
+		info.addDefaultKeypress(KeyPress::backspaceKey, no_mod);
 	}
 	if (cmd == msg_byte_insert) {
 		info.setInfo("Insert byte", "Insert a byte at the end of the current message storage slot", "Slot", 0);
-		info.addDefaultKeypress(KeyPress::insertKey, ModifierKeys::noModifiers);
+		info.addDefaultKeypress(KeyPress::insertKey, no_mod);
 	}
 	if (cmd == msg_paste) {
 		info.setInfo("Paste message", "Paste a message from the clipoard into the current message storage slot (if the message is validly formatted)", "Slot", 0);
-		info.addDefaultKeypress('v', ModifierKeys::ctrlModifier);
+		info.addDefaultKeypress('v', mod_ctrl);
 	}
 }
 
@@ -334,18 +360,18 @@ bool Table::perform(const InvocationInfo& info) {
 			return true;
 		}
 	}
-	if (cmd >= copy_msg__no_sep && cmd <= copy_msg__nl_sep) {
+	if (cmd >= copy_msg__log__no_sep && cmd <= copy_msg__slot__nl_sep) {
 		auto row_index = table_type < msg_slot_1 ? table.getLastRowSelected() : 0;
 		if (row_index > -1) {
 			String msg{ tree->msg_bytes(row_index) };
 			if (msg.isNotEmpty()) {
-				if (cmd == copy_msg__spc_sep)
+				if (cmd == copy_msg__log__spc_sep || cmd == copy_msg__slot__spc_sep)
 					separate_msg_bytes(msg, " ");
-				if (cmd == copy_msg__tab_sep)
+				if (cmd == copy_msg__log__tab_sep || cmd == copy_msg__slot__tab_sep)
 					separate_msg_bytes(msg, "\t");
-				if (cmd == copy_msg__comma_sep)
+				if (cmd == copy_msg__log__comma_sep || cmd == copy_msg__slot__comma_sep)
 					separate_msg_bytes(msg, ",");
-				if (cmd == copy_msg__nl_sep)
+				if (cmd == copy_msg__log__nl_sep || cmd == copy_msg__slot__nl_sep)
 					separate_msg_bytes(msg, "\n");
 			}
 			SystemClipboard::copyTextToClipboard(msg);

@@ -5,6 +5,7 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	tabs{ TabbedButtonBar::TabsAtBottom },
 	btn_transmit{ "Transmit" },
 	btn_jump{ "Jump To..." },
+	btn_copy{ "Copy..." },
 	btn_clear{ "Clear Slot" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
@@ -35,6 +36,26 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	btn_bar.addChangeListener(this);
 	addAndMakeVisible(tabs);
 
+	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__slot, true); };
+	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier, 0 });
+	btn_jump.setTooltip("Scroll the slot horizontally\nto show a specified byte index.\nShortcut: Ctrl+Shift+J");
+	btn_jump.setSize(XYWH::btn_slots_w, XYWH::btn_h);
+	addAndMakeVisible(btn_jump);
+
+	btn_copy.onClick = [this] { 
+		PopupMenu menu;
+		menu.addCommandItem(&cmd_mngr, copy_msg__slot__no_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__slot__spc_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__slot__comma_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__slot__tab_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__slot__nl_sep);
+		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(btn_copy));
+	};
+	btn_copy.addShortcut(KeyPress{ 'c', ModifierKeys::altModifier | ModifierKeys::shiftModifier, 0 });
+	btn_copy.setTooltip("Copy the message to the clipboard (with\noptional separators between bytes).\nShortcut: Alt+Shift+C");
+	btn_copy.setSize(XYWH::btn_slots_w, XYWH::btn_h);
+	addAndMakeVisible(btn_copy);
+
 	btn_transmit.onClick = [this] { 
 		auto current_tab = tabs.getCurrentTabIndex();
 		tabs.getTabContentComponent(current_tab)->grabKeyboardFocus();
@@ -44,14 +65,8 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	btn_transmit.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_transmit);
 
-	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__slot, true); };
-	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::ctrlModifier | ModifierKeys::altModifier, 0 });
-	btn_jump.setTooltip("Scroll the slot horizontally\nto show a specified byte index.\nShortcut: Ctrl+Alt+J");
-	btn_jump.setSize(XYWH::btn_slots_w, XYWH::btn_h);
-	addAndMakeVisible(btn_jump);
-
 	btn_clear.onClick = [this] { clear_visible_slot(); };
-	btn_clear.addShortcut(KeyPress{ 's', ModifierKeys::altModifier, 0 });
+	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier | ModifierKeys::shiftModifier, 0 });
 	btn_clear.setTooltip("Clear the message in the slot.\nShortcut: Alt+S");
 	btn_clear.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
@@ -80,8 +95,9 @@ void Msg_Slots::match_btn_color_to_visible_tab() {
 	default:
 		break;
 	}
-	btn_transmit.setColour(TextButton::buttonColourId, tab_color);
 	btn_jump.setColour(TextButton::buttonColourId, tab_color);
+	btn_copy.setColour(TextButton::buttonColourId, tab_color);
+	btn_transmit.setColour(TextButton::buttonColourId, tab_color);
 	btn_clear.setColour(TextButton::buttonColourId, tab_color);
 }
 
@@ -96,8 +112,9 @@ void Msg_Slots::resized() {
 	tabs.setBounds(0, XYWH::lbl_section_h, getWidth(), getHeight() - XYWH::lbl_section_h);
 	auto btn_y = getHeight() - XYWH::btn_h;
 	btn_clear.setTopRightPosition(getWidth(), btn_y);
-	btn_jump.setTopRightPosition(btn_clear.getX() - 5, btn_y);
-	btn_transmit.setTopRightPosition(btn_jump.getX() - 5, btn_y);
+	btn_transmit.setTopRightPosition(btn_clear.getX() - 5, btn_y);
+	btn_copy.setTopRightPosition(btn_transmit.getX() - 5, btn_y);
+	btn_jump.setTopRightPosition(btn_copy.getX() - 5, btn_y);
 }
 
 void Msg_Slots::clear_visible_slot() {

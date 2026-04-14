@@ -25,4 +25,3 @@ G_Table
 G_Table_Cell
 G_Table_Header
 G_Table_Jump_To_Byte_Dialog
-G_Table_Pop_Menu

@@ -7,6 +7,7 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	tab_outgoing{ new Table{ log_out, hub } },
 	tab_compare{ new Table{ comparison, hub } },
 	btn_jump{ "Jump To..." },
+	btn_copy{ "Copy..." },
 	btn_clear{ "Clear Log" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
@@ -18,6 +19,9 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_bar.getTabButton(Tab__Log::outgoing)->setTooltip("Shortcut: Alt+O");
 	btn_bar.getTabButton(Tab__Log::compare)->setTooltip("Shortcut: Alt+=");
 	btn_bar.addChangeListener(this);
+	tab_incoming->addChangeListener(this);
+	tab_outgoing->addChangeListener(this);
+	tab_compare->addChangeListener(this);
 	addAndMakeVisible(tabs);
 
 	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__log, true); };
@@ -25,6 +29,21 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_jump.setTooltip("Scroll the log horizontally\nto show a specified byte index.\nShortcut: Ctrl+J");
 	btn_jump.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	addAndMakeVisible(btn_jump);
+
+	btn_copy.onClick = [this] { 
+		PopupMenu menu;
+		menu.addCommandItem(&cmd_mngr, copy_msg__log__no_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__log__spc_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__log__comma_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__log__tab_sep);
+		menu.addCommandItem(&cmd_mngr, copy_msg__log__nl_sep);
+		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(btn_copy));
+	};
+	btn_copy.addShortcut(KeyPress{ 'c', ModifierKeys::altModifier, 0 });
+	btn_copy.setTooltip("Copy the last selected message to the clipboard\n(with optional separators between bytes).\nShortcut: Alt+C");
+	btn_copy.setSize(XYWH::btn_logs_w, XYWH::btn_h);
+	btn_copy.setEnabled(false);
+	addAndMakeVisible(btn_copy);
 
 	btn_clear.onClick = [this] { clear_visible_table(); };
 	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier, 0 });
@@ -45,6 +64,7 @@ void Msg_Logs::match_btn_color_to_visible_tab() {
 	if (tabs.getCurrentTabIndex() == 2)
 		tab_color = COLOR::tab_bkgrnd_blue;
 	btn_jump.setColour(TextButton::buttonColourId, tab_color);
+	btn_copy.setColour(TextButton::buttonColourId, tab_color);
 	btn_clear.setColour(TextButton::buttonColourId, tab_color);
 }
 
@@ -57,8 +77,10 @@ void Msg_Logs::paint(Graphics& g) {
 
 void Msg_Logs::resized() {
 	tabs.setBounds(0, XYWH::lbl_section_h, getWidth(), getHeight() - XYWH::lbl_section_h);
-	btn_clear.setTopRightPosition(getWidth(), getHeight() - XYWH::btn_h);
-	btn_jump.setTopRightPosition(btn_clear.getX() - 5, btn_clear.getY());
+	auto btn_y = getHeight() - XYWH::btn_h;
+	btn_clear.setTopRightPosition(getWidth(), btn_y);
+	btn_copy.setTopRightPosition(btn_clear.getX() - 5, btn_y);
+	btn_jump.setTopRightPosition(btn_copy.getX() - 5, btn_y);
 }
 
 void Msg_Logs::clear_visible_table() {
@@ -85,6 +107,10 @@ void Msg_Logs::set_next_cmd_target_for_tabs(ApplicationCommandTarget* new_target
 
 void Msg_Logs::changeListenerCallback(ChangeBroadcaster* /*source*/) {
 	match_btn_color_to_visible_tab();
+	auto tab_index = tabs.getCurrentTabIndex();
+	btn_copy.setEnabled((tab_index == 0 && tab_incoming->at_least_one_row_selected) ||
+			 			(tab_index == 1 && tab_outgoing->at_least_one_row_selected) || 
+			 			(tab_index == 2 && tab_compare->at_least_one_row_selected));
 }
 
 ApplicationCommandTarget* Msg_Logs::getNextCommandTarget() {
@@ -144,6 +170,9 @@ bool Msg_Logs::perform(const InvocationInfo& info) {
 
 Msg_Logs::~Msg_Logs() {
 	tabs.getTabbedButtonBar().removeChangeListener(this);
+	tab_incoming->removeChangeListener(this);
+	tab_outgoing->removeChangeListener(this);
+	tab_compare->removeChangeListener(this);
 	tab_incoming.reset();
 	tab_outgoing.reset();
 	tab_compare.reset();

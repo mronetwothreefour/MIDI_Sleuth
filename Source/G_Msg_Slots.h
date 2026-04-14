@@ -15,6 +15,7 @@ private: std::unique_ptr<Table> slots[5];
 private: TabbedComponent tabs;
 private: TextButton btn_transmit;
 private: TextButton btn_jump;
+private: TextButton btn_copy;
 private: TextButton btn_clear;
 
 //==============================================================================

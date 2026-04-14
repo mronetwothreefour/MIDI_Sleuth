@@ -11,12 +11,14 @@ class Table :
 	public TableListBoxModel,
 	private ValueTree::Listener,
 	public Data_User,
+	public ChangeBroadcaster,
 	public ApplicationCommandTarget
 {
 private: TableListBox table;
 private: const Table_Type table_type;
 private: Table_Header* header;
 private: Data_Tree* tree;
+public: bool at_least_one_row_selected;
 private: ApplicationCommandTarget* next_cmd_target;
 
 //==============================================================================

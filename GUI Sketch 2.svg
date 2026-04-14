@@ -24,9 +24,9 @@
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="0.85271318"
-     inkscape:cx="379.96364"
-     inkscape:cy="322.5"
+     inkscape:zoom="1"
+     inkscape:cx="585"
+     inkscape:cy="552"
      inkscape:window-width="1366"
      inkscape:window-height="745"
      inkscape:window-x="-8"
@@ -95,9 +95,36 @@
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Transmit</tspan></text>
     </g>
     <g
+       id="g18"
+       inkscape:label="copy button"
+       inkscape:highlight-color="#ffff00"
+       transform="translate(514,-8.0764776)">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect18"
+         width="64"
+         height="19"
+         x="26.5"
+         y="633.57648"
+         inkscape:label="button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         x="58.538082"
+         y="646.60583"
+         id="text18"
+         inkscape:highlight-color="#bb80ee"
+         inkscape:label="text"><tspan
+           sodipodi:role="line"
+           id="tspan18"
+           x="58.538082"
+           y="646.60583"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Copy...</tspan></text>
+    </g>
+    <g
        id="g8"
        inkscape:label="jump button"
-       transform="translate(519,-8.0764776)"
+       transform="translate(449,-8.0764776)"
        inkscape:highlight-color="#ffff00">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
@@ -254,9 +281,63 @@
            style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Clear Log</tspan></text>
     </g>
     <g
+       id="g19"
+       inkscape:label="store button"
+       transform="translate(589,-168.07648)"
+       inkscape:highlight-color="#bb80ee">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect19"
+         width="64"
+         height="19"
+         x="21.500002"
+         y="633.57648"
+         inkscape:label="button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         x="53.722656"
+         y="646.60583"
+         id="text19"
+         inkscape:highlight-color="#bb80ee"
+         inkscape:label="text"><tspan
+           sodipodi:role="line"
+           id="tspan19"
+           x="55.234619"
+           y="646.60583"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996">Store... </tspan></text>
+    </g>
+    <g
+       id="g17"
+       inkscape:label="copy button"
+       transform="translate(519,-168.07648)"
+       inkscape:highlight-color="#bb80ee">
+      <rect
+         style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"
+         id="rect17"
+         width="64"
+         height="19"
+         x="21.500002"
+         y="633.57648"
+         inkscape:label="button" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:0.999996;stroke-dasharray:none;paint-order:normal"
+         x="53.722656"
+         y="646.60583"
+         id="text17"
+         inkscape:highlight-color="#bb80ee"
+         inkscape:label="text"><tspan
+           sodipodi:role="line"
+           x="53.722656"
+           y="646.60583"
+           style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:11px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.999996"
+           id="tspan20">Copy...</tspan></text>
+    </g>
+    <g
        id="g2"
        inkscape:label="jump button"
-       transform="translate(589,-168.07648)"
+       transform="translate(449,-168.07648)"
        inkscape:highlight-color="#bb80ee">
       <rect
          style="fill:#333333;fill-opacity:1;stroke:#969696;stroke-width:0.999999;stroke-dasharray:none;stroke-opacity:1;paint-order:normal"

@@ -16,6 +16,7 @@ private: std::unique_ptr<Table> tab_outgoing;
 private: std::unique_ptr<Table> tab_compare;
 private: TabbedComponent tabs;
 private: TextButton btn_jump;
+private: TextButton btn_copy;
 private: TextButton btn_clear;
 
 //==============================================================================
