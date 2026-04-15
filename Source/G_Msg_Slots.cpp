@@ -65,9 +65,14 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	btn_transmit.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_transmit);
 
-	btn_clear.onClick = [this] { clear_visible_slot(); };
+	btn_clear.onClick = [this] {
+		if (ModifierKeys::currentModifiers == ModifierKeys::ctrlModifier)
+			clear_all_slots();
+		else
+			clear_visible_slot(); 
+	};
 	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier | ModifierKeys::shiftModifier, 0 });
-	btn_clear.setTooltip("Clear the message in the slot.\nShortcut: Alt+S");
+	btn_clear.setTooltip("Clear the message in the slot.\nCtrl-click to clear all slots.\nShortcut: Alt+S");
 	btn_clear.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
 
@@ -121,6 +126,13 @@ void Msg_Slots::clear_visible_slot() {
 	auto slot_tree = msg_slot(tabs.getCurrentTabIndex());
 	slot_tree->set_msg_bytes("");
 	slot_tree->set_msg_description("");
+}
+
+void Msg_Slots::clear_all_slots() {
+	for (int i = 0; i < 5; ++i) {
+		msg_slot(i)->set_msg_bytes("");
+		msg_slot(i)->set_msg_description("");
+	}
 }
 
 void Msg_Slots::changeListenerCallback(ChangeBroadcaster* /*source*/) {

@@ -8,6 +8,7 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	tab_compare{ new Table{ comparison, hub } },
 	btn_jump{ "Jump To..." },
 	btn_copy{ "Copy..." },
+	btn_store{ "Store In..." },
 	btn_clear{ "Clear Log" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
@@ -45,6 +46,21 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	btn_copy.setEnabled(false);
 	addAndMakeVisible(btn_copy);
 
+	btn_store.onClick = [this] { 
+		PopupMenu menu;
+		menu.addCommandItem(&cmd_mngr, store_msg__slot_1);
+		menu.addCommandItem(&cmd_mngr, store_msg__slot_2);
+		menu.addCommandItem(&cmd_mngr, store_msg__slot_3);
+		menu.addCommandItem(&cmd_mngr, store_msg__slot_4);
+		menu.addCommandItem(&cmd_mngr, store_msg__slot_5);
+		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(btn_store));
+	};
+	btn_store.addShortcut(KeyPress{ 's', ModifierKeys::altModifier, 0 });
+	btn_store.setTooltip("Store the last selected\nmessage in one of the slots.\nShortcut: Alt+S");
+	btn_store.setSize(XYWH::btn_logs_w, XYWH::btn_h);
+	btn_store.setEnabled(false);
+	addAndMakeVisible(btn_store);
+
 	btn_clear.onClick = [this] { clear_visible_table(); };
 	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier, 0 });
 	btn_clear.setTooltip("Remove all messages from the log.\nShortcut: Alt+L");
@@ -65,6 +81,7 @@ void Msg_Logs::match_btn_color_to_visible_tab() {
 		tab_color = COLOR::tab_bkgrnd_blue;
 	btn_jump.setColour(TextButton::buttonColourId, tab_color);
 	btn_copy.setColour(TextButton::buttonColourId, tab_color);
+	btn_store.setColour(TextButton::buttonColourId, tab_color);
 	btn_clear.setColour(TextButton::buttonColourId, tab_color);
 }
 
@@ -79,7 +96,8 @@ void Msg_Logs::resized() {
 	tabs.setBounds(0, XYWH::lbl_section_h, getWidth(), getHeight() - XYWH::lbl_section_h);
 	auto btn_y = getHeight() - XYWH::btn_h;
 	btn_clear.setTopRightPosition(getWidth(), btn_y);
-	btn_copy.setTopRightPosition(btn_clear.getX() - 5, btn_y);
+	btn_store.setTopRightPosition(btn_clear.getX(), btn_y);
+	btn_copy.setTopRightPosition(btn_store.getX() - 5, btn_y);
 	btn_jump.setTopRightPosition(btn_copy.getX() - 5, btn_y);
 }
 
@@ -108,9 +126,11 @@ void Msg_Logs::set_next_cmd_target_for_tabs(ApplicationCommandTarget* new_target
 void Msg_Logs::changeListenerCallback(ChangeBroadcaster* /*source*/) {
 	match_btn_color_to_visible_tab();
 	auto tab_index = tabs.getCurrentTabIndex();
-	btn_copy.setEnabled((tab_index == 0 && tab_incoming->at_least_one_row_selected) ||
-			 			(tab_index == 1 && tab_outgoing->at_least_one_row_selected) || 
-			 			(tab_index == 2 && tab_compare->at_least_one_row_selected));
+	auto should_enable = (tab_index == 0 && tab_incoming->at_least_one_row_selected) ||
+			 			 (tab_index == 1 && tab_outgoing->at_least_one_row_selected) || 
+			 			 (tab_index == 2 && tab_compare->at_least_one_row_selected);
+	btn_copy.setEnabled(should_enable);
+	btn_store.setEnabled(should_enable);
 }
 
 ApplicationCommandTarget* Msg_Logs::getNextCommandTarget() {
