@@ -18,7 +18,7 @@ namespace FONT
 
 	const Font btn{ Create_Font::with_typeface_and_point_height(face_sbld, 8.25f) };
 	const Font lbl_filter{ Create_Font::with_typeface_and_point_height(face_reg, 10.5f) };
-	const Font lbl_jump_to_byte{ Create_Font::with_typeface_and_point_height(face_sbld, 11.25f) };
+	const Font lbl_jump_to_byte{ Create_Font::with_typeface_and_point_height(face_sbld, 10.5f) };
 	const Font lbl_section{ Create_Font::with_typeface_and_point_height(face_sbld, 11.25f) };
 	const Font lbox_item{ Create_Font::with_typeface_and_point_height(face_sbld, 9.75f) };
 	const Font popup_itm{ Create_Font::with_typeface_and_point_height(face_sbld, 9.0f) };

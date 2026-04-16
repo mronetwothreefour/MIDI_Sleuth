@@ -29,9 +29,21 @@ void MS_Look_And_Feel::drawButtonBackground(Graphics& g, Button& btn,
 }
 
 void MS_Look_And_Feel::drawButtonText(Graphics& g, TextButton& btn, bool /*hilited*/, bool /*down*/) {
-	g.setFont(FONT::btn);
-	g.setColour(btn.isEnabled() ? COLOR::txt : COLOR::btn_disabled_txt);
-	g.drawText(btn.getButtonText(), 0, 0, btn.getWidth(), btn.getHeight(), Justification::centred);
+	auto& txt = btn.getButtonText();
+	auto uline_index = -1;
+	if (txt.contains("&"))
+		uline_index = txt.indexOf("&");
+	AttributedString att_txt{ uline_index > -1 ? txt.replaceSection(uline_index, 1, "") : txt };
+	att_txt.setJustification(Justification::centred);
+	att_txt.setColour(btn.isEnabled() ? COLOR::txt : COLOR::btn_disabled_txt);
+	Font font{ FONT::btn };
+	att_txt.setFont(font);
+	if (uline_index > -1) {
+		font.setStyleFlags(Font::FontStyleFlags::underlined);
+		att_txt.setFont(Range<int>(uline_index, uline_index + 1), font);
+	}
+	Rectangle<float> txt_area{ 0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight() };
+	att_txt.draw(g, txt_area);
 }
 
 void MS_Look_And_Feel::drawPopupMenuBackground(Graphics& g, int w, int h) {
@@ -96,7 +108,7 @@ void MS_Look_And_Feel::drawTickBox(Graphics& g, Component& /*c*/, float x, float
 }
 
 void MS_Look_And_Feel::drawTabButton(TabBarButton& btn, Graphics& g, 
-									 bool /*mouse_over*/, bool /*mouse_down*/)
+									 bool mouse_over, bool mouse_down)
 {
 	g.fillAll(btn.getTabBackgroundColour());
 	auto w = btn.getWidth();
@@ -105,9 +117,25 @@ void MS_Look_And_Feel::drawTabButton(TabBarButton& btn, Graphics& g,
 	g.drawVerticalLine(0, 0.0f, (float)h);
 	g.drawVerticalLine(w - 1, 0.0f, (float)h);
 	g.drawHorizontalLine(h - 1, 0.0f, (float)w);
-	g.setColour(btn.getToggleState() ? COLOR::txt : COLOR::txt.darker(0.45f));
-	g.setFont(FONT::tab);
-	g.drawText(btn.getButtonText(), 0, 0, w, h, Justification::centred);
+	drawTabButtonText(btn, g, mouse_over, mouse_down);
+}
+
+void MS_Look_And_Feel::drawTabButtonText(TabBarButton& btn, Graphics& g, bool /*mouse_over*/, bool /*mouse_down*/) {
+	auto& txt = btn.getButtonText();
+	auto uline_index = -1;
+	if (txt.contains("&"))
+		uline_index = txt.indexOf("&");
+	AttributedString att_txt{ uline_index > -1 ? txt.replaceSection(uline_index, 1, "") : txt };
+	att_txt.setJustification(Justification::centred);
+	att_txt.setColour(btn.isEnabled() ? COLOR::txt : COLOR::btn_disabled_txt);
+	Font font{ FONT::btn };
+	att_txt.setFont(font);
+	if (uline_index > -1) {
+		font.setStyleFlags(Font::FontStyleFlags::underlined);
+		att_txt.setFont(Range<int>(uline_index, uline_index + 1), font);
+	}
+	Rectangle<float> txt_area{ 0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight() };
+	att_txt.draw(g, txt_area);
 }
 
 void MS_Look_And_Feel::drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c,

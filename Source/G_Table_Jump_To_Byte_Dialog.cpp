@@ -6,8 +6,8 @@
 
 Jump_To_Byte_Dialog::Jump_To_Byte_Dialog(Table* table) :
 	table{ table },
-	btn_cancel{ "Cancel", "Alt+C or Esc" },
-	btn_jump{ "Jump", "Alt+J or Return" }
+	btn_cancel{ "Cancel" },
+	btn_jump{ "Jump" }
 {
 	edit_byte.setBounds(XYWH::jump_to_byte_txt_edit);
 	edit_byte.setFont(FONT::txt_edit_jump_to_byte);
@@ -29,7 +29,7 @@ Jump_To_Byte_Dialog::Jump_To_Byte_Dialog(Table* table) :
 	btn_jump.onClick = [this] { jump_to_byte_and_close(); };
 	btn_jump.setEnabled(false);
 	btn_jump.setTooltip("The table will scroll horizontally\n so that the entered byte index is\nvisible (if it exists).");
-	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::altModifier, 0 });
+	btn_jump.addShortcut(KeyPress{ KeyPress::returnKey });
 	addAndMakeVisible(btn_jump);
 
 	setSize(XYWH::jump_to_byte_dialog_w, XYWH::jump_to_byte_dialog_h);
@@ -58,6 +58,10 @@ void Jump_To_Byte_Dialog::textEditorTextChanged(TextEditor& editor) {
 
 void Jump_To_Byte_Dialog::textEditorReturnKeyPressed(TextEditor& /*editor*/) {
 	btn_jump.triggerClick();
+}
+
+void Jump_To_Byte_Dialog::textEditorEscapeKeyPressed(TextEditor& /*editor*/) {
+	btn_cancel.triggerClick();
 }
 
 Jump_To_Byte_Dialog::~Jump_To_Byte_Dialog() {

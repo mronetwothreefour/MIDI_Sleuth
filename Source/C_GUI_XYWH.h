@@ -8,7 +8,7 @@ namespace XYWH
 	constexpr int btn_h{ 20 };
 	constexpr int btn_logs_w{ 65 };
 	constexpr int btn_slots_w{ 65 };
-	constexpr int jump_to_byte_dialog_w{ 160 }, jump_to_byte_dialog_h{ 115 };
+	constexpr int jump_to_byte_dialog_w{ 130 }, jump_to_byte_dialog_h{ 105 };
 	constexpr int lbl_section_h{ 20 };
 	constexpr int logs_x{ 15 }, logs_y{ 195 }, logs_min_w{ 730 }, logs_min_h{ 290 };
 	constexpr int logs_tabs_min_h{ 270 };
@@ -38,9 +38,9 @@ namespace XYWH
 	static const Rectangle<int> filters_tgl_sysex       { 0  , 145, 15 , 15  };
 	static const Rectangle<int> filters_lbl_sysex       { 25 , 144, 145, 17  };
 
-	static const Rectangle<int> jump_to_byte_lbl        { 15 , 10 , 130, 25 };
-	static const Rectangle<int> jump_to_byte_txt_edit   { 15 , 35 , 130, 25 };
-	static const Rectangle<int> jump_to_byte_btn_cancel { 15 , 70 , 60 , 30 };
-	static const Rectangle<int> jump_to_byte_btn_jump   { 85 , 70 , 60 , 30 };
+	static const Rectangle<int> jump_to_byte_lbl        { 15 , 10 , 100, 25 };
+	static const Rectangle<int> jump_to_byte_txt_edit   { 15 , 35 , 100, 25 };
+	static const Rectangle<int> jump_to_byte_btn_cancel { 15 , 70 , 45 , 20 };
+	static const Rectangle<int> jump_to_byte_btn_jump   { 70 , 70 , 45 , 20 };
 
 }

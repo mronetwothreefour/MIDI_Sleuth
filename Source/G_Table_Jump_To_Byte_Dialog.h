@@ -20,6 +20,7 @@ public: void paint(Graphics& g) override;
 private: void jump_to_byte_and_close();
 private: void textEditorTextChanged(TextEditor& editor) override;
 private: void textEditorReturnKeyPressed(TextEditor& editor) override;
+private: void textEditorEscapeKeyPressed(TextEditor& editor) override;
 public: ~Jump_To_Byte_Dialog();
 
 //==============================================================================

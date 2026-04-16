@@ -6,19 +6,16 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	tab_incoming{ new Table{ log_in, hub } },
 	tab_outgoing{ new Table{ log_out, hub } },
 	tab_compare{ new Table{ comparison, hub } },
-	btn_jump{ "Jump To..." },
-	btn_copy{ "Copy..." },
-	btn_store{ "Store In..." },
-	btn_clear{ "Clear Log" }
+	btn_jump{ "&Jump To..." },
+	btn_copy{ "&Copy..." },
+	btn_store{ "&Store In..." },
+	btn_clear{ "C&lear Log" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
-	tabs.addTab("Incoming", COLOR::tab_bkgrnd_green, tab_incoming.get(), true, Tab__Log::incoming);
-	tabs.addTab("Outgoing", COLOR::tab_bkgrnd_red, tab_outgoing.get(), true, Tab__Log::outgoing);
-	tabs.addTab("Compare", COLOR::tab_bkgrnd_blue, tab_compare.get(), true, Tab__Log::compare);
+	tabs.addTab("&Incoming", COLOR::tab_bkgrnd_green, tab_incoming.get(), true, Tab__Log::incoming);
+	tabs.addTab("&Outgoing", COLOR::tab_bkgrnd_red, tab_outgoing.get(), true, Tab__Log::outgoing);
+	tabs.addTab("Co&mpare", COLOR::tab_bkgrnd_blue, tab_compare.get(), true, Tab__Log::compare);
 	auto& btn_bar = tabs.getTabbedButtonBar();
-	btn_bar.getTabButton(Tab__Log::incoming)->setTooltip("Shortcut: Alt+I");
-	btn_bar.getTabButton(Tab__Log::outgoing)->setTooltip("Shortcut: Alt+O");
-	btn_bar.getTabButton(Tab__Log::compare)->setTooltip("Shortcut: Alt+=");
 	btn_bar.addChangeListener(this);
 	tab_incoming->addChangeListener(this);
 	tab_outgoing->addChangeListener(this);
@@ -26,8 +23,8 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	addAndMakeVisible(tabs);
 
 	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__log, true); };
-	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::ctrlModifier, 0 });
-	btn_jump.setTooltip("Scroll the log horizontally\nto show a specified byte index.\nShortcut: Ctrl+J");
+	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::altModifier, 0 });
+	btn_jump.setTooltip("Scroll the log horizontally\nto show a specified byte index.\nShortcut: ctrl + j");
 	btn_jump.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	addAndMakeVisible(btn_jump);
 
@@ -41,7 +38,7 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(btn_copy));
 	};
 	btn_copy.addShortcut(KeyPress{ 'c', ModifierKeys::altModifier, 0 });
-	btn_copy.setTooltip("Copy the last selected message to the clipboard\n(with optional separators between bytes).\nShortcut: Alt+C");
+	btn_copy.setTooltip("Copy the last selected message to the clipboard\n(with optional separators between bytes).");
 	btn_copy.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	btn_copy.setEnabled(false);
 	addAndMakeVisible(btn_copy);
@@ -56,14 +53,14 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(btn_store));
 	};
 	btn_store.addShortcut(KeyPress{ 's', ModifierKeys::altModifier, 0 });
-	btn_store.setTooltip("Store the last selected\nmessage in one of the slots.\nShortcut: Alt+S");
+	btn_store.setTooltip("Store the last selected\nmessage in one of the slots.\nShortcut: shift + number of slot");
 	btn_store.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	btn_store.setEnabled(false);
 	addAndMakeVisible(btn_store);
 
 	btn_clear.onClick = [this] { clear_visible_table(); };
 	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier, 0 });
-	btn_clear.setTooltip("Remove all messages from the log.\nShortcut: Alt+L");
+	btn_clear.setTooltip("Remove all messages from the log.");
 	btn_clear.setSize(XYWH::btn_logs_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
 
@@ -117,12 +114,6 @@ void Msg_Logs::clear_visible_table() {
 	}
 }
 
-void Msg_Logs::set_next_cmd_target_for_tabs(ApplicationCommandTarget* new_target) {
-	tab_incoming->set_next_cmd_target(new_target);
-	tab_outgoing->set_next_cmd_target(new_target);
-	tab_compare->set_next_cmd_target(new_target);
-}
-
 void Msg_Logs::changeListenerCallback(ChangeBroadcaster* /*source*/) {
 	match_btn_color_to_visible_tab();
 	auto tab_index = tabs.getCurrentTabIndex();
@@ -131,6 +122,12 @@ void Msg_Logs::changeListenerCallback(ChangeBroadcaster* /*source*/) {
 			 			 (tab_index == 2 && tab_compare->at_least_one_row_selected);
 	btn_copy.setEnabled(should_enable);
 	btn_store.setEnabled(should_enable);
+}
+
+void Msg_Logs::set_next_cmd_target_for_tabs(ApplicationCommandTarget* new_target) {
+	tab_incoming->set_next_cmd_target(new_target);
+	tab_outgoing->set_next_cmd_target(new_target);
+	tab_compare->set_next_cmd_target(new_target);
 }
 
 ApplicationCommandTarget* Msg_Logs::getNextCommandTarget() {
@@ -164,7 +161,7 @@ void Msg_Logs::getCommandInfo(int cmd, ApplicationCommandInfo& info) {
 		break;
 	case show_tab__compare:
 		info.setInfo("Compare tab", "Show message comparison", "Logs", 0);
-		info.addDefaultKeypress('=', ModifierKeys::altModifier);
+		info.addDefaultKeypress('m', ModifierKeys::altModifier);
 		break;
 	default:
 		break;

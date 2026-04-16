@@ -31,6 +31,7 @@ public: void drawTickBox(Graphics& g, Component& c, float x, float y,
 
 
 public: void drawTabButton(TabBarButton& btn, Graphics& g, bool mouse_over, bool mouse_down) override;
+public: void drawTabButtonText(TabBarButton& btn, Graphics& g, bool mouse_over, bool mouse_down) override;
 
 public: void drawTableHeaderColumn(Graphics& g, TableHeaderComponent& c,
 								   const String& col_name, int col_id, int w, int h,

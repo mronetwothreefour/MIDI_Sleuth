@@ -3,10 +3,10 @@
 Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	Data_User{ hub },
 	tabs{ TabbedButtonBar::TabsAtBottom },
-	btn_transmit{ "Transmit" },
-	btn_jump{ "Jump To..." },
-	btn_copy{ "Copy..." },
-	btn_clear{ "Clear Slot" }
+	btn_transmit{ "&Transmit" },
+	btn_jump{ "&Jump To..." },
+	btn_copy{ "&Copy..." },
+	btn_clear{ "C&lear Slot" }
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
 	auto& btn_bar = tabs.getTabbedButtonBar();
@@ -30,15 +30,14 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 		default:
 			break;
 		}
-		tabs.addTab("Slot " + slot_num, tab_color, slots[i].get(), true, Tab__Slot::slot_1 + i);
-		btn_bar.getTabButton(Tab__Slot::slot_1 + i)->setTooltip("Shortcut: Alt+" + slot_num);
+		tabs.addTab("Slot &" + slot_num, tab_color, slots[i].get(), true, Tab__Slot::slot_1 + i);
 	}
 	btn_bar.addChangeListener(this);
 	addAndMakeVisible(tabs);
 
 	btn_jump.onClick = [this] { cmd_mngr.invokeDirectly(jump_to_byte__slot, true); };
-	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::ctrlModifier | ModifierKeys::shiftModifier, 0 });
-	btn_jump.setTooltip("Scroll the slot horizontally\nto show a specified byte index.\nShortcut: Ctrl+Shift+J");
+	btn_jump.addShortcut(KeyPress{ 'j', ModifierKeys::altModifier | ModifierKeys::shiftModifier, 0 });
+	btn_jump.setTooltip("Scroll the slot horizontally\nto show a specified byte index.\nShortcut: ctrl + shift + j");
 	btn_jump.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_jump);
 
@@ -52,7 +51,7 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 		menu.showMenuAsync(PopupMenu::Options{}.withTargetComponent(btn_copy));
 	};
 	btn_copy.addShortcut(KeyPress{ 'c', ModifierKeys::altModifier | ModifierKeys::shiftModifier, 0 });
-	btn_copy.setTooltip("Copy the message to the clipboard (with\noptional separators between bytes).\nShortcut: Alt+Shift+C");
+	btn_copy.setTooltip("Copy the message to the clipboard (with\noptional separators between bytes).");
 	btn_copy.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_copy);
 
@@ -61,7 +60,7 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 		tabs.getTabContentComponent(current_tab)->grabKeyboardFocus();
 		cmd_mngr.invokeDirectly(transmit_msg__slot_1 + current_tab, true);
 	};
-	btn_transmit.setTooltip("Transmit the message in the slot.\nShortcut: Alt+T");
+	btn_transmit.setTooltip("Transmit the message in the slot.");
 	btn_transmit.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_transmit);
 
@@ -72,7 +71,7 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 			clear_visible_slot(); 
 	};
 	btn_clear.addShortcut(KeyPress{ 'l', ModifierKeys::altModifier | ModifierKeys::shiftModifier, 0 });
-	btn_clear.setTooltip("Clear the message in the slot.\nCtrl-click to clear all slots.\nShortcut: Alt+S");
+	btn_clear.setTooltip("Clear the message in the slot.\nCtrl-click to clear all slots.");
 	btn_clear.setSize(XYWH::btn_slots_w, XYWH::btn_h);
 	addAndMakeVisible(btn_clear);
 
