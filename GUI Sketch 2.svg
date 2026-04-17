@@ -25,8 +25,8 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="1"
-     inkscape:cx="614.5"
-     inkscape:cy="544"
+     inkscape:cx="614"
+     inkscape:cy="224"
      inkscape:window-width="1366"
      inkscape:window-height="745"
      inkscape:window-x="-8"
@@ -694,7 +694,7 @@
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:15px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">MIDI Devices (select to open)</tspan></text>
     <g
        id="g30221"
-       transform="matrix(0.51426897,0,0,0.51426897,614.85742,14.857308)"
+       transform="matrix(0.51426897,0,0,0.51426897,609.85742,14.857308)"
        style="stroke-width:1.75006"
        inkscape:label="icon"
        inkscape:highlight-color="#ff0000"
@@ -765,26 +765,26 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-       x="619.02679"
+       x="614.02679"
        y="161"
        id="text5"
        inkscape:highlight-color="#ff0000"
        inkscape:label="by Mister 1-2-3-4"><tspan
          sodipodi:role="line"
          id="tspan5"
-         x="619.02679"
+         x="614.02679"
          y="161"
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:Sans;-inkscape-font-specification:'Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">by Mister 1-2-3-4</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#141414;fill-opacity:1;stroke:#969696;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"
-       x="618.89844"
+       x="613.89844"
        y="143"
        id="text3"
        inkscape:highlight-color="#ff0000"
        inkscape:label="MIDI Sleuth"><tspan
          sodipodi:role="line"
-         x="618.89844"
+         x="613.89844"
          y="143"
          id="tspan4"
          style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffffff;fill-opacity:1;stroke:none">MIDI Sleuth</tspan></text>

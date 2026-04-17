@@ -18,6 +18,7 @@
       <FILE id="E3TZZi" name="C_ENUM.h" compile="0" resource="0" file="Source/C_ENUM.h"/>
       <FILE id="S52e1i" name="C_GUI_COLOR.h" compile="0" resource="0" file="Source/C_GUI_COLOR.h"/>
       <FILE id="Bricxu" name="C_GUI_FONT.h" compile="0" resource="0" file="Source/C_GUI_FONT.h"/>
+      <FILE id="nlH6VQ" name="C_GUI_PATH.h" compile="0" resource="0" file="Source/C_GUI_PATH.h"/>
       <FILE id="P30Sat" name="C_GUI_XYWH.h" compile="0" resource="0" file="Source/C_GUI_XYWH.h"/>
       <FILE id="Jlwm4a" name="C_Util_Build_Description.cpp" compile="1" resource="0"
             file="Source/C_Util_Build_Description.cpp"/>

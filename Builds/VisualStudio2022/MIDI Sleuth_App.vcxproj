@@ -2950,6 +2950,7 @@
     <ClInclude Include="..\..\Source\C_ENUM.h"/>
     <ClInclude Include="..\..\Source\C_GUI_COLOR.h"/>
     <ClInclude Include="..\..\Source\C_GUI_FONT.h"/>
+    <ClInclude Include="..\..\Source\C_GUI_PATH.h"/>
     <ClInclude Include="..\..\Source\C_GUI_XYWH.h"/>
     <ClInclude Include="..\..\Source\C_Util_Build_Description.h"/>
     <ClInclude Include="..\..\Source\C_Util_Convert.h"/>

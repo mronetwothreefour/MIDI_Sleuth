@@ -1,5 +1,7 @@
 #include "G_Main_Comp.h"
 
+#include "C_GUI_PATH.h"
+
 using namespace XYWH;
 
 Main_Comp::Main_Comp(Data_Hub* hub) :
@@ -27,6 +29,13 @@ Main_Comp::Main_Comp(Data_Hub* hub) :
     setSize(win_main_init_w, win_main_init_h);
 
     Timer::callAfterDelay(100, [this] { grabKeyboardFocus(); });
+}
+
+void Main_Comp::paint(Graphics& g) {
+    g.setColour(COLOR::txt);
+    Path logo_block;
+    logo_block.loadPathFromData(PATH::logo_block, sizeof(PATH::logo_block));
+    g.fillPath(logo_block);
 }
 
 void Main_Comp::resized() {
