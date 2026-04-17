@@ -357,6 +357,7 @@ bool Table::perform(const InvocationInfo& info) {
 			auto* slot_tree = msg_slot(slot_index);
 			slot_tree->set_msg_bytes(bytes);
 			slot_tree->set_msg_description(description);
+			cmd_mngr.invokeDirectly(show_tab__slot_1 + slot_index, true);
 			return true;
 		}
 	}

@@ -10,6 +10,7 @@ private: std::unique_ptr<Data_Tree> tree_in_log;
 private: std::unique_ptr<Data_Tree> tree_out_log;
 private: std::unique_ptr<Data_Tree> tree_compare;
 private: std::unique_ptr<Data_Tree> trees_msg_slot[5];
+private: std::unique_ptr<ApplicationProperties> app_properties;
 public: int msg_filter_flags;
 private: ApplicationCommandManager command_manager;
 
