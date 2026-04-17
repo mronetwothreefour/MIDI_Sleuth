@@ -24,9 +24,9 @@
      inkscape:deskcolor="#000000"
      inkscape:document-units="px"
      showgrid="false"
-     inkscape:zoom="1"
-     inkscape:cx="614"
-     inkscape:cy="224"
+     inkscape:zoom="3.375"
+     inkscape:cx="668.2963"
+     inkscape:cy="177.77778"
      inkscape:window-width="1366"
      inkscape:window-height="745"
      inkscape:window-x="-8"
@@ -775,6 +775,15 @@
          x="614.02679"
          y="161"
          style="font-style:normal;font-variant:normal;font-weight:600;font-stretch:normal;font-size:13.3333px;font-family:Sans;-inkscape-font-specification:'Sans, Semi-Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal">by Mister 1-2-3-4</tspan></text>
+    <rect
+       style="fill:none;stroke-width:1"
+       id="rect20"
+       width="90"
+       height="11"
+       x="634"
+       y="151"
+       inkscape:highlight-color="#ff0000"
+       inkscape:label="link button" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;font-size:16px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI, Heavy';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;text-align:start;writing-mode:lr-tb;direction:ltr;text-anchor:start;fill:#141414;fill-opacity:1;stroke:#969696;stroke-width:1;stroke-dasharray:none;stroke-opacity:1"

@@ -9,7 +9,8 @@ Main_Comp::Main_Comp(Data_Hub* hub) :
     midi_handler{ hub },
     msg_filters{ hub },
     msg_logs{ hub },
-    msg_slots{ hub }
+    msg_slots{ hub },
+    btn_link{ "", URL("https://programming.mr1234.com/") }
 {
     midi_handler.set_next_cmd_target(&msg_logs);
     addAndMakeVisible(midi_handler);
@@ -20,6 +21,9 @@ Main_Comp::Main_Comp(Data_Hub* hub) :
     addAndMakeVisible(msg_logs);
 
     addAndMakeVisible(msg_slots);
+
+    btn_link.setBounds(main_btn_link);
+    addAndMakeVisible(btn_link);
 
     addChildComponent(tooltips);
     tooltips.setMillisecondsBeforeTipAppears(2000);

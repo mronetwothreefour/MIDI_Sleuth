@@ -43,4 +43,6 @@ namespace XYWH
 	static const Rectangle<int> jump_to_byte_btn_cancel { 15 , 70 , 45 , 20 };
 	static const Rectangle<int> jump_to_byte_btn_jump   { 70 , 70 , 45 , 20 };
 
+	static const Rectangle<int> main_btn_link{ 634, 151, 90, 11 };
+
 }

@@ -16,6 +16,7 @@ private: MIDI_Handler midi_handler;
 private: Msg_Filters msg_filters;
 private: Msg_Logs msg_logs;
 private: Msg_Slots msg_slots;
+private: HyperlinkButton btn_link;
 private: TooltipWindow tooltips;
 
 //==============================================================================
