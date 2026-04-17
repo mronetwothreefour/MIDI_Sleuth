@@ -1,4 +1,5 @@
 #include "G_Msg_Logs.h"
+#include "G_Msg_Slots.h"
 
 Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	Data_User{ hub },
@@ -6,15 +7,15 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	tab_incoming{ new Table{ log_in, hub } },
 	tab_outgoing{ new Table{ log_out, hub } },
 	tab_compare{ new Table{ comparison, hub } },
-	btn_jump{ "&Jump To..." },
-	btn_copy{ "&Copy..." },
-	btn_store{ "&Store In..." },
-	btn_clear{ "C&lear Log" }
+	btn_jump{},
+	btn_copy{},
+	btn_store{},
+	btn_clear{}
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
-	tabs.addTab("&Incoming", COLOR::tab_bkgrnd_green, tab_incoming.get(), true, Tab__Log::incoming);
-	tabs.addTab("&Outgoing", COLOR::tab_bkgrnd_red, tab_outgoing.get(), true, Tab__Log::outgoing);
-	tabs.addTab("Co&mpare", COLOR::tab_bkgrnd_blue, tab_compare.get(), true, Tab__Log::compare);
+	tabs.addTab("Incoming", COLOR::tab_bkgrnd_green, tab_incoming.get(), true, Tab__Log::incoming);
+	tabs.addTab("Outgoing", COLOR::tab_bkgrnd_red, tab_outgoing.get(), true, Tab__Log::outgoing);
+	tabs.addTab("Compare", COLOR::tab_bkgrnd_blue, tab_compare.get(), true, Tab__Log::compare);
 	auto& btn_bar = tabs.getTabbedButtonBar();
 	btn_bar.addChangeListener(this);
 	tab_incoming->addChangeListener(this);
@@ -65,6 +66,7 @@ Msg_Logs::Msg_Logs(Data_Hub* hub) :
 	addAndMakeVisible(btn_clear);
 
 	match_btn_color_to_visible_tab();
+	flag_alt_shortcuts("");
 
 	cmd_mngr.registerAllCommandsForTarget(this);
 	addKeyListener(cmd_mngr.getKeyMappings());
@@ -80,6 +82,17 @@ void Msg_Logs::match_btn_color_to_visible_tab() {
 	btn_copy.setColour(TextButton::buttonColourId, tab_color);
 	btn_store.setColour(TextButton::buttonColourId, tab_color);
 	btn_clear.setColour(TextButton::buttonColourId, tab_color);
+}
+
+void Msg_Logs::flag_alt_shortcuts(const String flag) {
+	auto& btn_bar = tabs.getTabbedButtonBar();
+	btn_bar.getTabButton(0)->setButtonText(flag + "Incoming");
+	btn_bar.getTabButton(1)->setButtonText(flag + "Outgoing");
+	btn_bar.getTabButton(2)->setButtonText("Co" + flag + "mpare");
+	btn_jump.setButtonText(flag + "Jump To...");
+	btn_copy.setButtonText(flag + "Copy...");
+	btn_store.setButtonText(flag + "Store In...");
+	btn_clear.setButtonText("C" + flag + "lear Log");
 }
 
 void Msg_Logs::paint(Graphics& g) {

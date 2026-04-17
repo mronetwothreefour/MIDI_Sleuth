@@ -3,10 +3,10 @@
 Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	Data_User{ hub },
 	tabs{ TabbedButtonBar::TabsAtBottom },
-	btn_transmit{ "&Transmit" },
-	btn_jump{ "&Jump To..." },
-	btn_copy{ "&Copy..." },
-	btn_clear{ "C&lear Slot" }
+	btn_transmit{},
+	btn_jump{},
+	btn_copy{},
+	btn_clear{}
 {
 	tabs.setTabBarDepth(XYWH::tab_h);
 	auto& btn_bar = tabs.getTabbedButtonBar();
@@ -76,6 +76,8 @@ Msg_Slots::Msg_Slots(Data_Hub* hub) :
 	addAndMakeVisible(btn_clear);
 
 	match_btn_color_to_visible_tab();
+	flag_alt_shortcuts("");
+	flag_alt_shift_shortcuts("");
 
 	cmd_mngr.registerAllCommandsForTarget(this);
 	addKeyListener(cmd_mngr.getKeyMappings());
@@ -103,6 +105,19 @@ void Msg_Slots::match_btn_color_to_visible_tab() {
 	btn_copy.setColour(TextButton::buttonColourId, tab_color);
 	btn_transmit.setColour(TextButton::buttonColourId, tab_color);
 	btn_clear.setColour(TextButton::buttonColourId, tab_color);
+}
+
+void Msg_Slots::flag_alt_shortcuts(const String flag) {
+	auto& btn_bar = tabs.getTabbedButtonBar();
+	for (int i = 0; i < 5; ++i)
+		btn_bar.getTabButton(i)->setButtonText("Slot " + flag + String{ i + 1 });
+	btn_transmit.setButtonText(flag + "Transmit");
+}
+
+void Msg_Slots::flag_alt_shift_shortcuts(const String flag) {
+	btn_jump.setButtonText(flag + "Jump To...");
+	btn_copy.setButtonText(flag + "Copy...");
+	btn_clear.setButtonText("C" + flag + "lear slot");
 }
 
 void Msg_Slots::paint(Graphics& g) {

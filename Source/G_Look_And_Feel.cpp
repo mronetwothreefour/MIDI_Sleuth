@@ -36,12 +36,9 @@ void MS_Look_And_Feel::drawButtonText(Graphics& g, TextButton& btn, bool /*hilit
 	AttributedString att_txt{ uline_index > -1 ? txt.replaceSection(uline_index, 1, "") : txt };
 	att_txt.setJustification(Justification::centred);
 	att_txt.setColour(btn.isEnabled() ? COLOR::txt : COLOR::btn_disabled_txt);
-	Font font{ FONT::btn };
-	att_txt.setFont(font);
-	if (uline_index > -1) {
-		font.setStyleFlags(Font::FontStyleFlags::underlined);
-		att_txt.setFont(Range<int>(uline_index, uline_index + 1), font);
-	}
+	att_txt.setFont(FONT::btn);
+	if (uline_index > -1)
+		att_txt.setFont(Range<int>(uline_index, uline_index + 1), FONT::btn_uline);
 	Rectangle<float> txt_area{ 0.0f, 0.0f, (float)btn.getWidth(), (float)btn.getHeight() };
 	att_txt.draw(g, txt_area);
 }

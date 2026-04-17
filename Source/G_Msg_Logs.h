@@ -24,6 +24,7 @@ private: TextButton btn_clear;
 public: explicit Msg_Logs(Data_Hub* hub);
 
 private: void match_btn_color_to_visible_tab();
+public: void flag_alt_shortcuts(const String flag);
 public: void paint(Graphics& g) override;
 public: void resized() override;
 public: void clear_visible_table();

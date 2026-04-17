@@ -25,18 +25,18 @@ namespace XYWH
 	static const Rectangle<int> devices_tabs        { 0  , 20 , 385, 140 };
 	static const Rectangle<int> devices_btn_reset   { 325, 140, 60 , 20  };
 
-	static const Rectangle<int> filters                 { 420, 15 , 170, 165 };
-	static const Rectangle<int> filters_lbl_section     { 0  , 0  , 170, 20  };
+	static const Rectangle<int> filters                 { 420, 15 , 175, 165 };
+	static const Rectangle<int> filters_lbl_section     { 0  , 0  , 175, 20  };
 	static const Rectangle<int> filters_tgl_note        { 0  , 25 , 15 , 15  };
-	static const Rectangle<int> filters_lbl_note        { 25 , 24 , 145, 17  };
+	static const Rectangle<int> filters_lbl_note        { 22 , 24 , 153, 17  };
 	static const Rectangle<int> filters_tgl_bend        { 0  , 55 , 15 , 15  };
-	static const Rectangle<int> filters_lbl_bend        { 25 , 54 , 145, 17  };
+	static const Rectangle<int> filters_lbl_bend        { 22 , 54 , 153, 17  };
 	static const Rectangle<int> filters_tgl_pgm_change  { 0  , 85 , 15 , 15  };
-	static const Rectangle<int> filters_lbl_pgm_change  { 25 , 84 , 145, 17  };
+	static const Rectangle<int> filters_lbl_pgm_change  { 22 , 84 , 153, 17  };
 	static const Rectangle<int> filters_tgl_ctrl_change { 0  , 115, 15 , 15  };
-	static const Rectangle<int> filters_lbl_ctrl_change { 25 , 114, 145, 17  };
+	static const Rectangle<int> filters_lbl_ctrl_change { 22 , 114, 153, 17  };
 	static const Rectangle<int> filters_tgl_sysex       { 0  , 145, 15 , 15  };
-	static const Rectangle<int> filters_lbl_sysex       { 25 , 144, 145, 17  };
+	static const Rectangle<int> filters_lbl_sysex       { 22 , 144, 153, 17  };
 
 	static const Rectangle<int> jump_to_byte_lbl        { 15 , 10 , 100, 25 };
 	static const Rectangle<int> jump_to_byte_txt_edit   { 15 , 35 , 100, 25 };

@@ -46,6 +46,15 @@ void Main_Comp::resized() {
     msg_slots.setBounds(win_inset, msg_slots_y, tables_w, slots_h);
 }
 
+void Main_Comp::modifierKeysChanged(const ModifierKeys& mods) {
+    String alt_flag{ mods == ModifierKeys::altModifier ? "&" : "" };
+    msg_filters.flag_alt_shortcuts(alt_flag);
+    msg_logs.flag_alt_shortcuts(alt_flag);
+    msg_slots.flag_alt_shortcuts(alt_flag);
+    String alt_shift_flag{ mods == ModifierKeys::altModifier + ModifierKeys::shiftModifier ? "&" : "" };
+    msg_slots.flag_alt_shift_shortcuts(alt_shift_flag);
+}
+
 Main_Comp::~Main_Comp() {
     cmd_mngr.setFirstCommandTarget(nullptr);
 }

@@ -13,11 +13,14 @@ private: ToggleButton tgl_bend;
 private: ToggleButton tgl_pgm_change;
 private: ToggleButton tgl_ctrl_change;
 private: ToggleButton tgl_sysex;
+private: String alt_flag;
 
 //==============================================================================
 public: Msg_Filters(Data_Hub* hub);
 
 public: void paint(Graphics& g) override;
+public: void flag_alt_shortcuts(const String flag);
+public: AttributedString format_label_txt(String txt);
 public: void resized() override;
 public: void mouseDown(const MouseEvent& e) override;
 

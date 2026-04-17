@@ -22,6 +22,7 @@ private: TooltipWindow tooltips;
 public: explicit Main_Comp(Data_Hub* hub);
 
 public: void resized() override;
+public: void modifierKeysChanged(const ModifierKeys& mods) override;
 public: ~Main_Comp() override;
 
 //==============================================================================
